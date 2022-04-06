@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Channel;
 
 class Message extends Model
 {
@@ -15,5 +16,9 @@ class Message extends Model
         'type',
         'type',
     ];
+
+	public function channel() {
+		return $this->belongsTo(Channel::class);
+	}
 
 }

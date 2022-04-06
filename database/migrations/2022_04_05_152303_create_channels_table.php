@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('channels', function (Blueprint $table) {
             $table->id();
-			$table->integer('class_id');
+			$table->integer('program_id');
 			$table->string('name');
+			$table->boolean('hidden')->default(false);
             $table->timestamps();
         });
     }
