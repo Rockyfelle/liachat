@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import LoginPage from '../pages/LoginPage';
+
 
 function App() {
 	return (
-		<div className="text-3xl font-bold underline">Example Component</div>
-
+		<LoginPage />
 	);
 }
 
