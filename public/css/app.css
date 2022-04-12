@@ -426,3 +426,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.m-0 {
+  margin: 0px !important;
+}
+.h-\[100vh\] {
+  height: 100vh !important;
+}
+.p-0 {
+  padding: 0px !important;
+}

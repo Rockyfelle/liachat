@@ -2,36 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import LoginPage from '../pages/LoginPage';
 import { Grid, Segment } from 'semantic-ui-react';
-
+import Dashboard from '../pages/Dashboard';
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+  } from "react-router-dom";
 
 function App() {
+
 	return (
-		<div className="m-0">
-			<Grid className="m-0">
-				<Grid.Row columns={16} className="p-0">
-					<Grid.Column width={2} className="p-0">
-						<Segment className="h-[100vh]">
-							Sidebar 1
-						</Segment>
-					</Grid.Column>
-					<Grid.Column width={2} className="p-0">
-						<Segment className="h-[100vh]">
-							Sidebar 2
-						</Segment>
-					</Grid.Column>
-					<Grid.Column width={10} className="p-0">
-						<Segment className="h-[100vh]">
-							<LoginPage />
-						</Segment>
-					</Grid.Column>
-					<Grid.Column width={2} className="p-0">
-						<Segment className="h-[100vh]">
-							Sidebar 3
-						</Segment>
-					</Grid.Column>
-				</Grid.Row>
-			</Grid>
-		</div>
+
+		<Router>
+		  <Routes>
+			<Route path="login" element={<LoginPage />}/>
+		
+			<Route path="dashboard" element={<Dashboard />} />
+
+			<Route path="/" />
+		  </Routes>
+	  </Router>
 
 	);
 }
