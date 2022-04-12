@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Program;
 
 class ProgramSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class ProgramSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('programs')->insert([
+        Program::create([
 			'school_id' => 1,
 			'name' => 'Web Security 50HP',
 		]);

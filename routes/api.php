@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ChannelController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,9 @@ use App\Http\Controllers\ProgramController;
 */
 
 Route::get('program/all', [ProgramController::class, 'all']);
+Route::get('program/{id}', [ProgramController::class, 'program']);
+Route::get('channel/{id}', [ChannelController::class, 'all']);
+Route::post('message/{channelId}', [MessageController::class, 'create']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
