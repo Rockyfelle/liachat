@@ -1,6 +1,1074 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/Ref.js":
+/*!***************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/Ref.js ***!
+  \***************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Ref": () => (/* binding */ Ref)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-is */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/node_modules/react-is/index.js");
+/* harmony import */ var _RefFindNode__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RefFindNode */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/RefFindNode.js");
+/* harmony import */ var _RefForward__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RefForward */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/RefForward.js");
+
+
+
+
+
+var Ref = function Ref(props) {
+  var children = props.children,
+      innerRef = props.innerRef,
+      rest = (0,_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(props, ["children", "innerRef"]);
+
+  var child = react__WEBPACK_IMPORTED_MODULE_1__.Children.only(children);
+  var ElementType = react_is__WEBPACK_IMPORTED_MODULE_2__.isForwardRef(child) ? _RefForward__WEBPACK_IMPORTED_MODULE_3__.RefForward : _RefFindNode__WEBPACK_IMPORTED_MODULE_4__.RefFindNode;
+  var childWithProps = child && rest && Object.keys(rest).length > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.cloneElement(child, rest) : child;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(ElementType, {
+    innerRef: innerRef
+  }, childWithProps);
+};
+//# sourceMappingURL=Ref.js.map
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/RefFindNode.js":
+/*!***********************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/RefFindNode.js ***!
+  \***********************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RefFindNode": () => (/* binding */ RefFindNode)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-dom/index.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/utils.js");
+
+
+
+ // ========================================================
+// react/packages/react-reconciler/src/ReactFiber.js
+// ========================================================
+
+/**
+ * Detects if a passed element is a Fiber object instead of an element. Is needed as `ReactDOM.findDOMNode()` returns
+ * a Fiber in `react-test-renderer` that can cause issues with tests. Is used only in non-production env.
+ *
+ * @see https://github.com/facebook/react/issues/7371#issuecomment-317396864
+ * @see https://github.com/Semantic-Org/Semantic-UI-React/issues/4061#issuecomment-694895617
+ */
+function isFiberRef(node) {
+  if (node === null) {
+    return false;
+  }
+
+  if (node instanceof Element || node instanceof Text) {
+    return false;
+  }
+
+  return !!(node.type && node.tag);
+}
+
+var RefFindNode = /*#__PURE__*/function (_React$Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(RefFindNode, _React$Component);
+
+  function RefFindNode() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+    _this.prevNode = null;
+    return _this;
+  }
+
+  var _proto = RefFindNode.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    var currentNode = react_dom__WEBPACK_IMPORTED_MODULE_2__.findDOMNode(this);
+
+    if (true) {
+      if (isFiberRef(currentNode)) {
+        currentNode = null;
+      }
+    }
+
+    this.prevNode = currentNode;
+    (0,_utils__WEBPACK_IMPORTED_MODULE_3__.handleRef)(this.props.innerRef, currentNode);
+  };
+
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+    var currentNode = react_dom__WEBPACK_IMPORTED_MODULE_2__.findDOMNode(this);
+
+    if (true) {
+      if (isFiberRef(currentNode)) {
+        currentNode = null;
+      }
+    }
+
+    if (this.prevNode !== currentNode) {
+      this.prevNode = currentNode;
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.handleRef)(this.props.innerRef, currentNode);
+    }
+
+    if (prevProps.innerRef !== this.props.innerRef) {
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.handleRef)(this.props.innerRef, currentNode);
+    }
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    (0,_utils__WEBPACK_IMPORTED_MODULE_3__.handleRef)(this.props.innerRef, null);
+    delete this.prevNode;
+  };
+
+  _proto.render = function render() {
+    var children = this.props.children;
+    return children;
+  };
+
+  return RefFindNode;
+}(react__WEBPACK_IMPORTED_MODULE_1__.Component);
+//# sourceMappingURL=RefFindNode.js.map
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/RefForward.js":
+/*!**********************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/RefForward.js ***!
+  \**********************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RefForward": () => (/* binding */ RefForward)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/utils.js");
+
+
+
+var RefForward = /*#__PURE__*/function (_React$Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(RefForward, _React$Component);
+
+  function RefForward() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+    _this.currentNode = null;
+
+    _this.handleRefOverride = function (node) {
+      var _this$props = _this.props,
+          children = _this$props.children,
+          innerRef = _this$props.innerRef;
+      (0,_utils__WEBPACK_IMPORTED_MODULE_2__.handleRef)(children.ref, node);
+      (0,_utils__WEBPACK_IMPORTED_MODULE_2__.handleRef)(innerRef, node);
+      _this.currentNode = node;
+    };
+
+    return _this;
+  }
+
+  var _proto = RefForward.prototype;
+
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+    if (prevProps.innerRef !== this.props.innerRef) {
+      (0,_utils__WEBPACK_IMPORTED_MODULE_2__.handleRef)(this.props.innerRef, this.currentNode);
+    }
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    delete this.currentNode;
+  };
+
+  _proto.render = function render() {
+    var children = this.props.children;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.cloneElement(children, {
+      ref: this.handleRefOverride
+    });
+  };
+
+  return RefForward;
+}(react__WEBPACK_IMPORTED_MODULE_1__.Component);
+//# sourceMappingURL=RefForward.js.map
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/utils.js":
+/*!*****************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/utils.js ***!
+  \*****************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "handleRef": () => (/* binding */ handleRef),
+/* harmony export */   "isRefObject": () => (/* binding */ isRefObject)
+/* harmony export */ });
+/**
+ * The function that correctly handles passing refs.
+ *
+ * @param ref - An ref object or function
+ * @param node - A node that should be passed by ref
+ */
+var handleRef = function handleRef(ref, node) {
+  if (true) {
+    if (typeof ref === 'string') {
+      throw new Error('We do not support refs as string, this is a legacy API and will be likely to be removed in one of the future releases of React.');
+    }
+  }
+
+  if (typeof ref === 'function') {
+    ref(node);
+    return;
+  }
+
+  if (ref !== null && typeof ref === 'object') {
+    // The `current` property is defined as readonly, however it's a valid way because
+    // `ref` is a mutable object
+    ref.current = node;
+  }
+};
+/** Checks that the passed object is a valid React ref object. */
+
+var isRefObject = function isRefObject(ref) {
+  return (// https://github.com/facebook/react/blob/v16.8.2/packages/react-reconciler/src/ReactFiberCommitWork.js#L665
+    ref !== null && typeof ref === 'object' && ref.hasOwnProperty('current')
+  );
+};
+//# sourceMappingURL=utils.js.map
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/node_modules/react-is/cjs/react-is.development.js":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/node_modules/react-is/cjs/react-is.development.js ***!
+  \**************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+/** @license React v16.13.1
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+
+if (true) {
+  (function() {
+'use strict';
+
+// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+// nor polyfill, then a plain number is used for performance.
+var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
+var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
+var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
+var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
+var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
+var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
+var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+// (unstable) APIs that have been removed. Can we remove the symbols?
+
+var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
+var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
+var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
+var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
+var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
+var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
+var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
+var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
+var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
+var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
+
+function isValidElementType(type) {
+  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+}
+
+function typeOf(object) {
+  if (typeof object === 'object' && object !== null) {
+    var $$typeof = object.$$typeof;
+
+    switch ($$typeof) {
+      case REACT_ELEMENT_TYPE:
+        var type = object.type;
+
+        switch (type) {
+          case REACT_ASYNC_MODE_TYPE:
+          case REACT_CONCURRENT_MODE_TYPE:
+          case REACT_FRAGMENT_TYPE:
+          case REACT_PROFILER_TYPE:
+          case REACT_STRICT_MODE_TYPE:
+          case REACT_SUSPENSE_TYPE:
+            return type;
+
+          default:
+            var $$typeofType = type && type.$$typeof;
+
+            switch ($$typeofType) {
+              case REACT_CONTEXT_TYPE:
+              case REACT_FORWARD_REF_TYPE:
+              case REACT_LAZY_TYPE:
+              case REACT_MEMO_TYPE:
+              case REACT_PROVIDER_TYPE:
+                return $$typeofType;
+
+              default:
+                return $$typeof;
+            }
+
+        }
+
+      case REACT_PORTAL_TYPE:
+        return $$typeof;
+    }
+  }
+
+  return undefined;
+} // AsyncMode is deprecated along with isAsyncMode
+
+var AsyncMode = REACT_ASYNC_MODE_TYPE;
+var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+var ContextConsumer = REACT_CONTEXT_TYPE;
+var ContextProvider = REACT_PROVIDER_TYPE;
+var Element = REACT_ELEMENT_TYPE;
+var ForwardRef = REACT_FORWARD_REF_TYPE;
+var Fragment = REACT_FRAGMENT_TYPE;
+var Lazy = REACT_LAZY_TYPE;
+var Memo = REACT_MEMO_TYPE;
+var Portal = REACT_PORTAL_TYPE;
+var Profiler = REACT_PROFILER_TYPE;
+var StrictMode = REACT_STRICT_MODE_TYPE;
+var Suspense = REACT_SUSPENSE_TYPE;
+var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
+
+function isAsyncMode(object) {
+  {
+    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
+
+      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
+    }
+  }
+
+  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+}
+function isConcurrentMode(object) {
+  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+}
+function isContextConsumer(object) {
+  return typeOf(object) === REACT_CONTEXT_TYPE;
+}
+function isContextProvider(object) {
+  return typeOf(object) === REACT_PROVIDER_TYPE;
+}
+function isElement(object) {
+  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+}
+function isForwardRef(object) {
+  return typeOf(object) === REACT_FORWARD_REF_TYPE;
+}
+function isFragment(object) {
+  return typeOf(object) === REACT_FRAGMENT_TYPE;
+}
+function isLazy(object) {
+  return typeOf(object) === REACT_LAZY_TYPE;
+}
+function isMemo(object) {
+  return typeOf(object) === REACT_MEMO_TYPE;
+}
+function isPortal(object) {
+  return typeOf(object) === REACT_PORTAL_TYPE;
+}
+function isProfiler(object) {
+  return typeOf(object) === REACT_PROFILER_TYPE;
+}
+function isStrictMode(object) {
+  return typeOf(object) === REACT_STRICT_MODE_TYPE;
+}
+function isSuspense(object) {
+  return typeOf(object) === REACT_SUSPENSE_TYPE;
+}
+
+exports.AsyncMode = AsyncMode;
+exports.ConcurrentMode = ConcurrentMode;
+exports.ContextConsumer = ContextConsumer;
+exports.ContextProvider = ContextProvider;
+exports.Element = Element;
+exports.ForwardRef = ForwardRef;
+exports.Fragment = Fragment;
+exports.Lazy = Lazy;
+exports.Memo = Memo;
+exports.Portal = Portal;
+exports.Profiler = Profiler;
+exports.StrictMode = StrictMode;
+exports.Suspense = Suspense;
+exports.isAsyncMode = isAsyncMode;
+exports.isConcurrentMode = isConcurrentMode;
+exports.isContextConsumer = isContextConsumer;
+exports.isContextProvider = isContextProvider;
+exports.isElement = isElement;
+exports.isForwardRef = isForwardRef;
+exports.isFragment = isFragment;
+exports.isLazy = isLazy;
+exports.isMemo = isMemo;
+exports.isPortal = isPortal;
+exports.isProfiler = isProfiler;
+exports.isStrictMode = isStrictMode;
+exports.isSuspense = isSuspense;
+exports.isValidElementType = isValidElementType;
+exports.typeOf = typeOf;
+  })();
+}
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/node_modules/react-is/index.js":
+/*!*******************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/node_modules/react-is/index.js ***!
+  \*******************************************************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+if (false) {} else {
+  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/node_modules/react-is/cjs/react-is.development.js");
+}
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@semantic-ui-react/event-stack/lib/cjs/event-stack.development.js":
+/*!************************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@semantic-ui-react/event-stack/lib/cjs/event-stack.development.js ***!
+  \************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+var env = __webpack_require__(/*! exenv */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/exenv/index.js");
+var PropTypes = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+var React = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+
+function _typeof(obj) {
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (typeof call === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+/**
+ * The current implementation was chosen by performance and compatibility reasons, feel free to play
+ * with benchmarks and submit PR with faster alternative. Each method contains links to benchmarks.
+ */
+var EventSet =
+/*#__PURE__*/
+function () {
+  /**
+   * @see https://jsperf.com/suir-eventset-constructor
+   */
+  function EventSet(eventHandlers) {
+    _classCallCheck(this, EventSet);
+
+    _defineProperty(this, "handlers", void 0);
+
+    this.handlers = eventHandlers.slice(0);
+  }
+  /**
+   * @see https://jsperf.com/suir-eventset-addhandlers
+   */
+
+
+  _createClass(EventSet, [{
+    key: "addHandlers",
+    value: function addHandlers(additionalHandlers) {
+      var newHandlers = this.handlers.slice(0);
+      var length = additionalHandlers.length; // Heads up!
+      // Previously we use Set there, it granted uniqueness of handlers, now dispatchEvent() is
+      // responsible for this.
+
+      for (var i = 0; i < length; i += 1) {
+        newHandlers.push(additionalHandlers[i]);
+      }
+
+      return new EventSet(newHandlers);
+    }
+    /**
+     * @see https://jsperf.com/suir-eventset-dispatchsingle
+     * @see https://jsperf.com/suir-eventset-dispatchmultiple2
+     */
+
+  }, {
+    key: "dispatchEvent",
+    value: function dispatchEvent(event, dispatchAll) {
+      var count = this.handlers.length - 1;
+
+      if (!dispatchAll) {
+        // Heads up!
+        // We don't use .pop() there because it will mutate the array.
+        var recentHandler = this.handlers[count];
+        recentHandler(event);
+        return;
+      }
+
+      for (var i = count; i >= 0; i -= 1) {
+        if (!this.handlers[i].called) {
+          this.handlers[i].called = true;
+          this.handlers[i](event);
+        }
+      }
+
+      for (var _i = count; _i >= 0; _i -= 1) {
+        this.handlers[_i].called = false;
+      }
+    }
+  }, {
+    key: "hasHandlers",
+    value: function hasHandlers() {
+      return this.handlers.length > 0;
+    }
+    /**
+     * @see https://jsperf.com/suir-eventset-removehandlers
+     */
+
+  }, {
+    key: "removeHandlers",
+    value: function removeHandlers(removalHandlers) {
+      var newHandlers = [];
+      var length = this.handlers.length;
+
+      for (var i = 0; i < length; i += 1) {
+        var handler = this.handlers[i];
+
+        if (removalHandlers.indexOf(handler) === -1) {
+          newHandlers.push(handler);
+        }
+      }
+
+      return new EventSet(newHandlers);
+    }
+  }]);
+
+  return EventSet;
+}();
+
+/**
+ * An IE11-compatible function.
+ *
+ * @see https://jsperf.com/suir-clone-map
+ */
+function cloneMap(map) {
+  var newMap = new Map();
+  map.forEach(function (value, key) {
+    newMap.set(key, value);
+  });
+  return newMap;
+}
+function normalizeHandlers(handlers) {
+  return Array.isArray(handlers) ? handlers : [handlers];
+}
+/**
+ * Asserts that the passed value is React.RefObject
+ *
+ * @see https://github.com/facebook/react/blob/v16.8.2/packages/react-reconciler/src/ReactFiberCommitWork.js#L665
+ */
+
+var isRefObject = function isRefObject(ref // eslint-disable-next-line
+) {
+  return ref !== null && _typeof(ref) === 'object' && ref.hasOwnProperty('current');
+};
+/**
+ * Normalizes `target` for EventStack, because `target` can be passed as `boolean` or `string`.
+ *
+ * @see https://jsperf.com/suir-normalize-target
+ */
+
+function normalizeTarget(target) {
+  if (target === 'document') return document;
+  if (target === 'window') return window;
+  if (isRefObject(target)) return target.current || document;
+  return target || document;
+}
+
+var EventPool =
+/*#__PURE__*/
+function () {
+  function EventPool(poolName, handlerSets) {
+    _classCallCheck(this, EventPool);
+
+    _defineProperty(this, "handlerSets", void 0);
+
+    _defineProperty(this, "poolName", void 0);
+
+    this.handlerSets = handlerSets;
+    this.poolName = poolName;
+  }
+
+  _createClass(EventPool, [{
+    key: "addHandlers",
+    value: function addHandlers(eventType, eventHandlers) {
+      var handlerSets = cloneMap(this.handlerSets);
+
+      if (handlerSets.has(eventType)) {
+        var eventSet = handlerSets.get(eventType);
+        handlerSets.set(eventType, eventSet.addHandlers(eventHandlers));
+      } else {
+        handlerSets.set(eventType, new EventSet(eventHandlers));
+      }
+
+      return new EventPool(this.poolName, handlerSets);
+    }
+  }, {
+    key: "dispatchEvent",
+    value: function dispatchEvent(eventType, event) {
+      var handlerSet = this.handlerSets.get(eventType);
+      var shouldDispatchAll = this.poolName === 'default';
+
+      if (handlerSet) {
+        handlerSet.dispatchEvent(event, shouldDispatchAll);
+      }
+    }
+  }, {
+    key: "hasHandlers",
+    value: function hasHandlers(eventType) {
+      if (!eventType) {
+        return this.handlerSets.size > 0;
+      }
+
+      var eventSet = this.handlerSets.get(eventType);
+
+      if (eventSet) {
+        return eventSet.hasHandlers();
+      }
+
+      return false;
+    }
+  }, {
+    key: "removeHandlers",
+    value: function removeHandlers(eventType, eventHandlers) {
+      var handlerSets = cloneMap(this.handlerSets);
+
+      if (!handlerSets.has(eventType)) {
+        return new EventPool(this.poolName, handlerSets);
+      }
+
+      var currentSet = handlerSets.get(eventType);
+      var nextSet = currentSet.removeHandlers(eventHandlers);
+
+      if (nextSet.hasHandlers()) {
+        handlerSets.set(eventType, nextSet);
+      } else {
+        handlerSets.delete(eventType);
+      }
+
+      return new EventPool(this.poolName, handlerSets);
+    }
+  }]);
+
+  return EventPool;
+}();
+
+_defineProperty(EventPool, "createByType", function (poolName, eventType, eventHandlers) {
+  var handlerSets = new Map();
+  handlerSets.set(eventType, new EventSet(eventHandlers));
+  return new EventPool(poolName, handlerSets);
+});
+
+var EventTarget =
+/*#__PURE__*/
+function () {
+  function EventTarget(target) {
+    var _this = this;
+
+    _classCallCheck(this, EventTarget);
+
+    _defineProperty(this, "handlers", new Map());
+
+    _defineProperty(this, "pools", new Map());
+
+    _defineProperty(this, "target", void 0);
+
+    _defineProperty(this, "createEmitter", function (eventType) {
+      return function (event) {
+        _this.pools.forEach(function (pool) {
+          pool.dispatchEvent(eventType, event);
+        });
+      };
+    });
+
+    this.target = target;
+  }
+
+  _createClass(EventTarget, [{
+    key: "addHandlers",
+    value: function addHandlers(poolName, eventType, eventHandlers) {
+      if (this.pools.has(poolName)) {
+        var eventPool = this.pools.get(poolName);
+        this.pools.set(poolName, eventPool.addHandlers(eventType, eventHandlers));
+      } else {
+        this.pools.set(poolName, EventPool.createByType(poolName, eventType, eventHandlers));
+      }
+
+      if (!this.handlers.has(eventType)) {
+        this.addTargetHandler(eventType);
+      }
+    }
+  }, {
+    key: "hasHandlers",
+    value: function hasHandlers() {
+      return this.handlers.size > 0;
+    }
+  }, {
+    key: "removeHandlers",
+    value: function removeHandlers(poolName, eventType, eventHandlers) {
+      if (!this.pools.has(poolName)) {
+        return;
+      }
+
+      var pool = this.pools.get(poolName);
+      var newPool = pool.removeHandlers(eventType, eventHandlers);
+
+      if (newPool.hasHandlers()) {
+        this.pools.set(poolName, newPool);
+      } else {
+        this.pools.delete(poolName);
+      }
+
+      var hasHandlers = false;
+      this.pools.forEach(function (pool) {
+        return hasHandlers = hasHandlers || pool.hasHandlers(eventType);
+      });
+
+      if (!hasHandlers) {
+        this.removeTargetHandler(eventType);
+      }
+    }
+  }, {
+    key: "addTargetHandler",
+    value: function addTargetHandler(eventType) {
+      var handler = this.createEmitter(eventType);
+      this.handlers.set(eventType, handler);
+      this.target.addEventListener(eventType, handler, true);
+    }
+  }, {
+    key: "removeTargetHandler",
+    value: function removeTargetHandler(eventType) {
+      if (this.handlers.has(eventType)) {
+        this.target.removeEventListener(eventType, this.handlers.get(eventType), true);
+        this.handlers.delete(eventType);
+      }
+    }
+  }]);
+
+  return EventTarget;
+}();
+
+var EventStack =
+/*#__PURE__*/
+function () {
+  function EventStack() {
+    var _this = this;
+
+    _classCallCheck(this, EventStack);
+
+    _defineProperty(this, "targets", new Map());
+
+    _defineProperty(this, "getTarget", function (target) {
+      var autoCreate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      var normalized = normalizeTarget(target);
+
+      if (_this.targets.has(normalized)) {
+        return _this.targets.get(normalized);
+      }
+
+      if (!autoCreate) return null;
+      var eventTarget = new EventTarget(normalized);
+
+      _this.targets.set(normalized, eventTarget);
+
+      return eventTarget;
+    });
+
+    _defineProperty(this, "removeTarget", function (target) {
+      _this.targets.delete(normalizeTarget(target));
+    });
+  }
+
+  _createClass(EventStack, [{
+    key: "sub",
+    value: function sub(eventName, eventHandlers) {
+      var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      if (!env.canUseDOM) return;
+      var _options$target = options.target,
+          target = _options$target === void 0 ? document : _options$target,
+          _options$pool = options.pool,
+          pool = _options$pool === void 0 ? 'default' : _options$pool;
+      var eventTarget = this.getTarget(target);
+      eventTarget.addHandlers(pool, eventName, normalizeHandlers(eventHandlers));
+    }
+  }, {
+    key: "unsub",
+    value: function unsub(eventName, eventHandlers) {
+      var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+      if (!env.canUseDOM) return;
+      var _options$target2 = options.target,
+          target = _options$target2 === void 0 ? document : _options$target2,
+          _options$pool2 = options.pool,
+          pool = _options$pool2 === void 0 ? 'default' : _options$pool2;
+      var eventTarget = this.getTarget(target, false);
+
+      if (eventTarget) {
+        eventTarget.removeHandlers(pool, eventName, normalizeHandlers(eventHandlers));
+        if (!eventTarget.hasHandlers()) this.removeTarget(target);
+      }
+    }
+  }]);
+
+  return EventStack;
+}();
+
+var instance = new EventStack();
+
+/**
+ * This component exposes the EventStack API as public and provides a declarative way to manage it.
+ */
+var EventStack$1 =
+/*#__PURE__*/
+function (_React$PureComponent) {
+  _inherits(EventStack, _React$PureComponent);
+
+  function EventStack() {
+    _classCallCheck(this, EventStack);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(EventStack).apply(this, arguments));
+  }
+
+  _createClass(EventStack, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.subscribe(this.props);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      this.unsubscribe(prevProps);
+      this.subscribe(this.props);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.unsubscribe(this.props);
+    }
+  }, {
+    key: "subscribe",
+    value: function subscribe(props) {
+      var name = props.name,
+          on = props.on,
+          pool = props.pool,
+          target = props.target;
+      instance.sub(name, on, {
+        pool: pool,
+        target: target
+      });
+    }
+  }, {
+    key: "unsubscribe",
+    value: function unsubscribe(props) {
+      var name = props.name,
+          on = props.on,
+          pool = props.pool,
+          target = props.target;
+      instance.unsub(name, on, {
+        pool: pool,
+        target: target
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return null;
+    }
+  }]);
+
+  return EventStack;
+}(React.PureComponent);
+
+_defineProperty(EventStack$1, "defaultProps", {
+  pool: 'default',
+  target: 'document'
+});
+EventStack$1.propTypes = {
+  /** An event name on which we will subscribe. */
+  name: PropTypes.string.isRequired,
+
+  /** An event handler or array of event handlers. */
+  on: PropTypes.oneOfType([PropTypes.func, PropTypes.arrayOf(PropTypes.func)]).isRequired,
+
+  /** A name of pool. */
+  pool: PropTypes.string,
+
+  /** A DOM element on which we will subscribe. */
+  target: PropTypes.oneOfType([PropTypes.oneOf(['document', 'window']), // Heads up!
+  // This condition for SSR safety.
+  PropTypes.instanceOf(env.canUseDOM ? HTMLElement : Object), PropTypes.shape({
+    current: PropTypes.object
+  })])
+};
+
+exports.instance = instance;
+exports["default"] = EventStack$1;
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@semantic-ui-react/event-stack/lib/index.js":
+/*!**************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@semantic-ui-react/event-stack/lib/index.js ***!
+  \**************************************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+
+var stack;
+
+if (false) {} else {
+  stack = __webpack_require__(/*! ./cjs/event-stack.development.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@semantic-ui-react/event-stack/lib/cjs/event-stack.development.js");
+}
+
+module.exports = stack.default;
+module.exports.instance = stack.instance;
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/App.js":
 /*!************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/App.js ***!
@@ -14,9 +1082,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-dom/index.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Segment/Segment.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
+/* harmony import */ var _pages_LoginPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/LoginPage */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/pages/LoginPage.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Segment/Segment.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -24,38 +1094,38 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function App() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "m-0",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
       className: "m-0",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"].Row, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"].Row, {
         columns: 16,
         className: "p-0",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"].Column, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"].Column, {
           width: 2,
           className: "p-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
             className: "h-[100vh]",
             children: "Sidebar 1"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"].Column, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"].Column, {
           width: 2,
           className: "p-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
             className: "h-[100vh]",
             children: "Sidebar 2"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"].Column, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"].Column, {
           width: 10,
           className: "p-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
             className: "h-[100vh]",
-            children: "Main Area"
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_pages_LoginPage__WEBPACK_IMPORTED_MODULE_2__["default"], {})
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"].Column, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"].Column, {
           width: 2,
           className: "p-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
             className: "h-[100vh]",
             children: "Sidebar 3"
           })
@@ -68,8 +1138,80 @@ function App() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
 if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(App, {}), document.getElementById('app'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(App, {}), document.getElementById('app'));
 }
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/pages/LoginPage.js":
+/*!*************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/pages/LoginPage.js ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Header/Header.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Segment/Segment.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/Form.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
+
+
+
+
+
+function LoginPage() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      centered: true,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["default"].Column, {
+        style: {
+          maxWidth: 550,
+          marginTop: 150
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          children: "Login to your account"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Field, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input, {
+                name: "username",
+                placeholder: "Username",
+                label: "Username"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Field, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input, {
+                type: "password",
+                name: "password",
+                placeholder: "Password",
+                label: "Password"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+              fluid: true,
+              primary: true,
+              type: "submit",
+              children: "Login"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              children: ["Need an account? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+                href: "#",
+                children: "this link doesn't work"
+              })]
+            })]
+          })
+        })]
+      })
+    })
+  });
+}
+
+;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LoginPage);
 
 /***/ }),
 
@@ -145,7 +1287,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*\n! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com\n*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #e5e7eb; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n*/\n\nhtml {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font family by default.\n2. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-size: 1em; /* 2 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  line-height: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\n[type='button'],\n[type='reset'],\n[type='submit'] {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput:-ms-input-placeholder, textarea:-ms-input-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/*\nEnsure the default browser behavior of the `hidden` attribute.\n*/\n\n[hidden] {\n  display: none;\n}\n\n*, ::before, ::after {\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n}\r\n.m-0 {\n  margin: 0px !important;\n}\r\n.h-max {\n  height: -webkit-max-content !important;\n  height: -moz-max-content !important;\n  height: max-content !important;\n}\r\n.h-full {\n  height: 100% !important;\n}\r\n.h-\\[500px\\] {\n  height: 500px !important;\n}\r\n.h-\\[1vh\\] {\n  height: 1vh !important;\n}\r\n.h-\\[100vh\\] {\n  height: 100vh !important;\n}\r\n.p-0 {\n  padding: 0px !important;\n}\r\n.text-3xl {\n  font-size: 1.875rem !important;\n  line-height: 2.25rem !important;\n}\r\n.font-bold {\n  font-weight: 700 !important;\n}\r\n.underline {\n  -webkit-text-decoration-line: underline !important;\n          text-decoration-line: underline !important;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*\n! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com\n*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #e5e7eb; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n*/\n\nhtml {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font family by default.\n2. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-size: 1em; /* 2 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  line-height: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\n[type='button'],\n[type='reset'],\n[type='submit'] {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput:-ms-input-placeholder, textarea:-ms-input-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/*\nEnsure the default browser behavior of the `hidden` attribute.\n*/\n\n[hidden] {\n  display: none;\n}\n\n*, ::before, ::after {\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n}\r\n.m-0 {\n  margin: 0px !important;\n}\r\n.h-\\[100vh\\] {\n  height: 100vh !important;\n}\r\n.p-0 {\n  padding: 0px !important;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -250,6 +1392,419 @@ module.exports = function (cssWithMappingToString) {
 
   return list;
 };
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/exenv/index.js":
+/*!*********************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/exenv/index.js ***!
+  \*********************************************************************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  Copyright (c) 2015 Jed Watson.
+  Based on code that is Copyright 2013-2015, Facebook, Inc.
+  All rights reserved.
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var canUseDOM = !!(
+		typeof window !== 'undefined' &&
+		window.document &&
+		window.document.createElement
+	);
+
+	var ExecutionEnvironment = {
+
+		canUseDOM: canUseDOM,
+
+		canUseWorkers: typeof Worker !== 'undefined',
+
+		canUseEventListeners:
+			canUseDOM && !!(window.addEventListener || window.attachEvent),
+
+		canUseViewport: canUseDOM && !!window.screen
+
+	};
+
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return ExecutionEnvironment;
+		}).call(exports, __webpack_require__, exports, module),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+
+}());
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/keyboard-key/src/keyboardKey.js":
+/*!**************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/keyboard-key/src/keyboardKey.js ***!
+  \**************************************************************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+var isObject = function isObject(val) {
+  return val !== null && !Array.isArray(val) && typeof val === 'object'
+}
+
+var codes = {
+  // ----------------------------------------
+  // By Code
+  // ----------------------------------------
+  3: 'Cancel',
+  6: 'Help',
+  8: 'Backspace',
+  9: 'Tab',
+  12: 'Clear',
+  13: 'Enter',
+  16: 'Shift',
+  17: 'Control',
+  18: 'Alt',
+  19: 'Pause',
+  20: 'CapsLock',
+  27: 'Escape',
+  28: 'Convert',
+  29: 'NonConvert',
+  30: 'Accept',
+  31: 'ModeChange',
+  32: ' ',
+  33: 'PageUp',
+  34: 'PageDown',
+  35: 'End',
+  36: 'Home',
+  37: 'ArrowLeft',
+  38: 'ArrowUp',
+  39: 'ArrowRight',
+  40: 'ArrowDown',
+  41: 'Select',
+  42: 'Print',
+  43: 'Execute',
+  44: 'PrintScreen',
+  45: 'Insert',
+  46: 'Delete',
+  48: ['0', ')'],
+  49: ['1', '!'],
+  50: ['2', '@'],
+  51: ['3', '#'],
+  52: ['4', '$'],
+  53: ['5', '%'],
+  54: ['6', '^'],
+  55: ['7', '&'],
+  56: ['8', '*'],
+  57: ['9', '('],
+  91: 'OS',
+  93: 'ContextMenu',
+  144: 'NumLock',
+  145: 'ScrollLock',
+  181: 'VolumeMute',
+  182: 'VolumeDown',
+  183: 'VolumeUp',
+  186: [';', ':'],
+  187: ['=', '+'],
+  188: [',', '<'],
+  189: ['-', '_'],
+  190: ['.', '>'],
+  191: ['/', '?'],
+  192: ['`', '~'],
+  219: ['[', '{'],
+  220: ['\\', '|'],
+  221: [']', '}'],
+  222: ["'", '"'],
+  224: 'Meta',
+  225: 'AltGraph',
+  246: 'Attn',
+  247: 'CrSel',
+  248: 'ExSel',
+  249: 'EraseEof',
+  250: 'Play',
+  251: 'ZoomOut',
+}
+
+// Function Keys (F1-24)
+for (var i = 0; i < 24; i += 1) {
+  codes[112 + i] = 'F' + (i + 1)
+}
+
+// Alphabet (a-Z)
+for (var j = 0; j < 26; j += 1) {
+  var n = j + 65
+  codes[n] = [String.fromCharCode(n + 32), String.fromCharCode(n)]
+}
+
+var keyboardKey = {
+  codes: codes,
+
+  /**
+   * Get the `keyCode` or `which` value from a keyboard event or `key` name.
+   * @param {string|object} eventOrKey A keyboard event-like object or `key` name.
+   * @param {string} [eventOrKey.key] If object, it must have one of these keys.
+   * @param {number} [eventOrKey.keyCode] If object, it must have one of these keys.
+   * @param {number} [eventOrKey.which] If object, it must have one of these keys.
+   * @returns {number|undefined}
+   */
+  getCode: function getCode(eventOrKey) {
+    if (isObject(eventOrKey)) {
+      return eventOrKey.keyCode || eventOrKey.which || this[eventOrKey.key]
+    }
+    return this[eventOrKey]
+  },
+
+  /**
+   * Get the key name from a keyboard event, `keyCode`, or `which` value.
+   * @param {number|object} eventOrCode A keyboard event-like object or key code.
+   * @param {string} [eventOrCode.key] If object with a `key` name, it will be returned.
+   * @param {number} [eventOrCode.keyCode] If object, it must have one of these keys.
+   * @param {number} [eventOrCode.which] If object, it must have one of these keys.
+   * @param {boolean} [eventOrCode.shiftKey] If object, it must have one of these keys.
+   * @returns {string|undefined}
+   */
+  getKey: function getKey(eventOrCode) {
+    var isEvent = isObject(eventOrCode)
+
+    // handle events with a `key` already defined
+    if (isEvent && eventOrCode.key) {
+      return eventOrCode.key
+    }
+
+    var name = codes[isEvent ? eventOrCode.keyCode || eventOrCode.which : eventOrCode]
+
+    if (Array.isArray(name)) {
+      if (isEvent) {
+        name = name[eventOrCode.shiftKey ? 1 : 0]
+      } else {
+        name = name[0]
+      }
+    }
+
+    return name
+  },
+
+  // ----------------------------------------
+  // By Name
+  // ----------------------------------------
+  // declare these manually for static analysis
+  Cancel: 3,
+  Help: 6,
+  Backspace: 8,
+  Tab: 9,
+  Clear: 12,
+  Enter: 13,
+  Shift: 16,
+  Control: 17,
+  Alt: 18,
+  Pause: 19,
+  CapsLock: 20,
+  Escape: 27,
+  Convert: 28,
+  NonConvert: 29,
+  Accept: 30,
+  ModeChange: 31,
+  ' ': 32,
+  PageUp: 33,
+  PageDown: 34,
+  End: 35,
+  Home: 36,
+  ArrowLeft: 37,
+  ArrowUp: 38,
+  ArrowRight: 39,
+  ArrowDown: 40,
+  Select: 41,
+  Print: 42,
+  Execute: 43,
+  PrintScreen: 44,
+  Insert: 45,
+  Delete: 46,
+  0: 48,
+  ')': 48,
+  1: 49,
+  '!': 49,
+  2: 50,
+  '@': 50,
+  3: 51,
+  '#': 51,
+  4: 52,
+  $: 52,
+  5: 53,
+  '%': 53,
+  6: 54,
+  '^': 54,
+  7: 55,
+  '&': 55,
+  8: 56,
+  '*': 56,
+  9: 57,
+  '(': 57,
+  a: 65,
+  A: 65,
+  b: 66,
+  B: 66,
+  c: 67,
+  C: 67,
+  d: 68,
+  D: 68,
+  e: 69,
+  E: 69,
+  f: 70,
+  F: 70,
+  g: 71,
+  G: 71,
+  h: 72,
+  H: 72,
+  i: 73,
+  I: 73,
+  j: 74,
+  J: 74,
+  k: 75,
+  K: 75,
+  l: 76,
+  L: 76,
+  m: 77,
+  M: 77,
+  n: 78,
+  N: 78,
+  o: 79,
+  O: 79,
+  p: 80,
+  P: 80,
+  q: 81,
+  Q: 81,
+  r: 82,
+  R: 82,
+  s: 83,
+  S: 83,
+  t: 84,
+  T: 84,
+  u: 85,
+  U: 85,
+  v: 86,
+  V: 86,
+  w: 87,
+  W: 87,
+  x: 88,
+  X: 88,
+  y: 89,
+  Y: 89,
+  z: 90,
+  Z: 90,
+  OS: 91,
+  ContextMenu: 93,
+  F1: 112,
+  F2: 113,
+  F3: 114,
+  F4: 115,
+  F5: 116,
+  F6: 117,
+  F7: 118,
+  F8: 119,
+  F9: 120,
+  F10: 121,
+  F11: 122,
+  F12: 123,
+  F13: 124,
+  F14: 125,
+  F15: 126,
+  F16: 127,
+  F17: 128,
+  F18: 129,
+  F19: 130,
+  F20: 131,
+  F21: 132,
+  F22: 133,
+  F23: 134,
+  F24: 135,
+  NumLock: 144,
+  ScrollLock: 145,
+  VolumeMute: 181,
+  VolumeDown: 182,
+  VolumeUp: 183,
+  ';': 186,
+  ':': 186,
+  '=': 187,
+  '+': 187,
+  ',': 188,
+  '<': 188,
+  '-': 189,
+  _: 189,
+  '.': 190,
+  '>': 190,
+  '/': 191,
+  '?': 191,
+  '`': 192,
+  '~': 192,
+  '[': 219,
+  '{': 219,
+  '\\': 220,
+  '|': 220,
+  ']': 221,
+  '}': 221,
+  "'": 222,
+  '"': 222,
+  Meta: 224,
+  AltGraph: 225,
+  Attn: 246,
+  CrSel: 247,
+  ExSel: 248,
+  EraseEof: 249,
+  Play: 250,
+  ZoomOut: 251,
+}
+
+// ----------------------------------------
+// By Alias
+// ----------------------------------------
+// provide dot-notation accessible keys for all key names
+keyboardKey.Spacebar = keyboardKey[' ']
+keyboardKey.Digit0 = keyboardKey['0']
+keyboardKey.Digit1 = keyboardKey['1']
+keyboardKey.Digit2 = keyboardKey['2']
+keyboardKey.Digit3 = keyboardKey['3']
+keyboardKey.Digit4 = keyboardKey['4']
+keyboardKey.Digit5 = keyboardKey['5']
+keyboardKey.Digit6 = keyboardKey['6']
+keyboardKey.Digit7 = keyboardKey['7']
+keyboardKey.Digit8 = keyboardKey['8']
+keyboardKey.Digit9 = keyboardKey['9']
+keyboardKey.Tilde = keyboardKey['~']
+keyboardKey.GraveAccent = keyboardKey['`']
+keyboardKey.ExclamationPoint = keyboardKey['!']
+keyboardKey.AtSign = keyboardKey['@']
+keyboardKey.PoundSign = keyboardKey['#']
+keyboardKey.PercentSign = keyboardKey['%']
+keyboardKey.Caret = keyboardKey['^']
+keyboardKey.Ampersand = keyboardKey['&']
+keyboardKey.PlusSign = keyboardKey['+']
+keyboardKey.MinusSign = keyboardKey['-']
+keyboardKey.EqualsSign = keyboardKey['=']
+keyboardKey.DivisionSign = keyboardKey['/']
+keyboardKey.MultiplicationSign = keyboardKey['*']
+keyboardKey.Comma = keyboardKey[',']
+keyboardKey.Decimal = keyboardKey['.']
+keyboardKey.Colon = keyboardKey[':']
+keyboardKey.Semicolon = keyboardKey[';']
+keyboardKey.Pipe = keyboardKey['|']
+keyboardKey.BackSlash = keyboardKey['\\']
+keyboardKey.QuestionMark = keyboardKey['?']
+keyboardKey.SingleQuote = keyboardKey["'"]
+keyboardKey.DoubleQuote = keyboardKey['"']
+keyboardKey.LeftCurlyBrace = keyboardKey['{']
+keyboardKey.RightCurlyBrace = keyboardKey['}']
+keyboardKey.LeftParenthesis = keyboardKey['(']
+keyboardKey.RightParenthesis = keyboardKey[')']
+keyboardKey.LeftAngleBracket = keyboardKey['<']
+keyboardKey.RightAngleBracket = keyboardKey['>']
+keyboardKey.LeftSquareBracket = keyboardKey['[']
+keyboardKey.RightSquareBracket = keyboardKey[']']
+
+module.exports = keyboardKey
+
 
 /***/ }),
 
@@ -27668,6 +29223,259 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-is/cjs/react-is.development.js":
+/*!*******************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-is/cjs/react-is.development.js ***!
+  \*******************************************************************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+/** @license React v17.0.2
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+if (true) {
+  (function() {
+'use strict';
+
+// ATTENTION
+// When adding new symbols to this file,
+// Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
+// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+// nor polyfill, then a plain number is used for performance.
+var REACT_ELEMENT_TYPE = 0xeac7;
+var REACT_PORTAL_TYPE = 0xeaca;
+var REACT_FRAGMENT_TYPE = 0xeacb;
+var REACT_STRICT_MODE_TYPE = 0xeacc;
+var REACT_PROFILER_TYPE = 0xead2;
+var REACT_PROVIDER_TYPE = 0xeacd;
+var REACT_CONTEXT_TYPE = 0xeace;
+var REACT_FORWARD_REF_TYPE = 0xead0;
+var REACT_SUSPENSE_TYPE = 0xead1;
+var REACT_SUSPENSE_LIST_TYPE = 0xead8;
+var REACT_MEMO_TYPE = 0xead3;
+var REACT_LAZY_TYPE = 0xead4;
+var REACT_BLOCK_TYPE = 0xead9;
+var REACT_SERVER_BLOCK_TYPE = 0xeada;
+var REACT_FUNDAMENTAL_TYPE = 0xead5;
+var REACT_SCOPE_TYPE = 0xead7;
+var REACT_OPAQUE_ID_TYPE = 0xeae0;
+var REACT_DEBUG_TRACING_MODE_TYPE = 0xeae1;
+var REACT_OFFSCREEN_TYPE = 0xeae2;
+var REACT_LEGACY_HIDDEN_TYPE = 0xeae3;
+
+if (typeof Symbol === 'function' && Symbol.for) {
+  var symbolFor = Symbol.for;
+  REACT_ELEMENT_TYPE = symbolFor('react.element');
+  REACT_PORTAL_TYPE = symbolFor('react.portal');
+  REACT_FRAGMENT_TYPE = symbolFor('react.fragment');
+  REACT_STRICT_MODE_TYPE = symbolFor('react.strict_mode');
+  REACT_PROFILER_TYPE = symbolFor('react.profiler');
+  REACT_PROVIDER_TYPE = symbolFor('react.provider');
+  REACT_CONTEXT_TYPE = symbolFor('react.context');
+  REACT_FORWARD_REF_TYPE = symbolFor('react.forward_ref');
+  REACT_SUSPENSE_TYPE = symbolFor('react.suspense');
+  REACT_SUSPENSE_LIST_TYPE = symbolFor('react.suspense_list');
+  REACT_MEMO_TYPE = symbolFor('react.memo');
+  REACT_LAZY_TYPE = symbolFor('react.lazy');
+  REACT_BLOCK_TYPE = symbolFor('react.block');
+  REACT_SERVER_BLOCK_TYPE = symbolFor('react.server.block');
+  REACT_FUNDAMENTAL_TYPE = symbolFor('react.fundamental');
+  REACT_SCOPE_TYPE = symbolFor('react.scope');
+  REACT_OPAQUE_ID_TYPE = symbolFor('react.opaque.id');
+  REACT_DEBUG_TRACING_MODE_TYPE = symbolFor('react.debug_trace_mode');
+  REACT_OFFSCREEN_TYPE = symbolFor('react.offscreen');
+  REACT_LEGACY_HIDDEN_TYPE = symbolFor('react.legacy_hidden');
+}
+
+// Filter certain DOM attributes (e.g. src, href) if their values are empty strings.
+
+var enableScopeAPI = false; // Experimental Create Event Handle API.
+
+function isValidElementType(type) {
+  if (typeof type === 'string' || typeof type === 'function') {
+    return true;
+  } // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
+
+
+  if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || type === REACT_DEBUG_TRACING_MODE_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_LEGACY_HIDDEN_TYPE || enableScopeAPI ) {
+    return true;
+  }
+
+  if (typeof type === 'object' && type !== null) {
+    if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_BLOCK_TYPE || type[0] === REACT_SERVER_BLOCK_TYPE) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function typeOf(object) {
+  if (typeof object === 'object' && object !== null) {
+    var $$typeof = object.$$typeof;
+
+    switch ($$typeof) {
+      case REACT_ELEMENT_TYPE:
+        var type = object.type;
+
+        switch (type) {
+          case REACT_FRAGMENT_TYPE:
+          case REACT_PROFILER_TYPE:
+          case REACT_STRICT_MODE_TYPE:
+          case REACT_SUSPENSE_TYPE:
+          case REACT_SUSPENSE_LIST_TYPE:
+            return type;
+
+          default:
+            var $$typeofType = type && type.$$typeof;
+
+            switch ($$typeofType) {
+              case REACT_CONTEXT_TYPE:
+              case REACT_FORWARD_REF_TYPE:
+              case REACT_LAZY_TYPE:
+              case REACT_MEMO_TYPE:
+              case REACT_PROVIDER_TYPE:
+                return $$typeofType;
+
+              default:
+                return $$typeof;
+            }
+
+        }
+
+      case REACT_PORTAL_TYPE:
+        return $$typeof;
+    }
+  }
+
+  return undefined;
+}
+var ContextConsumer = REACT_CONTEXT_TYPE;
+var ContextProvider = REACT_PROVIDER_TYPE;
+var Element = REACT_ELEMENT_TYPE;
+var ForwardRef = REACT_FORWARD_REF_TYPE;
+var Fragment = REACT_FRAGMENT_TYPE;
+var Lazy = REACT_LAZY_TYPE;
+var Memo = REACT_MEMO_TYPE;
+var Portal = REACT_PORTAL_TYPE;
+var Profiler = REACT_PROFILER_TYPE;
+var StrictMode = REACT_STRICT_MODE_TYPE;
+var Suspense = REACT_SUSPENSE_TYPE;
+var hasWarnedAboutDeprecatedIsAsyncMode = false;
+var hasWarnedAboutDeprecatedIsConcurrentMode = false; // AsyncMode should be deprecated
+
+function isAsyncMode(object) {
+  {
+    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
+
+      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 18+.');
+    }
+  }
+
+  return false;
+}
+function isConcurrentMode(object) {
+  {
+    if (!hasWarnedAboutDeprecatedIsConcurrentMode) {
+      hasWarnedAboutDeprecatedIsConcurrentMode = true; // Using console['warn'] to evade Babel and ESLint
+
+      console['warn']('The ReactIs.isConcurrentMode() alias has been deprecated, ' + 'and will be removed in React 18+.');
+    }
+  }
+
+  return false;
+}
+function isContextConsumer(object) {
+  return typeOf(object) === REACT_CONTEXT_TYPE;
+}
+function isContextProvider(object) {
+  return typeOf(object) === REACT_PROVIDER_TYPE;
+}
+function isElement(object) {
+  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+}
+function isForwardRef(object) {
+  return typeOf(object) === REACT_FORWARD_REF_TYPE;
+}
+function isFragment(object) {
+  return typeOf(object) === REACT_FRAGMENT_TYPE;
+}
+function isLazy(object) {
+  return typeOf(object) === REACT_LAZY_TYPE;
+}
+function isMemo(object) {
+  return typeOf(object) === REACT_MEMO_TYPE;
+}
+function isPortal(object) {
+  return typeOf(object) === REACT_PORTAL_TYPE;
+}
+function isProfiler(object) {
+  return typeOf(object) === REACT_PROFILER_TYPE;
+}
+function isStrictMode(object) {
+  return typeOf(object) === REACT_STRICT_MODE_TYPE;
+}
+function isSuspense(object) {
+  return typeOf(object) === REACT_SUSPENSE_TYPE;
+}
+
+exports.ContextConsumer = ContextConsumer;
+exports.ContextProvider = ContextProvider;
+exports.Element = Element;
+exports.ForwardRef = ForwardRef;
+exports.Fragment = Fragment;
+exports.Lazy = Lazy;
+exports.Memo = Memo;
+exports.Portal = Portal;
+exports.Profiler = Profiler;
+exports.StrictMode = StrictMode;
+exports.Suspense = Suspense;
+exports.isAsyncMode = isAsyncMode;
+exports.isConcurrentMode = isConcurrentMode;
+exports.isContextConsumer = isContextConsumer;
+exports.isContextProvider = isContextProvider;
+exports.isElement = isElement;
+exports.isForwardRef = isForwardRef;
+exports.isFragment = isFragment;
+exports.isLazy = isLazy;
+exports.isMemo = isMemo;
+exports.isPortal = isPortal;
+exports.isProfiler = isProfiler;
+exports.isStrictMode = isStrictMode;
+exports.isSuspense = isSuspense;
+exports.isValidElementType = isValidElementType;
+exports.typeOf = typeOf;
+  })();
+}
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-is/index.js":
+/*!************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-is/index.js ***!
+  \************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+if (false) {} else {
+  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-is/cjs/react-is.development.js");
+}
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/cjs/react-jsx-runtime.development.js":
 /*!*************************************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/cjs/react-jsx-runtime.development.js ***!
@@ -32323,6 +34131,1653 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Portal/Portal.js":
+/*!********************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Portal/Portal.js ***!
+  \********************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var _semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @semantic-ui-react/event-stack */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@semantic-ui-react/event-stack/lib/index.js");
+/* harmony import */ var _semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fluentui/react-component-ref */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/utils.js");
+/* harmony import */ var _fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fluentui/react-component-ref */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/Ref.js");
+/* harmony import */ var keyboard_key__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! keyboard-key */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/keyboard-key/src/keyboardKey.js");
+/* harmony import */ var keyboard_key__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(keyboard_key__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/doesNodeContainClick.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/ModernAutoControlledComponent.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _utils_validateTrigger__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utils/validateTrigger */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Portal/utils/validateTrigger.js");
+/* harmony import */ var _PortalInner__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./PortalInner */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Portal/PortalInner.js");
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * A component that allows you to render children outside their parent.
+ * @see Modal
+ * @see Popup
+ * @see Dimmer
+ * @see Confirm
+ */
+var Portal = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(Portal, _Component);
+
+  function Portal() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+    _this.contentRef = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createRef();
+    _this.triggerRef = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createRef();
+    _this.latestDocumentMouseDownEvent = null;
+
+    _this.handleDocumentMouseDown = function (e) {
+      _this.latestDocumentMouseDownEvent = e;
+    };
+
+    _this.handleDocumentClick = function (e) {
+      var closeOnDocumentClick = _this.props.closeOnDocumentClick;
+      var currentMouseDownEvent = _this.latestDocumentMouseDownEvent;
+      _this.latestDocumentMouseDownEvent = null;
+
+      if (!_this.contentRef.current || // no portal
+      (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(_this.triggerRef.current, e) || // event happened in trigger (delegate to trigger handlers)
+      currentMouseDownEvent && (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(_this.contentRef.current, currentMouseDownEvent) || // event originated in the portal but was ended outside
+      (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(_this.contentRef.current, e) // event happened in the portal
+      ) {
+          return;
+        } // ignore the click
+
+
+      if (closeOnDocumentClick) {
+        _this.close(e);
+      }
+    };
+
+    _this.handleEscape = function (e) {
+      if (!_this.props.closeOnEscape) return;
+      if (keyboard_key__WEBPACK_IMPORTED_MODULE_3___default().getCode(e) !== (keyboard_key__WEBPACK_IMPORTED_MODULE_3___default().Escape)) return;
+
+      _this.close(e);
+    };
+
+    _this.handlePortalMouseLeave = function (e) {
+      var _this$props = _this.props,
+          closeOnPortalMouseLeave = _this$props.closeOnPortalMouseLeave,
+          mouseLeaveDelay = _this$props.mouseLeaveDelay;
+      if (!closeOnPortalMouseLeave) return; // Do not close the portal when 'mouseleave' is triggered by children
+
+      if (e.target !== _this.contentRef.current) return;
+      _this.mouseLeaveTimer = _this.closeWithTimeout(e, mouseLeaveDelay);
+    };
+
+    _this.handlePortalMouseEnter = function () {
+      // In order to enable mousing from the trigger to the portal, we need to
+      // clear the mouseleave timer that was set when leaving the trigger.
+      var closeOnPortalMouseLeave = _this.props.closeOnPortalMouseLeave;
+      if (!closeOnPortalMouseLeave) return;
+      clearTimeout(_this.mouseLeaveTimer);
+    };
+
+    _this.handleTriggerBlur = function (e) {
+      var _this$props2 = _this.props,
+          trigger = _this$props2.trigger,
+          closeOnTriggerBlur = _this$props2.closeOnTriggerBlur; // Call original event handler
+
+      for (var _len2 = arguments.length, rest = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+        rest[_key2 - 1] = arguments[_key2];
+      }
+
+      lodash_es_invoke__WEBPACK_IMPORTED_MODULE_6__["default"].apply(void 0, [trigger, 'props.onBlur', e].concat(rest)); // IE 11 doesn't work with relatedTarget in blur events
+
+
+      var target = e.relatedTarget || document.activeElement; // do not close if focus is given to the portal
+
+      var didFocusPortal = (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_6__["default"])(_this.contentRef.current, 'contains', target);
+
+      if (!closeOnTriggerBlur || didFocusPortal) return;
+
+      _this.close(e);
+    };
+
+    _this.handleTriggerClick = function (e) {
+      var _this$props3 = _this.props,
+          trigger = _this$props3.trigger,
+          closeOnTriggerClick = _this$props3.closeOnTriggerClick,
+          openOnTriggerClick = _this$props3.openOnTriggerClick;
+      var open = _this.state.open; // Call original event handler
+
+      for (var _len3 = arguments.length, rest = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+        rest[_key3 - 1] = arguments[_key3];
+      }
+
+      lodash_es_invoke__WEBPACK_IMPORTED_MODULE_6__["default"].apply(void 0, [trigger, 'props.onClick', e].concat(rest));
+
+      if (open && closeOnTriggerClick) {
+        _this.close(e);
+      } else if (!open && openOnTriggerClick) {
+        _this.open(e);
+      }
+    };
+
+    _this.handleTriggerFocus = function (e) {
+      var _this$props4 = _this.props,
+          trigger = _this$props4.trigger,
+          openOnTriggerFocus = _this$props4.openOnTriggerFocus; // Call original event handler
+
+      for (var _len4 = arguments.length, rest = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+        rest[_key4 - 1] = arguments[_key4];
+      }
+
+      lodash_es_invoke__WEBPACK_IMPORTED_MODULE_6__["default"].apply(void 0, [trigger, 'props.onFocus', e].concat(rest));
+
+      if (!openOnTriggerFocus) return;
+
+      _this.open(e);
+    };
+
+    _this.handleTriggerMouseLeave = function (e) {
+      clearTimeout(_this.mouseEnterTimer);
+      var _this$props5 = _this.props,
+          trigger = _this$props5.trigger,
+          closeOnTriggerMouseLeave = _this$props5.closeOnTriggerMouseLeave,
+          mouseLeaveDelay = _this$props5.mouseLeaveDelay; // Call original event handler
+
+      for (var _len5 = arguments.length, rest = new Array(_len5 > 1 ? _len5 - 1 : 0), _key5 = 1; _key5 < _len5; _key5++) {
+        rest[_key5 - 1] = arguments[_key5];
+      }
+
+      lodash_es_invoke__WEBPACK_IMPORTED_MODULE_6__["default"].apply(void 0, [trigger, 'props.onMouseLeave', e].concat(rest));
+
+      if (!closeOnTriggerMouseLeave) return;
+      _this.mouseLeaveTimer = _this.closeWithTimeout(e, mouseLeaveDelay);
+    };
+
+    _this.handleTriggerMouseEnter = function (e) {
+      clearTimeout(_this.mouseLeaveTimer);
+      var _this$props6 = _this.props,
+          trigger = _this$props6.trigger,
+          mouseEnterDelay = _this$props6.mouseEnterDelay,
+          openOnTriggerMouseEnter = _this$props6.openOnTriggerMouseEnter; // Call original event handler
+
+      for (var _len6 = arguments.length, rest = new Array(_len6 > 1 ? _len6 - 1 : 0), _key6 = 1; _key6 < _len6; _key6++) {
+        rest[_key6 - 1] = arguments[_key6];
+      }
+
+      lodash_es_invoke__WEBPACK_IMPORTED_MODULE_6__["default"].apply(void 0, [trigger, 'props.onMouseEnter', e].concat(rest));
+
+      if (!openOnTriggerMouseEnter) return;
+      _this.mouseEnterTimer = _this.openWithTimeout(e, mouseEnterDelay);
+    };
+
+    _this.open = function (e) {
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_6__["default"])(_this.props, 'onOpen', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+        open: true
+      }));
+
+      _this.setState({
+        open: true
+      });
+    };
+
+    _this.openWithTimeout = function (e, delay) {
+      // React wipes the entire event object and suggests using e.persist() if
+      // you need the event for async access. However, even with e.persist
+      // certain required props (e.g. currentTarget) are null so we're forced to clone.
+      var eventClone = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, e);
+
+      return setTimeout(function () {
+        return _this.open(eventClone);
+      }, delay || 0);
+    };
+
+    _this.close = function (e) {
+      _this.setState({
+        open: false
+      });
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_6__["default"])(_this.props, 'onClose', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+        open: false
+      }));
+    };
+
+    _this.closeWithTimeout = function (e, delay) {
+      // React wipes the entire event object and suggests using e.persist() if
+      // you need the event for async access. However, even with e.persist
+      // certain required props (e.g. currentTarget) are null so we're forced to clone.
+      var eventClone = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, e);
+
+      return setTimeout(function () {
+        return _this.close(eventClone);
+      }, delay || 0);
+    };
+
+    _this.handleMount = function () {
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_6__["default"])(_this.props, 'onMount', null, _this.props);
+    };
+
+    _this.handleUnmount = function () {
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_6__["default"])(_this.props, 'onUnmount', null, _this.props);
+    };
+
+    _this.handleTriggerRef = function (c) {
+      _this.triggerRef.current = c;
+      (0,_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_7__.handleRef)(_this.props.triggerRef, c);
+    };
+
+    return _this;
+  }
+
+  var _proto = Portal.prototype;
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    // Clean up timers
+    clearTimeout(this.mouseEnterTimer);
+    clearTimeout(this.mouseLeaveTimer);
+  } // ----------------------------------------
+  // Document Event Handlers
+  // ----------------------------------------
+  ;
+
+  _proto.render = function render() {
+    var _this$props7 = this.props,
+        children = _this$props7.children,
+        eventPool = _this$props7.eventPool,
+        mountNode = _this$props7.mountNode,
+        trigger = _this$props7.trigger;
+    var open = this.state.open;
+    /* istanbul ignore else */
+
+    if (true) {
+      (0,_utils_validateTrigger__WEBPACK_IMPORTED_MODULE_8__["default"])(trigger);
+    }
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(react__WEBPACK_IMPORTED_MODULE_4__.Fragment, null, open && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(react__WEBPACK_IMPORTED_MODULE_4__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(_PortalInner__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      innerRef: this.contentRef,
+      mountNode: mountNode,
+      onMount: this.handleMount,
+      onUnmount: this.handleUnmount
+    }, children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement((_semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_2___default()), {
+      name: "mouseleave",
+      on: this.handlePortalMouseLeave,
+      pool: eventPool,
+      target: this.contentRef
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement((_semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_2___default()), {
+      name: "mouseenter",
+      on: this.handlePortalMouseEnter,
+      pool: eventPool,
+      target: this.contentRef
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement((_semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_2___default()), {
+      name: "mousedown",
+      on: this.handleDocumentMouseDown,
+      pool: eventPool
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement((_semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_2___default()), {
+      name: "click",
+      on: this.handleDocumentClick,
+      pool: eventPool
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement((_semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_2___default()), {
+      name: "keydown",
+      on: this.handleEscape,
+      pool: eventPool
+    })), trigger && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_10__.Ref, {
+      innerRef: this.handleTriggerRef
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.cloneElement(trigger, {
+      onBlur: this.handleTriggerBlur,
+      onClick: this.handleTriggerClick,
+      onFocus: this.handleTriggerFocus,
+      onMouseLeave: this.handleTriggerMouseLeave,
+      onMouseEnter: this.handleTriggerMouseEnter
+    })));
+  };
+
+  return Portal;
+}(_lib__WEBPACK_IMPORTED_MODULE_11__["default"]);
+
+Portal.handledProps = ["children", "closeOnDocumentClick", "closeOnEscape", "closeOnPortalMouseLeave", "closeOnTriggerBlur", "closeOnTriggerClick", "closeOnTriggerMouseLeave", "defaultOpen", "eventPool", "mountNode", "mouseEnterDelay", "mouseLeaveDelay", "onClose", "onMount", "onOpen", "onUnmount", "open", "openOnTriggerClick", "openOnTriggerFocus", "openOnTriggerMouseEnter", "trigger", "triggerRef"];
+Portal.propTypes =  true ? {
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().node.isRequired),
+
+  /** Controls whether or not the portal should close when the document is clicked. */
+  closeOnDocumentClick: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Controls whether or not the portal should close when escape is pressed is displayed. */
+  closeOnEscape: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /**
+   * Controls whether or not the portal should close when mousing out of the portal.
+   * NOTE: This will prevent `closeOnTriggerMouseLeave` when mousing over the
+   * gap from the trigger to the portal.
+   */
+  closeOnPortalMouseLeave: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Controls whether or not the portal should close on blur of the trigger. */
+  closeOnTriggerBlur: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Controls whether or not the portal should close on click of the trigger. */
+  closeOnTriggerClick: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Controls whether or not the portal should close when mousing out of the trigger. */
+  closeOnTriggerMouseLeave: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Initial value of open. */
+  defaultOpen: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Event pool namespace that is used to handle component events */
+  eventPool: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().string),
+
+  /** The node where the portal should mount. */
+  mountNode: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().any),
+
+  /** Milliseconds to wait before opening on mouse over */
+  mouseEnterDelay: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().number),
+
+  /** Milliseconds to wait before closing on mouse leave */
+  mouseLeaveDelay: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().number),
+
+  /**
+   * Called when a close event happens
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onClose: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().func),
+
+  /**
+   * Called when the portal is mounted on the DOM.
+   *
+   * @param {null}
+   * @param {object} data - All props.
+   */
+  onMount: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().func),
+
+  /**
+   * Called when an open event happens
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onOpen: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().func),
+
+  /**
+   * Called when the portal is unmounted from the DOM.
+   *
+   * @param {null}
+   * @param {object} data - All props.
+   */
+  onUnmount: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().func),
+
+  /** Controls whether or not the portal is displayed. */
+  open: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Controls whether or not the portal should open when the trigger is clicked. */
+  openOnTriggerClick: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Controls whether or not the portal should open on focus of the trigger. */
+  openOnTriggerFocus: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Controls whether or not the portal should open when mousing over the trigger. */
+  openOnTriggerMouseEnter: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Element to be rendered in-place where the portal is defined. */
+  trigger: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().node),
+
+  /** Called with a ref to the trigger node. */
+  triggerRef: _lib__WEBPACK_IMPORTED_MODULE_13__.ref
+} : 0;
+Portal.defaultProps = {
+  closeOnDocumentClick: true,
+  closeOnEscape: true,
+  eventPool: 'default',
+  openOnTriggerClick: true
+};
+Portal.autoControlledProps = ['open'];
+Portal.Inner = _PortalInner__WEBPACK_IMPORTED_MODULE_9__["default"];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Portal);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Portal/PortalInner.js":
+/*!*************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Portal/PortalInner.js ***!
+  \*************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var _fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fluentui/react-component-ref */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/utils.js");
+/* harmony import */ var _fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fluentui/react-component-ref */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/Ref.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-dom/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/isBrowser.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+
+
+
+
+
+
+
+
+/**
+ * An inner component that allows you to render children outside their parent.
+ */
+var PortalInner = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(PortalInner, _Component);
+
+  function PortalInner() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _this.handleRef = function (c) {
+      (0,_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_3__.handleRef)(_this.props.innerRef, c);
+    };
+
+    return _this;
+  }
+
+  var _proto = PortalInner.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"])(this.props, 'onMount', null, this.props);
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"])(this.props, 'onUnmount', null, this.props);
+  };
+
+  _proto.render = function render() {
+    if (!(0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])()) return null;
+    var _this$props = this.props,
+        children = _this$props.children,
+        _this$props$mountNode = _this$props.mountNode,
+        mountNode = _this$props$mountNode === void 0 ? document.body : _this$props$mountNode;
+    return /*#__PURE__*/(0,react_dom__WEBPACK_IMPORTED_MODULE_2__.createPortal)( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_6__.Ref, {
+      innerRef: this.handleRef
+    }, children), mountNode);
+  };
+
+  return PortalInner;
+}(react__WEBPACK_IMPORTED_MODULE_1__.Component);
+
+PortalInner.handledProps = ["children", "innerRef", "mountNode", "onMount", "onUnmount"];
+PortalInner.propTypes =  true ? {
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().node.isRequired),
+
+  /** Called with a ref to the inner node. */
+  innerRef: _lib__WEBPACK_IMPORTED_MODULE_8__.ref,
+
+  /** The node where the portal should mount. */
+  mountNode: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().any),
+
+  /**
+   * Called when the portal is mounted on the DOM
+   *
+   * @param {null}
+   * @param {object} data - All props.
+   */
+  onMount: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().func),
+
+  /**
+   * Called when the portal is unmounted from the DOM
+   *
+   * @param {null}
+   * @param {object} data - All props.
+   */
+  onUnmount: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().func)
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PortalInner);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Portal/utils/validateTrigger.js":
+/*!***********************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Portal/utils/validateTrigger.js ***!
+  \***********************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ validateTrigger)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-is */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-is/index.js");
+
+
+/**
+ * Asserts that a passed element can be used cloned a props will be applied properly.
+ */
+
+function validateTrigger(element) {
+  if (element) {
+    react__WEBPACK_IMPORTED_MODULE_0__.Children.only(element);
+
+    if (react_is__WEBPACK_IMPORTED_MODULE_1__.isFragment(element)) {
+      throw new Error('An "React.Fragment" cannot be used as a `trigger`.');
+    }
+  }
+}
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Radio/Radio.js":
+/*!******************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Radio/Radio.js ***!
+  \******************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _modules_Checkbox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../modules/Checkbox */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Checkbox/Checkbox.js");
+
+
+
+
+/**
+ * A Radio is sugar for <Checkbox radio />.
+ * Useful for exclusive groups of sliders or toggles.
+ * @see Checkbox
+ * @see Form
+ */
+
+function Radio(props) {
+  var slider = props.slider,
+      toggle = props.toggle,
+      type = props.type;
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_2__["default"])(Radio, props); // const ElementType = getElementType(Radio, props)
+  // radio, slider, toggle are exclusive
+  // use an undefined radio if slider or toggle are present
+
+  var radio = !(slider || toggle) || undefined;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_modules_Checkbox__WEBPACK_IMPORTED_MODULE_3__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    type: type,
+    radio: radio,
+    slider: slider,
+    toggle: toggle
+  }));
+}
+
+Radio.handledProps = ["slider", "toggle", "type"];
+Radio.propTypes =  true ? {
+  /** Format to emphasize the current selection state. */
+  slider: _modules_Checkbox__WEBPACK_IMPORTED_MODULE_3__["default"].propTypes.slider,
+
+  /** Format to show an on or off choice. */
+  toggle: _modules_Checkbox__WEBPACK_IMPORTED_MODULE_3__["default"].propTypes.toggle,
+
+  /** HTML input type, either checkbox or radio. */
+  type: _modules_Checkbox__WEBPACK_IMPORTED_MODULE_3__["default"].propTypes.type
+} : 0;
+Radio.defaultProps = {
+  type: 'radio'
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Radio);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Select/Select.js":
+/*!********************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Select/Select.js ***!
+  \********************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _modules_Dropdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../modules/Dropdown */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/Dropdown.js");
+
+
+
+
+/**
+ * A Select is sugar for <Dropdown selection />.
+ * @see Dropdown
+ * @see Form
+ */
+
+function Select(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_modules_Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+    selection: true
+  }));
+}
+
+Select.handledProps = ["options"];
+Select.propTypes =  true ? {
+  /** Array of Dropdown.Item props e.g. `{ text: '', value: '' }` */
+  options: prop_types__WEBPACK_IMPORTED_MODULE_3___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_3___default().shape(_modules_Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"].Item.propTypes)).isRequired
+} : 0;
+Select.Divider = _modules_Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"].Divider;
+Select.Header = _modules_Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"].Header;
+Select.Item = _modules_Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"].Item;
+Select.Menu = _modules_Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"].Menu;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Select);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/TextArea/TextArea.js":
+/*!************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/TextArea/TextArea.js ***!
+  \************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var lodash_es_get__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash-es/get */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/get.js");
+/* harmony import */ var _fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fluentui/react-component-ref */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/Ref.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+
+
+
+
+
+
+
+
+/**
+ * A TextArea can be used to allow for extended user input.
+ * @see Form
+ */
+
+var TextArea = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(TextArea, _Component);
+
+  function TextArea() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+    _this.ref = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_2__.createRef)();
+
+    _this.focus = function () {
+      return _this.ref.current.focus();
+    };
+
+    _this.handleChange = function (e) {
+      var value = (0,lodash_es_get__WEBPACK_IMPORTED_MODULE_3__["default"])(e, 'target.value');
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"])(_this.props, 'onChange', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+        value: value
+      }));
+    };
+
+    _this.handleInput = function (e) {
+      var value = (0,lodash_es_get__WEBPACK_IMPORTED_MODULE_3__["default"])(e, 'target.value');
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"])(_this.props, 'onInput', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+        value: value
+      }));
+    };
+
+    return _this;
+  }
+
+  var _proto = TextArea.prototype;
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        rows = _this$props.rows,
+        value = _this$props.value;
+    var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(TextArea, this.props);
+    var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_6__["default"])(TextArea, this.props);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_7__.Ref, {
+      innerRef: this.ref
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      onChange: this.handleChange,
+      onInput: this.handleInput,
+      rows: rows,
+      value: value
+    })));
+  };
+
+  return TextArea;
+}(react__WEBPACK_IMPORTED_MODULE_2__.Component);
+
+TextArea.handledProps = ["as", "onChange", "onInput", "rows", "value"];
+TextArea.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().elementType),
+
+  /**
+   * Called on change.
+   * @param {SyntheticEvent} event - The React SyntheticEvent object
+   * @param {object} data - All props and the event value.
+   */
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().func),
+
+  /**
+   * Called on input.
+   * @param {SyntheticEvent} event - The React SyntheticEvent object
+   * @param {object} data - All props and the event value.
+   */
+  onInput: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().func),
+
+  /** Indicates row count for a TextArea. */
+  rows: prop_types__WEBPACK_IMPORTED_MODULE_8___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_8___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_8___default().string)]),
+
+  /** The value of the textarea. */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_8___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_8___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_8___default().string)])
+} : 0;
+TextArea.defaultProps = {
+  as: 'textarea',
+  rows: 3
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TextArea);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/Form.js":
+/*!*********************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/Form.js ***!
+  \*********************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_without__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lodash-es/without */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/without.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/SUI.js");
+/* harmony import */ var _FormButton__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./FormButton */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormButton.js");
+/* harmony import */ var _FormCheckbox__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./FormCheckbox */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormCheckbox.js");
+/* harmony import */ var _FormDropdown__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./FormDropdown */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormDropdown.js");
+/* harmony import */ var _FormField__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./FormField */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormField.js");
+/* harmony import */ var _FormGroup__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./FormGroup */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormGroup.js");
+/* harmony import */ var _FormInput__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./FormInput */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormInput.js");
+/* harmony import */ var _FormRadio__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./FormRadio */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormRadio.js");
+/* harmony import */ var _FormSelect__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./FormSelect */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormSelect.js");
+/* harmony import */ var _FormTextArea__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./FormTextArea */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormTextArea.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * A Form displays a set of related user input fields in a structured way.
+ * @see Button
+ * @see Checkbox
+ * @see Dropdown
+ * @see Input
+ * @see Message
+ * @see Radio
+ * @see Select
+ * @see Visibility
+ */
+
+var Form = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(Form, _Component);
+
+  function Form() {
+    var _this;
+
+    for (var _len = arguments.length, _args = new Array(_len), _key = 0; _key < _len; _key++) {
+      _args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(_args)) || this;
+
+    _this.handleSubmit = function (e) {
+      var action = _this.props.action; // Heads up! Third party libs can pass own data as first argument, we need to check that it has preventDefault()
+      // method.
+
+      if (typeof action !== 'string') (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"])(e, 'preventDefault');
+
+      for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+        args[_key2 - 1] = arguments[_key2];
+      }
+
+      lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"].apply(void 0, [_this.props, 'onSubmit', e, _this.props].concat(args));
+    };
+
+    return _this;
+  }
+
+  var _proto = Form.prototype;
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        action = _this$props.action,
+        children = _this$props.children,
+        className = _this$props.className,
+        error = _this$props.error,
+        inverted = _this$props.inverted,
+        loading = _this$props.loading,
+        reply = _this$props.reply,
+        size = _this$props.size,
+        success = _this$props.success,
+        unstackable = _this$props.unstackable,
+        warning = _this$props.warning,
+        widths = _this$props.widths;
+    var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('ui', size, (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(error, 'error'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(inverted, 'inverted'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(loading, 'loading'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(reply, 'reply'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(success, 'success'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(unstackable, 'unstackable'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(warning, 'warning'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useWidthProp)(widths, null, true), 'form', className);
+    var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_6__["default"])(Form, this.props);
+    var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_7__["default"])(Form, this.props);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      action: action,
+      className: classes,
+      onSubmit: this.handleSubmit
+    }), children);
+  };
+
+  return Form;
+}(react__WEBPACK_IMPORTED_MODULE_3__.Component);
+
+Form.handledProps = ["action", "as", "children", "className", "error", "inverted", "loading", "onSubmit", "reply", "size", "success", "unstackable", "warning", "widths"];
+Form.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().elementType),
+
+  /** The HTML form action */
+  action: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().string),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().string),
+
+  /** Automatically show any error Message children. */
+  error: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().bool),
+
+  /** A form can have its color inverted for contrast. */
+  inverted: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().bool),
+
+  /** Automatically show a loading indicator. */
+  loading: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().bool),
+
+  /** The HTML form submit handler. */
+  onSubmit: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().func),
+
+  /** A comment can contain a form to reply to a comment. This may have arbitrary content. */
+  reply: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().bool),
+
+  /** A form can vary in size. */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_8___default().oneOf((0,lodash_es_without__WEBPACK_IMPORTED_MODULE_9__["default"])(_lib__WEBPACK_IMPORTED_MODULE_10__.SIZES, 'medium')),
+
+  /** Automatically show any success Message children. */
+  success: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().bool),
+
+  /** A form can prevent itself from stacking on mobile. */
+  unstackable: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().bool),
+
+  /** Automatically show any warning Message children. */
+  warning: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().bool),
+
+  /** Forms can automatically divide fields to be equal width. */
+  widths: prop_types__WEBPACK_IMPORTED_MODULE_8___default().oneOf(['equal'])
+} : 0;
+Form.defaultProps = {
+  as: 'form'
+};
+Form.Field = _FormField__WEBPACK_IMPORTED_MODULE_11__["default"];
+Form.Button = _FormButton__WEBPACK_IMPORTED_MODULE_12__["default"];
+Form.Checkbox = _FormCheckbox__WEBPACK_IMPORTED_MODULE_13__["default"];
+Form.Dropdown = _FormDropdown__WEBPACK_IMPORTED_MODULE_14__["default"];
+Form.Group = _FormGroup__WEBPACK_IMPORTED_MODULE_15__["default"];
+Form.Input = _FormInput__WEBPACK_IMPORTED_MODULE_16__["default"];
+Form.Radio = _FormRadio__WEBPACK_IMPORTED_MODULE_17__["default"];
+Form.Select = _FormSelect__WEBPACK_IMPORTED_MODULE_18__["default"];
+Form.TextArea = _FormTextArea__WEBPACK_IMPORTED_MODULE_19__["default"];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Form);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormButton.js":
+/*!***************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormButton.js ***!
+  \***************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _elements_Button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../elements/Button */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
+/* harmony import */ var _FormField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormField */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormField.js");
+
+
+
+
+
+
+/**
+ * Sugar for <Form.Field control={Button} />.
+ * @see Button
+ * @see Form
+ */
+
+function FormButton(props) {
+  var control = props.control;
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_2__["default"])(FormButton, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(FormButton, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    control: control
+  }));
+}
+
+FormButton.handledProps = ["as", "control"];
+FormButton.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().elementType),
+
+  /** A FormField control prop. */
+  control: _FormField__WEBPACK_IMPORTED_MODULE_5__["default"].propTypes.control
+} : 0;
+FormButton.defaultProps = {
+  as: _FormField__WEBPACK_IMPORTED_MODULE_5__["default"],
+  control: _elements_Button__WEBPACK_IMPORTED_MODULE_6__["default"]
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormButton);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormCheckbox.js":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormCheckbox.js ***!
+  \*****************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _modules_Checkbox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../modules/Checkbox */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Checkbox/Checkbox.js");
+/* harmony import */ var _FormField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormField */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormField.js");
+
+
+
+
+
+
+/**
+ * Sugar for <Form.Field control={Checkbox} />.
+ * @see Checkbox
+ * @see Form
+ */
+
+function FormCheckbox(props) {
+  var control = props.control;
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_2__["default"])(FormCheckbox, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(FormCheckbox, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    control: control
+  }));
+}
+
+FormCheckbox.handledProps = ["as", "control"];
+FormCheckbox.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().elementType),
+
+  /** A FormField control prop. */
+  control: _FormField__WEBPACK_IMPORTED_MODULE_5__["default"].propTypes.control
+} : 0;
+FormCheckbox.defaultProps = {
+  as: _FormField__WEBPACK_IMPORTED_MODULE_5__["default"],
+  control: _modules_Checkbox__WEBPACK_IMPORTED_MODULE_6__["default"]
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormCheckbox);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormDropdown.js":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormDropdown.js ***!
+  \*****************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _modules_Dropdown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../modules/Dropdown */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/Dropdown.js");
+/* harmony import */ var _FormField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormField */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormField.js");
+
+
+
+
+
+
+/**
+ * Sugar for <Form.Field control={Dropdown} />.
+ * @see Dropdown
+ * @see Form
+ */
+
+function FormDropdown(props) {
+  var control = props.control;
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_2__["default"])(FormDropdown, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(FormDropdown, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    control: control
+  }));
+}
+
+FormDropdown.handledProps = ["as", "control"];
+FormDropdown.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().elementType),
+
+  /** A FormField control prop. */
+  control: _FormField__WEBPACK_IMPORTED_MODULE_5__["default"].propTypes.control
+} : 0;
+FormDropdown.defaultProps = {
+  as: _FormField__WEBPACK_IMPORTED_MODULE_5__["default"],
+  control: _modules_Dropdown__WEBPACK_IMPORTED_MODULE_6__["default"]
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormDropdown);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormField.js":
+/*!**************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormField.js ***!
+  \**************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var lodash_es_isNil__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash-es/isNil */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isNil.js");
+/* harmony import */ var lodash_es_get__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash-es/get */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/get.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/SUI.js");
+/* harmony import */ var _elements_Label__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../elements/Label */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Label/Label.js");
+/* harmony import */ var _modules_Checkbox__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../modules/Checkbox */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Checkbox/Checkbox.js");
+/* harmony import */ var _addons_Radio__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../addons/Radio */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Radio/Radio.js");
+
+
+
+
+
+
+
+
+
+
+/**
+ * A field is a form element containing a label and an input.
+ * @see Form
+ * @see Button
+ * @see Checkbox
+ * @see Dropdown
+ * @see Input
+ * @see Radio
+ * @see Select
+ * @see Visibility
+ */
+
+function FormField(props) {
+  var children = props.children,
+      className = props.className,
+      content = props.content,
+      control = props.control,
+      disabled = props.disabled,
+      error = props.error,
+      inline = props.inline,
+      label = props.label,
+      required = props.required,
+      type = props.type,
+      width = props.width,
+      id = props.id;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(disabled, 'disabled'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(error, 'error'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(inline, 'inline'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(required, 'required'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useWidthProp)(width, 'wide'), 'field', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(FormField, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(FormField, props);
+
+  var errorPointing = (0,lodash_es_get__WEBPACK_IMPORTED_MODULE_6__["default"])(error, 'pointing', 'above');
+
+  var errorLabel = _elements_Label__WEBPACK_IMPORTED_MODULE_7__["default"].create(error, {
+    autoGenerateKey: false,
+    defaultProps: {
+      prompt: true,
+      pointing: errorPointing,
+      id: id ? id + "-error-message" : undefined,
+      role: 'alert',
+      'aria-atomic': true
+    }
+  });
+  var errorLabelBefore = (errorPointing === 'below' || errorPointing === 'right') && errorLabel;
+  var errorLabelAfter = (errorPointing === 'above' || errorPointing === 'left') && errorLabel; // ----------------------------------------
+  // No Control
+  // ----------------------------------------
+
+  if ((0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_8__["default"])(control)) {
+    if ((0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_8__["default"])(label)) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+        className: classes,
+        id: id
+      }), _lib__WEBPACK_IMPORTED_MODULE_9__.isNil(children) ? content : children);
+    }
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      className: classes,
+      id: id
+    }), errorLabelBefore, (0,_lib__WEBPACK_IMPORTED_MODULE_10__.createHTMLLabel)(label, {
+      autoGenerateKey: false
+    }), errorLabelAfter);
+  } // ----------------------------------------
+  // Checkbox/Radio Control
+  // ----------------------------------------
+
+
+  var ariaDescribedBy = id && error ? id + "-error-message" : null;
+  var ariaAttrs = {
+    'aria-describedby': ariaDescribedBy,
+    'aria-invalid': error ? true : undefined
+  };
+
+  var controlProps = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    content: content,
+    children: children,
+    disabled: disabled,
+    required: required,
+    type: type,
+    id: id
+  }); // wrap HTML checkboxes/radios in the label
+
+
+  if (control === 'input' && (type === 'checkbox' || type === 'radio')) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, {
+      className: classes
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("label", null, errorLabelBefore, /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_2__.createElement)(control, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, ariaAttrs, controlProps)), " ", label, errorLabelAfter));
+  } // pass label prop to controls that support it
+
+
+  if (control === _modules_Checkbox__WEBPACK_IMPORTED_MODULE_11__["default"] || control === _addons_Radio__WEBPACK_IMPORTED_MODULE_12__["default"]) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, {
+      className: classes
+    }, errorLabelBefore, /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_2__.createElement)(control, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, ariaAttrs, controlProps, {
+      label: label
+    })), errorLabelAfter);
+  } // ----------------------------------------
+  // Other Control
+  // ----------------------------------------
+
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, {
+    className: classes
+  }, (0,_lib__WEBPACK_IMPORTED_MODULE_10__.createHTMLLabel)(label, {
+    defaultProps: {
+      htmlFor: id
+    },
+    autoGenerateKey: false
+  }), errorLabelBefore, /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_2__.createElement)(control, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, ariaAttrs, controlProps)), errorLabelAfter);
+}
+
+FormField.handledProps = ["as", "children", "className", "content", "control", "disabled", "error", "id", "inline", "label", "required", "type", "width"];
+FormField.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_14__.contentShorthand,
+
+  /**
+   * A form control component (i.e. Dropdown) or HTML tagName (i.e. 'input').
+   * Extra FormField props are passed to the control component.
+   * Mutually exclusive with children.
+   */
+  control: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().elementType), prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(['button', 'input', 'select', 'textarea'])]),
+
+  /** Individual fields may be disabled. */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** Individual fields may display an error state along with a message. */
+  error: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool), _lib__WEBPACK_IMPORTED_MODULE_14__.itemShorthand]),
+
+  /** The id of the control */
+  id: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().string),
+
+  /** A field can have its label next to instead of above it. */
+  inline: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+  // Heads Up!
+  // Do not disallow children with `label` shorthand
+  // The `control` might accept a `label` prop and `children`
+
+  /** Mutually exclusive with children. */
+  label: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().node), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().object)]),
+
+  /** A field can show that input is mandatory. */
+  required: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** Passed to the control component (i.e. <input type='password' />) */
+  type: _lib__WEBPACK_IMPORTED_MODULE_14__.every([_lib__WEBPACK_IMPORTED_MODULE_14__.demand(['control']) // don't strictly validate HTML types
+  // a control might be passed that uses a `type` prop with unknown values
+  // let the control validate if for us
+  ]),
+
+  /** A field can specify its width in grid columns */
+  width: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_15__.WIDTHS)
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormField);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormGroup.js":
+/*!**************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormGroup.js ***!
+  \**************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/SUI.js");
+
+
+
+
+
+/**
+ * A set of fields can appear grouped together.
+ * @see Form
+ */
+
+function FormGroup(props) {
+  var children = props.children,
+      className = props.className,
+      grouped = props.grouped,
+      inline = props.inline,
+      unstackable = props.unstackable,
+      widths = props.widths;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(grouped, 'grouped'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(inline, 'inline'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(unstackable, 'unstackable'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useWidthProp)(widths, null, true), 'fields', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(FormGroup, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(FormGroup, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), children);
+}
+
+FormGroup.handledProps = ["as", "children", "className", "grouped", "inline", "unstackable", "widths"];
+FormGroup.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+
+  /** Fields can show related choices. */
+  grouped: _lib__WEBPACK_IMPORTED_MODULE_7__.every([_lib__WEBPACK_IMPORTED_MODULE_7__.disallow(['inline']), (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool)]),
+
+  /** Multiple fields may be inline in a row. */
+  inline: _lib__WEBPACK_IMPORTED_MODULE_7__.every([_lib__WEBPACK_IMPORTED_MODULE_7__.disallow(['grouped']), (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool)]),
+
+  /** A form group can prevent itself from stacking on mobile. */
+  unstackable: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool),
+
+  /** Fields Groups can specify their width in grid columns or automatically divide fields to be equal width. */
+  widths: prop_types__WEBPACK_IMPORTED_MODULE_6___default().oneOf([].concat(_lib__WEBPACK_IMPORTED_MODULE_8__.WIDTHS, ['equal']))
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormGroup);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormInput.js":
+/*!**************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormInput.js ***!
+  \**************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _elements_Input__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../elements/Input */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Input/Input.js");
+/* harmony import */ var _FormField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormField */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormField.js");
+
+
+
+
+
+
+/**
+ * Sugar for <Form.Field control={Input} />.
+ * @see Form
+ * @see Input
+ */
+
+function FormInput(props) {
+  var control = props.control;
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_2__["default"])(FormInput, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(FormInput, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    control: control
+  }));
+}
+
+FormInput.handledProps = ["as", "control"];
+FormInput.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().elementType),
+
+  /** A FormField control prop. */
+  control: _FormField__WEBPACK_IMPORTED_MODULE_5__["default"].propTypes.control
+} : 0;
+FormInput.defaultProps = {
+  as: _FormField__WEBPACK_IMPORTED_MODULE_5__["default"],
+  control: _elements_Input__WEBPACK_IMPORTED_MODULE_6__["default"]
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormInput);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormRadio.js":
+/*!**************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormRadio.js ***!
+  \**************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _addons_Radio__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../addons/Radio */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Radio/Radio.js");
+/* harmony import */ var _FormField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormField */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormField.js");
+
+
+
+
+
+
+/**
+ * Sugar for <Form.Field control={Radio} />.
+ * @see Form
+ * @see Radio
+ */
+
+function FormRadio(props) {
+  var control = props.control;
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_2__["default"])(FormRadio, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(FormRadio, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    control: control
+  }));
+}
+
+FormRadio.handledProps = ["as", "control"];
+FormRadio.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().elementType),
+
+  /** A FormField control prop. */
+  control: _FormField__WEBPACK_IMPORTED_MODULE_5__["default"].propTypes.control
+} : 0;
+FormRadio.defaultProps = {
+  as: _FormField__WEBPACK_IMPORTED_MODULE_5__["default"],
+  control: _addons_Radio__WEBPACK_IMPORTED_MODULE_6__["default"]
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormRadio);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormSelect.js":
+/*!***************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormSelect.js ***!
+  \***************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _addons_Select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../addons/Select */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Select/Select.js");
+/* harmony import */ var _modules_Dropdown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../modules/Dropdown */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/Dropdown.js");
+/* harmony import */ var _FormField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormField */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormField.js");
+
+
+
+
+
+
+
+/**
+ * Sugar for <Form.Field control={Select} />.
+ * @see Form
+ * @see Select
+ */
+
+function FormSelect(props) {
+  var control = props.control,
+      options = props.options;
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_2__["default"])(FormSelect, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(FormSelect, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    control: control,
+    options: options
+  }));
+}
+
+FormSelect.handledProps = ["as", "control", "options"];
+FormSelect.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().elementType),
+
+  /** A FormField control prop. */
+  control: _FormField__WEBPACK_IMPORTED_MODULE_5__["default"].propTypes.control,
+
+  /** Array of Dropdown.Item props e.g. `{ text: '', value: '' }` */
+  options: prop_types__WEBPACK_IMPORTED_MODULE_4___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_4___default().shape(_modules_Dropdown__WEBPACK_IMPORTED_MODULE_6__["default"].Item.propTypes)).isRequired
+} : 0;
+FormSelect.defaultProps = {
+  as: _FormField__WEBPACK_IMPORTED_MODULE_5__["default"],
+  control: _addons_Select__WEBPACK_IMPORTED_MODULE_7__["default"]
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormSelect);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormTextArea.js":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormTextArea.js ***!
+  \*****************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _addons_TextArea__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../addons/TextArea */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/TextArea/TextArea.js");
+/* harmony import */ var _FormField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormField */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/FormField.js");
+
+
+
+
+
+
+/**
+ * Sugar for <Form.Field control={TextArea} />.
+ * @see Form
+ * @see TextArea
+ */
+
+function FormTextArea(props) {
+  var control = props.control;
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_2__["default"])(FormTextArea, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(FormTextArea, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    control: control
+  }));
+}
+
+FormTextArea.handledProps = ["as", "control"];
+FormTextArea.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_4___default().elementType),
+
+  /** A FormField control prop. */
+  control: _FormField__WEBPACK_IMPORTED_MODULE_5__["default"].propTypes.control
+} : 0;
+FormTextArea.defaultProps = {
+  as: _FormField__WEBPACK_IMPORTED_MODULE_5__["default"],
+  control: _addons_TextArea__WEBPACK_IMPORTED_MODULE_6__["default"]
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormTextArea);
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js":
 /*!*********************************************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js ***!
@@ -32643,6 +36098,2097 @@ GridRow.propTypes =  true ? {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/Button.js":
+/*!**********************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/Button.js ***!
+  \**********************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var lodash_es_isNil__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/isNil */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isNil.js");
+/* harmony import */ var _fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @fluentui/react-component-ref */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/Ref.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/SUI.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+/* harmony import */ var _Icon_Icon__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Icon/Icon */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Icon/Icon.js");
+/* harmony import */ var _Label_Label__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Label/Label */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Label/Label.js");
+/* harmony import */ var _ButtonContent__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./ButtonContent */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/ButtonContent.js");
+/* harmony import */ var _ButtonGroup__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./ButtonGroup */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/ButtonGroup.js");
+/* harmony import */ var _ButtonOr__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./ButtonOr */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/ButtonOr.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * A Button indicates a possible user action.
+ * @see Form
+ * @see Icon
+ * @see Label
+ */
+
+var Button = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(Button, _Component);
+
+  function Button() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+    _this.ref = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_3__.createRef)();
+
+    _this.computeElementType = function () {
+      var _this$props = _this.props,
+          attached = _this$props.attached,
+          label = _this$props.label;
+      if (!(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_4__["default"])(attached) || !(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_4__["default"])(label)) return 'div';
+    };
+
+    _this.computeTabIndex = function (ElementType) {
+      var _this$props2 = _this.props,
+          disabled = _this$props2.disabled,
+          tabIndex = _this$props2.tabIndex;
+      if (!(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_4__["default"])(tabIndex)) return tabIndex;
+      if (disabled) return -1;
+      if (ElementType === 'div') return 0;
+    };
+
+    _this.focus = function () {
+      return (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_5__["default"])(_this.ref.current, 'focus');
+    };
+
+    _this.handleClick = function (e) {
+      var disabled = _this.props.disabled;
+
+      if (disabled) {
+        e.preventDefault();
+        return;
+      }
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_5__["default"])(_this.props, 'onClick', e, _this.props);
+    };
+
+    _this.hasIconClass = function () {
+      var _this$props3 = _this.props,
+          labelPosition = _this$props3.labelPosition,
+          children = _this$props3.children,
+          content = _this$props3.content,
+          icon = _this$props3.icon;
+      if (icon === true) return true;
+      return icon && (labelPosition || _lib__WEBPACK_IMPORTED_MODULE_6__.isNil(children) && (0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_4__["default"])(content));
+    };
+
+    return _this;
+  }
+
+  var _proto = Button.prototype;
+
+  _proto.computeButtonAriaRole = function computeButtonAriaRole(ElementType) {
+    var role = this.props.role;
+    if (!(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_4__["default"])(role)) return role;
+    if (ElementType !== 'button') return 'button';
+  };
+
+  _proto.render = function render() {
+    var _this$props4 = this.props,
+        active = _this$props4.active,
+        animated = _this$props4.animated,
+        attached = _this$props4.attached,
+        basic = _this$props4.basic,
+        children = _this$props4.children,
+        circular = _this$props4.circular,
+        className = _this$props4.className,
+        color = _this$props4.color,
+        compact = _this$props4.compact,
+        content = _this$props4.content,
+        disabled = _this$props4.disabled,
+        floated = _this$props4.floated,
+        fluid = _this$props4.fluid,
+        icon = _this$props4.icon,
+        inverted = _this$props4.inverted,
+        label = _this$props4.label,
+        labelPosition = _this$props4.labelPosition,
+        loading = _this$props4.loading,
+        negative = _this$props4.negative,
+        positive = _this$props4.positive,
+        primary = _this$props4.primary,
+        secondary = _this$props4.secondary,
+        size = _this$props4.size,
+        toggle = _this$props4.toggle,
+        type = _this$props4.type;
+    var baseClasses = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])(color, size, (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(active, 'active'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(basic, 'basic'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(circular, 'circular'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(compact, 'compact'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(fluid, 'fluid'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(this.hasIconClass(), 'icon'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(inverted, 'inverted'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(loading, 'loading'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(negative, 'negative'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(positive, 'positive'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(primary, 'primary'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(secondary, 'secondary'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(toggle, 'toggle'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOrValueAndKey)(animated, 'animated'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOrValueAndKey)(attached, 'attached'));
+    var labeledClasses = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOrValueAndKey)(labelPosition || !!label, 'labeled'));
+    var wrapperClasses = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(disabled, 'disabled'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useValueAndKey)(floated, 'floated'));
+    var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_8__["default"])(Button, this.props);
+    var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_9__["default"])(Button, this.props, this.computeElementType);
+    var tabIndex = this.computeTabIndex(ElementType);
+
+    if (!(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_4__["default"])(label)) {
+      var buttonClasses = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('ui', baseClasses, 'button', className);
+      var containerClasses = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('ui', labeledClasses, 'button', className, wrapperClasses);
+      var labelElement = _Label_Label__WEBPACK_IMPORTED_MODULE_10__["default"].create(label, {
+        defaultProps: {
+          basic: true,
+          pointing: labelPosition === 'left' ? 'right' : 'left'
+        },
+        autoGenerateKey: false
+      });
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+        className: containerClasses,
+        onClick: this.handleClick
+      }), labelPosition === 'left' && labelElement, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_11__.Ref, {
+        innerRef: this.ref
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("button", {
+        className: buttonClasses,
+        "aria-pressed": toggle ? !!active : undefined,
+        disabled: disabled,
+        type: type,
+        tabIndex: tabIndex
+      }, _Icon_Icon__WEBPACK_IMPORTED_MODULE_12__["default"].create(icon, {
+        autoGenerateKey: false
+      }), " ", content)), (labelPosition === 'right' || !labelPosition) && labelElement);
+    }
+
+    var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('ui', baseClasses, wrapperClasses, labeledClasses, 'button', className);
+    var hasChildren = !_lib__WEBPACK_IMPORTED_MODULE_6__.isNil(children);
+    var role = this.computeButtonAriaRole(ElementType);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_11__.Ref, {
+      innerRef: this.ref
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      className: classes,
+      "aria-pressed": toggle ? !!active : undefined,
+      disabled: disabled && ElementType === 'button' || undefined,
+      onClick: this.handleClick,
+      role: role,
+      type: type,
+      tabIndex: tabIndex
+    }), hasChildren && children, !hasChildren && _Icon_Icon__WEBPACK_IMPORTED_MODULE_12__["default"].create(icon, {
+      autoGenerateKey: false
+    }), !hasChildren && content));
+  };
+
+  return Button;
+}(react__WEBPACK_IMPORTED_MODULE_3__.Component);
+
+Button.handledProps = ["active", "animated", "as", "attached", "basic", "children", "circular", "className", "color", "compact", "content", "disabled", "floated", "fluid", "icon", "inverted", "label", "labelPosition", "loading", "negative", "onClick", "positive", "primary", "role", "secondary", "size", "tabIndex", "toggle", "type"];
+Button.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().elementType),
+
+  /** A button can show it is currently the active user selection. */
+  active: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** A button can animate to show hidden content. */
+  animated: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool), prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(['fade', 'vertical'])]),
+
+  /** A button can be attached to other content. */
+  attached: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool), prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(['left', 'right', 'top', 'bottom'])]),
+
+  /** A basic button is less pronounced. */
+  basic: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** Primary content. */
+  children: _lib__WEBPACK_IMPORTED_MODULE_14__.every([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().node), _lib__WEBPACK_IMPORTED_MODULE_14__.disallow(['label']), _lib__WEBPACK_IMPORTED_MODULE_14__.givenProps({
+    icon: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().string.isRequired), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().object.isRequired), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().element.isRequired)])
+  }, _lib__WEBPACK_IMPORTED_MODULE_14__.disallow(['icon']))]),
+
+  /** A button can be circular. */
+  circular: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().string),
+
+  /** A button can have different colors */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf([].concat(_lib__WEBPACK_IMPORTED_MODULE_15__.COLORS, ['facebook', 'google plus', 'instagram', 'linkedin', 'twitter', 'vk', 'youtube'])),
+
+  /** A button can reduce its padding to fit into tighter spaces. */
+  compact: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_14__.contentShorthand,
+
+  /** A button can show it is currently unable to be interacted with. */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** A button can be aligned to the left or right of its container. */
+  floated: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_15__.FLOATS),
+
+  /** A button can take the width of its container. */
+  fluid: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** Add an Icon by name, props object, or pass an <Icon />. */
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().object), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().element)]),
+
+  /** A button can be formatted to appear on dark backgrounds. */
+  inverted: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** Add a Label by text, props object, or pass a <Label />. */
+  label: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().object), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().element)]),
+
+  /** A labeled button can format a Label or Icon to appear on the left or right. */
+  labelPosition: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(['right', 'left']),
+
+  /** A button can show a loading indicator. */
+  loading: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** A button can hint towards a negative consequence. */
+  negative: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /**
+   * Called after user's click.
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onClick: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().func),
+
+  /** A button can hint towards a positive consequence. */
+  positive: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** A button can be formatted to show different levels of emphasis. */
+  primary: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** The role of the HTML element. */
+  role: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().string),
+
+  /** A button can be formatted to show different levels of emphasis. */
+  secondary: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** A button can have different sizes. */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_15__.SIZES),
+
+  /** A button can receive focus. */
+  tabIndex: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().string)]),
+
+  /** A button can be formatted to toggle on and off. */
+  toggle: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** The type of the HTML element. */
+  type: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(['button', 'submit', 'reset'])
+} : 0;
+Button.defaultProps = {
+  as: 'button'
+};
+Button.Content = _ButtonContent__WEBPACK_IMPORTED_MODULE_16__["default"];
+Button.Group = _ButtonGroup__WEBPACK_IMPORTED_MODULE_17__["default"];
+Button.Or = _ButtonOr__WEBPACK_IMPORTED_MODULE_18__["default"];
+Button.create = (0,_lib__WEBPACK_IMPORTED_MODULE_19__.createShorthandFactory)(Button, function (value) {
+  return {
+    content: value
+  };
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Button);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/ButtonContent.js":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/ButtonContent.js ***!
+  \*****************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+
+
+
+
+
+/**
+ * Used in some Button types, such as `animated`.
+ */
+
+function ButtonContent(props) {
+  var children = props.children,
+      className = props.className,
+      content = props.content,
+      hidden = props.hidden,
+      visible = props.visible;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(visible, 'visible'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(hidden, 'hidden'), 'content', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(ButtonContent, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(ButtonContent, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), _lib__WEBPACK_IMPORTED_MODULE_6__.isNil(children) ? content : children);
+}
+
+ButtonContent.handledProps = ["as", "children", "className", "content", "hidden", "visible"];
+ButtonContent.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_8__.contentShorthand,
+
+  /** Initially hidden, visible on hover. */
+  hidden: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().bool),
+
+  /** Initially visible, hidden on hover. */
+  visible: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().bool)
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ButtonContent);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/ButtonGroup.js":
+/*!***************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/ButtonGroup.js ***!
+  \***************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var lodash_es_map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash-es/map */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/map.js");
+/* harmony import */ var lodash_es_isNil__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash-es/isNil */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isNil.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/SUI.js");
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Button */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
+
+
+
+
+
+
+
+
+/**
+ * Buttons can be grouped.
+ */
+
+function ButtonGroup(props) {
+  var attached = props.attached,
+      basic = props.basic,
+      buttons = props.buttons,
+      children = props.children,
+      className = props.className,
+      color = props.color,
+      compact = props.compact,
+      content = props.content,
+      floated = props.floated,
+      fluid = props.fluid,
+      icon = props.icon,
+      inverted = props.inverted,
+      labeled = props.labeled,
+      negative = props.negative,
+      positive = props.positive,
+      primary = props.primary,
+      secondary = props.secondary,
+      size = props.size,
+      toggle = props.toggle,
+      vertical = props.vertical,
+      widths = props.widths;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('ui', color, size, (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(basic, 'basic'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(compact, 'compact'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(fluid, 'fluid'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(icon, 'icon'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(inverted, 'inverted'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(labeled, 'labeled'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(negative, 'negative'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(positive, 'positive'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(primary, 'primary'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(secondary, 'secondary'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(toggle, 'toggle'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(vertical, 'vertical'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOrValueAndKey)(attached, 'attached'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useValueAndKey)(floated, 'floated'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useWidthProp)(widths), 'buttons', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(ButtonGroup, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(ButtonGroup, props);
+
+  if ((0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_6__["default"])(buttons)) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      className: classes
+    }), _lib__WEBPACK_IMPORTED_MODULE_7__.isNil(children) ? content : children);
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), (0,lodash_es_map__WEBPACK_IMPORTED_MODULE_8__["default"])(buttons, function (button) {
+    return _Button__WEBPACK_IMPORTED_MODULE_9__["default"].create(button);
+  }));
+}
+
+ButtonGroup.handledProps = ["as", "attached", "basic", "buttons", "children", "className", "color", "compact", "content", "floated", "fluid", "icon", "inverted", "labeled", "negative", "positive", "primary", "secondary", "size", "toggle", "vertical", "widths"];
+ButtonGroup.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().elementType),
+
+  /** Groups can be attached to other content. */
+  attached: prop_types__WEBPACK_IMPORTED_MODULE_10___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool), prop_types__WEBPACK_IMPORTED_MODULE_10___default().oneOf(['left', 'right', 'top', 'bottom'])]),
+
+  /** Groups can be less pronounced. */
+  basic: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool),
+
+  /** Array of shorthand Button values. */
+  buttons: _lib__WEBPACK_IMPORTED_MODULE_11__.collectionShorthand,
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().string),
+
+  /** Groups can have a shared color. */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_10___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_12__.COLORS),
+
+  /** Groups can reduce their padding to fit into tighter spaces. */
+  compact: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_11__.contentShorthand,
+
+  /** Groups can be aligned to the left or right of its container. */
+  floated: prop_types__WEBPACK_IMPORTED_MODULE_10___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_12__.FLOATS),
+
+  /** Groups can take the width of their container. */
+  fluid: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool),
+
+  /** Groups can be formatted as icons. */
+  icon: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool),
+
+  /** Groups can be formatted to appear on dark backgrounds. */
+  inverted: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool),
+
+  /** Groups can be formatted as labeled icon buttons. */
+  labeled: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool),
+
+  /** Groups can hint towards a negative consequence. */
+  negative: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool),
+
+  /** Groups can hint towards a positive consequence. */
+  positive: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool),
+
+  /** Groups can be formatted to show different levels of emphasis. */
+  primary: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool),
+
+  /** Groups can be formatted to show different levels of emphasis. */
+  secondary: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool),
+
+  /** Groups can have different sizes. */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_10___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_12__.SIZES),
+
+  /** Groups can be formatted to toggle on and off. */
+  toggle: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool),
+
+  /** Groups can be formatted to appear vertically. */
+  vertical: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool),
+
+  /** Groups can have their widths divided evenly. */
+  widths: prop_types__WEBPACK_IMPORTED_MODULE_10___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_12__.WIDTHS)
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ButtonGroup);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/ButtonOr.js":
+/*!************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/ButtonOr.js ***!
+  \************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+
+
+
+
+
+/**
+ * Button groups can contain conditionals.
+ */
+
+function ButtonOr(props) {
+  var className = props.className,
+      text = props.text;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('or', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(ButtonOr, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(ButtonOr, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes,
+    "data-text": text
+  }));
+}
+
+ButtonOr.handledProps = ["as", "className", "text"];
+ButtonOr.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().elementType),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string),
+
+  /** Or buttons can have their text localized, or adjusted by using the text prop. */
+  text: prop_types__WEBPACK_IMPORTED_MODULE_5___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_5___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string)])
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ButtonOr);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Flag/Flag.js":
+/*!******************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Flag/Flag.js ***!
+  \******************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "names": () => (/* binding */ names)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+
+
+
+
+
+
+var names = ['ad', 'andorra', 'ae', 'united arab emirates', 'uae', 'af', 'afghanistan', 'ag', 'antigua', 'ai', 'anguilla', 'al', 'albania', 'am', 'armenia', 'an', 'netherlands antilles', 'ao', 'angola', 'ar', 'argentina', 'as', 'american samoa', 'at', 'austria', 'au', 'australia', 'aw', 'aruba', 'ax', 'aland islands', 'az', 'azerbaijan', 'ba', 'bosnia', 'bb', 'barbados', 'bd', 'bangladesh', 'be', 'belgium', 'bf', 'burkina faso', 'bg', 'bulgaria', 'bh', 'bahrain', 'bi', 'burundi', 'bj', 'benin', 'bm', 'bermuda', 'bn', 'brunei', 'bo', 'bolivia', 'br', 'brazil', 'bs', 'bahamas', 'bt', 'bhutan', 'bv', 'bouvet island', 'bw', 'botswana', 'by', 'belarus', 'bz', 'belize', 'ca', 'canada', 'cc', 'cocos islands', 'cd', 'congo', 'cf', 'central african republic', 'cg', 'congo brazzaville', 'ch', 'switzerland', 'ci', 'cote divoire', 'ck', 'cook islands', 'cl', 'chile', 'cm', 'cameroon', 'cn', 'china', 'co', 'colombia', 'cr', 'costa rica', 'cs', 'cu', 'cuba', 'cv', 'cape verde', 'cx', 'christmas island', 'cy', 'cyprus', 'cz', 'czech republic', 'de', 'germany', 'dj', 'djibouti', 'dk', 'denmark', 'dm', 'dominica', 'do', 'dominican republic', 'dz', 'algeria', 'ec', 'ecuador', 'england', 'gb eng', 'ee', 'estonia', 'eg', 'egypt', 'eh', 'western sahara', 'er', 'eritrea', 'es', 'spain', 'et', 'ethiopia', 'eu', 'european union', 'fi', 'finland', 'fj', 'fiji', 'fk', 'falkland islands', 'fm', 'micronesia', 'fo', 'faroe islands', 'fr', 'france', 'ga', 'gabon', 'gb', 'uk', 'united kingdom', 'gd', 'grenada', 'ge', 'georgia', 'gf', 'french guiana', 'gh', 'ghana', 'gi', 'gibraltar', 'gl', 'greenland', 'gm', 'gambia', 'gn', 'guinea', 'gp', 'guadeloupe', 'gq', 'equatorial guinea', 'gr', 'greece', 'gs', 'sandwich islands', 'gt', 'guatemala', 'gu', 'guam', 'gw', 'guinea-bissau', 'gy', 'guyana', 'hk', 'hong kong', 'hm', 'heard island', 'hn', 'honduras', 'hr', 'croatia', 'ht', 'haiti', 'hu', 'hungary', 'id', 'indonesia', 'ie', 'ireland', 'il', 'israel', 'in', 'india', 'io', 'indian ocean territory', 'iq', 'iraq', 'ir', 'iran', 'is', 'iceland', 'it', 'italy', 'jm', 'jamaica', 'jo', 'jordan', 'jp', 'japan', 'ke', 'kenya', 'kg', 'kyrgyzstan', 'kh', 'cambodia', 'ki', 'kiribati', 'km', 'comoros', 'kn', 'saint kitts and nevis', 'kp', 'north korea', 'kr', 'south korea', 'kw', 'kuwait', 'ky', 'cayman islands', 'kz', 'kazakhstan', 'la', 'laos', 'lb', 'lebanon', 'lc', 'saint lucia', 'li', 'liechtenstein', 'lk', 'sri lanka', 'lr', 'liberia', 'ls', 'lesotho', 'lt', 'lithuania', 'lu', 'luxembourg', 'lv', 'latvia', 'ly', 'libya', 'ma', 'morocco', 'mc', 'monaco', 'md', 'moldova', 'me', 'montenegro', 'mg', 'madagascar', 'mh', 'marshall islands', 'mk', 'macedonia', 'ml', 'mali', 'mm', 'myanmar', 'burma', 'mn', 'mongolia', 'mo', 'macau', 'mp', 'northern mariana islands', 'mq', 'martinique', 'mr', 'mauritania', 'ms', 'montserrat', 'mt', 'malta', 'mu', 'mauritius', 'mv', 'maldives', 'mw', 'malawi', 'mx', 'mexico', 'my', 'malaysia', 'mz', 'mozambique', 'na', 'namibia', 'nc', 'new caledonia', 'ne', 'niger', 'nf', 'norfolk island', 'ng', 'nigeria', 'ni', 'nicaragua', 'nl', 'netherlands', 'no', 'norway', 'np', 'nepal', 'nr', 'nauru', 'nu', 'niue', 'nz', 'new zealand', 'om', 'oman', 'pa', 'panama', 'pe', 'peru', 'pf', 'french polynesia', 'pg', 'new guinea', 'ph', 'philippines', 'pk', 'pakistan', 'pl', 'poland', 'pm', 'saint pierre', 'pn', 'pitcairn islands', 'pr', 'puerto rico', 'ps', 'palestine', 'pt', 'portugal', 'pw', 'palau', 'py', 'paraguay', 'qa', 'qatar', 're', 'reunion', 'ro', 'romania', 'rs', 'serbia', 'ru', 'russia', 'rw', 'rwanda', 'sa', 'saudi arabia', 'sb', 'solomon islands', 'sc', 'seychelles', 'gb sct', 'scotland', 'sd', 'sudan', 'se', 'sweden', 'sg', 'singapore', 'sh', 'saint helena', 'si', 'slovenia', 'sj', 'svalbard', 'jan mayen', 'sk', 'slovakia', 'sl', 'sierra leone', 'sm', 'san marino', 'sn', 'senegal', 'so', 'somalia', 'sr', 'suriname', 'st', 'sao tome', 'sv', 'el salvador', 'sy', 'syria', 'sz', 'swaziland', 'tc', 'caicos islands', 'td', 'chad', 'tf', 'french territories', 'tg', 'togo', 'th', 'thailand', 'tj', 'tajikistan', 'tk', 'tokelau', 'tl', 'timorleste', 'tm', 'turkmenistan', 'tn', 'tunisia', 'to', 'tonga', 'tr', 'turkey', 'tt', 'trinidad', 'tv', 'tuvalu', 'tw', 'taiwan', 'tz', 'tanzania', 'ua', 'ukraine', 'ug', 'uganda', 'um', 'us minor islands', 'us', 'america', 'united states', 'uy', 'uruguay', 'uz', 'uzbekistan', 'va', 'vatican city', 'vc', 'saint vincent', 've', 'venezuela', 'vg', 'british virgin islands', 'vi', 'us virgin islands', 'vn', 'vietnam', 'vu', 'vanuatu', 'gb wls', 'wales', 'wf', 'wallis and futuna', 'ws', 'samoa', 'ye', 'yemen', 'yt', 'mayotte', 'za', 'south africa', 'zm', 'zambia', 'zw', 'zimbabwe'];
+/**
+ * A flag is is used to represent a political state.
+ */
+
+var Flag = /*#__PURE__*/function (_PureComponent) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(Flag, _PureComponent);
+
+  function Flag() {
+    return _PureComponent.apply(this, arguments) || this;
+  }
+
+  var _proto = Flag.prototype;
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        className = _this$props.className,
+        name = _this$props.name;
+    var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])(name, 'flag', className);
+    var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(Flag, this.props);
+    var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(Flag, this.props);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      className: classes
+    }));
+  };
+
+  return Flag;
+}(react__WEBPACK_IMPORTED_MODULE_3__.PureComponent);
+
+Flag.handledProps = ["as", "className", "name"];
+Flag.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().elementType),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+
+  /** Flag name, can use the two digit country code, the full name, or a common alias. */
+  name: _lib__WEBPACK_IMPORTED_MODULE_7__.suggest(names)
+} : 0;
+Flag.defaultProps = {
+  as: 'i'
+};
+Flag.create = (0,_lib__WEBPACK_IMPORTED_MODULE_8__.createShorthandFactory)(Flag, function (value) {
+  return {
+    name: value
+  };
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Flag);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Header/Header.js":
+/*!**********************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Header/Header.js ***!
+  \**********************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var lodash_es_without__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! lodash-es/without */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/without.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/SUI.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _Icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Icon */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Icon/Icon.js");
+/* harmony import */ var _Image__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Image */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Image/Image.js");
+/* harmony import */ var _HeaderSubheader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./HeaderSubheader */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Header/HeaderSubheader.js");
+/* harmony import */ var _HeaderContent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./HeaderContent */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Header/HeaderContent.js");
+
+
+
+
+
+
+
+
+
+
+/**
+ * A header provides a short summary of content
+ */
+
+function Header(props) {
+  var attached = props.attached,
+      block = props.block,
+      children = props.children,
+      className = props.className,
+      color = props.color,
+      content = props.content,
+      disabled = props.disabled,
+      dividing = props.dividing,
+      floated = props.floated,
+      icon = props.icon,
+      image = props.image,
+      inverted = props.inverted,
+      size = props.size,
+      sub = props.sub,
+      subheader = props.subheader,
+      textAlign = props.textAlign;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('ui', color, size, (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(block, 'block'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(disabled, 'disabled'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(dividing, 'dividing'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useValueAndKey)(floated, 'floated'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(icon === true, 'icon'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(image === true, 'image'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(inverted, 'inverted'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(sub, 'sub'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOrValueAndKey)(attached, 'attached'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useTextAlignProp)(textAlign), 'header', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(Header, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(Header, props);
+
+  if (!_lib__WEBPACK_IMPORTED_MODULE_6__.isNil(children)) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      className: classes
+    }), children);
+  }
+
+  var iconElement = _Icon__WEBPACK_IMPORTED_MODULE_7__["default"].create(icon, {
+    autoGenerateKey: false
+  });
+  var imageElement = _Image__WEBPACK_IMPORTED_MODULE_8__["default"].create(image, {
+    autoGenerateKey: false
+  });
+  var subheaderElement = _HeaderSubheader__WEBPACK_IMPORTED_MODULE_9__["default"].create(subheader, {
+    autoGenerateKey: false
+  });
+
+  if (iconElement || imageElement) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      className: classes
+    }), iconElement || imageElement, (content || subheaderElement) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_HeaderContent__WEBPACK_IMPORTED_MODULE_10__["default"], null, content, subheaderElement));
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), content, subheaderElement);
+}
+
+Header.handledProps = ["as", "attached", "block", "children", "className", "color", "content", "disabled", "dividing", "floated", "icon", "image", "inverted", "size", "sub", "subheader", "textAlign"];
+Header.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().elementType),
+
+  /** Attach header  to other content, like a segment. */
+  attached: prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool), prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOf(['top', 'bottom'])]),
+
+  /** Format header to appear inside a content block. */
+  block: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().string),
+
+  /** Color of the header. */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_12__.COLORS),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_13__.contentShorthand,
+
+  /** Show that the header is inactive. */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+
+  /** Divide header from the content below it. */
+  dividing: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+
+  /** Header can sit to the left or right of other content. */
+  floated: prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_12__.FLOATS),
+
+  /** Add an icon by icon name or pass an Icon. */
+  icon: _lib__WEBPACK_IMPORTED_MODULE_13__.every([_lib__WEBPACK_IMPORTED_MODULE_13__.disallow(['image']), prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool), _lib__WEBPACK_IMPORTED_MODULE_13__.itemShorthand])]),
+
+  /** Add an image by img src or pass an Image. */
+  image: _lib__WEBPACK_IMPORTED_MODULE_13__.every([_lib__WEBPACK_IMPORTED_MODULE_13__.disallow(['icon']), prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool), _lib__WEBPACK_IMPORTED_MODULE_13__.itemShorthand])]),
+
+  /** Inverts the color of the header for dark backgrounds. */
+  inverted: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+
+  /** Content headings are sized with em and are based on the font-size of their container. */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOf((0,lodash_es_without__WEBPACK_IMPORTED_MODULE_14__["default"])(_lib__WEBPACK_IMPORTED_MODULE_12__.SIZES, 'big', 'massive', 'mini')),
+
+  /** Headers may be formatted to label smaller or de-emphasized content. */
+  sub: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+
+  /** Shorthand for Header.Subheader. */
+  subheader: _lib__WEBPACK_IMPORTED_MODULE_13__.itemShorthand,
+
+  /** Align header content. */
+  textAlign: prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_12__.TEXT_ALIGNMENTS)
+} : 0;
+Header.Content = _HeaderContent__WEBPACK_IMPORTED_MODULE_10__["default"];
+Header.Subheader = _HeaderSubheader__WEBPACK_IMPORTED_MODULE_9__["default"];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Header/HeaderContent.js":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Header/HeaderContent.js ***!
+  \*****************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+
+
+
+
+
+/**
+ * Header content wraps the main content when there is an adjacent Icon or Image.
+ */
+
+function HeaderContent(props) {
+  var children = props.children,
+      className = props.className,
+      content = props.content;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('content', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(HeaderContent, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(HeaderContent, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), _lib__WEBPACK_IMPORTED_MODULE_5__.isNil(children) ? content : children);
+}
+
+HeaderContent.handledProps = ["as", "children", "className", "content"];
+HeaderContent.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_7__.contentShorthand
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeaderContent);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Header/HeaderSubheader.js":
+/*!*******************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Header/HeaderSubheader.js ***!
+  \*******************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+
+
+
+
+
+/**
+ * Headers may contain subheaders.
+ */
+
+function HeaderSubheader(props) {
+  var children = props.children,
+      className = props.className,
+      content = props.content;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('sub header', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(HeaderSubheader, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(HeaderSubheader, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), _lib__WEBPACK_IMPORTED_MODULE_5__.isNil(children) ? content : children);
+}
+
+HeaderSubheader.handledProps = ["as", "children", "className", "content"];
+HeaderSubheader.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_7__.contentShorthand
+} : 0;
+HeaderSubheader.create = (0,_lib__WEBPACK_IMPORTED_MODULE_8__.createShorthandFactory)(HeaderSubheader, function (content) {
+  return {
+    content: content
+  };
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeaderSubheader);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Icon/Icon.js":
+/*!******************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Icon/Icon.js ***!
+  \******************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_without__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! lodash-es/without */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/without.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var lodash_es_isNil__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash-es/isNil */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isNil.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/SUI.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+/* harmony import */ var _IconGroup__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./IconGroup */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Icon/IconGroup.js");
+
+
+
+
+
+
+
+
+
+
+/**
+ * An icon is a glyph used to represent something else.
+ * @see Image
+ */
+
+var Icon = /*#__PURE__*/function (_PureComponent) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(Icon, _PureComponent);
+
+  function Icon() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _PureComponent.call.apply(_PureComponent, [this].concat(args)) || this;
+
+    _this.handleClick = function (e) {
+      var disabled = _this.props.disabled;
+
+      if (disabled) {
+        e.preventDefault();
+        return;
+      }
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"])(_this.props, 'onClick', e, _this.props);
+    };
+
+    return _this;
+  }
+
+  var _proto = Icon.prototype;
+
+  _proto.getIconAriaOptions = function getIconAriaOptions() {
+    var ariaOptions = {};
+    var _this$props = this.props,
+        ariaLabel = _this$props['aria-label'],
+        ariaHidden = _this$props['aria-hidden'];
+
+    if ((0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_5__["default"])(ariaLabel)) {
+      ariaOptions['aria-hidden'] = 'true';
+    } else {
+      ariaOptions['aria-label'] = ariaLabel;
+    }
+
+    if (!(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_5__["default"])(ariaHidden)) {
+      ariaOptions['aria-hidden'] = ariaHidden;
+    }
+
+    return ariaOptions;
+  };
+
+  _proto.render = function render() {
+    var _this$props2 = this.props,
+        bordered = _this$props2.bordered,
+        circular = _this$props2.circular,
+        className = _this$props2.className,
+        color = _this$props2.color,
+        corner = _this$props2.corner,
+        disabled = _this$props2.disabled,
+        fitted = _this$props2.fitted,
+        flipped = _this$props2.flipped,
+        inverted = _this$props2.inverted,
+        link = _this$props2.link,
+        loading = _this$props2.loading,
+        name = _this$props2.name,
+        rotated = _this$props2.rotated,
+        size = _this$props2.size;
+    var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])(color, name, size, (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useKeyOnly)(bordered, 'bordered'), (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useKeyOnly)(circular, 'circular'), (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useKeyOnly)(disabled, 'disabled'), (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useKeyOnly)(fitted, 'fitted'), (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useKeyOnly)(inverted, 'inverted'), (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useKeyOnly)(link, 'link'), (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useKeyOnly)(loading, 'loading'), (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useKeyOrValueAndKey)(corner, 'corner'), (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useValueAndKey)(flipped, 'flipped'), (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useValueAndKey)(rotated, 'rotated'), 'icon', className);
+    var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_7__["default"])(Icon, this.props);
+    var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_8__["default"])(Icon, this.props);
+    var ariaOptions = this.getIconAriaOptions();
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, ariaOptions, {
+      className: classes,
+      onClick: this.handleClick
+    }));
+  };
+
+  return Icon;
+}(react__WEBPACK_IMPORTED_MODULE_3__.PureComponent);
+
+Icon.handledProps = ["aria-hidden", "aria-label", "as", "bordered", "circular", "className", "color", "corner", "disabled", "fitted", "flipped", "inverted", "link", "loading", "name", "rotated", "size"];
+Icon.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().elementType),
+
+  /** Formatted to appear bordered. */
+  bordered: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool),
+
+  /** Icon can formatted to appear circular. */
+  circular: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().string),
+
+  /** Color of the icon. */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_9___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_10__.COLORS),
+
+  /** Icons can display a smaller corner icon. */
+  corner: prop_types__WEBPACK_IMPORTED_MODULE_9___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool), prop_types__WEBPACK_IMPORTED_MODULE_9___default().oneOf(['top left', 'top right', 'bottom left', 'bottom right'])]),
+
+  /** Show that the icon is inactive. */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool),
+
+  /** Fitted, without space to left or right of Icon. */
+  fitted: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool),
+
+  /** Icon can be flipped. */
+  flipped: prop_types__WEBPACK_IMPORTED_MODULE_9___default().oneOf(['horizontally', 'vertically']),
+
+  /** Formatted to have its colors inverted for contrast. */
+  inverted: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool),
+
+  /** Icon can be formatted as a link. */
+  link: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool),
+
+  /** Icon can be used as a simple loader. */
+  loading: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool),
+
+  /** Name of the icon. */
+  name: _lib__WEBPACK_IMPORTED_MODULE_11__.suggest(_lib__WEBPACK_IMPORTED_MODULE_10__.ALL_ICONS_IN_ALL_CONTEXTS),
+
+  /** Icon can rotated. */
+  rotated: prop_types__WEBPACK_IMPORTED_MODULE_9___default().oneOf(['clockwise', 'counterclockwise']),
+
+  /** Size of the icon. */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_9___default().oneOf((0,lodash_es_without__WEBPACK_IMPORTED_MODULE_12__["default"])(_lib__WEBPACK_IMPORTED_MODULE_10__.SIZES, 'medium')),
+
+  /** Icon can have an aria label. */
+  'aria-hidden': (prop_types__WEBPACK_IMPORTED_MODULE_9___default().string),
+
+  /** Icon can have an aria label. */
+  'aria-label': (prop_types__WEBPACK_IMPORTED_MODULE_9___default().string)
+} : 0;
+Icon.defaultProps = {
+  as: 'i'
+};
+Icon.Group = _IconGroup__WEBPACK_IMPORTED_MODULE_13__["default"];
+Icon.create = (0,_lib__WEBPACK_IMPORTED_MODULE_14__.createShorthandFactory)(Icon, function (value) {
+  return {
+    name: value
+  };
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Icon);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Icon/IconGroup.js":
+/*!***********************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Icon/IconGroup.js ***!
+  \***********************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var lodash_es_without__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash-es/without */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/without.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/SUI.js");
+
+
+
+
+
+
+/**
+ * Several icons can be used together as a group.
+ */
+
+function IconGroup(props) {
+  var children = props.children,
+      className = props.className,
+      content = props.content,
+      size = props.size;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])(size, 'icons', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(IconGroup, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(IconGroup, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), _lib__WEBPACK_IMPORTED_MODULE_5__.isNil(children) ? content : children);
+}
+
+IconGroup.handledProps = ["as", "children", "className", "content", "size"];
+IconGroup.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_7__.contentShorthand,
+
+  /** Size of the icon group. */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_6___default().oneOf((0,lodash_es_without__WEBPACK_IMPORTED_MODULE_8__["default"])(_lib__WEBPACK_IMPORTED_MODULE_9__.SIZES, 'medium'))
+} : 0;
+IconGroup.defaultProps = {
+  as: 'i'
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IconGroup);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Image/Image.js":
+/*!********************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Image/Image.js ***!
+  \********************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var lodash_es_isNil__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lodash-es/isNil */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isNil.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/htmlPropsUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/SUI.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+/* harmony import */ var _modules_Dimmer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../modules/Dimmer */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dimmer/Dimmer.js");
+/* harmony import */ var _Label_Label__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Label/Label */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Label/Label.js");
+/* harmony import */ var _ImageGroup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./ImageGroup */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Image/ImageGroup.js");
+
+
+
+
+
+
+
+
+
+/**
+ * An image is a graphic representation of something.
+ * @see Icon
+ */
+
+function Image(props) {
+  var avatar = props.avatar,
+      bordered = props.bordered,
+      centered = props.centered,
+      children = props.children,
+      circular = props.circular,
+      className = props.className,
+      content = props.content,
+      dimmer = props.dimmer,
+      disabled = props.disabled,
+      floated = props.floated,
+      fluid = props.fluid,
+      hidden = props.hidden,
+      href = props.href,
+      inline = props.inline,
+      label = props.label,
+      rounded = props.rounded,
+      size = props.size,
+      spaced = props.spaced,
+      verticalAlign = props.verticalAlign,
+      wrapped = props.wrapped,
+      ui = props.ui;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(ui, 'ui'), size, (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(avatar, 'avatar'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(bordered, 'bordered'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(circular, 'circular'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(centered, 'centered'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(disabled, 'disabled'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(fluid, 'fluid'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(hidden, 'hidden'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(inline, 'inline'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(rounded, 'rounded'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOrValueAndKey)(spaced, 'spaced'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useValueAndKey)(floated, 'floated'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useVerticalAlignProp)(verticalAlign, 'aligned'), 'image', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(Image, props);
+
+  var _partitionHTMLProps = (0,_lib__WEBPACK_IMPORTED_MODULE_5__.partitionHTMLProps)(rest, {
+    htmlProps: _lib__WEBPACK_IMPORTED_MODULE_5__.htmlImageProps
+  }),
+      imgTagProps = _partitionHTMLProps[0],
+      rootProps = _partitionHTMLProps[1];
+
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_6__["default"])(Image, props, function () {
+    if (!(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_7__["default"])(dimmer) || !(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_7__["default"])(label) || !(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_7__["default"])(wrapped) || !_lib__WEBPACK_IMPORTED_MODULE_8__.isNil(children)) {
+      return 'div';
+    }
+  });
+
+  if (!_lib__WEBPACK_IMPORTED_MODULE_8__.isNil(children)) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      className: classes
+    }), children);
+  }
+
+  if (!_lib__WEBPACK_IMPORTED_MODULE_8__.isNil(content)) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      className: classes
+    }), content);
+  }
+
+  if (ElementType === 'img') {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rootProps, imgTagProps, {
+      className: classes
+    }));
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rootProps, {
+    className: classes,
+    href: href
+  }), _modules_Dimmer__WEBPACK_IMPORTED_MODULE_9__["default"].create(dimmer, {
+    autoGenerateKey: false
+  }), _Label_Label__WEBPACK_IMPORTED_MODULE_10__["default"].create(label, {
+    autoGenerateKey: false
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("img", imgTagProps));
+}
+
+Image.handledProps = ["as", "avatar", "bordered", "centered", "children", "circular", "className", "content", "dimmer", "disabled", "floated", "fluid", "hidden", "href", "inline", "label", "rounded", "size", "spaced", "ui", "verticalAlign", "wrapped"];
+Image.Group = _ImageGroup__WEBPACK_IMPORTED_MODULE_11__["default"];
+Image.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().elementType),
+
+  /** An image may be formatted to appear inline with text as an avatar. */
+  avatar: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** An image may include a border to emphasize the edges of white or transparent content. */
+  bordered: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** An image can appear centered in a content block. */
+  centered: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().node),
+
+  /** An image may appear circular. */
+  circular: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_13__.contentShorthand,
+
+  /** An image can show that it is disabled and cannot be selected. */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Shorthand for Dimmer. */
+  dimmer: _lib__WEBPACK_IMPORTED_MODULE_13__.itemShorthand,
+
+  /** An image can sit to the left or right of other content. */
+  floated: prop_types__WEBPACK_IMPORTED_MODULE_12___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_14__.FLOATS),
+
+  /** An image can take up the width of its container. */
+  fluid: _lib__WEBPACK_IMPORTED_MODULE_13__.every([(prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool), _lib__WEBPACK_IMPORTED_MODULE_13__.disallow(['size'])]),
+
+  /** An image can be hidden. */
+  hidden: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Renders the Image as an <a> tag with this href. */
+  href: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().string),
+
+  /** An image may appear inline. */
+  inline: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** Shorthand for Label. */
+  label: _lib__WEBPACK_IMPORTED_MODULE_13__.itemShorthand,
+
+  /** An image may appear rounded. */
+  rounded: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** An image may appear at different sizes. */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_12___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_14__.SIZES),
+
+  /** An image can specify that it needs an additional spacing to separate it from nearby content. */
+  spaced: prop_types__WEBPACK_IMPORTED_MODULE_12___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool), prop_types__WEBPACK_IMPORTED_MODULE_12___default().oneOf(['left', 'right'])]),
+
+  /** Whether or not to add the ui className. */
+  ui: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /** An image can specify its vertical alignment. */
+  verticalAlign: prop_types__WEBPACK_IMPORTED_MODULE_12___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_14__.VERTICAL_ALIGNMENTS),
+
+  /** An image can render wrapped in a `div.ui.image` as alternative HTML markup. */
+  wrapped: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool)
+} : 0;
+Image.defaultProps = {
+  as: 'img',
+  ui: true
+};
+Image.create = (0,_lib__WEBPACK_IMPORTED_MODULE_15__.createShorthandFactory)(Image, function (value) {
+  return {
+    src: value
+  };
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Image);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Image/ImageGroup.js":
+/*!*************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Image/ImageGroup.js ***!
+  \*************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/SUI.js");
+
+
+
+
+
+/**
+ * A group of images.
+ */
+
+function ImageGroup(props) {
+  var children = props.children,
+      className = props.className,
+      content = props.content,
+      size = props.size;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('ui', size, className, 'images');
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(ImageGroup, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(ImageGroup, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), _lib__WEBPACK_IMPORTED_MODULE_5__.isNil(children) ? content : children);
+}
+
+ImageGroup.handledProps = ["as", "children", "className", "content", "size"];
+ImageGroup.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_7__.contentShorthand,
+
+  /** A group of images can be formatted to have the same size. */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_6___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_8__.SIZES)
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageGroup);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Input/Input.js":
+/*!********************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Input/Input.js ***!
+  \********************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_includes__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! lodash-es/includes */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/includes.js");
+/* harmony import */ var lodash_es_map__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! lodash-es/map */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/map.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var lodash_es_get__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash-es/get */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/get.js");
+/* harmony import */ var lodash_es_isNil__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/isNil */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isNil.js");
+/* harmony import */ var _fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fluentui/react-component-ref */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/utils.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/htmlPropsUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../Button */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
+/* harmony import */ var _Icon__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../Icon */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Icon/Icon.js");
+/* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../Label */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Label/Label.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * An Input is a field used to elicit a response from a user.
+ * @see Button
+ * @see Form
+ * @see Icon
+ * @see Label
+ */
+
+var Input = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(Input, _Component);
+
+  function Input() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+    _this.inputRef = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_3__.createRef)();
+
+    _this.computeIcon = function () {
+      var _this$props = _this.props,
+          loading = _this$props.loading,
+          icon = _this$props.icon;
+      if (!(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_4__["default"])(icon)) return icon;
+      if (loading) return 'spinner';
+    };
+
+    _this.computeTabIndex = function () {
+      var _this$props2 = _this.props,
+          disabled = _this$props2.disabled,
+          tabIndex = _this$props2.tabIndex;
+      if (!(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_4__["default"])(tabIndex)) return tabIndex;
+      if (disabled) return -1;
+    };
+
+    _this.focus = function () {
+      return _this.inputRef.current.focus();
+    };
+
+    _this.select = function () {
+      return _this.inputRef.current.select();
+    };
+
+    _this.handleChange = function (e) {
+      var value = (0,lodash_es_get__WEBPACK_IMPORTED_MODULE_5__["default"])(e, 'target.value');
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_6__["default"])(_this.props, 'onChange', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+        value: value
+      }));
+    };
+
+    _this.handleChildOverrides = function (child, defaultProps) {
+      return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, defaultProps, child.props, {
+        ref: function ref(c) {
+          (0,_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_7__.handleRef)(child.ref, c);
+          _this.inputRef.current = c;
+        }
+      });
+    };
+
+    _this.partitionProps = function () {
+      var _this$props3 = _this.props,
+          disabled = _this$props3.disabled,
+          type = _this$props3.type;
+
+      var tabIndex = _this.computeTabIndex();
+
+      var unhandled = (0,_lib__WEBPACK_IMPORTED_MODULE_8__["default"])(Input, _this.props);
+
+      var _partitionHTMLProps = (0,_lib__WEBPACK_IMPORTED_MODULE_9__.partitionHTMLProps)(unhandled),
+          htmlInputProps = _partitionHTMLProps[0],
+          rest = _partitionHTMLProps[1];
+
+      return [(0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, htmlInputProps, {
+        disabled: disabled,
+        type: type,
+        tabIndex: tabIndex,
+        onChange: _this.handleChange,
+        ref: _this.inputRef
+      }), rest];
+    };
+
+    return _this;
+  }
+
+  var _proto = Input.prototype;
+
+  _proto.render = function render() {
+    var _this2 = this;
+
+    var _this$props4 = this.props,
+        action = _this$props4.action,
+        actionPosition = _this$props4.actionPosition,
+        children = _this$props4.children,
+        className = _this$props4.className,
+        disabled = _this$props4.disabled,
+        error = _this$props4.error,
+        fluid = _this$props4.fluid,
+        focus = _this$props4.focus,
+        icon = _this$props4.icon,
+        iconPosition = _this$props4.iconPosition,
+        input = _this$props4.input,
+        inverted = _this$props4.inverted,
+        label = _this$props4.label,
+        labelPosition = _this$props4.labelPosition,
+        loading = _this$props4.loading,
+        size = _this$props4.size,
+        transparent = _this$props4.transparent,
+        type = _this$props4.type;
+    var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('ui', size, (0,_lib__WEBPACK_IMPORTED_MODULE_10__.useKeyOnly)(disabled, 'disabled'), (0,_lib__WEBPACK_IMPORTED_MODULE_10__.useKeyOnly)(error, 'error'), (0,_lib__WEBPACK_IMPORTED_MODULE_10__.useKeyOnly)(fluid, 'fluid'), (0,_lib__WEBPACK_IMPORTED_MODULE_10__.useKeyOnly)(focus, 'focus'), (0,_lib__WEBPACK_IMPORTED_MODULE_10__.useKeyOnly)(inverted, 'inverted'), (0,_lib__WEBPACK_IMPORTED_MODULE_10__.useKeyOnly)(loading, 'loading'), (0,_lib__WEBPACK_IMPORTED_MODULE_10__.useKeyOnly)(transparent, 'transparent'), (0,_lib__WEBPACK_IMPORTED_MODULE_10__.useValueAndKey)(actionPosition, 'action') || (0,_lib__WEBPACK_IMPORTED_MODULE_10__.useKeyOnly)(action, 'action'), (0,_lib__WEBPACK_IMPORTED_MODULE_10__.useValueAndKey)(iconPosition, 'icon') || (0,_lib__WEBPACK_IMPORTED_MODULE_10__.useKeyOnly)(icon || loading, 'icon'), (0,_lib__WEBPACK_IMPORTED_MODULE_10__.useValueAndKey)(labelPosition, 'labeled') || (0,_lib__WEBPACK_IMPORTED_MODULE_10__.useKeyOnly)(label, 'labeled'), 'input', className);
+    var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_11__["default"])(Input, this.props);
+
+    var _this$partitionProps = this.partitionProps(),
+        htmlInputProps = _this$partitionProps[0],
+        rest = _this$partitionProps[1]; // Render with children
+    // ----------------------------------------
+
+
+    if (!_lib__WEBPACK_IMPORTED_MODULE_12__.isNil(children)) {
+      // add htmlInputProps to the `<input />` child
+      var childElements = (0,lodash_es_map__WEBPACK_IMPORTED_MODULE_13__["default"])(react__WEBPACK_IMPORTED_MODULE_3__.Children.toArray(children), function (child) {
+        if (child.type !== 'input') return child;
+        return /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_3__.cloneElement)(child, _this2.handleChildOverrides(child, htmlInputProps));
+      });
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+        className: classes
+      }), childElements);
+    } // Render Shorthand
+    // ----------------------------------------
+
+
+    var actionElement = _Button__WEBPACK_IMPORTED_MODULE_14__["default"].create(action, {
+      autoGenerateKey: false
+    });
+    var labelElement = _Label__WEBPACK_IMPORTED_MODULE_15__["default"].create(label, {
+      defaultProps: {
+        className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('label', // add 'left|right corner'
+        (0,lodash_es_includes__WEBPACK_IMPORTED_MODULE_16__["default"])(labelPosition, 'corner') && labelPosition)
+      },
+      autoGenerateKey: false
+    });
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      className: classes
+    }), actionPosition === 'left' && actionElement, labelPosition !== 'right' && labelElement, (0,_lib__WEBPACK_IMPORTED_MODULE_17__.createHTMLInput)(input || type, {
+      defaultProps: htmlInputProps,
+      autoGenerateKey: false
+    }), _Icon__WEBPACK_IMPORTED_MODULE_18__["default"].create(this.computeIcon(), {
+      autoGenerateKey: false
+    }), actionPosition !== 'left' && actionElement, labelPosition === 'right' && labelElement);
+  };
+
+  return Input;
+}(react__WEBPACK_IMPORTED_MODULE_3__.Component);
+
+Input.handledProps = ["action", "actionPosition", "as", "children", "className", "disabled", "error", "fluid", "focus", "icon", "iconPosition", "input", "inverted", "label", "labelPosition", "loading", "onChange", "size", "tabIndex", "transparent", "type"];
+Input.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_19___default().elementType),
+
+  /** An Input can be formatted to alert the user to an action they may perform. */
+  action: prop_types__WEBPACK_IMPORTED_MODULE_19___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_19___default().bool), _lib__WEBPACK_IMPORTED_MODULE_20__.itemShorthand]),
+
+  /** An action can appear along side an Input on the left or right. */
+  actionPosition: prop_types__WEBPACK_IMPORTED_MODULE_19___default().oneOf(['left']),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_19___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_19___default().string),
+
+  /** An Input field can show that it is disabled. */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_19___default().bool),
+
+  /** An Input field can show the data contains errors. */
+  error: (prop_types__WEBPACK_IMPORTED_MODULE_19___default().bool),
+
+  /** Take on the size of its container. */
+  fluid: (prop_types__WEBPACK_IMPORTED_MODULE_19___default().bool),
+
+  /** An Input field can show a user is currently interacting with it. */
+  focus: (prop_types__WEBPACK_IMPORTED_MODULE_19___default().bool),
+
+  /** Optional Icon to display inside the Input. */
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_19___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_19___default().bool), _lib__WEBPACK_IMPORTED_MODULE_20__.itemShorthand]),
+
+  /** An Icon can appear inside an Input on the left or right. */
+  iconPosition: prop_types__WEBPACK_IMPORTED_MODULE_19___default().oneOf(['left']),
+
+  /** Shorthand for creating the HTML Input. */
+  input: _lib__WEBPACK_IMPORTED_MODULE_20__.itemShorthand,
+
+  /** Format to appear on dark backgrounds. */
+  inverted: (prop_types__WEBPACK_IMPORTED_MODULE_19___default().bool),
+
+  /** Optional Label to display along side the Input. */
+  label: _lib__WEBPACK_IMPORTED_MODULE_20__.itemShorthand,
+
+  /** A Label can appear outside an Input on the left or right. */
+  labelPosition: prop_types__WEBPACK_IMPORTED_MODULE_19___default().oneOf(['left', 'right', 'left corner', 'right corner']),
+
+  /** An Icon Input field can show that it is currently loading data. */
+  loading: (prop_types__WEBPACK_IMPORTED_MODULE_19___default().bool),
+
+  /**
+   * Called on change.
+   *
+   * @param {ChangeEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props and a proposed value.
+   */
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_19___default().func),
+
+  /** An Input can vary in size. */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_19___default().oneOf(['mini', 'small', 'large', 'big', 'huge', 'massive']),
+
+  /** An Input can receive focus. */
+  tabIndex: prop_types__WEBPACK_IMPORTED_MODULE_19___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_19___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_19___default().string)]),
+
+  /** Transparent Input has no background. */
+  transparent: (prop_types__WEBPACK_IMPORTED_MODULE_19___default().bool),
+
+  /** The HTML input type. */
+  type: (prop_types__WEBPACK_IMPORTED_MODULE_19___default().string)
+} : 0;
+Input.defaultProps = {
+  type: 'text'
+};
+Input.create = (0,_lib__WEBPACK_IMPORTED_MODULE_17__.createShorthandFactory)(Input, function (type) {
+  return {
+    type: type
+  };
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Input);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Label/Label.js":
+/*!********************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Label/Label.js ***!
+  \********************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Label)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_isUndefined__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lodash-es/isUndefined */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isUndefined.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/SUI.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+/* harmony import */ var _Icon_Icon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Icon/Icon */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Icon/Icon.js");
+/* harmony import */ var _Image_Image__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Image/Image */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Image/Image.js");
+/* harmony import */ var _LabelDetail__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./LabelDetail */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Label/LabelDetail.js");
+/* harmony import */ var _LabelGroup__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./LabelGroup */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Label/LabelGroup.js");
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * A label displays content classification.
+ */
+
+var Label = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(Label, _Component);
+
+  function Label() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _this.handleClick = function (e) {
+      var onClick = _this.props.onClick;
+      if (onClick) onClick(e, _this.props);
+    };
+
+    _this.handleIconOverrides = function (predefinedProps) {
+      return {
+        onClick: function onClick(e) {
+          (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"])(predefinedProps, 'onClick', e);
+
+          (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"])(_this.props, 'onRemove', e, _this.props);
+        }
+      };
+    };
+
+    return _this;
+  }
+
+  var _proto = Label.prototype;
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        active = _this$props.active,
+        attached = _this$props.attached,
+        basic = _this$props.basic,
+        children = _this$props.children,
+        circular = _this$props.circular,
+        className = _this$props.className,
+        color = _this$props.color,
+        content = _this$props.content,
+        corner = _this$props.corner,
+        detail = _this$props.detail,
+        empty = _this$props.empty,
+        floating = _this$props.floating,
+        horizontal = _this$props.horizontal,
+        icon = _this$props.icon,
+        image = _this$props.image,
+        onRemove = _this$props.onRemove,
+        pointing = _this$props.pointing,
+        prompt = _this$props.prompt,
+        removeIcon = _this$props.removeIcon,
+        ribbon = _this$props.ribbon,
+        size = _this$props.size,
+        tag = _this$props.tag;
+    var pointingClass = pointing === true && 'pointing' || (pointing === 'left' || pointing === 'right') && pointing + " pointing" || (pointing === 'above' || pointing === 'below') && "pointing " + pointing;
+    var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('ui', color, pointingClass, size, (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(active, 'active'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(basic, 'basic'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(circular, 'circular'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(empty, 'empty'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(floating, 'floating'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(horizontal, 'horizontal'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(image === true, 'image'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(prompt, 'prompt'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(tag, 'tag'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOrValueAndKey)(corner, 'corner'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOrValueAndKey)(ribbon, 'ribbon'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useValueAndKey)(attached, 'attached'), 'label', className);
+    var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_6__["default"])(Label, this.props);
+    var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_7__["default"])(Label, this.props);
+
+    if (!_lib__WEBPACK_IMPORTED_MODULE_8__.isNil(children)) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+        className: classes,
+        onClick: this.handleClick
+      }), children);
+    }
+
+    var removeIconShorthand = (0,lodash_es_isUndefined__WEBPACK_IMPORTED_MODULE_9__["default"])(removeIcon) ? 'delete' : removeIcon;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      className: classes,
+      onClick: this.handleClick
+    }, rest), _Icon_Icon__WEBPACK_IMPORTED_MODULE_10__["default"].create(icon, {
+      autoGenerateKey: false
+    }), typeof image !== 'boolean' && _Image_Image__WEBPACK_IMPORTED_MODULE_11__["default"].create(image, {
+      autoGenerateKey: false
+    }), content, _LabelDetail__WEBPACK_IMPORTED_MODULE_12__["default"].create(detail, {
+      autoGenerateKey: false
+    }), onRemove && _Icon_Icon__WEBPACK_IMPORTED_MODULE_10__["default"].create(removeIconShorthand, {
+      autoGenerateKey: false,
+      overrideProps: this.handleIconOverrides
+    }));
+  };
+
+  return Label;
+}(react__WEBPACK_IMPORTED_MODULE_3__.Component);
+
+Label.handledProps = ["active", "as", "attached", "basic", "children", "circular", "className", "color", "content", "corner", "detail", "empty", "floating", "horizontal", "icon", "image", "onClick", "onRemove", "pointing", "prompt", "removeIcon", "ribbon", "size", "tag"];
+
+Label.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().elementType),
+
+  /** A label can be active. */
+  active: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** A label can attach to a content segment. */
+  attached: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(['top', 'bottom', 'top right', 'top left', 'bottom left', 'bottom right']),
+
+  /** A label can reduce its complexity. */
+  basic: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().node),
+
+  /** A label can be circular. */
+  circular: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().string),
+
+  /** Color of the label. */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_14__.COLORS),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_15__.contentShorthand,
+
+  /** A label can position itself in the corner of an element. */
+  corner: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool), prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(['left', 'right'])]),
+
+  /** Shorthand for LabelDetail. */
+  detail: _lib__WEBPACK_IMPORTED_MODULE_15__.itemShorthand,
+
+  /** Formats the label as a dot. */
+  empty: _lib__WEBPACK_IMPORTED_MODULE_15__.every([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool), _lib__WEBPACK_IMPORTED_MODULE_15__.demand(['circular'])]),
+
+  /** Float above another element in the upper right corner. */
+  floating: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** A horizontal label is formatted to label content along-side it horizontally. */
+  horizontal: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** Shorthand for Icon. */
+  icon: _lib__WEBPACK_IMPORTED_MODULE_15__.itemShorthand,
+
+  /** A label can be formatted to emphasize an image or prop can be used as shorthand for Image. */
+  image: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool), _lib__WEBPACK_IMPORTED_MODULE_15__.itemShorthand]),
+
+  /**
+   * Called on click.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onClick: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().func),
+
+  /**
+   * Adds an "x" icon, called when "x" is clicked.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onRemove: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().func),
+
+  /** A label can point to content next to it. */
+  pointing: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool), prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(['above', 'below', 'left', 'right'])]),
+
+  /** A label can prompt for an error in your forms. */
+  prompt: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
+
+  /** Shorthand for Icon to appear as the last child and trigger onRemove. */
+  removeIcon: _lib__WEBPACK_IMPORTED_MODULE_15__.itemShorthand,
+
+  /** A label can appear as a ribbon attaching itself to an element. */
+  ribbon: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool), prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(['right'])]),
+
+  /** A label can have different sizes. */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_14__.SIZES),
+
+  /** A label can appear as a tag. */
+  tag: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool)
+} : 0;
+Label.Detail = _LabelDetail__WEBPACK_IMPORTED_MODULE_12__["default"];
+Label.Group = _LabelGroup__WEBPACK_IMPORTED_MODULE_16__["default"];
+Label.create = (0,_lib__WEBPACK_IMPORTED_MODULE_17__.createShorthandFactory)(Label, function (value) {
+  return {
+    content: value
+  };
+});
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Label/LabelDetail.js":
+/*!**************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Label/LabelDetail.js ***!
+  \**************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+
+
+
+
+
+
+function LabelDetail(props) {
+  var children = props.children,
+      className = props.className,
+      content = props.content;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('detail', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(LabelDetail, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(LabelDetail, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), _lib__WEBPACK_IMPORTED_MODULE_5__.isNil(children) ? content : children);
+}
+
+LabelDetail.handledProps = ["as", "children", "className", "content"];
+LabelDetail.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_7__.contentShorthand
+} : 0;
+LabelDetail.create = (0,_lib__WEBPACK_IMPORTED_MODULE_8__.createShorthandFactory)(LabelDetail, function (val) {
+  return {
+    content: val
+  };
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LabelDetail);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Label/LabelGroup.js":
+/*!*************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Label/LabelGroup.js ***!
+  \*************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/SUI.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+
+
+
+
+
+/**
+ * A label can be grouped.
+ */
+
+function LabelGroup(props) {
+  var children = props.children,
+      circular = props.circular,
+      className = props.className,
+      color = props.color,
+      content = props.content,
+      size = props.size,
+      tag = props.tag;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('ui', color, size, (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(circular, 'circular'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(tag, 'tag'), 'labels', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(LabelGroup, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(LabelGroup, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), _lib__WEBPACK_IMPORTED_MODULE_6__.isNil(children) ? content : children);
+}
+
+LabelGroup.handledProps = ["as", "children", "circular", "className", "color", "content", "size", "tag"];
+LabelGroup.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().node),
+
+  /** Labels can share shapes. */
+  circular: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().bool),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().string),
+
+  /** Label group can share colors together. */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_7___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_8__.COLORS),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_9__.contentShorthand,
+
+  /** Label group can share sizes together. */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_7___default().oneOf(_lib__WEBPACK_IMPORTED_MODULE_8__.SIZES),
+
+  /** Label group can share tag formatting. */
+  tag: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().bool)
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LabelGroup);
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Segment/Segment.js":
 /*!************************************************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Segment/Segment.js ***!
@@ -32935,6 +38481,221 @@ SegmentInline.propTypes =  true ? {
   content: _lib__WEBPACK_IMPORTED_MODULE_7__.contentShorthand
 } : 0;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SegmentInline);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/ModernAutoControlledComponent.js":
+/*!*********************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/ModernAutoControlledComponent.js ***!
+  \*********************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ModernAutoControlledComponent)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/assertThisInitialized */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_isUndefined__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! lodash-es/isUndefined */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isUndefined.js");
+/* harmony import */ var lodash_es_startsWith__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! lodash-es/startsWith */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/startsWith.js");
+/* harmony import */ var lodash_es_filter__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lodash-es/filter */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/filter.js");
+/* harmony import */ var lodash_es_isEmpty__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lodash-es/isEmpty */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isEmpty.js");
+/* harmony import */ var lodash_es_keys__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash-es/keys */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/keys.js");
+/* harmony import */ var lodash_es_intersection__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lodash-es/intersection */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/intersection.js");
+/* harmony import */ var lodash_es_has__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash-es/has */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/has.js");
+/* harmony import */ var lodash_es_each__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash-es/each */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/forEach.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var getDefaultPropName = function getDefaultPropName(prop) {
+  return "default" + (prop[0].toUpperCase() + prop.slice(1));
+};
+/**
+ * Return the auto controlled state value for a give prop. The initial value is chosen in this order:
+ *  - regular props
+ *  - then, default props
+ *  - then, initial state
+ *  - then, `checked` defaults to false
+ *  - then, `value` defaults to '' or [] if props.multiple
+ *  - else, undefined
+ *
+ *  @param {string} propName A prop name
+ *  @param {object} [props] A props object
+ *  @param {object} [state] A state object
+ *  @param {boolean} [includeDefaults=false] Whether or not to heed the default props or initial state
+ */
+
+
+var getAutoControlledStateValue = function getAutoControlledStateValue(propName, props, state, includeDefaults) {
+  if (includeDefaults === void 0) {
+    includeDefaults = false;
+  }
+
+  // regular props
+  var propValue = props[propName];
+  if (propValue !== undefined) return propValue;
+
+  if (includeDefaults) {
+    // defaultProps
+    var defaultProp = props[getDefaultPropName(propName)];
+    if (defaultProp !== undefined) return defaultProp; // initial state - state may be null or undefined
+
+    if (state) {
+      var initialState = state[propName];
+      if (initialState !== undefined) return initialState;
+    }
+  } // React doesn't allow changing from uncontrolled to controlled components,
+  // default checked/value if they were not present.
+
+
+  if (propName === 'checked') return false;
+  if (propName === 'value') return props.multiple ? [] : ''; // otherwise, undefined
+};
+
+var ModernAutoControlledComponent = /*#__PURE__*/function (_React$Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_2__["default"])(ModernAutoControlledComponent, _React$Component);
+
+  function ModernAutoControlledComponent() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+    var _this$constructor = _this.constructor,
+        autoControlledProps = _this$constructor.autoControlledProps,
+        getAutoControlledStateFromProps = _this$constructor.getAutoControlledStateFromProps;
+    var state = (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_1__["default"])(_this), 'getInitialAutoControlledState', _this.props) || {};
+
+    if (true) {
+      var _this$constructor2 = _this.constructor,
+          defaultProps = _this$constructor2.defaultProps,
+          name = _this$constructor2.name,
+          propTypes = _this$constructor2.propTypes,
+          getDerivedStateFromProps = _this$constructor2.getDerivedStateFromProps; // require usage of getAutoControlledStateFromProps()
+
+      if (getDerivedStateFromProps !== ModernAutoControlledComponent.getDerivedStateFromProps) {
+        /* eslint-disable-next-line no-console */
+        console.error("Auto controlled " + name + " must specify a static getAutoControlledStateFromProps() instead of getDerivedStateFromProps().");
+      } // require propTypes
+
+
+      (0,lodash_es_each__WEBPACK_IMPORTED_MODULE_5__["default"])(autoControlledProps, function (prop) {
+        var defaultProp = getDefaultPropName(prop); // regular prop
+
+        if (!(0,lodash_es_has__WEBPACK_IMPORTED_MODULE_6__["default"])(propTypes, defaultProp)) {
+          console.error(name + " is missing \"" + defaultProp + "\" propTypes validation for auto controlled prop \"" + prop + "\".");
+        } // its default prop
+
+
+        if (!(0,lodash_es_has__WEBPACK_IMPORTED_MODULE_6__["default"])(propTypes, prop)) {
+          console.error(name + " is missing propTypes validation for auto controlled prop \"" + prop + "\".");
+        }
+      }); // prevent autoControlledProps in defaultProps
+      //
+      // When setting state, auto controlled props values always win (so the parent can manage them).
+      // It is not reasonable to decipher the difference between props from the parent and defaultProps.
+      // Allowing defaultProps results in trySetState always deferring to the defaultProp value.
+      // Auto controlled props also listed in defaultProps can never be updated.
+      //
+      // To set defaults for an AutoControlled prop, you can set the initial state in the
+      // constructor or by using an ES7 property initializer:
+      // https://babeljs.io/blog/2015/06/07/react-on-es6-plus#property-initializers
+
+
+      var illegalDefaults = (0,lodash_es_intersection__WEBPACK_IMPORTED_MODULE_7__["default"])(autoControlledProps, (0,lodash_es_keys__WEBPACK_IMPORTED_MODULE_8__["default"])(defaultProps));
+
+      if (!(0,lodash_es_isEmpty__WEBPACK_IMPORTED_MODULE_9__["default"])(illegalDefaults)) {
+        console.error(['Do not set defaultProps for autoControlledProps. You can set defaults by', 'setting state in the constructor or using an ES7 property initializer', '(https://babeljs.io/blog/2015/06/07/react-on-es6-plus#property-initializers)', "See " + name + " props: \"" + illegalDefaults + "\"."].join(' '));
+      } // prevent listing defaultProps in autoControlledProps
+      //
+      // Default props are automatically handled.
+      // Listing defaults in autoControlledProps would result in allowing defaultDefaultValue props.
+
+
+      var illegalAutoControlled = (0,lodash_es_filter__WEBPACK_IMPORTED_MODULE_10__["default"])(autoControlledProps, function (prop) {
+        return (0,lodash_es_startsWith__WEBPACK_IMPORTED_MODULE_11__["default"])(prop, 'default');
+      });
+
+      if (!(0,lodash_es_isEmpty__WEBPACK_IMPORTED_MODULE_9__["default"])(illegalAutoControlled)) {
+        console.error(['Do not add default props to autoControlledProps.', 'Default props are automatically handled.', "See " + name + " autoControlledProps: \"" + illegalAutoControlled + "\"."].join(' '));
+      }
+    } // Auto controlled props are copied to state.
+    // Set initial state by copying auto controlled props to state.
+    // Also look for the default prop for any auto controlled props (foo => defaultFoo)
+    // so we can set initial values from defaults.
+
+
+    var initialAutoControlledState = autoControlledProps.reduce(function (acc, prop) {
+      acc[prop] = getAutoControlledStateValue(prop, _this.props, state, true);
+
+      if (true) {
+        var defaultPropName = getDefaultPropName(prop);
+        var _name = _this.constructor.name; // prevent defaultFoo={} along side foo={}
+
+        if (!(0,lodash_es_isUndefined__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props[defaultPropName]) && !(0,lodash_es_isUndefined__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props[prop])) {
+          console.error(_name + " prop \"" + prop + "\" is auto controlled. Specify either " + defaultPropName + " or " + prop + ", but not both.");
+        }
+      }
+
+      return acc;
+    }, {});
+    _this.state = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, initialAutoControlledState, {
+      autoControlledProps: autoControlledProps,
+      getAutoControlledStateFromProps: getAutoControlledStateFromProps
+    });
+    return _this;
+  }
+
+  ModernAutoControlledComponent.getDerivedStateFromProps = function getDerivedStateFromProps(props, state) {
+    var autoControlledProps = state.autoControlledProps,
+        getAutoControlledStateFromProps = state.getAutoControlledStateFromProps; // Solve the next state for autoControlledProps
+
+    var newStateFromProps = autoControlledProps.reduce(function (acc, prop) {
+      var isNextDefined = !(0,lodash_es_isUndefined__WEBPACK_IMPORTED_MODULE_12__["default"])(props[prop]); // if next is defined then use its value
+
+      if (isNextDefined) acc[prop] = props[prop];
+      return acc;
+    }, {}); // Due to the inheritance of the AutoControlledComponent we should call its
+    // getAutoControlledStateFromProps() and merge it with the existing state
+
+    if (getAutoControlledStateFromProps) {
+      var computedState = getAutoControlledStateFromProps(props, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, newStateFromProps), state); // We should follow the idea of getDerivedStateFromProps() and return only modified state
+
+      return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, newStateFromProps, computedState);
+    }
+
+    return newStateFromProps;
+  }
+  /**
+   * Override this method to use getDerivedStateFromProps() in child components.
+   */
+  ;
+
+  ModernAutoControlledComponent.getAutoControlledStateFromProps = function getAutoControlledStateFromProps() {
+    return null;
+  };
+
+  return ModernAutoControlledComponent;
+}(react__WEBPACK_IMPORTED_MODULE_3__.Component);
+
+
 
 /***/ }),
 
@@ -33646,6 +39407,81 @@ var ref = prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOfType([(prop_ty
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/doesNodeContainClick.js":
+/*!************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/doesNodeContainClick.js ***!
+  \************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_es_inRange__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/inRange */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/inRange.js");
+/* harmony import */ var lodash_es_first__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash-es/first */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/head.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var lodash_es_isNil__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash-es/isNil */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isNil.js");
+/* harmony import */ var lodash_es_some__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash-es/some */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/some.js");
+
+
+
+
+
+
+/**
+ * Determines if a click's coordinates are within the bounds of a node.
+ *
+ * @see https://github.com/Semantic-Org/Semantic-UI-React/pull/2384
+ *
+ * @param {object} node - A DOM node.
+ * @param {object} e - A SyntheticEvent or DOM Event.
+ * @returns {boolean}
+ */
+var doesNodeContainClick = function doesNodeContainClick(node, e) {
+  if ((0,lodash_es_some__WEBPACK_IMPORTED_MODULE_0__["default"])([e, node], lodash_es_isNil__WEBPACK_IMPORTED_MODULE_1__["default"])) return false; // if there is an e.target and it is in the document, use a simple node.contains() check
+
+  if (e.target) {
+    (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_2__["default"])(e.target, 'setAttribute', 'data-suir-click-target', true);
+
+    if (document.querySelector('[data-suir-click-target=true]')) {
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_2__["default"])(e.target, 'removeAttribute', 'data-suir-click-target');
+
+      return node.contains(e.target);
+    }
+  } // Below logic handles cases where the e.target is no longer in the document.
+  // The result of the click likely has removed the e.target node.
+  // Instead of node.contains(), we'll identify the click by X/Y position.
+  // return early if the event properties aren't available
+  // prevent measuring the node and repainting if we don't need to
+
+
+  var clientX = e.clientX,
+      clientY = e.clientY;
+  if ((0,lodash_es_some__WEBPACK_IMPORTED_MODULE_0__["default"])([clientX, clientY], lodash_es_isNil__WEBPACK_IMPORTED_MODULE_1__["default"])) return false; // false if the node is not visible
+
+  var clientRects = node.getClientRects(); // Heads Up!
+  // getClientRects returns a DOMRectList, not an array nor a plain object
+  // We explicitly avoid _.isEmpty and check .length to cover all possible shapes
+
+  if (!node.offsetWidth || !node.offsetHeight || !clientRects || !clientRects.length) return false; // false if the node doesn't have a valid bounding rect
+
+  var _first2 = (0,lodash_es_first__WEBPACK_IMPORTED_MODULE_3__["default"])(clientRects),
+      top = _first2.top,
+      bottom = _first2.bottom,
+      left = _first2.left,
+      right = _first2.right;
+
+  if ((0,lodash_es_some__WEBPACK_IMPORTED_MODULE_0__["default"])([top, bottom, left, right], lodash_es_isNil__WEBPACK_IMPORTED_MODULE_1__["default"])) return false; // we add a small decimal to the upper bound just to make it inclusive
+  // don't add an whole pixel (1) as the event/node values may be decimal sensitive
+
+  return (0,lodash_es_inRange__WEBPACK_IMPORTED_MODULE_4__["default"])(clientY, top, bottom + 0.001) && (0,lodash_es_inRange__WEBPACK_IMPORTED_MODULE_4__["default"])(clientX, left, right + 0.001);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (doesNodeContainClick);
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js":
 /*!*************************************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js ***!
@@ -33960,6 +39796,95 @@ var getUnhandledProps = function getUnhandledProps(Component, props) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/htmlPropsUtils.js":
+/*!******************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/htmlPropsUtils.js ***!
+  \******************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "htmlImageProps": () => (/* binding */ htmlImageProps),
+/* harmony export */   "htmlInputAttrs": () => (/* binding */ htmlInputAttrs),
+/* harmony export */   "htmlInputEvents": () => (/* binding */ htmlInputEvents),
+/* harmony export */   "htmlInputProps": () => (/* binding */ htmlInputProps),
+/* harmony export */   "partitionHTMLProps": () => (/* binding */ partitionHTMLProps)
+/* harmony export */ });
+/* harmony import */ var lodash_es_includes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash-es/includes */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/includes.js");
+/* harmony import */ var lodash_es_forEach__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash-es/forEach */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/forEach.js");
+
+
+var htmlInputAttrs = [// REACT
+'selected', 'defaultValue', 'defaultChecked', // LIMITED HTML PROPS
+'accept', 'autoCapitalize', 'autoComplete', 'autoCorrect', 'autoFocus', 'checked', 'disabled', 'form', 'id', 'inputMode', 'lang', 'list', 'max', 'maxLength', 'min', 'minLength', 'multiple', 'name', 'pattern', 'placeholder', 'readOnly', 'required', 'step', 'title', 'type', 'value'];
+var htmlInputEvents = [// EVENTS
+// keyboard
+'onKeyDown', 'onKeyPress', 'onKeyUp', // focus
+'onFocus', 'onBlur', // form
+'onChange', 'onInput', // mouse
+'onClick', 'onContextMenu', 'onDrag', 'onDragEnd', 'onDragEnter', 'onDragExit', 'onDragLeave', 'onDragOver', 'onDragStart', 'onDrop', 'onMouseDown', 'onMouseEnter', 'onMouseLeave', 'onMouseMove', 'onMouseOut', 'onMouseOver', 'onMouseUp', // selection
+'onSelect', // touch
+'onTouchCancel', 'onTouchEnd', 'onTouchMove', 'onTouchStart'];
+var htmlInputProps = [].concat(htmlInputAttrs, htmlInputEvents);
+var htmlImageProps = ['alt', 'height', 'src', 'srcSet', 'width', 'loading'];
+/**
+ * Returns an array of objects consisting of: props of html input element and rest.
+ * @param {object} props A ReactElement props object
+ * @param {Object} [options={}]
+ * @param {Array} [options.htmlProps] An array of html input props
+ * @param {boolean} [options.includeAria] Includes all input props that starts with "aria-"
+ * @returns {[{}, {}]} An array of objects
+ */
+
+var partitionHTMLProps = function partitionHTMLProps(props, options) {
+  if (options === void 0) {
+    options = {};
+  }
+
+  var _options = options,
+      _options$htmlProps = _options.htmlProps,
+      htmlProps = _options$htmlProps === void 0 ? htmlInputProps : _options$htmlProps,
+      _options$includeAria = _options.includeAria,
+      includeAria = _options$includeAria === void 0 ? true : _options$includeAria;
+  var inputProps = {};
+  var rest = {};
+
+  (0,lodash_es_forEach__WEBPACK_IMPORTED_MODULE_0__["default"])(props, function (val, prop) {
+    var possibleAria = includeAria && (/^aria-.*$/.test(prop) || prop === 'role');
+    var target = (0,lodash_es_includes__WEBPACK_IMPORTED_MODULE_1__["default"])(htmlProps, prop) || possibleAria ? inputProps : rest;
+    target[prop] = val;
+  });
+
+  return [inputProps, rest];
+};
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/isBrowser.js":
+/*!*************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/isBrowser.js ***!
+  \*************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_es_isNil__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash-es/isNil */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isNil.js");
+
+var hasDocument = typeof document === 'object' && document !== null;
+var hasWindow = typeof window === 'object' && window !== null && window.self === window; // eslint-disable-next-line no-confusing-arrow
+
+var isBrowser = function isBrowser() {
+  return !(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_0__["default"])(isBrowser.override) ? isBrowser.override : hasDocument && hasWindow;
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (isBrowser);
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/leven.js":
 /*!*********************************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/leven.js ***!
@@ -34068,6 +39993,3031 @@ function numberToWord(value) {
 
   return '';
 }
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Checkbox/Checkbox.js":
+/*!*************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Checkbox/Checkbox.js ***!
+  \*************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Checkbox)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_set__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash-es/set */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/set.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var lodash_es_isNil__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/isNil */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isNil.js");
+/* harmony import */ var _fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @fluentui/react-component-ref */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/Ref.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/htmlPropsUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/ModernAutoControlledComponent.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * A checkbox allows a user to select a value from a small set of options, often binary.
+ * @see Form
+ * @see Radio
+ */
+var Checkbox = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(Checkbox, _Component);
+
+  function Checkbox() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+    _this.inputRef = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_3__.createRef)();
+    _this.labelRef = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_3__.createRef)();
+
+    _this.canToggle = function () {
+      var _this$props = _this.props,
+          disabled = _this$props.disabled,
+          radio = _this$props.radio,
+          readOnly = _this$props.readOnly;
+      var checked = _this.state.checked;
+      return !disabled && !readOnly && !(radio && checked);
+    };
+
+    _this.computeTabIndex = function () {
+      var _this$props2 = _this.props,
+          disabled = _this$props2.disabled,
+          tabIndex = _this$props2.tabIndex;
+      if (!(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_4__["default"])(tabIndex)) return tabIndex;
+      return disabled ? -1 : 0;
+    };
+
+    _this.handleClick = function (e) {
+      var id = _this.props.id;
+      var _this$state = _this.state,
+          checked = _this$state.checked,
+          indeterminate = _this$state.indeterminate;
+
+      var isInputClick = (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_5__["default"])(_this.inputRef.current, 'contains', e.target);
+
+      var isLabelClick = (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_5__["default"])(_this.labelRef.current, 'contains', e.target);
+
+      var isRootClick = !isLabelClick && !isInputClick;
+      var hasId = !(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_4__["default"])(id);
+      var isLabelClickAndForwardedToInput = isLabelClick && hasId; // https://github.com/Semantic-Org/Semantic-UI-React/pull/3351
+
+      if (!isLabelClickAndForwardedToInput) {
+        (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_5__["default"])(_this.props, 'onClick', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+          checked: !checked,
+          indeterminate: !!indeterminate
+        }));
+      }
+
+      if (_this.isClickFromMouse) {
+        _this.isClickFromMouse = false;
+
+        if (isLabelClick && !hasId) {
+          _this.handleChange(e);
+        } // Changes should be triggered for the slider variation
+
+
+        if (isRootClick) {
+          _this.handleChange(e);
+        }
+
+        if (isLabelClick && hasId) {
+          // To prevent two clicks from being fired from the component we have to stop the propagation
+          // from the "input" click: https://github.com/Semantic-Org/Semantic-UI-React/issues/3433
+          e.stopPropagation();
+        }
+      }
+    };
+
+    _this.handleChange = function (e) {
+      var checked = _this.state.checked;
+      if (!_this.canToggle()) return;
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_5__["default"])(_this.props, 'onChange', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+        checked: !checked,
+        indeterminate: false
+      }));
+
+      _this.setState({
+        checked: !checked,
+        indeterminate: false
+      });
+    };
+
+    _this.handleMouseDown = function (e) {
+      var _this$state2 = _this.state,
+          checked = _this$state2.checked,
+          indeterminate = _this$state2.indeterminate;
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_5__["default"])(_this.props, 'onMouseDown', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+        checked: !!checked,
+        indeterminate: !!indeterminate
+      }));
+
+      if (!e.defaultPrevented) {
+        (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_5__["default"])(_this.inputRef.current, 'focus');
+      } // Heads up!
+      // We need to call "preventDefault" to keep element focused.
+
+
+      e.preventDefault();
+    };
+
+    _this.handleMouseUp = function (e) {
+      var _this$state3 = _this.state,
+          checked = _this$state3.checked,
+          indeterminate = _this$state3.indeterminate;
+      _this.isClickFromMouse = true;
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_5__["default"])(_this.props, 'onMouseUp', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+        checked: !!checked,
+        indeterminate: !!indeterminate
+      }));
+    };
+
+    _this.setIndeterminate = function () {
+      var indeterminate = _this.state.indeterminate;
+
+      (0,lodash_es_set__WEBPACK_IMPORTED_MODULE_6__["default"])(_this.inputRef, 'current.indeterminate', !!indeterminate);
+    };
+
+    return _this;
+  }
+
+  var _proto = Checkbox.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    this.setIndeterminate();
+  };
+
+  _proto.componentDidUpdate = function componentDidUpdate() {
+    this.setIndeterminate();
+  };
+
+  _proto.render = function render() {
+    var _this$props3 = this.props,
+        className = _this$props3.className,
+        disabled = _this$props3.disabled,
+        label = _this$props3.label,
+        id = _this$props3.id,
+        name = _this$props3.name,
+        radio = _this$props3.radio,
+        readOnly = _this$props3.readOnly,
+        slider = _this$props3.slider,
+        toggle = _this$props3.toggle,
+        type = _this$props3.type,
+        value = _this$props3.value;
+    var _this$state4 = this.state,
+        checked = _this$state4.checked,
+        indeterminate = _this$state4.indeterminate;
+    var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('ui', (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(checked, 'checked'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(disabled, 'disabled'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(indeterminate, 'indeterminate'), // auto apply fitted class to compact white space when there is no label
+    // https://semantic-ui.com/modules/checkbox.html#fitted
+    (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)((0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_4__["default"])(label), 'fitted'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(radio, 'radio'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(readOnly, 'read-only'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(slider, 'slider'), (0,_lib__WEBPACK_IMPORTED_MODULE_7__.useKeyOnly)(toggle, 'toggle'), 'checkbox', className);
+    var unhandled = (0,_lib__WEBPACK_IMPORTED_MODULE_8__["default"])(Checkbox, this.props);
+    var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_9__["default"])(Checkbox, this.props);
+
+    var _partitionHTMLProps = (0,_lib__WEBPACK_IMPORTED_MODULE_10__.partitionHTMLProps)(unhandled, {
+      htmlProps: _lib__WEBPACK_IMPORTED_MODULE_10__.htmlInputAttrs
+    }),
+        htmlInputProps = _partitionHTMLProps[0],
+        rest = _partitionHTMLProps[1]; // Heads Up!
+    // Do not remove empty labels, they are required by SUI CSS
+
+
+    var labelElement = (0,_lib__WEBPACK_IMPORTED_MODULE_11__.createHTMLLabel)(label, {
+      defaultProps: {
+        htmlFor: id
+      },
+      autoGenerateKey: false
+    }) || /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("label", {
+      htmlFor: id
+    });
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      className: classes,
+      onClick: this.handleClick,
+      onChange: this.handleChange,
+      onMouseDown: this.handleMouseDown,
+      onMouseUp: this.handleMouseUp
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_12__.Ref, {
+      innerRef: this.inputRef
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("input", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, htmlInputProps, {
+      checked: checked,
+      className: "hidden",
+      disabled: disabled,
+      id: id,
+      name: name,
+      readOnly: true,
+      tabIndex: this.computeTabIndex(),
+      type: type,
+      value: value
+    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_12__.Ref, {
+      innerRef: this.labelRef
+    }, labelElement));
+  };
+
+  return Checkbox;
+}(_lib__WEBPACK_IMPORTED_MODULE_13__["default"]);
+
+Checkbox.handledProps = ["as", "checked", "className", "defaultChecked", "defaultIndeterminate", "disabled", "fitted", "id", "indeterminate", "label", "name", "onChange", "onClick", "onMouseDown", "onMouseUp", "radio", "readOnly", "slider", "tabIndex", "toggle", "type", "value"];
+
+Checkbox.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().elementType),
+
+  /** Whether or not checkbox is checked. */
+  checked: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
+
+  /** The initial value of checked. */
+  defaultChecked: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
+
+  /** Whether or not checkbox is indeterminate. */
+  defaultIndeterminate: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
+
+  /** A checkbox can appear disabled and be unable to change states */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
+
+  /** Removes padding for a label. Auto applied when there is no label. */
+  fitted: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
+
+  /** A unique identifier. */
+  id: prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_14___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string)]),
+
+  /** Whether or not checkbox is indeterminate. */
+  indeterminate: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
+
+  /** The text of the associated label element. */
+  label: _lib__WEBPACK_IMPORTED_MODULE_15__.itemShorthand,
+
+  /** The HTML input name. */
+  name: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
+
+  /**
+   * Called when the user attempts to change the checked state.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props and proposed checked/indeterminate state.
+   */
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().func),
+
+  /**
+   * Called when the checkbox or label is clicked.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props and current checked/indeterminate state.
+   */
+  onClick: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().func),
+
+  /**
+   * Called when the user presses down on the mouse.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props and current checked/indeterminate state.
+   */
+  onMouseDown: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().func),
+
+  /**
+   * Called when the user releases the mouse.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props and current checked/indeterminate state.
+   */
+  onMouseUp: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().func),
+
+  /** Format as a radio element. This means it is an exclusive option. */
+  radio: _lib__WEBPACK_IMPORTED_MODULE_15__.every([(prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool), _lib__WEBPACK_IMPORTED_MODULE_15__.disallow(['slider', 'toggle'])]),
+
+  /** A checkbox can be read-only and unable to change states. */
+  readOnly: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
+
+  /** Format to emphasize the current selection state. */
+  slider: _lib__WEBPACK_IMPORTED_MODULE_15__.every([(prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool), _lib__WEBPACK_IMPORTED_MODULE_15__.disallow(['radio', 'toggle'])]),
+
+  /** A checkbox can receive focus. */
+  tabIndex: prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_14___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string)]),
+
+  /** Format to show an on or off choice. */
+  toggle: _lib__WEBPACK_IMPORTED_MODULE_15__.every([(prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool), _lib__WEBPACK_IMPORTED_MODULE_15__.disallow(['radio', 'slider'])]),
+
+  /** HTML input type, either checkbox or radio. */
+  type: prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOf(['checkbox', 'radio']),
+
+  /** The HTML input value. */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_14___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_14___default().number)])
+} : 0;
+Checkbox.defaultProps = {
+  type: 'checkbox'
+};
+Checkbox.autoControlledProps = ['checked', 'indeterminate'];
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dimmer/Dimmer.js":
+/*!*********************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dimmer/Dimmer.js ***!
+  \*********************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Dimmer)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/isBrowser.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+/* harmony import */ var _addons_Portal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../addons/Portal */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/addons/Portal/Portal.js");
+/* harmony import */ var _DimmerDimmable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./DimmerDimmable */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dimmer/DimmerDimmable.js");
+/* harmony import */ var _DimmerInner__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DimmerInner */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dimmer/DimmerInner.js");
+
+
+
+
+
+
+
+
+/**
+ * A dimmer hides distractions to focus attention on particular content.
+ */
+
+var Dimmer = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(Dimmer, _Component);
+
+  function Dimmer() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _this.handlePortalMount = function () {
+      if (!(0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])()) return; // Heads up, IE doesn't support second argument in add()
+
+      document.body.classList.add('dimmed');
+      document.body.classList.add('dimmable');
+    };
+
+    _this.handlePortalUnmount = function () {
+      if (!(0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])()) return; // Heads up, IE doesn't support second argument in add()
+
+      document.body.classList.remove('dimmed');
+      document.body.classList.remove('dimmable');
+    };
+
+    return _this;
+  }
+
+  var _proto = Dimmer.prototype;
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        active = _this$props.active,
+        page = _this$props.page;
+    var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(Dimmer, this.props);
+
+    if (page) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_addons_Portal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        closeOnEscape: false,
+        closeOnDocumentClick: false,
+        onMount: this.handlePortalMount,
+        onUnmount: this.handlePortalUnmount,
+        open: active,
+        openOnTriggerClick: false
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_DimmerInner__WEBPACK_IMPORTED_MODULE_6__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+        active: active,
+        page: page
+      })));
+    }
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_DimmerInner__WEBPACK_IMPORTED_MODULE_6__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      active: active,
+      page: page
+    }));
+  };
+
+  return Dimmer;
+}(react__WEBPACK_IMPORTED_MODULE_2__.Component);
+
+Dimmer.handledProps = ["active", "page"];
+
+Dimmer.propTypes =  true ? {
+  /** An active dimmer will dim its parent container. */
+  active: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().bool),
+
+  /** A dimmer can be formatted to be fixed to the page. */
+  page: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().bool)
+} : 0;
+Dimmer.Dimmable = _DimmerDimmable__WEBPACK_IMPORTED_MODULE_8__["default"];
+Dimmer.Inner = _DimmerInner__WEBPACK_IMPORTED_MODULE_6__["default"];
+Dimmer.create = (0,_lib__WEBPACK_IMPORTED_MODULE_9__.createShorthandFactory)(Dimmer, function (value) {
+  return {
+    content: value
+  };
+});
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dimmer/DimmerDimmable.js":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dimmer/DimmerDimmable.js ***!
+  \*****************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+
+
+
+
+
+/**
+ * A dimmable sub-component for Dimmer.
+ */
+
+function DimmerDimmable(props) {
+  var blurring = props.blurring,
+      className = props.className,
+      children = props.children,
+      content = props.content,
+      dimmed = props.dimmed;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(blurring, 'blurring'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(dimmed, 'dimmed'), 'dimmable', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(DimmerDimmable, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(DimmerDimmable, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), _lib__WEBPACK_IMPORTED_MODULE_6__.isNil(children) ? content : children);
+}
+
+DimmerDimmable.handledProps = ["as", "blurring", "children", "className", "content", "dimmed"];
+DimmerDimmable.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().elementType),
+
+  /** A dimmable element can blur its contents. */
+  blurring: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().bool),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_8__.contentShorthand,
+
+  /** Controls whether or not the dim is displayed. */
+  dimmed: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().bool)
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DimmerDimmable);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dimmer/DimmerInner.js":
+/*!**************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dimmer/DimmerInner.js ***!
+  \**************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ DimmerInner)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var _fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fluentui/react-component-ref */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/Ref.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/doesNodeContainClick.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+
+
+
+
+
+
+
+
+/**
+ * An inner element for a Dimmer.
+ */
+
+var DimmerInner = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(DimmerInner, _Component);
+
+  function DimmerInner() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+    _this.containerRef = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_3__.createRef)();
+    _this.contentRef = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_3__.createRef)();
+
+    _this.handleClick = function (e) {
+      var contentRef = _this.contentRef.current;
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"])(_this.props, 'onClick', e, _this.props);
+
+      if (contentRef && contentRef !== e.target && (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(contentRef, e)) {
+        return;
+      }
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"])(_this.props, 'onClickOutside', e, _this.props);
+    };
+
+    return _this;
+  }
+
+  var _proto = DimmerInner.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    var active = this.props.active;
+    this.toggleStyles(active);
+  };
+
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+    var currentActive = this.props.active;
+    var prevActive = prevProps.active;
+    if (prevActive !== currentActive) this.toggleStyles(currentActive);
+  };
+
+  _proto.toggleStyles = function toggleStyles(active) {
+    var containerRef = this.containerRef.current;
+    if (!containerRef || !containerRef.style) return;
+
+    if (active) {
+      containerRef.style.setProperty('display', 'flex', 'important');
+    } else {
+      containerRef.style.removeProperty('display');
+    }
+  };
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        active = _this$props.active,
+        children = _this$props.children,
+        className = _this$props.className,
+        content = _this$props.content,
+        disabled = _this$props.disabled,
+        inverted = _this$props.inverted,
+        page = _this$props.page,
+        simple = _this$props.simple,
+        verticalAlign = _this$props.verticalAlign;
+    var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('ui', (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useKeyOnly)(active, 'active transition visible'), (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useKeyOnly)(disabled, 'disabled'), (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useKeyOnly)(inverted, 'inverted'), (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useKeyOnly)(page, 'page'), (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useKeyOnly)(simple, 'simple'), (0,_lib__WEBPACK_IMPORTED_MODULE_6__.useVerticalAlignProp)(verticalAlign), 'dimmer', className);
+    var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_7__["default"])(DimmerInner, this.props);
+    var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_8__["default"])(DimmerInner, this.props);
+    var childrenContent = _lib__WEBPACK_IMPORTED_MODULE_9__.isNil(children) ? content : children;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_10__.Ref, {
+      innerRef: this.containerRef
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      className: classes,
+      onClick: this.handleClick
+    }), childrenContent && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", {
+      className: "content",
+      ref: this.contentRef
+    }, childrenContent)));
+  };
+
+  return DimmerInner;
+}(react__WEBPACK_IMPORTED_MODULE_3__.Component);
+
+DimmerInner.handledProps = ["active", "as", "children", "className", "content", "disabled", "inverted", "onClick", "onClickOutside", "page", "simple", "verticalAlign"];
+
+DimmerInner.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().elementType),
+
+  /** An active dimmer will dim its parent container. */
+  active: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_12__.contentShorthand,
+
+  /** A disabled dimmer cannot be activated */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+
+  /**
+   * Called on click.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onClick: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().func),
+
+  /**
+   * Handles click outside Dimmer's content, but inside Dimmer area.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onClickOutside: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().func),
+
+  /** A dimmer can be formatted to have its colors inverted. */
+  inverted: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+
+  /** A dimmer can be formatted to be fixed to the page. */
+  page: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+
+  /** A dimmer can be controlled with simple prop. */
+  simple: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+
+  /** A dimmer can have its content top or bottom aligned. */
+  verticalAlign: prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOf(['bottom', 'top'])
+} : 0;
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/Dropdown.js":
+/*!*************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/Dropdown.js ***!
+  \*************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Dropdown)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_includes__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! lodash-es/includes */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/includes.js");
+/* harmony import */ var lodash_es_compact__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! lodash-es/compact */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/compact.js");
+/* harmony import */ var lodash_es_map__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! lodash-es/map */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/map.js");
+/* harmony import */ var lodash_es_every__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! lodash-es/every */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/every.js");
+/* harmony import */ var lodash_es_without__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! lodash-es/without */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/without.js");
+/* harmony import */ var lodash_es_find__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! lodash-es/find */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/find.js");
+/* harmony import */ var lodash_es_dropRight__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! lodash-es/dropRight */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/dropRight.js");
+/* harmony import */ var lodash_es_isEmpty__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! lodash-es/isEmpty */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isEmpty.js");
+/* harmony import */ var lodash_es_size__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! lodash-es/size */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/size.js");
+/* harmony import */ var lodash_es_difference__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! lodash-es/difference */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/difference.js");
+/* harmony import */ var lodash_es_union__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! lodash-es/union */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/union.js");
+/* harmony import */ var lodash_es_get__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! lodash-es/get */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/get.js");
+/* harmony import */ var lodash_es_noop__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! lodash-es/noop */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/noop.js");
+/* harmony import */ var lodash_es_isUndefined__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! lodash-es/isUndefined */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isUndefined.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var lodash_es_has__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! lodash-es/has */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/has.js");
+/* harmony import */ var lodash_es_isEqual__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! lodash-es/isEqual */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isEqual.js");
+/* harmony import */ var lodash_es_isFunction__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lodash-es/isFunction */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isFunction.js");
+/* harmony import */ var lodash_es_pick__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash-es/pick */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/pick.js");
+/* harmony import */ var lodash_es_isNil__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lodash-es/isNil */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isNil.js");
+/* harmony import */ var _semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @semantic-ui-react/event-stack */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@semantic-ui-react/event-stack/lib/index.js");
+/* harmony import */ var _semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @fluentui/react-component-ref */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@fluentui/react-component-ref/dist/es/Ref.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var keyboard_key__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! keyboard-key */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/keyboard-key/src/keyboardKey.js");
+/* harmony import */ var keyboard_key__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(keyboard_key__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_45___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_45__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var shallowequal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! shallowequal */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/shallowequal/index.js");
+/* harmony import */ var shallowequal__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(shallowequal__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/doesNodeContainClick.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/ModernAutoControlledComponent.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _elements_Icon__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ../../elements/Icon */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Icon/Icon.js");
+/* harmony import */ var _elements_Label__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../../elements/Label */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Label/Label.js");
+/* harmony import */ var _elements_Flag__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../elements/Flag */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Flag/Flag.js");
+/* harmony import */ var _elements_Image__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../elements/Image */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Image/Image.js");
+/* harmony import */ var _DropdownDivider__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./DropdownDivider */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownDivider.js");
+/* harmony import */ var _DropdownItem__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./DropdownItem */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownItem.js");
+/* harmony import */ var _DropdownHeader__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./DropdownHeader */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownHeader.js");
+/* harmony import */ var _DropdownMenu__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./DropdownMenu */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownMenu.js");
+/* harmony import */ var _DropdownSearchInput__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./DropdownSearchInput */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownSearchInput.js");
+/* harmony import */ var _DropdownText__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./DropdownText */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownText.js");
+/* harmony import */ var _utils_getMenuOptions__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./utils/getMenuOptions */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/utils/getMenuOptions.js");
+/* harmony import */ var _utils_getSelectedIndex__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./utils/getSelectedIndex */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/utils/getSelectedIndex.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var getKeyOrValue = function getKeyOrValue(key, value) {
+  return (0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_7__["default"])(key) ? value : key;
+};
+
+var getKeyAndValues = function getKeyAndValues(options) {
+  return options ? options.map(function (option) {
+    return (0,lodash_es_pick__WEBPACK_IMPORTED_MODULE_8__["default"])(option, ['key', 'value']);
+  }) : options;
+};
+
+function renderItemContent(item) {
+  var flag = item.flag,
+      image = item.image,
+      text = item.text; // TODO: remove this in v3
+  // This maintains compatibility with Shorthand API in v1 as this might be called in "Label.create()"
+
+  if ((0,lodash_es_isFunction__WEBPACK_IMPORTED_MODULE_9__["default"])(text)) {
+    return text;
+  }
+
+  return {
+    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(react__WEBPACK_IMPORTED_MODULE_5__.Fragment, null, _elements_Flag__WEBPACK_IMPORTED_MODULE_10__["default"].create(flag), _elements_Image__WEBPACK_IMPORTED_MODULE_11__["default"].create(image), text)
+  };
+}
+/**
+ * A dropdown allows a user to select a value from a series of options.
+ * @see Form
+ * @see Select
+ * @see Menu
+ */
+
+
+var Dropdown = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(Dropdown, _Component);
+
+  function Dropdown() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+    _this.searchRef = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_5__.createRef)();
+    _this.sizerRef = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_5__.createRef)();
+    _this.ref = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_5__.createRef)();
+
+    _this.handleChange = function (e, value) {
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props, 'onChange', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+        value: value
+      }));
+    };
+
+    _this.closeOnChange = function (e) {
+      var _this$props = _this.props,
+          closeOnChange = _this$props.closeOnChange,
+          multiple = _this$props.multiple;
+      var shouldClose = (0,lodash_es_isUndefined__WEBPACK_IMPORTED_MODULE_13__["default"])(closeOnChange) ? !multiple : closeOnChange;
+
+      if (shouldClose) {
+        _this.close(e, lodash_es_noop__WEBPACK_IMPORTED_MODULE_14__["default"]);
+      }
+    };
+
+    _this.closeOnEscape = function (e) {
+      if (!_this.props.closeOnEscape) return;
+      if (keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().getCode(e) !== (keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().Escape)) return;
+      e.preventDefault();
+
+      _this.close(e);
+    };
+
+    _this.moveSelectionOnKeyDown = function (e) {
+      var _moves;
+
+      var _this$props2 = _this.props,
+          multiple = _this$props2.multiple,
+          selectOnNavigation = _this$props2.selectOnNavigation;
+      var open = _this.state.open;
+
+      if (!open) {
+        return;
+      }
+
+      var moves = (_moves = {}, _moves[(keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().ArrowDown)] = 1, _moves[(keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().ArrowUp)] = -1, _moves);
+      var move = moves[keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().getCode(e)];
+
+      if (move === undefined) {
+        return;
+      }
+
+      e.preventDefault();
+
+      var nextIndex = _this.getSelectedIndexAfterMove(move);
+
+      if (!multiple && selectOnNavigation) {
+        _this.makeSelectedItemActive(e, nextIndex);
+      }
+
+      _this.setState({
+        selectedIndex: nextIndex
+      });
+    };
+
+    _this.openOnSpace = function (e) {
+      var _e$target, _e$target2, _e$target3;
+
+      var shouldHandleEvent = _this.state.focus && !_this.state.open && keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().getCode(e) === (keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().Spacebar);
+      var shouldPreventDefault = ((_e$target = e.target) == null ? void 0 : _e$target.tagName) !== 'INPUT' && ((_e$target2 = e.target) == null ? void 0 : _e$target2.tagName) !== 'TEXTAREA' && ((_e$target3 = e.target) == null ? void 0 : _e$target3.isContentEditable) !== true;
+
+      if (shouldHandleEvent) {
+        if (shouldPreventDefault) {
+          e.preventDefault();
+        }
+
+        _this.open(e);
+      }
+    };
+
+    _this.openOnArrow = function (e) {
+      var _this$state = _this.state,
+          focus = _this$state.focus,
+          open = _this$state.open;
+
+      if (focus && !open) {
+        var code = keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().getCode(e);
+
+        if (code === (keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().ArrowDown) || code === (keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().ArrowUp)) {
+          e.preventDefault();
+
+          _this.open(e);
+        }
+      }
+    };
+
+    _this.makeSelectedItemActive = function (e, selectedIndex) {
+      var _this$state2 = _this.state,
+          open = _this$state2.open,
+          value = _this$state2.value;
+      var multiple = _this.props.multiple;
+
+      var item = _this.getSelectedItem(selectedIndex);
+
+      var selectedValue = (0,lodash_es_get__WEBPACK_IMPORTED_MODULE_15__["default"])(item, 'value');
+
+      var disabled = (0,lodash_es_get__WEBPACK_IMPORTED_MODULE_15__["default"])(item, 'disabled'); // prevent selecting null if there was no selected item value
+      // prevent selecting duplicate items when the dropdown is closed
+      // prevent selecting disabled items
+
+
+      if ((0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_7__["default"])(selectedValue) || !open || disabled) {
+        return value;
+      } // state value may be undefined
+
+
+      var newValue = multiple ? (0,lodash_es_union__WEBPACK_IMPORTED_MODULE_16__["default"])(value, [selectedValue]) : selectedValue;
+      var valueHasChanged = multiple ? !!(0,lodash_es_difference__WEBPACK_IMPORTED_MODULE_17__["default"])(newValue, value).length : newValue !== value;
+
+      if (valueHasChanged) {
+        // notify the onChange prop that the user is trying to change value
+        _this.setState({
+          value: newValue
+        });
+
+        _this.handleChange(e, newValue); // Heads up! This event handler should be called after `onChange`
+        // Notify the onAddItem prop if this is a new value
+
+
+        if (item['data-additional']) {
+          (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props, 'onAddItem', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+            value: selectedValue
+          }));
+        }
+      }
+
+      return value;
+    };
+
+    _this.selectItemOnEnter = function (e) {
+      var search = _this.props.search;
+      var _this$state3 = _this.state,
+          open = _this$state3.open,
+          selectedIndex = _this$state3.selectedIndex;
+
+      if (!open) {
+        return;
+      }
+
+      var shouldSelect = keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().getCode(e) === (keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().Enter) || // https://github.com/Semantic-Org/Semantic-UI-React/pull/3766
+      !search && keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().getCode(e) === (keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().Spacebar);
+
+      if (!shouldSelect) {
+        return;
+      }
+
+      e.preventDefault();
+
+      var optionSize = (0,lodash_es_size__WEBPACK_IMPORTED_MODULE_18__["default"])((0,_utils_getMenuOptions__WEBPACK_IMPORTED_MODULE_19__["default"])({
+        value: _this.state.value,
+        options: _this.props.options,
+        searchQuery: _this.state.searchQuery,
+        additionLabel: _this.props.additionLabel,
+        additionPosition: _this.props.additionPosition,
+        allowAdditions: _this.props.allowAdditions,
+        deburr: _this.props.deburr,
+        multiple: _this.props.multiple,
+        search: _this.props.search
+      }));
+
+      if (search && optionSize === 0) {
+        return;
+      }
+
+      var nextValue = _this.makeSelectedItemActive(e, selectedIndex); // This is required as selected value may be the same
+
+
+      _this.setState({
+        selectedIndex: (0,_utils_getSelectedIndex__WEBPACK_IMPORTED_MODULE_20__["default"])({
+          additionLabel: _this.props.additionLabel,
+          additionPosition: _this.props.additionPosition,
+          allowAdditions: _this.props.allowAdditions,
+          deburr: _this.props.deburr,
+          multiple: _this.props.multiple,
+          search: _this.props.search,
+          selectedIndex: selectedIndex,
+          value: nextValue,
+          options: _this.props.options,
+          searchQuery: ''
+        })
+      });
+
+      _this.closeOnChange(e);
+
+      _this.clearSearchQuery();
+
+      if (search) {
+        (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.searchRef.current, 'focus');
+      }
+    };
+
+    _this.removeItemOnBackspace = function (e) {
+      var _this$props3 = _this.props,
+          multiple = _this$props3.multiple,
+          search = _this$props3.search;
+      var _this$state4 = _this.state,
+          searchQuery = _this$state4.searchQuery,
+          value = _this$state4.value;
+      if (keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().getCode(e) !== (keyboard_key__WEBPACK_IMPORTED_MODULE_4___default().Backspace)) return;
+      if (searchQuery || !search || !multiple || (0,lodash_es_isEmpty__WEBPACK_IMPORTED_MODULE_21__["default"])(value)) return;
+      e.preventDefault(); // remove most recent value
+
+      var newValue = (0,lodash_es_dropRight__WEBPACK_IMPORTED_MODULE_22__["default"])(value);
+
+      _this.setState({
+        value: newValue
+      });
+
+      _this.handleChange(e, newValue);
+    };
+
+    _this.closeOnDocumentClick = function (e) {
+      if (!_this.props.closeOnBlur) return; // If event happened in the dropdown, ignore it
+
+      if (_this.ref.current && (0,_lib__WEBPACK_IMPORTED_MODULE_23__["default"])(_this.ref.current, e)) return;
+
+      _this.close();
+    };
+
+    _this.handleMouseDown = function (e) {
+      _this.isMouseDown = true;
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props, 'onMouseDown', e, _this.props);
+
+      document.addEventListener('mouseup', _this.handleDocumentMouseUp);
+    };
+
+    _this.handleDocumentMouseUp = function () {
+      _this.isMouseDown = false;
+      document.removeEventListener('mouseup', _this.handleDocumentMouseUp);
+    };
+
+    _this.handleClick = function (e) {
+      var _this$props4 = _this.props,
+          minCharacters = _this$props4.minCharacters,
+          search = _this$props4.search;
+      var _this$state5 = _this.state,
+          open = _this$state5.open,
+          searchQuery = _this$state5.searchQuery;
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props, 'onClick', e, _this.props); // prevent closeOnDocumentClick()
+
+
+      e.stopPropagation();
+      if (!search) return _this.toggle(e);
+
+      if (open) {
+        (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.searchRef.current, 'focus');
+
+        return;
+      }
+
+      if (searchQuery.length >= minCharacters || minCharacters === 1) {
+        _this.open(e);
+
+        return;
+      }
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.searchRef.current, 'focus');
+    };
+
+    _this.handleIconClick = function (e) {
+      var clearable = _this.props.clearable;
+
+      var hasValue = _this.hasValue();
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props, 'onClick', e, _this.props); // prevent handleClick()
+
+
+      e.stopPropagation();
+
+      if (clearable && hasValue) {
+        _this.clearValue(e);
+      } else {
+        _this.toggle(e);
+      }
+    };
+
+    _this.handleItemClick = function (e, item) {
+      var _this$props5 = _this.props,
+          multiple = _this$props5.multiple,
+          search = _this$props5.search;
+      var currentValue = _this.state.value;
+      var value = item.value; // prevent toggle() in handleClick()
+
+      e.stopPropagation(); // prevent closeOnDocumentClick() if multiple or item is disabled
+
+      if (multiple || item.disabled) {
+        e.nativeEvent.stopImmediatePropagation();
+      }
+
+      if (item.disabled) {
+        return;
+      }
+
+      var isAdditionItem = item['data-additional'];
+      var newValue = multiple ? (0,lodash_es_union__WEBPACK_IMPORTED_MODULE_16__["default"])(_this.state.value, [value]) : value;
+      var valueHasChanged = multiple ? !!(0,lodash_es_difference__WEBPACK_IMPORTED_MODULE_17__["default"])(newValue, currentValue).length : newValue !== currentValue; // notify the onChange prop that the user is trying to change value
+
+      if (valueHasChanged) {
+        _this.setState({
+          value: newValue
+        });
+
+        _this.handleChange(e, newValue);
+      }
+
+      _this.clearSearchQuery();
+
+      if (search) {
+        (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.searchRef.current, 'focus');
+      } else {
+        (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.ref.current, 'focus');
+      }
+
+      _this.closeOnChange(e); // Heads up! This event handler should be called after `onChange`
+      // Notify the onAddItem prop if this is a new value
+
+
+      if (isAdditionItem) {
+        (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props, 'onAddItem', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+          value: value
+        }));
+      }
+    };
+
+    _this.handleFocus = function (e) {
+      var focus = _this.state.focus;
+      if (focus) return;
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props, 'onFocus', e, _this.props);
+
+      _this.setState({
+        focus: true
+      });
+    };
+
+    _this.handleBlur = function (e) {
+      // Heads up! Don't remove this.
+      // https://github.com/Semantic-Org/Semantic-UI-React/issues/1315
+      var currentTarget = (0,lodash_es_get__WEBPACK_IMPORTED_MODULE_15__["default"])(e, 'currentTarget');
+
+      if (currentTarget && currentTarget.contains(document.activeElement)) return;
+      var _this$props6 = _this.props,
+          closeOnBlur = _this$props6.closeOnBlur,
+          multiple = _this$props6.multiple,
+          selectOnBlur = _this$props6.selectOnBlur; // do not "blur" when the mouse is down inside of the Dropdown
+
+      if (_this.isMouseDown) return;
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props, 'onBlur', e, _this.props);
+
+      if (selectOnBlur && !multiple) {
+        _this.makeSelectedItemActive(e, _this.state.selectedIndex);
+
+        if (closeOnBlur) _this.close();
+      }
+
+      _this.setState({
+        focus: false
+      });
+
+      _this.clearSearchQuery();
+    };
+
+    _this.handleSearchChange = function (e, _ref) {
+      var value = _ref.value;
+      // prevent propagating to this.props.onChange()
+      e.stopPropagation();
+      var minCharacters = _this.props.minCharacters;
+      var open = _this.state.open;
+      var newQuery = value;
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props, 'onSearchChange', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+        searchQuery: newQuery
+      }));
+
+      _this.setState({
+        searchQuery: newQuery,
+        selectedIndex: 0
+      }); // open search dropdown on search query
+
+
+      if (!open && newQuery.length >= minCharacters) {
+        _this.open();
+
+        return;
+      } // close search dropdown if search query is too small
+
+
+      if (open && minCharacters !== 1 && newQuery.length < minCharacters) _this.close();
+    };
+
+    _this.handleKeyDown = function (e) {
+      _this.moveSelectionOnKeyDown(e);
+
+      _this.openOnArrow(e);
+
+      _this.openOnSpace(e);
+
+      _this.selectItemOnEnter(e);
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props, 'onKeyDown', e);
+    };
+
+    _this.getSelectedItem = function (selectedIndex) {
+      var options = (0,_utils_getMenuOptions__WEBPACK_IMPORTED_MODULE_19__["default"])({
+        value: _this.state.value,
+        options: _this.props.options,
+        searchQuery: _this.state.searchQuery,
+        additionLabel: _this.props.additionLabel,
+        additionPosition: _this.props.additionPosition,
+        allowAdditions: _this.props.allowAdditions,
+        deburr: _this.props.deburr,
+        multiple: _this.props.multiple,
+        search: _this.props.search
+      });
+      return (0,lodash_es_get__WEBPACK_IMPORTED_MODULE_15__["default"])(options, "[" + selectedIndex + "]");
+    };
+
+    _this.getItemByValue = function (value) {
+      var options = _this.props.options;
+      return (0,lodash_es_find__WEBPACK_IMPORTED_MODULE_24__["default"])(options, {
+        value: value
+      });
+    };
+
+    _this.getDropdownAriaOptions = function () {
+      var _this$props7 = _this.props,
+          loading = _this$props7.loading,
+          disabled = _this$props7.disabled,
+          search = _this$props7.search,
+          multiple = _this$props7.multiple;
+      var open = _this.state.open;
+      var ariaOptions = {
+        role: search ? 'combobox' : 'listbox',
+        'aria-busy': loading,
+        'aria-disabled': disabled,
+        'aria-expanded': !!open
+      };
+
+      if (ariaOptions.role === 'listbox') {
+        ariaOptions['aria-multiselectable'] = multiple;
+      }
+
+      return ariaOptions;
+    };
+
+    _this.clearSearchQuery = function () {
+      var searchQuery = _this.state.searchQuery;
+      if (searchQuery === undefined || searchQuery === '') return;
+
+      _this.setState({
+        searchQuery: ''
+      });
+    };
+
+    _this.handleLabelClick = function (e, labelProps) {
+      // prevent focusing search input on click
+      e.stopPropagation();
+
+      _this.setState({
+        selectedLabel: labelProps.value
+      });
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props, 'onLabelClick', e, labelProps);
+    };
+
+    _this.handleLabelRemove = function (e, labelProps) {
+      // prevent focusing search input on click
+      e.stopPropagation();
+      var value = _this.state.value;
+
+      var newValue = (0,lodash_es_without__WEBPACK_IMPORTED_MODULE_25__["default"])(value, labelProps.value);
+
+      _this.setState({
+        value: newValue
+      });
+
+      _this.handleChange(e, newValue);
+    };
+
+    _this.getSelectedIndexAfterMove = function (offset, startIndex) {
+      if (startIndex === void 0) {
+        startIndex = _this.state.selectedIndex;
+      }
+
+      var options = (0,_utils_getMenuOptions__WEBPACK_IMPORTED_MODULE_19__["default"])({
+        value: _this.state.value,
+        options: _this.props.options,
+        searchQuery: _this.state.searchQuery,
+        additionLabel: _this.props.additionLabel,
+        additionPosition: _this.props.additionPosition,
+        allowAdditions: _this.props.allowAdditions,
+        deburr: _this.props.deburr,
+        multiple: _this.props.multiple,
+        search: _this.props.search
+      }); // Prevent infinite loop
+      // TODO: remove left part of condition after children API will be removed
+
+      if (options === undefined || (0,lodash_es_every__WEBPACK_IMPORTED_MODULE_26__["default"])(options, 'disabled')) return;
+      var lastIndex = options.length - 1;
+      var wrapSelection = _this.props.wrapSelection; // next is after last, wrap to beginning
+      // next is before first, wrap to end
+
+      var nextIndex = startIndex + offset; // if 'wrapSelection' is set to false and selection is after last or before first, it just does not change
+
+      if (!wrapSelection && (nextIndex > lastIndex || nextIndex < 0)) {
+        nextIndex = startIndex;
+      } else if (nextIndex > lastIndex) {
+        nextIndex = 0;
+      } else if (nextIndex < 0) {
+        nextIndex = lastIndex;
+      }
+
+      if (options[nextIndex].disabled) {
+        return _this.getSelectedIndexAfterMove(offset, nextIndex);
+      }
+
+      return nextIndex;
+    };
+
+    _this.handleIconOverrides = function (predefinedProps) {
+      var clearable = _this.props.clearable;
+      var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(clearable && _this.hasValue() && 'clear', predefinedProps.className);
+      return {
+        className: classes,
+        onClick: function onClick(e) {
+          (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(predefinedProps, 'onClick', e, predefinedProps);
+
+          _this.handleIconClick(e);
+        }
+      };
+    };
+
+    _this.clearValue = function (e) {
+      var multiple = _this.props.multiple;
+      var newValue = multiple ? [] : '';
+
+      _this.setState({
+        value: newValue
+      });
+
+      _this.handleChange(e, newValue);
+    };
+
+    _this.computeSearchInputTabIndex = function () {
+      var _this$props8 = _this.props,
+          disabled = _this$props8.disabled,
+          tabIndex = _this$props8.tabIndex;
+      if (!(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_7__["default"])(tabIndex)) return tabIndex;
+      return disabled ? -1 : 0;
+    };
+
+    _this.computeSearchInputWidth = function () {
+      var searchQuery = _this.state.searchQuery;
+
+      if (_this.sizerRef.current && searchQuery) {
+        // resize the search input, temporarily show the sizer so we can measure it
+        _this.sizerRef.current.style.display = 'inline';
+        _this.sizerRef.current.textContent = searchQuery;
+        var searchWidth = Math.ceil(_this.sizerRef.current.getBoundingClientRect().width);
+
+        _this.sizerRef.current.style.removeProperty('display');
+
+        return searchWidth;
+      }
+    };
+
+    _this.computeTabIndex = function () {
+      var _this$props9 = _this.props,
+          disabled = _this$props9.disabled,
+          search = _this$props9.search,
+          tabIndex = _this$props9.tabIndex; // don't set a root node tabIndex as the search input has its own tabIndex
+
+      if (search) return undefined;
+      if (disabled) return -1;
+      return (0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_7__["default"])(tabIndex) ? 0 : tabIndex;
+    };
+
+    _this.handleSearchInputOverrides = function (predefinedProps) {
+      return {
+        onChange: function onChange(e, inputProps) {
+          (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(predefinedProps, 'onChange', e, inputProps);
+
+          _this.handleSearchChange(e, inputProps);
+        }
+      };
+    };
+
+    _this.hasValue = function () {
+      var multiple = _this.props.multiple;
+      var value = _this.state.value;
+      return multiple ? !(0,lodash_es_isEmpty__WEBPACK_IMPORTED_MODULE_21__["default"])(value) : !(0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_7__["default"])(value) && value !== '';
+    };
+
+    _this.scrollSelectedItemIntoView = function () {
+      if (!_this.ref.current) return;
+
+      var menu = _this.ref.current.querySelector('.menu.visible');
+
+      if (!menu) return;
+      var item = menu.querySelector('.item.selected');
+      if (!item) return;
+      var isOutOfUpperView = item.offsetTop < menu.scrollTop;
+      var isOutOfLowerView = item.offsetTop + item.clientHeight > menu.scrollTop + menu.clientHeight;
+
+      if (isOutOfUpperView) {
+        menu.scrollTop = item.offsetTop;
+      } else if (isOutOfLowerView) {
+        // eslint-disable-next-line no-mixed-operators
+        menu.scrollTop = item.offsetTop + item.clientHeight - menu.clientHeight;
+      }
+    };
+
+    _this.setOpenDirection = function () {
+      if (!_this.ref.current) return;
+
+      var menu = _this.ref.current.querySelector('.menu.visible');
+
+      if (!menu) return;
+
+      var dropdownRect = _this.ref.current.getBoundingClientRect();
+
+      var menuHeight = menu.clientHeight;
+      var spaceAtTheBottom = document.documentElement.clientHeight - dropdownRect.top - dropdownRect.height - menuHeight;
+      var spaceAtTheTop = dropdownRect.top - menuHeight;
+      var upward = spaceAtTheBottom < 0 && spaceAtTheTop > spaceAtTheBottom; // set state only if there's a relevant difference
+
+      if (!upward !== !_this.state.upward) {
+        _this.setState({
+          upward: upward
+        });
+      }
+    };
+
+    _this.open = function (e, triggerSetState) {
+      if (e === void 0) {
+        e = null;
+      }
+
+      if (triggerSetState === void 0) {
+        triggerSetState = true;
+      }
+
+      var _this$props10 = _this.props,
+          disabled = _this$props10.disabled,
+          search = _this$props10.search;
+      if (disabled) return;
+      if (search) (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.searchRef.current, 'focus');
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props, 'onOpen', e, _this.props);
+
+      if (triggerSetState) {
+        _this.setState({
+          open: true
+        });
+      }
+
+      _this.scrollSelectedItemIntoView();
+    };
+
+    _this.close = function (e, callback) {
+      if (callback === void 0) {
+        callback = _this.handleClose;
+      }
+
+      if (_this.state.open) {
+        (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_12__["default"])(_this.props, 'onClose', e, _this.props);
+
+        _this.setState({
+          open: false
+        }, callback);
+      }
+    };
+
+    _this.handleClose = function () {
+      var hasSearchFocus = document.activeElement === _this.searchRef.current; // https://github.com/Semantic-Org/Semantic-UI-React/issues/627
+      // Blur the Dropdown on close so it is blurred after selecting an item.
+      // This is to prevent it from re-opening when switching tabs after selecting an item.
+
+      if (!hasSearchFocus && _this.ref.current) {
+        _this.ref.current.blur();
+      }
+
+      var hasDropdownFocus = document.activeElement === _this.ref.current;
+      var hasFocus = hasSearchFocus || hasDropdownFocus; // We need to keep the virtual model in sync with the browser focus change
+      // https://github.com/Semantic-Org/Semantic-UI-React/issues/692
+
+      _this.setState({
+        focus: hasFocus
+      });
+    };
+
+    _this.toggle = function (e) {
+      return _this.state.open ? _this.close(e) : _this.open(e);
+    };
+
+    _this.renderText = function () {
+      var _this$props11 = _this.props,
+          multiple = _this$props11.multiple,
+          placeholder = _this$props11.placeholder,
+          search = _this$props11.search,
+          text = _this$props11.text;
+      var _this$state6 = _this.state,
+          searchQuery = _this$state6.searchQuery,
+          selectedIndex = _this$state6.selectedIndex,
+          value = _this$state6.value,
+          open = _this$state6.open;
+
+      var hasValue = _this.hasValue();
+
+      var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(placeholder && !hasValue && 'default', 'text', search && searchQuery && 'filtered');
+      var _text = placeholder;
+      var selectedItem;
+
+      if (text) {
+        _text = text;
+      } else if (open && !multiple) {
+        selectedItem = _this.getSelectedItem(selectedIndex);
+      } else if (hasValue) {
+        selectedItem = _this.getItemByValue(value);
+      }
+
+      return _DropdownText__WEBPACK_IMPORTED_MODULE_27__["default"].create(selectedItem ? renderItemContent(selectedItem) : _text, {
+        defaultProps: {
+          className: classes
+        }
+      });
+    };
+
+    _this.renderSearchInput = function () {
+      var _this$props12 = _this.props,
+          search = _this$props12.search,
+          searchInput = _this$props12.searchInput;
+      var searchQuery = _this.state.searchQuery;
+      return search && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_28__.Ref, {
+        innerRef: _this.searchRef
+      }, _DropdownSearchInput__WEBPACK_IMPORTED_MODULE_29__["default"].create(searchInput, {
+        defaultProps: {
+          style: {
+            width: _this.computeSearchInputWidth()
+          },
+          tabIndex: _this.computeSearchInputTabIndex(),
+          value: searchQuery
+        },
+        overrideProps: _this.handleSearchInputOverrides
+      }));
+    };
+
+    _this.renderSearchSizer = function () {
+      var _this$props13 = _this.props,
+          search = _this$props13.search,
+          multiple = _this$props13.multiple;
+      return search && multiple && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("span", {
+        className: "sizer",
+        ref: _this.sizerRef
+      });
+    };
+
+    _this.renderLabels = function () {
+      var _this$props14 = _this.props,
+          multiple = _this$props14.multiple,
+          renderLabel = _this$props14.renderLabel;
+      var _this$state7 = _this.state,
+          selectedLabel = _this$state7.selectedLabel,
+          value = _this$state7.value;
+
+      if (!multiple || (0,lodash_es_isEmpty__WEBPACK_IMPORTED_MODULE_21__["default"])(value)) {
+        return;
+      }
+
+      var selectedItems = (0,lodash_es_map__WEBPACK_IMPORTED_MODULE_30__["default"])(value, _this.getItemByValue);
+
+      // if no item could be found for a given state value the selected item will be undefined
+      // compact the selectedItems so we only have actual objects left
+      return (0,lodash_es_map__WEBPACK_IMPORTED_MODULE_30__["default"])((0,lodash_es_compact__WEBPACK_IMPORTED_MODULE_31__["default"])(selectedItems), function (item, index) {
+        var defaultProps = {
+          active: item.value === selectedLabel,
+          as: 'a',
+          key: getKeyOrValue(item.key, item.value),
+          onClick: _this.handleLabelClick,
+          onRemove: _this.handleLabelRemove,
+          value: item.value
+        };
+        return _elements_Label__WEBPACK_IMPORTED_MODULE_32__["default"].create(renderLabel(item, index, defaultProps), {
+          defaultProps: defaultProps
+        });
+      });
+    };
+
+    _this.renderOptions = function () {
+      var _this$props15 = _this.props,
+          lazyLoad = _this$props15.lazyLoad,
+          multiple = _this$props15.multiple,
+          search = _this$props15.search,
+          noResultsMessage = _this$props15.noResultsMessage;
+      var _this$state8 = _this.state,
+          open = _this$state8.open,
+          selectedIndex = _this$state8.selectedIndex,
+          value = _this$state8.value; // lazy load, only render options when open
+
+      if (lazyLoad && !open) return null;
+      var options = (0,_utils_getMenuOptions__WEBPACK_IMPORTED_MODULE_19__["default"])({
+        value: _this.state.value,
+        options: _this.props.options,
+        searchQuery: _this.state.searchQuery,
+        additionLabel: _this.props.additionLabel,
+        additionPosition: _this.props.additionPosition,
+        allowAdditions: _this.props.allowAdditions,
+        deburr: _this.props.deburr,
+        multiple: _this.props.multiple,
+        search: _this.props.search
+      });
+
+      if (noResultsMessage !== null && search && (0,lodash_es_isEmpty__WEBPACK_IMPORTED_MODULE_21__["default"])(options)) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
+          className: "message"
+        }, noResultsMessage);
+      }
+
+      var isActive = multiple ? function (optValue) {
+        return (0,lodash_es_includes__WEBPACK_IMPORTED_MODULE_33__["default"])(value, optValue);
+      } : function (optValue) {
+        return optValue === value;
+      };
+      return (0,lodash_es_map__WEBPACK_IMPORTED_MODULE_30__["default"])(options, function (opt, i) {
+        return _DropdownItem__WEBPACK_IMPORTED_MODULE_34__["default"].create((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+          active: isActive(opt.value),
+          selected: selectedIndex === i
+        }, opt, {
+          key: getKeyOrValue(opt.key, opt.value),
+          // Needed for handling click events on disabled items
+          style: (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, opt.style, {
+            pointerEvents: 'all'
+          })
+        }), {
+          generateKey: false,
+          overrideProps: function overrideProps(predefinedProps) {
+            return {
+              onClick: function onClick(e, item) {
+                predefinedProps.onClick == null ? void 0 : predefinedProps.onClick(e, item);
+
+                _this.handleItemClick(e, item);
+              }
+            };
+          }
+        });
+      });
+    };
+
+    _this.renderMenu = function () {
+      var _this$props16 = _this.props,
+          children = _this$props16.children,
+          direction = _this$props16.direction,
+          header = _this$props16.header;
+      var open = _this.state.open;
+
+      var ariaOptions = _this.getDropdownMenuAriaOptions(); // single menu child
+
+
+      if (!_lib__WEBPACK_IMPORTED_MODULE_35__.isNil(children)) {
+        var menuChild = react__WEBPACK_IMPORTED_MODULE_5__.Children.only(children);
+        var className = (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(direction, (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(open, 'visible'), menuChild.props.className);
+        return /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_5__.cloneElement)(menuChild, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+          className: className
+        }, ariaOptions));
+      }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_DropdownMenu__WEBPACK_IMPORTED_MODULE_37__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, ariaOptions, {
+        direction: direction,
+        open: open
+      }), _DropdownHeader__WEBPACK_IMPORTED_MODULE_38__["default"].create(header, {
+        autoGenerateKey: false
+      }), _this.renderOptions());
+    };
+
+    return _this;
+  }
+
+  var _proto = Dropdown.prototype;
+
+  _proto.getInitialAutoControlledState = function getInitialAutoControlledState() {
+    return {
+      focus: false,
+      searchQuery: ''
+    };
+  };
+
+  Dropdown.getAutoControlledStateFromProps = function getAutoControlledStateFromProps(nextProps, computedState, prevState) {
+    // These values are stored only for a comparison on next getAutoControlledStateFromProps()
+    var derivedState = {
+      __options: nextProps.options,
+      __value: computedState.value
+    }; // The selected index is only dependent:
+
+    var shouldComputeSelectedIndex = // On value change
+    !shallowequal__WEBPACK_IMPORTED_MODULE_6___default()(prevState.__value, computedState.value) || // On option keys/values, we only check those properties to avoid recursive performance impacts.
+    // https://github.com/Semantic-Org/Semantic-UI-React/issues/3000
+    !(0,lodash_es_isEqual__WEBPACK_IMPORTED_MODULE_39__["default"])(getKeyAndValues(nextProps.options), getKeyAndValues(prevState.__options));
+
+    if (shouldComputeSelectedIndex) {
+      derivedState.selectedIndex = (0,_utils_getSelectedIndex__WEBPACK_IMPORTED_MODULE_20__["default"])({
+        additionLabel: nextProps.additionLabel,
+        additionPosition: nextProps.additionPosition,
+        allowAdditions: nextProps.allowAdditions,
+        deburr: nextProps.deburr,
+        multiple: nextProps.multiple,
+        search: nextProps.search,
+        selectedIndex: computedState.selectedIndex,
+        value: computedState.value,
+        options: nextProps.options,
+        searchQuery: computedState.searchQuery
+      });
+    }
+
+    return derivedState;
+  };
+
+  _proto.componentDidMount = function componentDidMount() {
+    var open = this.state.open;
+
+    if (open) {
+      this.open(null, false);
+    }
+  };
+
+  _proto.shouldComponentUpdate = function shouldComponentUpdate(nextProps, nextState) {
+    return !shallowequal__WEBPACK_IMPORTED_MODULE_6___default()(nextProps, this.props) || !shallowequal__WEBPACK_IMPORTED_MODULE_6___default()(nextState, this.state);
+  };
+
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
+    // eslint-disable-line complexity
+    var _this$props17 = this.props,
+        closeOnBlur = _this$props17.closeOnBlur,
+        minCharacters = _this$props17.minCharacters,
+        openOnFocus = _this$props17.openOnFocus,
+        search = _this$props17.search;
+    /* eslint-disable no-console */
+
+    if (true) {
+      // in development, validate value type matches dropdown type
+      var isNextValueArray = Array.isArray(this.props.value);
+
+      var hasValue = (0,lodash_es_has__WEBPACK_IMPORTED_MODULE_40__["default"])(this.props, 'value');
+
+      if (hasValue && this.props.multiple && !isNextValueArray) {
+        console.error('Dropdown `value` must be an array when `multiple` is set.' + (" Received type: `" + Object.prototype.toString.call(this.props.value) + "`."));
+      } else if (hasValue && !this.props.multiple && isNextValueArray) {
+        console.error('Dropdown `value` must not be an array when `multiple` is not set.' + ' Either set `multiple={true}` or use a string or number value.');
+      }
+    }
+    /* eslint-enable no-console */
+    // focused / blurred
+
+
+    if (!prevState.focus && this.state.focus) {
+      if (!this.isMouseDown) {
+        var openable = !search || search && minCharacters === 1 && !this.state.open;
+        if (openOnFocus && openable) this.open();
+      }
+    } else if (prevState.focus && !this.state.focus) {
+      if (!this.isMouseDown && closeOnBlur) {
+        this.close();
+      }
+    } // opened / closed
+
+
+    if (!prevState.open && this.state.open) {
+      this.setOpenDirection();
+      this.scrollSelectedItemIntoView();
+    } else if (prevState.open && !this.state.open) {}
+
+    if (prevState.selectedIndex !== this.state.selectedIndex) {
+      this.scrollSelectedItemIntoView();
+    }
+  } // ----------------------------------------
+  // Document Event Handlers
+  // ----------------------------------------
+  // onChange needs to receive a value
+  // can't rely on props.value if we are controlled
+  ;
+
+  _proto.getDropdownMenuAriaOptions = function getDropdownMenuAriaOptions() {
+    var _this$props18 = this.props,
+        search = _this$props18.search,
+        multiple = _this$props18.multiple;
+    var ariaOptions = {};
+
+    if (search) {
+      ariaOptions['aria-multiselectable'] = multiple;
+      ariaOptions.role = 'listbox';
+    }
+
+    return ariaOptions;
+  } // ----------------------------------------
+  // Setters
+  // ----------------------------------------
+  ;
+
+  _proto.render = function render() {
+    var _this$props19 = this.props,
+        basic = _this$props19.basic,
+        button = _this$props19.button,
+        className = _this$props19.className,
+        compact = _this$props19.compact,
+        disabled = _this$props19.disabled,
+        error = _this$props19.error,
+        fluid = _this$props19.fluid,
+        floating = _this$props19.floating,
+        icon = _this$props19.icon,
+        inline = _this$props19.inline,
+        item = _this$props19.item,
+        labeled = _this$props19.labeled,
+        loading = _this$props19.loading,
+        multiple = _this$props19.multiple,
+        pointing = _this$props19.pointing,
+        search = _this$props19.search,
+        selection = _this$props19.selection,
+        scrolling = _this$props19.scrolling,
+        simple = _this$props19.simple,
+        trigger = _this$props19.trigger;
+    var _this$state9 = this.state,
+        focus = _this$state9.focus,
+        open = _this$state9.open,
+        upward = _this$state9.upward; // Classes
+
+    var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])('ui', (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(open, 'active visible'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(disabled, 'disabled'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(error, 'error'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(loading, 'loading'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(basic, 'basic'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(button, 'button'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(compact, 'compact'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(fluid, 'fluid'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(floating, 'floating'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(inline, 'inline'), // TODO: consider augmentation to render Dropdowns as Button/Menu, solves icon/link item issues
+    // https://github.com/Semantic-Org/Semantic-UI-React/issues/401#issuecomment-240487229
+    // TODO: the icon class is only required when a dropdown is a button
+    // useKeyOnly(icon, 'icon'),
+    (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(labeled, 'labeled'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(item, 'item'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(multiple, 'multiple'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(search, 'search'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(selection, 'selection'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(simple, 'simple'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(scrolling, 'scrolling'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOnly)(upward, 'upward'), (0,_lib__WEBPACK_IMPORTED_MODULE_36__.useKeyOrValueAndKey)(pointing, 'pointing'), 'dropdown', className);
+    var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_41__["default"])(Dropdown, this.props);
+    var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_42__["default"])(Dropdown, this.props);
+    var ariaOptions = this.getDropdownAriaOptions(ElementType, this.props);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_28__.Ref, {
+      innerRef: this.ref
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, ariaOptions, {
+      className: classes,
+      onBlur: this.handleBlur,
+      onClick: this.handleClick,
+      onKeyDown: this.handleKeyDown,
+      onMouseDown: this.handleMouseDown,
+      onFocus: this.handleFocus,
+      onChange: this.handleChange,
+      tabIndex: this.computeTabIndex()
+    }), this.renderLabels(), this.renderSearchInput(), this.renderSearchSizer(), trigger || this.renderText(), _elements_Icon__WEBPACK_IMPORTED_MODULE_43__["default"].create(icon, {
+      overrideProps: this.handleIconOverrides,
+      autoGenerateKey: false
+    }), this.renderMenu(), open && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement((_semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_2___default()), {
+      name: "keydown",
+      on: this.closeOnEscape
+    }), open && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement((_semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_2___default()), {
+      name: "click",
+      on: this.closeOnDocumentClick
+    }), focus && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement((_semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_2___default()), {
+      name: "keydown",
+      on: this.removeItemOnBackspace
+    })));
+  };
+
+  return Dropdown;
+}(_lib__WEBPACK_IMPORTED_MODULE_44__["default"]);
+
+Dropdown.handledProps = ["additionLabel", "additionPosition", "allowAdditions", "as", "basic", "button", "children", "className", "clearable", "closeOnBlur", "closeOnChange", "closeOnEscape", "compact", "deburr", "defaultOpen", "defaultSearchQuery", "defaultSelectedLabel", "defaultUpward", "defaultValue", "direction", "disabled", "error", "floating", "fluid", "header", "icon", "inline", "item", "labeled", "lazyLoad", "loading", "minCharacters", "multiple", "noResultsMessage", "onAddItem", "onBlur", "onChange", "onClick", "onClose", "onFocus", "onLabelClick", "onMouseDown", "onOpen", "onSearchChange", "open", "openOnFocus", "options", "placeholder", "pointing", "renderLabel", "scrolling", "search", "searchInput", "searchQuery", "selectOnBlur", "selectOnNavigation", "selectedLabel", "selection", "simple", "tabIndex", "text", "trigger", "upward", "value", "wrapSelection"];
+
+Dropdown.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().elementType),
+
+  /** Label prefixed to an option added by a user. */
+  additionLabel: prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_45___default().element), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().string)]),
+
+  /** Position of the `Add: ...` option in the dropdown list ('top' or 'bottom'). */
+  additionPosition: prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOf(['top', 'bottom']),
+
+  /**
+   * Allow user additions to the list of options (boolean).
+   * Requires the use of `selection`, `options` and `search`.
+   */
+  allowAdditions: _lib__WEBPACK_IMPORTED_MODULE_46__.every([_lib__WEBPACK_IMPORTED_MODULE_46__.demand(['options', 'selection', 'search']), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool)]),
+
+  /** A Dropdown can reduce its complexity. */
+  basic: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** Format the Dropdown to appear as a button. */
+  button: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** Primary content. */
+  children: _lib__WEBPACK_IMPORTED_MODULE_46__.every([_lib__WEBPACK_IMPORTED_MODULE_46__.disallow(['options', 'selection']), _lib__WEBPACK_IMPORTED_MODULE_46__.givenProps({
+    children: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().any.isRequired)
+  }, (prop_types__WEBPACK_IMPORTED_MODULE_45___default().element.isRequired))]),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().string),
+
+  /** Using the clearable setting will let users remove their selection from a dropdown. */
+  clearable: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** Whether or not the menu should close when the dropdown is blurred. */
+  closeOnBlur: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** Whether or not the dropdown should close when the escape key is pressed. */
+  closeOnEscape: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /**
+   * Whether or not the menu should close when a value is selected from the dropdown.
+   * By default, multiple selection dropdowns will remain open on change, while single
+   * selection dropdowns will close on change.
+   */
+  closeOnChange: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** A compact dropdown has no minimum width. */
+  compact: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** Whether or not the dropdown should strip diacritics in options and input search */
+  deburr: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** Initial value of open. */
+  defaultOpen: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** Initial value of searchQuery. */
+  defaultSearchQuery: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().string),
+
+  /** Currently selected label in multi-select. */
+  defaultSelectedLabel: _lib__WEBPACK_IMPORTED_MODULE_46__.every([_lib__WEBPACK_IMPORTED_MODULE_46__.demand(['multiple']), prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_45___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().string)])]),
+
+  /** Initial value of upward. */
+  defaultUpward: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** Initial value or value array if multiple. */
+  defaultValue: prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_45___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool), prop_types__WEBPACK_IMPORTED_MODULE_45___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_45___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool)]))]),
+
+  /** A dropdown menu can open to the left or to the right. */
+  direction: prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOf(['left', 'right']),
+
+  /** A disabled dropdown menu or item does not allow user interaction. */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** An errored dropdown can alert a user to a problem. */
+  error: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** A dropdown menu can contain floated content. */
+  floating: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** A dropdown can take the full width of its parent */
+  fluid: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** A dropdown menu can contain a header. */
+  header: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().node),
+
+  /** Shorthand for Icon. */
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_45___default().node), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().object)]),
+
+  /** A dropdown can be formatted to appear inline in other content. */
+  inline: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** A dropdown can be formatted as a Menu item. */
+  item: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** A dropdown can be labeled. */
+  labeled: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** A dropdown can defer rendering its options until it is open. */
+  lazyLoad: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** A dropdown can show that it is currently loading data. */
+  loading: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** The minimum characters for a search to begin showing results. */
+  minCharacters: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().number),
+
+  /** A selection dropdown can allow multiple selections. */
+  multiple: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** Message to display when there are no results. */
+  noResultsMessage: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().node),
+
+  /**
+   * Called when a user adds a new item. Use this to update the options list.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props and the new item's value.
+   */
+  onAddItem: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().func),
+
+  /**
+   * Called on blur.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onBlur: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().func),
+
+  /**
+   * Called when the user attempts to change the value.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props and proposed value.
+   */
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().func),
+
+  /**
+   * Called on click.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onClick: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().func),
+
+  /**
+   * Called when a close event happens.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onClose: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().func),
+
+  /**
+   * Called on focus.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onFocus: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().func),
+
+  /**
+   * Called when a multi-select label is clicked.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All label props.
+   */
+  onLabelClick: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().func),
+
+  /**
+   * Called on mousedown.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onMouseDown: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().func),
+
+  /**
+   * Called when an open event happens.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onOpen: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().func),
+
+  /**
+   * Called on search input change.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props, includes current value of searchQuery.
+   */
+  onSearchChange: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().func),
+
+  /** Controls whether or not the dropdown menu is displayed. */
+  open: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** Whether or not the menu should open when the dropdown is focused. */
+  openOnFocus: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** Array of Dropdown.Item props e.g. `{ text: '', value: '' }` */
+  options: _lib__WEBPACK_IMPORTED_MODULE_46__.every([_lib__WEBPACK_IMPORTED_MODULE_46__.disallow(['children']), prop_types__WEBPACK_IMPORTED_MODULE_45___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_45___default().shape(_DropdownItem__WEBPACK_IMPORTED_MODULE_34__["default"].propTypes))]),
+
+  /** Placeholder text. */
+  placeholder: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().string),
+
+  /** A dropdown can be formatted so that its menu is pointing. */
+  pointing: prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool), prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOf(['left', 'right', 'top', 'top left', 'top right', 'bottom', 'bottom left', 'bottom right'])]),
+
+  /**
+   * Mapped over the active items and returns shorthand for the active item Labels.
+   * Only applies to `multiple` Dropdowns.
+   *
+   * @param {object} item - A currently active dropdown item.
+   * @param {number} index - The current index.
+   * @param {object} defaultLabelProps - The default props for an active item Label.
+   * @returns {*} Shorthand for a Label.
+   */
+  renderLabel: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().func),
+
+  /** A dropdown can have its menu scroll. */
+  scrolling: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /**
+   * A selection dropdown can allow a user to search through a large list of choices.
+   * Pass a function here to replace the default search.
+   */
+  search: prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().func)]),
+
+  /** A shorthand for a search input. */
+  searchInput: prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_45___default().array), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().node), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().object)]),
+
+  /** Current value of searchQuery. Creates a controlled component. */
+  searchQuery: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().string),
+  // TODO 'searchInMenu' or 'search='in menu' or ???  How to handle this markup and functionality?
+
+  /** Define whether the highlighted item should be selected on blur. */
+  selectOnBlur: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /**
+   * Whether or not to change the value when navigating the menu using arrow keys.
+   * Setting to false will require enter or left click to confirm a choice.
+   */
+  selectOnNavigation: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** Currently selected label in multi-select. */
+  selectedLabel: _lib__WEBPACK_IMPORTED_MODULE_46__.every([_lib__WEBPACK_IMPORTED_MODULE_46__.demand(['multiple']), prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_45___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().number)])]),
+
+  /** A dropdown can be used to select between choices in a form. */
+  selection: _lib__WEBPACK_IMPORTED_MODULE_46__.every([_lib__WEBPACK_IMPORTED_MODULE_46__.disallow(['children']), _lib__WEBPACK_IMPORTED_MODULE_46__.demand(['options']), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool)]),
+
+  /** A simple dropdown can open without Javascript. */
+  simple: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /** A dropdown can receive focus. */
+  tabIndex: prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_45___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().string)]),
+
+  /** The text displayed in the dropdown, usually for the active item. */
+  text: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().string),
+
+  /** Custom element to trigger the menu to become visible. Takes place of 'text'. */
+  trigger: _lib__WEBPACK_IMPORTED_MODULE_46__.every([_lib__WEBPACK_IMPORTED_MODULE_46__.disallow(['selection', 'text']), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().node)]),
+
+  /** Current value or value array if multiple. Creates a controlled component. */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().number), prop_types__WEBPACK_IMPORTED_MODULE_45___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_45___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_45___default().number)]))]),
+
+  /** Controls whether the dropdown will open upward. */
+  upward: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool),
+
+  /**
+   * A dropdown will go to the last element when ArrowUp is pressed on the first,
+   * or go to the first when ArrowDown is pressed on the last( aka infinite selection )
+   */
+  wrapSelection: (prop_types__WEBPACK_IMPORTED_MODULE_45___default().bool)
+} : 0;
+Dropdown.defaultProps = {
+  additionLabel: 'Add ',
+  additionPosition: 'top',
+  closeOnBlur: true,
+  closeOnEscape: true,
+  deburr: false,
+  icon: 'dropdown',
+  minCharacters: 1,
+  noResultsMessage: 'No results found.',
+  openOnFocus: true,
+  renderLabel: renderItemContent,
+  searchInput: 'text',
+  selectOnBlur: true,
+  selectOnNavigation: true,
+  wrapSelection: true
+};
+Dropdown.autoControlledProps = ['open', 'searchQuery', 'selectedLabel', 'value', 'upward'];
+Dropdown.Divider = _DropdownDivider__WEBPACK_IMPORTED_MODULE_47__["default"];
+Dropdown.Header = _DropdownHeader__WEBPACK_IMPORTED_MODULE_38__["default"];
+Dropdown.Item = _DropdownItem__WEBPACK_IMPORTED_MODULE_34__["default"];
+Dropdown.Menu = _DropdownMenu__WEBPACK_IMPORTED_MODULE_37__["default"];
+Dropdown.SearchInput = _DropdownSearchInput__WEBPACK_IMPORTED_MODULE_29__["default"];
+Dropdown.Text = _DropdownText__WEBPACK_IMPORTED_MODULE_27__["default"];
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownDivider.js":
+/*!********************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownDivider.js ***!
+  \********************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+
+
+
+
+
+/**
+ * A dropdown menu can contain dividers to separate related content.
+ */
+
+function DropdownDivider(props) {
+  var className = props.className;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('divider', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(DropdownDivider, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(DropdownDivider, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }));
+}
+
+DropdownDivider.handledProps = ["as", "className"];
+DropdownDivider.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().elementType),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().string)
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DropdownDivider);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownHeader.js":
+/*!*******************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownHeader.js ***!
+  \*******************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+/* harmony import */ var _elements_Icon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../elements/Icon */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Icon/Icon.js");
+
+
+
+
+
+
+/**
+ * A dropdown menu can contain a header.
+ */
+
+function DropdownHeader(props) {
+  var children = props.children,
+      className = props.className,
+      content = props.content,
+      icon = props.icon;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('header', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(DropdownHeader, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(DropdownHeader, props);
+
+  if (!_lib__WEBPACK_IMPORTED_MODULE_5__.isNil(children)) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      className: classes
+    }), children);
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), _elements_Icon__WEBPACK_IMPORTED_MODULE_6__["default"].create(icon, {
+    autoGenerateKey: false
+  }), content);
+}
+
+DropdownHeader.handledProps = ["as", "children", "className", "content", "icon"];
+DropdownHeader.propTypes =  true ? {
+  /** An element type to render as (string or function) */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_8__.contentShorthand,
+
+  /** Shorthand for Icon. */
+  icon: _lib__WEBPACK_IMPORTED_MODULE_8__.itemShorthand
+} : 0;
+DropdownHeader.create = (0,_lib__WEBPACK_IMPORTED_MODULE_9__.createShorthandFactory)(DropdownHeader, function (content) {
+  return {
+    content: content
+  };
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DropdownHeader);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownItem.js":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownItem.js ***!
+  \*****************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_isNil__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash-es/isNil */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isNil.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _elements_Flag__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../elements/Flag */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Flag/Flag.js");
+/* harmony import */ var _elements_Icon__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../elements/Icon */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Icon/Icon.js");
+/* harmony import */ var _elements_Image__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../elements/Image */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Image/Image.js");
+/* harmony import */ var _elements_Label__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../elements/Label */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Label/Label.js");
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * An item sub-component for Dropdown component.
+ */
+
+var DropdownItem = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(DropdownItem, _Component);
+
+  function DropdownItem() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _this.handleClick = function (e) {
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"])(_this.props, 'onClick', e, _this.props);
+    };
+
+    return _this;
+  }
+
+  var _proto = DropdownItem.prototype;
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        active = _this$props.active,
+        children = _this$props.children,
+        className = _this$props.className,
+        content = _this$props.content,
+        disabled = _this$props.disabled,
+        description = _this$props.description,
+        flag = _this$props.flag,
+        icon = _this$props.icon,
+        image = _this$props.image,
+        label = _this$props.label,
+        selected = _this$props.selected,
+        text = _this$props.text;
+    var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(active, 'active'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(disabled, 'disabled'), (0,_lib__WEBPACK_IMPORTED_MODULE_5__.useKeyOnly)(selected, 'selected'), 'item', className); // add default dropdown icon if item contains another menu
+
+    var iconName = (0,lodash_es_isNil__WEBPACK_IMPORTED_MODULE_6__["default"])(icon) ? _lib__WEBPACK_IMPORTED_MODULE_7__.someByType(children, 'DropdownMenu') && 'dropdown' : icon;
+    var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_8__["default"])(DropdownItem, this.props);
+    var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_9__["default"])(DropdownItem, this.props);
+    var ariaOptions = {
+      role: 'option',
+      'aria-disabled': disabled,
+      'aria-checked': active,
+      'aria-selected': selected
+    };
+
+    if (!_lib__WEBPACK_IMPORTED_MODULE_7__.isNil(children)) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, ariaOptions, {
+        className: classes,
+        onClick: this.handleClick
+      }), children);
+    }
+
+    var flagElement = _elements_Flag__WEBPACK_IMPORTED_MODULE_10__["default"].create(flag, {
+      autoGenerateKey: false
+    });
+    var iconElement = _elements_Icon__WEBPACK_IMPORTED_MODULE_11__["default"].create(iconName, {
+      autoGenerateKey: false
+    });
+    var imageElement = _elements_Image__WEBPACK_IMPORTED_MODULE_12__["default"].create(image, {
+      autoGenerateKey: false
+    });
+    var labelElement = _elements_Label__WEBPACK_IMPORTED_MODULE_13__["default"].create(label, {
+      autoGenerateKey: false
+    });
+    var descriptionElement = (0,_lib__WEBPACK_IMPORTED_MODULE_14__.createShorthand)('span', function (val) {
+      return {
+        children: val
+      };
+    }, description, {
+      defaultProps: {
+        className: 'description'
+      },
+      autoGenerateKey: false
+    });
+    var textElement = (0,_lib__WEBPACK_IMPORTED_MODULE_14__.createShorthand)('span', function (val) {
+      return {
+        children: val
+      };
+    }, _lib__WEBPACK_IMPORTED_MODULE_7__.isNil(content) ? text : content, {
+      defaultProps: {
+        className: 'text'
+      },
+      autoGenerateKey: false
+    });
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, ariaOptions, {
+      className: classes,
+      onClick: this.handleClick
+    }), imageElement, iconElement, flagElement, labelElement, descriptionElement, textElement);
+  };
+
+  return DropdownItem;
+}(react__WEBPACK_IMPORTED_MODULE_3__.Component);
+
+DropdownItem.handledProps = ["active", "as", "children", "className", "content", "description", "disabled", "flag", "icon", "image", "label", "onClick", "selected", "text", "value"];
+DropdownItem.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_15___default().elementType),
+
+  /** Style as the currently chosen item. */
+  active: (prop_types__WEBPACK_IMPORTED_MODULE_15___default().bool),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_15___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_15___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_16__.contentShorthand,
+
+  /** Additional text with less emphasis. */
+  description: _lib__WEBPACK_IMPORTED_MODULE_16__.itemShorthand,
+
+  /** A dropdown item can be disabled. */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_15___default().bool),
+
+  /** Shorthand for Flag. */
+  flag: _lib__WEBPACK_IMPORTED_MODULE_16__.itemShorthand,
+
+  /** Shorthand for Icon. */
+  icon: _lib__WEBPACK_IMPORTED_MODULE_16__.itemShorthand,
+
+  /** Shorthand for Image. */
+  image: _lib__WEBPACK_IMPORTED_MODULE_16__.itemShorthand,
+
+  /** Shorthand for Label. */
+  label: _lib__WEBPACK_IMPORTED_MODULE_16__.itemShorthand,
+
+  /**
+   * Called on click.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onClick: (prop_types__WEBPACK_IMPORTED_MODULE_15___default().func),
+
+  /**
+   * The item currently selected by keyboard shortcut.
+   * This is not the active item.
+   */
+  selected: (prop_types__WEBPACK_IMPORTED_MODULE_15___default().bool),
+
+  /** Display text. */
+  text: _lib__WEBPACK_IMPORTED_MODULE_16__.contentShorthand,
+
+  /** Stored value. */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_15___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_15___default().bool), (prop_types__WEBPACK_IMPORTED_MODULE_15___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_15___default().string)])
+} : 0;
+DropdownItem.create = (0,_lib__WEBPACK_IMPORTED_MODULE_14__.createShorthandFactory)(DropdownItem, function (opts) {
+  return opts;
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DropdownItem);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownMenu.js":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownMenu.js ***!
+  \*****************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+
+
+
+
+
+/**
+ * A dropdown menu can contain a menu.
+ */
+
+function DropdownMenu(props) {
+  var children = props.children,
+      className = props.className,
+      content = props.content,
+      direction = props.direction,
+      open = props.open,
+      scrolling = props.scrolling;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])(direction, (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(open, 'visible'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(scrolling, 'scrolling'), 'menu transition', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(DropdownMenu, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(DropdownMenu, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), _lib__WEBPACK_IMPORTED_MODULE_6__.isNil(children) ? content : children);
+}
+
+DropdownMenu.handledProps = ["as", "children", "className", "content", "direction", "open", "scrolling"];
+DropdownMenu.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_8__.contentShorthand,
+
+  /** A dropdown menu can open to the left or to the right. */
+  direction: prop_types__WEBPACK_IMPORTED_MODULE_7___default().oneOf(['left', 'right']),
+
+  /** Whether or not the dropdown menu is displayed. */
+  open: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().bool),
+
+  /** A dropdown menu can scroll. */
+  scrolling: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().bool)
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DropdownMenu);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownSearchInput.js":
+/*!************************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownSearchInput.js ***!
+  \************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash-es/invoke */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js");
+/* harmony import */ var lodash_es_get__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/get */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/get.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+
+
+
+
+
+
+
+
+/**
+ * A search item sub-component for Dropdown component.
+ */
+
+var DropdownSearchInput = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(DropdownSearchInput, _Component);
+
+  function DropdownSearchInput() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _this.handleChange = function (e) {
+      var value = (0,lodash_es_get__WEBPACK_IMPORTED_MODULE_4__["default"])(e, 'target.value');
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_5__["default"])(_this.props, 'onChange', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+        value: value
+      }));
+    };
+
+    return _this;
+  }
+
+  var _proto = DropdownSearchInput.prototype;
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        autoComplete = _this$props.autoComplete,
+        className = _this$props.className,
+        tabIndex = _this$props.tabIndex,
+        type = _this$props.type,
+        value = _this$props.value;
+    var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('search', className);
+    var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_6__["default"])(DropdownSearchInput, this.props);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("input", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      "aria-autocomplete": "list",
+      autoComplete: autoComplete,
+      className: classes,
+      onChange: this.handleChange,
+      tabIndex: tabIndex,
+      type: type,
+      value: value
+    }));
+  };
+
+  return DropdownSearchInput;
+}(react__WEBPACK_IMPORTED_MODULE_3__.Component);
+
+DropdownSearchInput.handledProps = ["as", "autoComplete", "className", "tabIndex", "type", "value"];
+DropdownSearchInput.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().elementType),
+
+  /** An input can have the auto complete. */
+  autoComplete: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().string),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().string),
+
+  /** An input can receive focus. */
+  tabIndex: prop_types__WEBPACK_IMPORTED_MODULE_7___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_7___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_7___default().string)]),
+
+  /** The HTML input type. */
+  type: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().string),
+
+  /** Stored value. */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_7___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_7___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_7___default().string)])
+} : 0;
+DropdownSearchInput.defaultProps = {
+  autoComplete: 'off',
+  type: 'text'
+};
+DropdownSearchInput.create = (0,_lib__WEBPACK_IMPORTED_MODULE_8__.createShorthandFactory)(DropdownSearchInput, function (type) {
+  return {
+    type: type
+  };
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DropdownSearchInput);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownText.js":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/DropdownText.js ***!
+  \*****************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/lib/factories.js");
+
+
+
+
+
+/**
+ * A dropdown contains a selected value.
+ */
+
+function DropdownText(props) {
+  var children = props.children,
+      className = props.className,
+      content = props.content;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('divider', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(DropdownText, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(DropdownText, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    "aria-atomic": true,
+    "aria-live": "polite",
+    role: "alert"
+  }, rest, {
+    className: classes
+  }), _lib__WEBPACK_IMPORTED_MODULE_5__.isNil(children) ? content : children);
+}
+
+DropdownText.handledProps = ["as", "children", "className", "content"];
+DropdownText.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_7__.contentShorthand
+} : 0;
+DropdownText.create = (0,_lib__WEBPACK_IMPORTED_MODULE_8__.createShorthandFactory)(DropdownText, function (val) {
+  return {
+    content: val
+  };
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DropdownText);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/utils/getMenuOptions.js":
+/*!*************************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/utils/getMenuOptions.js ***!
+  \*************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getMenuOptions)
+/* harmony export */ });
+/* harmony import */ var lodash_es_some__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash-es/some */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/some.js");
+/* harmony import */ var lodash_es_escapeRegExp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash-es/escapeRegExp */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/escapeRegExp.js");
+/* harmony import */ var lodash_es_deburr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/deburr */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/deburr.js");
+/* harmony import */ var lodash_es_isFunction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash-es/isFunction */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isFunction.js");
+/* harmony import */ var lodash_es_includes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash-es/includes */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/includes.js");
+/* harmony import */ var lodash_es_filter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash-es/filter */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/filter.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+
+
+
+
+
+
+ // There are times when we need to calculate the options based on a value
+// that hasn't yet been persisted to state.
+
+function getMenuOptions(config) {
+  var additionLabel = config.additionLabel,
+      additionPosition = config.additionPosition,
+      allowAdditions = config.allowAdditions,
+      deburr = config.deburr,
+      multiple = config.multiple,
+      options = config.options,
+      search = config.search,
+      searchQuery = config.searchQuery,
+      value = config.value;
+  var filteredOptions = options; // filter out active options
+
+  if (multiple) {
+    filteredOptions = (0,lodash_es_filter__WEBPACK_IMPORTED_MODULE_1__["default"])(filteredOptions, function (opt) {
+      return !(0,lodash_es_includes__WEBPACK_IMPORTED_MODULE_2__["default"])(value, opt.value);
+    });
+  } // filter by search query
+
+
+  if (search && searchQuery) {
+    if ((0,lodash_es_isFunction__WEBPACK_IMPORTED_MODULE_3__["default"])(search)) {
+      filteredOptions = search(filteredOptions, searchQuery);
+    } else {
+      // remove diacritics on search input and options, if deburr prop is set
+      var strippedQuery = deburr ? (0,lodash_es_deburr__WEBPACK_IMPORTED_MODULE_4__["default"])(searchQuery) : searchQuery;
+      var re = new RegExp((0,lodash_es_escapeRegExp__WEBPACK_IMPORTED_MODULE_5__["default"])(strippedQuery), 'i');
+      filteredOptions = (0,lodash_es_filter__WEBPACK_IMPORTED_MODULE_1__["default"])(filteredOptions, function (opt) {
+        return re.test(deburr ? (0,lodash_es_deburr__WEBPACK_IMPORTED_MODULE_4__["default"])(opt.text) : opt.text);
+      });
+    }
+  } // insert the "add" item
+
+
+  if (allowAdditions && search && searchQuery && !(0,lodash_es_some__WEBPACK_IMPORTED_MODULE_6__["default"])(filteredOptions, {
+    text: searchQuery
+  })) {
+    var additionLabelElement = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.isValidElement(additionLabel) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.cloneElement(additionLabel, {
+      key: 'addition-label'
+    }) : additionLabel || '';
+    var addItem = {
+      key: 'addition',
+      // by using an array, we can pass multiple elements, but when doing so
+      // we must specify a `key` for React to know which one is which
+      text: [additionLabelElement, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("b", {
+        key: "addition-query"
+      }, searchQuery)],
+      value: searchQuery,
+      className: 'addition',
+      'data-additional': true
+    };
+    if (additionPosition === 'top') filteredOptions.unshift(addItem);else filteredOptions.push(addItem);
+  }
+
+  return filteredOptions;
+}
+getMenuOptions.handledProps = [];
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/utils/getSelectedIndex.js":
+/*!***************************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/utils/getSelectedIndex.js ***!
+  \***************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getSelectedIndex)
+/* harmony export */ });
+/* harmony import */ var lodash_es_includes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/includes */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/includes.js");
+/* harmony import */ var lodash_es_find__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash-es/find */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/find.js");
+/* harmony import */ var lodash_es_findIndex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash-es/findIndex */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/findIndex.js");
+/* harmony import */ var lodash_es_reduce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash-es/reduce */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/reduce.js");
+/* harmony import */ var _getMenuOptions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getMenuOptions */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/modules/Dropdown/utils/getMenuOptions.js");
+
+
+
+
+
+function getSelectedIndex(config) {
+  var additionLabel = config.additionLabel,
+      additionPosition = config.additionPosition,
+      allowAdditions = config.allowAdditions,
+      deburr = config.deburr,
+      multiple = config.multiple,
+      options = config.options,
+      search = config.search,
+      searchQuery = config.searchQuery,
+      selectedIndex = config.selectedIndex,
+      value = config.value;
+  var menuOptions = (0,_getMenuOptions__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    value: value,
+    options: options,
+    searchQuery: searchQuery,
+    additionLabel: additionLabel,
+    additionPosition: additionPosition,
+    allowAdditions: allowAdditions,
+    deburr: deburr,
+    multiple: multiple,
+    search: search
+  });
+
+  var enabledIndexes = (0,lodash_es_reduce__WEBPACK_IMPORTED_MODULE_1__["default"])(menuOptions, function (memo, item, index) {
+    if (!item.disabled) memo.push(index);
+    return memo;
+  }, []);
+
+  var newSelectedIndex; // update the selected index
+
+  if (!selectedIndex || selectedIndex < 0) {
+    var firstIndex = enabledIndexes[0]; // Select the currently active item, if none, use the first item.
+    // Multiple selects remove active items from the list,
+    // their initial selected index should be 0.
+
+    newSelectedIndex = multiple ? firstIndex : (0,lodash_es_findIndex__WEBPACK_IMPORTED_MODULE_2__["default"])(menuOptions, ['value', value]) || enabledIndexes[0];
+  } else if (multiple) {
+    newSelectedIndex = (0,lodash_es_find__WEBPACK_IMPORTED_MODULE_3__["default"])(enabledIndexes, function (index) {
+      return index >= selectedIndex;
+    }); // multiple selects remove options from the menu as they are made active
+    // keep the selected index within range of the remaining items
+
+    if (selectedIndex >= menuOptions.length - 1) {
+      newSelectedIndex = enabledIndexes[enabledIndexes.length - 1];
+    }
+  } else {
+    var activeIndex = (0,lodash_es_findIndex__WEBPACK_IMPORTED_MODULE_2__["default"])(menuOptions, ['value', value]); // regular selects can only have one active item
+    // set the selected index to the currently active item
+
+
+    newSelectedIndex = (0,lodash_es_includes__WEBPACK_IMPORTED_MODULE_4__["default"])(enabledIndexes, activeIndex) ? activeIndex : undefined;
+  }
+
+  if (!newSelectedIndex || newSelectedIndex < 0) {
+    newSelectedIndex = enabledIndexes[0];
+  }
+
+  return newSelectedIndex;
+}
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/shallowequal/index.js":
+/*!****************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/shallowequal/index.js ***!
+  \****************************************************************************************************************/
+/***/ ((module) => {
+
+//
+
+module.exports = function shallowEqual(objA, objB, compare, compareContext) {
+  var ret = compare ? compare.call(compareContext, objA, objB) : void 0;
+
+  if (ret !== void 0) {
+    return !!ret;
+  }
+
+  if (objA === objB) {
+    return true;
+  }
+
+  if (typeof objA !== "object" || !objA || typeof objB !== "object" || !objB) {
+    return false;
+  }
+
+  var keysA = Object.keys(objA);
+  var keysB = Object.keys(objB);
+
+  if (keysA.length !== keysB.length) {
+    return false;
+  }
+
+  var bHasOwnProperty = Object.prototype.hasOwnProperty.bind(objB);
+
+  // Test for A's keys different from B.
+  for (var idx = 0; idx < keysA.length; idx++) {
+    var key = keysA[idx];
+
+    if (!bHasOwnProperty(key)) {
+      return false;
+    }
+
+    var valueA = objA[key];
+    var valueB = objB[key];
+
+    ret = compare ? compare.call(compareContext, valueA, valueB, key) : void 0;
+
+    if (ret === false || (ret === void 0 && valueA !== valueB)) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
 
 /***/ }),
 
@@ -34350,6 +43300,27 @@ module.exports = function (list, options) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js":
+/*!**********************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js ***!
+  \**********************************************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _assertThisInitialized)
+/* harmony export */ });
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js":
 /*!********************************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/extends.js ***!
@@ -34377,6 +43348,77 @@ function _extends() {
   };
 
   return _extends.apply(this, arguments);
+}
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":
+/*!**************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js ***!
+  \**************************************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _inheritsLoose)
+/* harmony export */ });
+/* harmony import */ var _setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPrototypeOf.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js");
+
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  (0,_setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__["default"])(subClass, superClass);
+}
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js ***!
+  \*****************************************************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _objectWithoutPropertiesLoose)
+/* harmony export */ });
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js":
+/*!***************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js ***!
+  \***************************************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _setPrototypeOf)
+/* harmony export */ });
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
 }
 
 /***/ }),
@@ -34830,6 +43872,81 @@ function apply(func, thisArg, args) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayEach.js":
+/*!******************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayEach.js ***!
+  \******************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * A specialized version of `_.forEach` for arrays without support for
+ * iteratee shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array} Returns `array`.
+ */
+function arrayEach(array, iteratee) {
+  var index = -1,
+      length = array == null ? 0 : array.length;
+
+  while (++index < length) {
+    if (iteratee(array[index], index, array) === false) {
+      break;
+    }
+  }
+  return array;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (arrayEach);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayEvery.js":
+/*!*******************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayEvery.js ***!
+  \*******************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * A specialized version of `_.every` for arrays without support for
+ * iteratee shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} predicate The function invoked per iteration.
+ * @returns {boolean} Returns `true` if all elements pass the predicate check,
+ *  else `false`.
+ */
+function arrayEvery(array, predicate) {
+  var index = -1,
+      length = array == null ? 0 : array.length;
+
+  while (++index < length) {
+    if (!predicate(array[index], index, array)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (arrayEvery);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayFilter.js":
 /*!********************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayFilter.js ***!
@@ -35081,6 +44198,47 @@ function arrayPush(array, values) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayReduce.js":
+/*!********************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayReduce.js ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * A specialized version of `_.reduce` for arrays without support for
+ * iteratee shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @param {*} [accumulator] The initial value.
+ * @param {boolean} [initAccum] Specify using the first element of `array` as
+ *  the initial value.
+ * @returns {*} Returns the accumulated value.
+ */
+function arrayReduce(array, iteratee, accumulator, initAccum) {
+  var index = -1,
+      length = array == null ? 0 : array.length;
+
+  if (initAccum && length) {
+    accumulator = array[++index];
+  }
+  while (++index < length) {
+    accumulator = iteratee(accumulator, array[index], index, array);
+  }
+  return accumulator;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (arrayReduce);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arraySome.js":
 /*!******************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arraySome.js ***!
@@ -35115,6 +44273,34 @@ function arraySome(array, predicate) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (arraySome);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_asciiSize.js":
+/*!******************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_asciiSize.js ***!
+  \******************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseProperty_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_baseProperty.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseProperty.js");
+
+
+/**
+ * Gets the size of an ASCII `string`.
+ *
+ * @private
+ * @param {string} string The string inspect.
+ * @returns {number} Returns the string size.
+ */
+var asciiSize = (0,_baseProperty_js__WEBPACK_IMPORTED_MODULE_0__["default"])('length');
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (asciiSize);
 
 
 /***/ }),
@@ -35269,6 +44455,43 @@ function baseAssignValue(object, key, value) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseClamp.js":
+/*!******************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseClamp.js ***!
+  \******************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * The base implementation of `_.clamp` which doesn't coerce arguments.
+ *
+ * @private
+ * @param {number} number The number to clamp.
+ * @param {number} [lower] The lower bound.
+ * @param {number} upper The upper bound.
+ * @returns {number} Returns the clamped number.
+ */
+function baseClamp(number, lower, upper) {
+  if (number === number) {
+    if (upper !== undefined) {
+      number = number <= upper ? number : upper;
+    }
+    if (lower !== undefined) {
+      number = number >= lower ? number : lower;
+    }
+  }
+  return number;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (baseClamp);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseDifference.js":
 /*!***********************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseDifference.js ***!
@@ -35388,6 +44611,43 @@ var baseEach = (0,_createBaseEach_js__WEBPACK_IMPORTED_MODULE_0__["default"])(_b
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseEvery.js":
+/*!******************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseEvery.js ***!
+  \******************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseEach_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_baseEach.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseEach.js");
+
+
+/**
+ * The base implementation of `_.every` without support for iteratee shorthands.
+ *
+ * @private
+ * @param {Array|Object} collection The collection to iterate over.
+ * @param {Function} predicate The function invoked per iteration.
+ * @returns {boolean} Returns `true` if all elements pass the predicate check,
+ *  else `false`
+ */
+function baseEvery(collection, predicate) {
+  var result = true;
+  (0,_baseEach_js__WEBPACK_IMPORTED_MODULE_0__["default"])(collection, function(value, index, collection) {
+    result = !!predicate(value, index, collection);
+    return result;
+  });
+  return result;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (baseEvery);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseExtremum.js":
 /*!*********************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseExtremum.js ***!
@@ -35432,6 +44692,43 @@ function baseExtremum(array, iteratee, comparator) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (baseExtremum);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseFilter.js":
+/*!*******************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseFilter.js ***!
+  \*******************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseEach_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_baseEach.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseEach.js");
+
+
+/**
+ * The base implementation of `_.filter` without support for iteratee shorthands.
+ *
+ * @private
+ * @param {Array|Object} collection The collection to iterate over.
+ * @param {Function} predicate The function invoked per iteration.
+ * @returns {Array} Returns the new filtered array.
+ */
+function baseFilter(collection, predicate) {
+  var result = [];
+  (0,_baseEach_js__WEBPACK_IMPORTED_MODULE_0__["default"])(collection, function(value, index, collection) {
+    if (predicate(value, index, collection)) {
+      result.push(value);
+    }
+  });
+  return result;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (baseFilter);
 
 
 /***/ }),
@@ -35719,6 +45016,40 @@ function baseGetTag(value) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseHas.js":
+/*!****************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseHas.js ***!
+  \****************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * The base implementation of `_.has` without support for deep paths.
+ *
+ * @private
+ * @param {Object} [object] The object to query.
+ * @param {Array|string} key The key to check.
+ * @returns {boolean} Returns `true` if `key` exists, else `false`.
+ */
+function baseHas(object, key) {
+  return object != null && hasOwnProperty.call(object, key);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (baseHas);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseHasIn.js":
 /*!******************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseHasIn.js ***!
@@ -35743,6 +45074,39 @@ function baseHasIn(object, key) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (baseHasIn);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseInRange.js":
+/*!********************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseInRange.js ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeMax = Math.max,
+    nativeMin = Math.min;
+
+/**
+ * The base implementation of `_.inRange` which doesn't coerce arguments.
+ *
+ * @private
+ * @param {number} number The number to check.
+ * @param {number} start The start of the range.
+ * @param {number} end The end of the range.
+ * @returns {boolean} Returns `true` if `number` is in the range, else `false`.
+ */
+function baseInRange(number, start, end) {
+  return number >= nativeMin(start, end) && number < nativeMax(start, end);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (baseInRange);
 
 
 /***/ }),
@@ -35781,6 +45145,145 @@ function baseIndexOf(array, value, fromIndex) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (baseIndexOf);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseIntersection.js":
+/*!*************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseIntersection.js ***!
+  \*************************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SetCache_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_SetCache.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_SetCache.js");
+/* harmony import */ var _arrayIncludes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_arrayIncludes.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayIncludes.js");
+/* harmony import */ var _arrayIncludesWith_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_arrayIncludesWith.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayIncludesWith.js");
+/* harmony import */ var _arrayMap_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_arrayMap.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayMap.js");
+/* harmony import */ var _baseUnary_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_baseUnary.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseUnary.js");
+/* harmony import */ var _cacheHas_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./_cacheHas.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_cacheHas.js");
+
+
+
+
+
+
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeMin = Math.min;
+
+/**
+ * The base implementation of methods like `_.intersection`, without support
+ * for iteratee shorthands, that accepts an array of arrays to inspect.
+ *
+ * @private
+ * @param {Array} arrays The arrays to inspect.
+ * @param {Function} [iteratee] The iteratee invoked per element.
+ * @param {Function} [comparator] The comparator invoked per element.
+ * @returns {Array} Returns the new array of shared values.
+ */
+function baseIntersection(arrays, iteratee, comparator) {
+  var includes = comparator ? _arrayIncludesWith_js__WEBPACK_IMPORTED_MODULE_0__["default"] : _arrayIncludes_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+      length = arrays[0].length,
+      othLength = arrays.length,
+      othIndex = othLength,
+      caches = Array(othLength),
+      maxLength = Infinity,
+      result = [];
+
+  while (othIndex--) {
+    var array = arrays[othIndex];
+    if (othIndex && iteratee) {
+      array = (0,_arrayMap_js__WEBPACK_IMPORTED_MODULE_2__["default"])(array, (0,_baseUnary_js__WEBPACK_IMPORTED_MODULE_3__["default"])(iteratee));
+    }
+    maxLength = nativeMin(array.length, maxLength);
+    caches[othIndex] = !comparator && (iteratee || (length >= 120 && array.length >= 120))
+      ? new _SetCache_js__WEBPACK_IMPORTED_MODULE_4__["default"](othIndex && array)
+      : undefined;
+  }
+  array = arrays[0];
+
+  var index = -1,
+      seen = caches[0];
+
+  outer:
+  while (++index < length && result.length < maxLength) {
+    var value = array[index],
+        computed = iteratee ? iteratee(value) : value;
+
+    value = (comparator || value !== 0) ? value : 0;
+    if (!(seen
+          ? (0,_cacheHas_js__WEBPACK_IMPORTED_MODULE_5__["default"])(seen, computed)
+          : includes(result, computed, comparator)
+        )) {
+      othIndex = othLength;
+      while (--othIndex) {
+        var cache = caches[othIndex];
+        if (!(cache
+              ? (0,_cacheHas_js__WEBPACK_IMPORTED_MODULE_5__["default"])(cache, computed)
+              : includes(arrays[othIndex], computed, comparator))
+            ) {
+          continue outer;
+        }
+      }
+      if (seen) {
+        seen.push(computed);
+      }
+      result.push(value);
+    }
+  }
+  return result;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (baseIntersection);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseInvoke.js":
+/*!*******************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseInvoke.js ***!
+  \*******************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _apply_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_apply.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_apply.js");
+/* harmony import */ var _castPath_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_castPath.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_castPath.js");
+/* harmony import */ var _last_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./last.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/last.js");
+/* harmony import */ var _parent_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_parent.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_parent.js");
+/* harmony import */ var _toKey_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_toKey.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_toKey.js");
+
+
+
+
+
+
+/**
+ * The base implementation of `_.invoke` without support for individual
+ * method arguments.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @param {Array|string} path The path of the method to invoke.
+ * @param {Array} args The arguments to invoke the method with.
+ * @returns {*} Returns the result of the invoked method.
+ */
+function baseInvoke(object, path, args) {
+  path = (0,_castPath_js__WEBPACK_IMPORTED_MODULE_0__["default"])(path, object);
+  object = (0,_parent_js__WEBPACK_IMPORTED_MODULE_1__["default"])(object, path);
+  var func = object == null ? object : object[(0,_toKey_js__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_last_js__WEBPACK_IMPORTED_MODULE_3__["default"])(path))];
+  return func == null ? undefined : (0,_apply_js__WEBPACK_IMPORTED_MODULE_4__["default"])(func, object, args);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (baseInvoke);
 
 
 /***/ }),
@@ -36700,6 +46203,73 @@ function basePropertyDeep(path) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_basePropertyOf.js":
+/*!***********************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_basePropertyOf.js ***!
+  \***********************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * The base implementation of `_.propertyOf` without support for deep paths.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Function} Returns the new accessor function.
+ */
+function basePropertyOf(object) {
+  return function(key) {
+    return object == null ? undefined : object[key];
+  };
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (basePropertyOf);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseReduce.js":
+/*!*******************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseReduce.js ***!
+  \*******************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * The base implementation of `_.reduce` and `_.reduceRight`, without support
+ * for iteratee shorthands, which iterates over `collection` using `eachFunc`.
+ *
+ * @private
+ * @param {Array|Object} collection The collection to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @param {*} accumulator The initial value.
+ * @param {boolean} initAccum Specify using the first or last element of
+ *  `collection` as the initial value.
+ * @param {Function} eachFunc The function to iterate over `collection`.
+ * @returns {*} Returns the accumulated value.
+ */
+function baseReduce(collection, iteratee, accumulator, initAccum, eachFunc) {
+  eachFunc(collection, function(value, index, collection) {
+    accumulator = initAccum
+      ? (initAccum = false, value)
+      : iteratee(accumulator, value, index, collection);
+  });
+  return accumulator;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (baseReduce);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseRest.js":
 /*!*****************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseRest.js ***!
@@ -37316,6 +46886,66 @@ function cacheHas(cache, key) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_castArrayLikeObject.js":
+/*!****************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_castArrayLikeObject.js ***!
+  \****************************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _isArrayLikeObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isArrayLikeObject.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isArrayLikeObject.js");
+
+
+/**
+ * Casts `value` to an empty array if it's not an array like object.
+ *
+ * @private
+ * @param {*} value The value to inspect.
+ * @returns {Array|Object} Returns the cast array-like object.
+ */
+function castArrayLikeObject(value) {
+  return (0,_isArrayLikeObject_js__WEBPACK_IMPORTED_MODULE_0__["default"])(value) ? value : [];
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (castArrayLikeObject);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_castFunction.js":
+/*!*********************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_castFunction.js ***!
+  \*********************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _identity_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./identity.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/identity.js");
+
+
+/**
+ * Casts `value` to `identity` if it's not a function.
+ *
+ * @private
+ * @param {*} value The value to inspect.
+ * @returns {Function} Returns cast function.
+ */
+function castFunction(value) {
+  return typeof value == 'function' ? value : _identity_js__WEBPACK_IMPORTED_MODULE_0__["default"];
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (castFunction);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_castPath.js":
 /*!*****************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_castPath.js ***!
@@ -37764,6 +47394,93 @@ var createSet = !(_Set_js__WEBPACK_IMPORTED_MODULE_0__["default"] && (1 / (0,_se
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createSet);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_deburrLetter.js":
+/*!*********************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_deburrLetter.js ***!
+  \*********************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _basePropertyOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_basePropertyOf.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_basePropertyOf.js");
+
+
+/** Used to map Latin Unicode letters to basic Latin letters. */
+var deburredLetters = {
+  // Latin-1 Supplement block.
+  '\xc0': 'A',  '\xc1': 'A', '\xc2': 'A', '\xc3': 'A', '\xc4': 'A', '\xc5': 'A',
+  '\xe0': 'a',  '\xe1': 'a', '\xe2': 'a', '\xe3': 'a', '\xe4': 'a', '\xe5': 'a',
+  '\xc7': 'C',  '\xe7': 'c',
+  '\xd0': 'D',  '\xf0': 'd',
+  '\xc8': 'E',  '\xc9': 'E', '\xca': 'E', '\xcb': 'E',
+  '\xe8': 'e',  '\xe9': 'e', '\xea': 'e', '\xeb': 'e',
+  '\xcc': 'I',  '\xcd': 'I', '\xce': 'I', '\xcf': 'I',
+  '\xec': 'i',  '\xed': 'i', '\xee': 'i', '\xef': 'i',
+  '\xd1': 'N',  '\xf1': 'n',
+  '\xd2': 'O',  '\xd3': 'O', '\xd4': 'O', '\xd5': 'O', '\xd6': 'O', '\xd8': 'O',
+  '\xf2': 'o',  '\xf3': 'o', '\xf4': 'o', '\xf5': 'o', '\xf6': 'o', '\xf8': 'o',
+  '\xd9': 'U',  '\xda': 'U', '\xdb': 'U', '\xdc': 'U',
+  '\xf9': 'u',  '\xfa': 'u', '\xfb': 'u', '\xfc': 'u',
+  '\xdd': 'Y',  '\xfd': 'y', '\xff': 'y',
+  '\xc6': 'Ae', '\xe6': 'ae',
+  '\xde': 'Th', '\xfe': 'th',
+  '\xdf': 'ss',
+  // Latin Extended-A block.
+  '\u0100': 'A',  '\u0102': 'A', '\u0104': 'A',
+  '\u0101': 'a',  '\u0103': 'a', '\u0105': 'a',
+  '\u0106': 'C',  '\u0108': 'C', '\u010a': 'C', '\u010c': 'C',
+  '\u0107': 'c',  '\u0109': 'c', '\u010b': 'c', '\u010d': 'c',
+  '\u010e': 'D',  '\u0110': 'D', '\u010f': 'd', '\u0111': 'd',
+  '\u0112': 'E',  '\u0114': 'E', '\u0116': 'E', '\u0118': 'E', '\u011a': 'E',
+  '\u0113': 'e',  '\u0115': 'e', '\u0117': 'e', '\u0119': 'e', '\u011b': 'e',
+  '\u011c': 'G',  '\u011e': 'G', '\u0120': 'G', '\u0122': 'G',
+  '\u011d': 'g',  '\u011f': 'g', '\u0121': 'g', '\u0123': 'g',
+  '\u0124': 'H',  '\u0126': 'H', '\u0125': 'h', '\u0127': 'h',
+  '\u0128': 'I',  '\u012a': 'I', '\u012c': 'I', '\u012e': 'I', '\u0130': 'I',
+  '\u0129': 'i',  '\u012b': 'i', '\u012d': 'i', '\u012f': 'i', '\u0131': 'i',
+  '\u0134': 'J',  '\u0135': 'j',
+  '\u0136': 'K',  '\u0137': 'k', '\u0138': 'k',
+  '\u0139': 'L',  '\u013b': 'L', '\u013d': 'L', '\u013f': 'L', '\u0141': 'L',
+  '\u013a': 'l',  '\u013c': 'l', '\u013e': 'l', '\u0140': 'l', '\u0142': 'l',
+  '\u0143': 'N',  '\u0145': 'N', '\u0147': 'N', '\u014a': 'N',
+  '\u0144': 'n',  '\u0146': 'n', '\u0148': 'n', '\u014b': 'n',
+  '\u014c': 'O',  '\u014e': 'O', '\u0150': 'O',
+  '\u014d': 'o',  '\u014f': 'o', '\u0151': 'o',
+  '\u0154': 'R',  '\u0156': 'R', '\u0158': 'R',
+  '\u0155': 'r',  '\u0157': 'r', '\u0159': 'r',
+  '\u015a': 'S',  '\u015c': 'S', '\u015e': 'S', '\u0160': 'S',
+  '\u015b': 's',  '\u015d': 's', '\u015f': 's', '\u0161': 's',
+  '\u0162': 'T',  '\u0164': 'T', '\u0166': 'T',
+  '\u0163': 't',  '\u0165': 't', '\u0167': 't',
+  '\u0168': 'U',  '\u016a': 'U', '\u016c': 'U', '\u016e': 'U', '\u0170': 'U', '\u0172': 'U',
+  '\u0169': 'u',  '\u016b': 'u', '\u016d': 'u', '\u016f': 'u', '\u0171': 'u', '\u0173': 'u',
+  '\u0174': 'W',  '\u0175': 'w',
+  '\u0176': 'Y',  '\u0177': 'y', '\u0178': 'Y',
+  '\u0179': 'Z',  '\u017b': 'Z', '\u017d': 'Z',
+  '\u017a': 'z',  '\u017c': 'z', '\u017e': 'z',
+  '\u0132': 'IJ', '\u0133': 'ij',
+  '\u0152': 'Oe', '\u0153': 'oe',
+  '\u0149': "'n", '\u017f': 's'
+};
+
+/**
+ * Used by `_.deburr` to convert Latin-1 Supplement and Latin Extended-A
+ * letters to basic Latin letters.
+ *
+ * @private
+ * @param {string} letter The matched letter to deburr.
+ * @returns {string} Returns the deburred letter.
+ */
+var deburrLetter = (0,_basePropertyOf_js__WEBPACK_IMPORTED_MODULE_0__["default"])(deburredLetters);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (deburrLetter);
 
 
 /***/ }),
@@ -39844,6 +49561,39 @@ function overRest(func, start, transform) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_parent.js":
+/*!***************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_parent.js ***!
+  \***************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseGet_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_baseGet.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseGet.js");
+/* harmony import */ var _baseSlice_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_baseSlice.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseSlice.js");
+
+
+
+/**
+ * Gets the parent value at `path` of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @param {Array} path The path to get the parent value of.
+ * @returns {*} Returns the parent value.
+ */
+function parent(object, path) {
+  return path.length < 2 ? object : (0,_baseGet_js__WEBPACK_IMPORTED_MODULE_0__["default"])(object, (0,_baseSlice_js__WEBPACK_IMPORTED_MODULE_1__["default"])(path, 0, -1));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (parent);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_root.js":
 /*!*************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_root.js ***!
@@ -40260,6 +50010,42 @@ function strictIndexOf(array, value, fromIndex) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_stringSize.js":
+/*!*******************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_stringSize.js ***!
+  \*******************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _asciiSize_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_asciiSize.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_asciiSize.js");
+/* harmony import */ var _hasUnicode_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_hasUnicode.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_hasUnicode.js");
+/* harmony import */ var _unicodeSize_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_unicodeSize.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_unicodeSize.js");
+
+
+
+
+/**
+ * Gets the number of symbols in `string`.
+ *
+ * @private
+ * @param {string} string The string to inspect.
+ * @returns {number} Returns the string size.
+ */
+function stringSize(string) {
+  return (0,_hasUnicode_js__WEBPACK_IMPORTED_MODULE_0__["default"])(string)
+    ? (0,_unicodeSize_js__WEBPACK_IMPORTED_MODULE_1__["default"])(string)
+    : (0,_asciiSize_js__WEBPACK_IMPORTED_MODULE_2__["default"])(string);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (stringSize);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_stringToArray.js":
 /*!**********************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_stringToArray.js ***!
@@ -40451,6 +50237,65 @@ function trimmedEndIndex(string) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_unicodeSize.js":
+/*!********************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_unicodeSize.js ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/** Used to compose unicode character classes. */
+var rsAstralRange = '\\ud800-\\udfff',
+    rsComboMarksRange = '\\u0300-\\u036f',
+    reComboHalfMarksRange = '\\ufe20-\\ufe2f',
+    rsComboSymbolsRange = '\\u20d0-\\u20ff',
+    rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange,
+    rsVarRange = '\\ufe0e\\ufe0f';
+
+/** Used to compose unicode capture groups. */
+var rsAstral = '[' + rsAstralRange + ']',
+    rsCombo = '[' + rsComboRange + ']',
+    rsFitz = '\\ud83c[\\udffb-\\udfff]',
+    rsModifier = '(?:' + rsCombo + '|' + rsFitz + ')',
+    rsNonAstral = '[^' + rsAstralRange + ']',
+    rsRegional = '(?:\\ud83c[\\udde6-\\uddff]){2}',
+    rsSurrPair = '[\\ud800-\\udbff][\\udc00-\\udfff]',
+    rsZWJ = '\\u200d';
+
+/** Used to compose unicode regexes. */
+var reOptMod = rsModifier + '?',
+    rsOptVar = '[' + rsVarRange + ']?',
+    rsOptJoin = '(?:' + rsZWJ + '(?:' + [rsNonAstral, rsRegional, rsSurrPair].join('|') + ')' + rsOptVar + reOptMod + ')*',
+    rsSeq = rsOptVar + reOptMod + rsOptJoin,
+    rsSymbol = '(?:' + [rsNonAstral + rsCombo + '?', rsCombo, rsRegional, rsSurrPair, rsAstral].join('|') + ')';
+
+/** Used to match [string symbols](https://mathiasbynens.be/notes/javascript-unicode). */
+var reUnicode = RegExp(rsFitz + '(?=' + rsFitz + ')|' + rsSymbol + rsSeq, 'g');
+
+/**
+ * Gets the size of a Unicode `string`.
+ *
+ * @private
+ * @param {string} string The string inspect.
+ * @returns {number} Returns the string size.
+ */
+function unicodeSize(string) {
+  var result = reUnicode.lastIndex = 0;
+  while (reUnicode.test(string)) {
+    ++result;
+  }
+  return result;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (unicodeSize);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_unicodeToArray.js":
 /*!***********************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_unicodeToArray.js ***!
@@ -40506,6 +50351,52 @@ function unicodeToArray(string) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/compact.js":
+/*!***************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/compact.js ***!
+  \***************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * Creates an array with all falsey values removed. The values `false`, `null`,
+ * `0`, `""`, `undefined`, and `NaN` are falsey.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Array
+ * @param {Array} array The array to compact.
+ * @returns {Array} Returns the new array of filtered values.
+ * @example
+ *
+ * _.compact([0, 1, false, 2, '', 3]);
+ * // => [1, 2, 3]
+ */
+function compact(array) {
+  var index = -1,
+      length = array == null ? 0 : array.length,
+      resIndex = 0,
+      result = [];
+
+  while (++index < length) {
+    var value = array[index];
+    if (value) {
+      result[resIndex++] = value;
+    }
+  }
+  return result;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (compact);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/constant.js":
 /*!****************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/constant.js ***!
@@ -40543,6 +50434,68 @@ function constant(value) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (constant);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/deburr.js":
+/*!**************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/deburr.js ***!
+  \**************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _deburrLetter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_deburrLetter.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_deburrLetter.js");
+/* harmony import */ var _toString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toString.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/toString.js");
+
+
+
+/** Used to match Latin Unicode letters (excluding mathematical operators). */
+var reLatin = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g;
+
+/** Used to compose unicode character classes. */
+var rsComboMarksRange = '\\u0300-\\u036f',
+    reComboHalfMarksRange = '\\ufe20-\\ufe2f',
+    rsComboSymbolsRange = '\\u20d0-\\u20ff',
+    rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange;
+
+/** Used to compose unicode capture groups. */
+var rsCombo = '[' + rsComboRange + ']';
+
+/**
+ * Used to match [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks) and
+ * [combining diacritical marks for symbols](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks_for_Symbols).
+ */
+var reComboMark = RegExp(rsCombo, 'g');
+
+/**
+ * Deburrs `string` by converting
+ * [Latin-1 Supplement](https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)#Character_table)
+ * and [Latin Extended-A](https://en.wikipedia.org/wiki/Latin_Extended-A)
+ * letters to basic Latin letters and removing
+ * [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks).
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category String
+ * @param {string} [string=''] The string to deburr.
+ * @returns {string} Returns the deburred string.
+ * @example
+ *
+ * _.deburr('déjà vu');
+ * // => 'deja vu'
+ */
+function deburr(string) {
+  string = (0,_toString_js__WEBPACK_IMPORTED_MODULE_0__["default"])(string);
+  return string && string.replace(reLatin, _deburrLetter_js__WEBPACK_IMPORTED_MODULE_1__["default"]).replace(reComboMark, '');
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (deburr);
 
 
 /***/ }),
@@ -40599,6 +50552,62 @@ var difference = (0,_baseRest_js__WEBPACK_IMPORTED_MODULE_0__["default"])(functi
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/dropRight.js":
+/*!*****************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/dropRight.js ***!
+  \*****************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseSlice_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_baseSlice.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseSlice.js");
+/* harmony import */ var _toInteger_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toInteger.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/toInteger.js");
+
+
+
+/**
+ * Creates a slice of `array` with `n` elements dropped from the end.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category Array
+ * @param {Array} array The array to query.
+ * @param {number} [n=1] The number of elements to drop.
+ * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+ * @returns {Array} Returns the slice of `array`.
+ * @example
+ *
+ * _.dropRight([1, 2, 3]);
+ * // => [1, 2]
+ *
+ * _.dropRight([1, 2, 3], 2);
+ * // => [1]
+ *
+ * _.dropRight([1, 2, 3], 5);
+ * // => []
+ *
+ * _.dropRight([1, 2, 3], 0);
+ * // => [1, 2, 3]
+ */
+function dropRight(array, n, guard) {
+  var length = array == null ? 0 : array.length;
+  if (!length) {
+    return [];
+  }
+  n = (guard || n === undefined) ? 1 : (0,_toInteger_js__WEBPACK_IMPORTED_MODULE_0__["default"])(n);
+  n = length - n;
+  return (0,_baseSlice_js__WEBPACK_IMPORTED_MODULE_1__["default"])(array, 0, n < 0 ? 0 : n);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dropRight);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/eq.js":
 /*!**********************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/eq.js ***!
@@ -40647,6 +50656,201 @@ function eq(value, other) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (eq);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/escapeRegExp.js":
+/*!********************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/escapeRegExp.js ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _toString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toString.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/toString.js");
+
+
+/**
+ * Used to match `RegExp`
+ * [syntax characters](http://ecma-international.org/ecma-262/7.0/#sec-patterns).
+ */
+var reRegExpChar = /[\\^$.*+?()[\]{}|]/g,
+    reHasRegExpChar = RegExp(reRegExpChar.source);
+
+/**
+ * Escapes the `RegExp` special characters "^", "$", "\", ".", "*", "+",
+ * "?", "(", ")", "[", "]", "{", "}", and "|" in `string`.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category String
+ * @param {string} [string=''] The string to escape.
+ * @returns {string} Returns the escaped string.
+ * @example
+ *
+ * _.escapeRegExp('[lodash](https://lodash.com/)');
+ * // => '\[lodash\]\(https://lodash\.com/\)'
+ */
+function escapeRegExp(string) {
+  string = (0,_toString_js__WEBPACK_IMPORTED_MODULE_0__["default"])(string);
+  return (string && reHasRegExpChar.test(string))
+    ? string.replace(reRegExpChar, '\\$&')
+    : string;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (escapeRegExp);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/every.js":
+/*!*************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/every.js ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _arrayEvery_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_arrayEvery.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayEvery.js");
+/* harmony import */ var _baseEvery_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_baseEvery.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseEvery.js");
+/* harmony import */ var _baseIteratee_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_baseIteratee.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseIteratee.js");
+/* harmony import */ var _isArray_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isArray.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isArray.js");
+/* harmony import */ var _isIterateeCall_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_isIterateeCall.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_isIterateeCall.js");
+
+
+
+
+
+
+/**
+ * Checks if `predicate` returns truthy for **all** elements of `collection`.
+ * Iteration is stopped once `predicate` returns falsey. The predicate is
+ * invoked with three arguments: (value, index|key, collection).
+ *
+ * **Note:** This method returns `true` for
+ * [empty collections](https://en.wikipedia.org/wiki/Empty_set) because
+ * [everything is true](https://en.wikipedia.org/wiki/Vacuous_truth) of
+ * elements of empty collections.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Collection
+ * @param {Array|Object} collection The collection to iterate over.
+ * @param {Function} [predicate=_.identity] The function invoked per iteration.
+ * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.
+ * @returns {boolean} Returns `true` if all elements pass the predicate check,
+ *  else `false`.
+ * @example
+ *
+ * _.every([true, 1, null, 'yes'], Boolean);
+ * // => false
+ *
+ * var users = [
+ *   { 'user': 'barney', 'age': 36, 'active': false },
+ *   { 'user': 'fred',   'age': 40, 'active': false }
+ * ];
+ *
+ * // The `_.matches` iteratee shorthand.
+ * _.every(users, { 'user': 'barney', 'active': false });
+ * // => false
+ *
+ * // The `_.matchesProperty` iteratee shorthand.
+ * _.every(users, ['active', false]);
+ * // => true
+ *
+ * // The `_.property` iteratee shorthand.
+ * _.every(users, 'active');
+ * // => false
+ */
+function every(collection, predicate, guard) {
+  var func = (0,_isArray_js__WEBPACK_IMPORTED_MODULE_0__["default"])(collection) ? _arrayEvery_js__WEBPACK_IMPORTED_MODULE_1__["default"] : _baseEvery_js__WEBPACK_IMPORTED_MODULE_2__["default"];
+  if (guard && (0,_isIterateeCall_js__WEBPACK_IMPORTED_MODULE_3__["default"])(collection, predicate, guard)) {
+    predicate = undefined;
+  }
+  return func(collection, (0,_baseIteratee_js__WEBPACK_IMPORTED_MODULE_4__["default"])(predicate, 3));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (every);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/filter.js":
+/*!**************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/filter.js ***!
+  \**************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _arrayFilter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_arrayFilter.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayFilter.js");
+/* harmony import */ var _baseFilter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_baseFilter.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseFilter.js");
+/* harmony import */ var _baseIteratee_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_baseIteratee.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseIteratee.js");
+/* harmony import */ var _isArray_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isArray.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isArray.js");
+
+
+
+
+
+/**
+ * Iterates over elements of `collection`, returning an array of all elements
+ * `predicate` returns truthy for. The predicate is invoked with three
+ * arguments: (value, index|key, collection).
+ *
+ * **Note:** Unlike `_.remove`, this method returns a new array.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Collection
+ * @param {Array|Object} collection The collection to iterate over.
+ * @param {Function} [predicate=_.identity] The function invoked per iteration.
+ * @returns {Array} Returns the new filtered array.
+ * @see _.reject
+ * @example
+ *
+ * var users = [
+ *   { 'user': 'barney', 'age': 36, 'active': true },
+ *   { 'user': 'fred',   'age': 40, 'active': false }
+ * ];
+ *
+ * _.filter(users, function(o) { return !o.active; });
+ * // => objects for ['fred']
+ *
+ * // The `_.matches` iteratee shorthand.
+ * _.filter(users, { 'age': 36, 'active': true });
+ * // => objects for ['barney']
+ *
+ * // The `_.matchesProperty` iteratee shorthand.
+ * _.filter(users, ['active', false]);
+ * // => objects for ['fred']
+ *
+ * // The `_.property` iteratee shorthand.
+ * _.filter(users, 'active');
+ * // => objects for ['barney']
+ *
+ * // Combining several predicates using `_.overEvery` or `_.overSome`.
+ * _.filter(users, _.overSome([{ 'age': 36 }, ['age', 40]]));
+ * // => objects for ['fred', 'barney']
+ */
+function filter(collection, predicate) {
+  var func = (0,_isArray_js__WEBPACK_IMPORTED_MODULE_0__["default"])(collection) ? _arrayFilter_js__WEBPACK_IMPORTED_MODULE_1__["default"] : _baseFilter_js__WEBPACK_IMPORTED_MODULE_2__["default"];
+  return func(collection, (0,_baseIteratee_js__WEBPACK_IMPORTED_MODULE_3__["default"])(predicate, 3));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (filter);
 
 
 /***/ }),
@@ -40821,6 +51025,66 @@ function flatten(array) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/forEach.js":
+/*!***************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/forEach.js ***!
+  \***************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _arrayEach_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_arrayEach.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayEach.js");
+/* harmony import */ var _baseEach_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_baseEach.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseEach.js");
+/* harmony import */ var _castFunction_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_castFunction.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_castFunction.js");
+/* harmony import */ var _isArray_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isArray.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isArray.js");
+
+
+
+
+
+/**
+ * Iterates over elements of `collection` and invokes `iteratee` for each element.
+ * The iteratee is invoked with three arguments: (value, index|key, collection).
+ * Iteratee functions may exit iteration early by explicitly returning `false`.
+ *
+ * **Note:** As with other "Collections" methods, objects with a "length"
+ * property are iterated like arrays. To avoid this behavior use `_.forIn`
+ * or `_.forOwn` for object iteration.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @alias each
+ * @category Collection
+ * @param {Array|Object} collection The collection to iterate over.
+ * @param {Function} [iteratee=_.identity] The function invoked per iteration.
+ * @returns {Array|Object} Returns `collection`.
+ * @see _.forEachRight
+ * @example
+ *
+ * _.forEach([1, 2], function(value) {
+ *   console.log(value);
+ * });
+ * // => Logs `1` then `2`.
+ *
+ * _.forEach({ 'a': 1, 'b': 2 }, function(value, key) {
+ *   console.log(key);
+ * });
+ * // => Logs 'a' then 'b' (iteration order is not guaranteed).
+ */
+function forEach(collection, iteratee) {
+  var func = (0,_isArray_js__WEBPACK_IMPORTED_MODULE_0__["default"])(collection) ? _arrayEach_js__WEBPACK_IMPORTED_MODULE_1__["default"] : _baseEach_js__WEBPACK_IMPORTED_MODULE_2__["default"];
+  return func(collection, (0,_castFunction_js__WEBPACK_IMPORTED_MODULE_3__["default"])(iteratee));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (forEach);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/get.js":
 /*!***********************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/get.js ***!
@@ -40866,6 +51130,58 @@ function get(object, path, defaultValue) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (get);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/has.js":
+/*!***********************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/has.js ***!
+  \***********************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseHas_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_baseHas.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseHas.js");
+/* harmony import */ var _hasPath_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_hasPath.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_hasPath.js");
+
+
+
+/**
+ * Checks if `path` is a direct property of `object`.
+ *
+ * @static
+ * @since 0.1.0
+ * @memberOf _
+ * @category Object
+ * @param {Object} object The object to query.
+ * @param {Array|string} path The path to check.
+ * @returns {boolean} Returns `true` if `path` exists, else `false`.
+ * @example
+ *
+ * var object = { 'a': { 'b': 2 } };
+ * var other = _.create({ 'a': _.create({ 'b': 2 }) });
+ *
+ * _.has(object, 'a');
+ * // => true
+ *
+ * _.has(object, 'a.b');
+ * // => true
+ *
+ * _.has(object, ['a', 'b']);
+ * // => true
+ *
+ * _.has(other, 'a');
+ * // => false
+ */
+function has(object, path) {
+  return object != null && (0,_hasPath_js__WEBPACK_IMPORTED_MODULE_0__["default"])(object, path, _baseHas_js__WEBPACK_IMPORTED_MODULE_1__["default"]);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (has);
 
 
 /***/ }),
@@ -40921,6 +51237,44 @@ function hasIn(object, path) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/head.js":
+/*!************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/head.js ***!
+  \************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * Gets the first element of `array`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @alias first
+ * @category Array
+ * @param {Array} array The array to query.
+ * @returns {*} Returns the first element of `array`.
+ * @example
+ *
+ * _.head([1, 2, 3]);
+ * // => 1
+ *
+ * _.head([]);
+ * // => undefined
+ */
+function head(array) {
+  return (array && array.length) ? array[0] : undefined;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (head);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/identity.js":
 /*!****************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/identity.js ***!
@@ -40953,6 +51307,242 @@ function identity(value) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (identity);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/inRange.js":
+/*!***************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/inRange.js ***!
+  \***************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseInRange_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_baseInRange.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseInRange.js");
+/* harmony import */ var _toFinite_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toFinite.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/toFinite.js");
+/* harmony import */ var _toNumber_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toNumber.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/toNumber.js");
+
+
+
+
+/**
+ * Checks if `n` is between `start` and up to, but not including, `end`. If
+ * `end` is not specified, it's set to `start` with `start` then set to `0`.
+ * If `start` is greater than `end` the params are swapped to support
+ * negative ranges.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.3.0
+ * @category Number
+ * @param {number} number The number to check.
+ * @param {number} [start=0] The start of the range.
+ * @param {number} end The end of the range.
+ * @returns {boolean} Returns `true` if `number` is in the range, else `false`.
+ * @see _.range, _.rangeRight
+ * @example
+ *
+ * _.inRange(3, 2, 4);
+ * // => true
+ *
+ * _.inRange(4, 8);
+ * // => true
+ *
+ * _.inRange(4, 2);
+ * // => false
+ *
+ * _.inRange(2, 2);
+ * // => false
+ *
+ * _.inRange(1.2, 2);
+ * // => true
+ *
+ * _.inRange(5.2, 4);
+ * // => false
+ *
+ * _.inRange(-3, -2, -6);
+ * // => true
+ */
+function inRange(number, start, end) {
+  start = (0,_toFinite_js__WEBPACK_IMPORTED_MODULE_0__["default"])(start);
+  if (end === undefined) {
+    end = start;
+    start = 0;
+  } else {
+    end = (0,_toFinite_js__WEBPACK_IMPORTED_MODULE_0__["default"])(end);
+  }
+  number = (0,_toNumber_js__WEBPACK_IMPORTED_MODULE_1__["default"])(number);
+  return (0,_baseInRange_js__WEBPACK_IMPORTED_MODULE_2__["default"])(number, start, end);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (inRange);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/includes.js":
+/*!****************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/includes.js ***!
+  \****************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseIndexOf_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_baseIndexOf.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseIndexOf.js");
+/* harmony import */ var _isArrayLike_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isArrayLike.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isArrayLike.js");
+/* harmony import */ var _isString_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./isString.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isString.js");
+/* harmony import */ var _toInteger_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./toInteger.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/toInteger.js");
+/* harmony import */ var _values_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./values.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/values.js");
+
+
+
+
+
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeMax = Math.max;
+
+/**
+ * Checks if `value` is in `collection`. If `collection` is a string, it's
+ * checked for a substring of `value`, otherwise
+ * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+ * is used for equality comparisons. If `fromIndex` is negative, it's used as
+ * the offset from the end of `collection`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Collection
+ * @param {Array|Object|string} collection The collection to inspect.
+ * @param {*} value The value to search for.
+ * @param {number} [fromIndex=0] The index to search from.
+ * @param- {Object} [guard] Enables use as an iteratee for methods like `_.reduce`.
+ * @returns {boolean} Returns `true` if `value` is found, else `false`.
+ * @example
+ *
+ * _.includes([1, 2, 3], 1);
+ * // => true
+ *
+ * _.includes([1, 2, 3], 1, 2);
+ * // => false
+ *
+ * _.includes({ 'a': 1, 'b': 2 }, 1);
+ * // => true
+ *
+ * _.includes('abcd', 'bc');
+ * // => true
+ */
+function includes(collection, value, fromIndex, guard) {
+  collection = (0,_isArrayLike_js__WEBPACK_IMPORTED_MODULE_0__["default"])(collection) ? collection : (0,_values_js__WEBPACK_IMPORTED_MODULE_1__["default"])(collection);
+  fromIndex = (fromIndex && !guard) ? (0,_toInteger_js__WEBPACK_IMPORTED_MODULE_2__["default"])(fromIndex) : 0;
+
+  var length = collection.length;
+  if (fromIndex < 0) {
+    fromIndex = nativeMax(length + fromIndex, 0);
+  }
+  return (0,_isString_js__WEBPACK_IMPORTED_MODULE_3__["default"])(collection)
+    ? (fromIndex <= length && collection.indexOf(value, fromIndex) > -1)
+    : (!!length && (0,_baseIndexOf_js__WEBPACK_IMPORTED_MODULE_4__["default"])(collection, value, fromIndex) > -1);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (includes);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/intersection.js":
+/*!********************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/intersection.js ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _arrayMap_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_arrayMap.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayMap.js");
+/* harmony import */ var _baseIntersection_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_baseIntersection.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseIntersection.js");
+/* harmony import */ var _baseRest_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_baseRest.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseRest.js");
+/* harmony import */ var _castArrayLikeObject_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_castArrayLikeObject.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_castArrayLikeObject.js");
+
+
+
+
+
+/**
+ * Creates an array of unique values that are included in all given arrays
+ * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+ * for equality comparisons. The order and references of result values are
+ * determined by the first array.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Array
+ * @param {...Array} [arrays] The arrays to inspect.
+ * @returns {Array} Returns the new array of intersecting values.
+ * @example
+ *
+ * _.intersection([2, 1], [2, 3]);
+ * // => [2]
+ */
+var intersection = (0,_baseRest_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function(arrays) {
+  var mapped = (0,_arrayMap_js__WEBPACK_IMPORTED_MODULE_1__["default"])(arrays, _castArrayLikeObject_js__WEBPACK_IMPORTED_MODULE_2__["default"]);
+  return (mapped.length && mapped[0] === arrays[0])
+    ? (0,_baseIntersection_js__WEBPACK_IMPORTED_MODULE_3__["default"])(mapped)
+    : [];
+});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (intersection);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js":
+/*!**************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/invoke.js ***!
+  \**************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseInvoke_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_baseInvoke.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseInvoke.js");
+/* harmony import */ var _baseRest_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_baseRest.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseRest.js");
+
+
+
+/**
+ * Invokes the method at `path` of `object`.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Object
+ * @param {Object} object The object to query.
+ * @param {Array|string} path The path of the method to invoke.
+ * @param {...*} [args] The arguments to invoke the method with.
+ * @returns {*} Returns the result of the invoked method.
+ * @example
+ *
+ * var object = { 'a': [{ 'b': { 'c': [1, 2, 3, 4] } }] };
+ *
+ * _.invoke(object, 'a[0].b.c.slice', 1, 3);
+ * // => [2, 3]
+ */
+var invoke = (0,_baseRest_js__WEBPACK_IMPORTED_MODULE_0__["default"])(_baseInvoke_js__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (invoke);
 
 
 /***/ }),
@@ -41248,6 +51838,157 @@ var nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined;
 var isBuffer = nativeIsBuffer || _stubFalse_js__WEBPACK_IMPORTED_MODULE_1__["default"];
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (isBuffer);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isEmpty.js":
+/*!***************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isEmpty.js ***!
+  \***************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseKeys_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./_baseKeys.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseKeys.js");
+/* harmony import */ var _getTag_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./_getTag.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_getTag.js");
+/* harmony import */ var _isArguments_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./isArguments.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isArguments.js");
+/* harmony import */ var _isArray_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./isArray.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isArray.js");
+/* harmony import */ var _isArrayLike_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isArrayLike.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isArrayLike.js");
+/* harmony import */ var _isBuffer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./isBuffer.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isBuffer.js");
+/* harmony import */ var _isPrototype_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./_isPrototype.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_isPrototype.js");
+/* harmony import */ var _isTypedArray_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./isTypedArray.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isTypedArray.js");
+
+
+
+
+
+
+
+
+
+/** `Object#toString` result references. */
+var mapTag = '[object Map]',
+    setTag = '[object Set]';
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Checks if `value` is an empty object, collection, map, or set.
+ *
+ * Objects are considered empty if they have no own enumerable string keyed
+ * properties.
+ *
+ * Array-like values such as `arguments` objects, arrays, buffers, strings, or
+ * jQuery-like collections are considered empty if they have a `length` of `0`.
+ * Similarly, maps and sets are considered empty if they have a `size` of `0`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is empty, else `false`.
+ * @example
+ *
+ * _.isEmpty(null);
+ * // => true
+ *
+ * _.isEmpty(true);
+ * // => true
+ *
+ * _.isEmpty(1);
+ * // => true
+ *
+ * _.isEmpty([1, 2, 3]);
+ * // => false
+ *
+ * _.isEmpty({ 'a': 1 });
+ * // => false
+ */
+function isEmpty(value) {
+  if (value == null) {
+    return true;
+  }
+  if ((0,_isArrayLike_js__WEBPACK_IMPORTED_MODULE_0__["default"])(value) &&
+      ((0,_isArray_js__WEBPACK_IMPORTED_MODULE_1__["default"])(value) || typeof value == 'string' || typeof value.splice == 'function' ||
+        (0,_isBuffer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(value) || (0,_isTypedArray_js__WEBPACK_IMPORTED_MODULE_3__["default"])(value) || (0,_isArguments_js__WEBPACK_IMPORTED_MODULE_4__["default"])(value))) {
+    return !value.length;
+  }
+  var tag = (0,_getTag_js__WEBPACK_IMPORTED_MODULE_5__["default"])(value);
+  if (tag == mapTag || tag == setTag) {
+    return !value.size;
+  }
+  if ((0,_isPrototype_js__WEBPACK_IMPORTED_MODULE_6__["default"])(value)) {
+    return !(0,_baseKeys_js__WEBPACK_IMPORTED_MODULE_7__["default"])(value).length;
+  }
+  for (var key in value) {
+    if (hasOwnProperty.call(value, key)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (isEmpty);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isEqual.js":
+/*!***************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isEqual.js ***!
+  \***************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseIsEqual_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_baseIsEqual.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseIsEqual.js");
+
+
+/**
+ * Performs a deep comparison between two values to determine if they are
+ * equivalent.
+ *
+ * **Note:** This method supports comparing arrays, array buffers, booleans,
+ * date objects, error objects, maps, numbers, `Object` objects, regexes,
+ * sets, strings, symbols, and typed arrays. `Object` objects are compared
+ * by their own, not inherited, enumerable properties. Functions and DOM
+ * nodes are compared by strict equality, i.e. `===`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to compare.
+ * @param {*} other The other value to compare.
+ * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
+ * @example
+ *
+ * var object = { 'a': 1 };
+ * var other = { 'a': 1 };
+ *
+ * _.isEqual(object, other);
+ * // => true
+ *
+ * object === other;
+ * // => false
+ */
+function isEqual(value, other) {
+  return (0,_baseIsEqual_js__WEBPACK_IMPORTED_MODULE_0__["default"])(value, other);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (isEqual);
 
 
 /***/ }),
@@ -41760,6 +52501,43 @@ var isTypedArray = nodeIsTypedArray ? (0,_baseUnary_js__WEBPACK_IMPORTED_MODULE_
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isUndefined.js":
+/*!*******************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isUndefined.js ***!
+  \*******************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * Checks if `value` is `undefined`.
+ *
+ * @static
+ * @since 0.1.0
+ * @memberOf _
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is `undefined`, else `false`.
+ * @example
+ *
+ * _.isUndefined(void 0);
+ * // => true
+ *
+ * _.isUndefined(null);
+ * // => false
+ */
+function isUndefined(value) {
+  return value === undefined;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (isUndefined);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/keys.js":
 /*!************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/keys.js ***!
@@ -41811,6 +52589,41 @@ function keys(object) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (keys);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/last.js":
+/*!************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/last.js ***!
+  \************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * Gets the last element of `array`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Array
+ * @param {Array} array The array to query.
+ * @returns {*} Returns the last element of `array`.
+ * @example
+ *
+ * _.last([1, 2, 3]);
+ * // => 3
+ */
+function last(array) {
+  var length = array == null ? 0 : array.length;
+  return length ? array[length - 1] : undefined;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (last);
 
 
 /***/ }),
@@ -42148,6 +52961,194 @@ function property(path) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/reduce.js":
+/*!**************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/reduce.js ***!
+  \**************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _arrayReduce_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_arrayReduce.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_arrayReduce.js");
+/* harmony import */ var _baseEach_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_baseEach.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseEach.js");
+/* harmony import */ var _baseIteratee_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_baseIteratee.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseIteratee.js");
+/* harmony import */ var _baseReduce_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_baseReduce.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseReduce.js");
+/* harmony import */ var _isArray_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isArray.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isArray.js");
+
+
+
+
+
+
+/**
+ * Reduces `collection` to a value which is the accumulated result of running
+ * each element in `collection` thru `iteratee`, where each successive
+ * invocation is supplied the return value of the previous. If `accumulator`
+ * is not given, the first element of `collection` is used as the initial
+ * value. The iteratee is invoked with four arguments:
+ * (accumulator, value, index|key, collection).
+ *
+ * Many lodash methods are guarded to work as iteratees for methods like
+ * `_.reduce`, `_.reduceRight`, and `_.transform`.
+ *
+ * The guarded methods are:
+ * `assign`, `defaults`, `defaultsDeep`, `includes`, `merge`, `orderBy`,
+ * and `sortBy`
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Collection
+ * @param {Array|Object} collection The collection to iterate over.
+ * @param {Function} [iteratee=_.identity] The function invoked per iteration.
+ * @param {*} [accumulator] The initial value.
+ * @returns {*} Returns the accumulated value.
+ * @see _.reduceRight
+ * @example
+ *
+ * _.reduce([1, 2], function(sum, n) {
+ *   return sum + n;
+ * }, 0);
+ * // => 3
+ *
+ * _.reduce({ 'a': 1, 'b': 2, 'c': 1 }, function(result, value, key) {
+ *   (result[value] || (result[value] = [])).push(key);
+ *   return result;
+ * }, {});
+ * // => { '1': ['a', 'c'], '2': ['b'] } (iteration order is not guaranteed)
+ */
+function reduce(collection, iteratee, accumulator) {
+  var func = (0,_isArray_js__WEBPACK_IMPORTED_MODULE_0__["default"])(collection) ? _arrayReduce_js__WEBPACK_IMPORTED_MODULE_1__["default"] : _baseReduce_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+      initAccum = arguments.length < 3;
+
+  return func(collection, (0,_baseIteratee_js__WEBPACK_IMPORTED_MODULE_3__["default"])(iteratee, 4), accumulator, initAccum, _baseEach_js__WEBPACK_IMPORTED_MODULE_4__["default"]);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (reduce);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/set.js":
+/*!***********************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/set.js ***!
+  \***********************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseSet_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_baseSet.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseSet.js");
+
+
+/**
+ * Sets the value at `path` of `object`. If a portion of `path` doesn't exist,
+ * it's created. Arrays are created for missing index properties while objects
+ * are created for all other missing properties. Use `_.setWith` to customize
+ * `path` creation.
+ *
+ * **Note:** This method mutates `object`.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.7.0
+ * @category Object
+ * @param {Object} object The object to modify.
+ * @param {Array|string} path The path of the property to set.
+ * @param {*} value The value to set.
+ * @returns {Object} Returns `object`.
+ * @example
+ *
+ * var object = { 'a': [{ 'b': { 'c': 3 } }] };
+ *
+ * _.set(object, 'a[0].b.c', 4);
+ * console.log(object.a[0].b.c);
+ * // => 4
+ *
+ * _.set(object, ['x', '0', 'y', 'z'], 5);
+ * console.log(object.x[0].y.z);
+ * // => 5
+ */
+function set(object, path, value) {
+  return object == null ? object : (0,_baseSet_js__WEBPACK_IMPORTED_MODULE_0__["default"])(object, path, value);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (set);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/size.js":
+/*!************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/size.js ***!
+  \************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseKeys_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_baseKeys.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseKeys.js");
+/* harmony import */ var _getTag_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_getTag.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_getTag.js");
+/* harmony import */ var _isArrayLike_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isArrayLike.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isArrayLike.js");
+/* harmony import */ var _isString_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./isString.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isString.js");
+/* harmony import */ var _stringSize_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_stringSize.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_stringSize.js");
+
+
+
+
+
+
+/** `Object#toString` result references. */
+var mapTag = '[object Map]',
+    setTag = '[object Set]';
+
+/**
+ * Gets the size of `collection` by returning its length for array-like
+ * values or the number of own enumerable string keyed properties for objects.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Collection
+ * @param {Array|Object|string} collection The collection to inspect.
+ * @returns {number} Returns the collection size.
+ * @example
+ *
+ * _.size([1, 2, 3]);
+ * // => 3
+ *
+ * _.size({ 'a': 1, 'b': 2 });
+ * // => 2
+ *
+ * _.size('pebbles');
+ * // => 7
+ */
+function size(collection) {
+  if (collection == null) {
+    return 0;
+  }
+  if ((0,_isArrayLike_js__WEBPACK_IMPORTED_MODULE_0__["default"])(collection)) {
+    return (0,_isString_js__WEBPACK_IMPORTED_MODULE_1__["default"])(collection) ? (0,_stringSize_js__WEBPACK_IMPORTED_MODULE_2__["default"])(collection) : collection.length;
+  }
+  var tag = (0,_getTag_js__WEBPACK_IMPORTED_MODULE_3__["default"])(collection);
+  if (tag == mapTag || tag == setTag) {
+    return collection.size;
+  }
+  return (0,_baseKeys_js__WEBPACK_IMPORTED_MODULE_4__["default"])(collection).length;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (size);
+
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/some.js":
 /*!************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/some.js ***!
@@ -42282,6 +53283,64 @@ var sortBy = (0,_baseRest_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function(c
 });
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sortBy);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/startsWith.js":
+/*!******************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/startsWith.js ***!
+  \******************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseClamp_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_baseClamp.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseClamp.js");
+/* harmony import */ var _baseToString_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_baseToString.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseToString.js");
+/* harmony import */ var _toInteger_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./toInteger.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/toInteger.js");
+/* harmony import */ var _toString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toString.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/toString.js");
+
+
+
+
+
+/**
+ * Checks if `string` starts with the given target string.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category String
+ * @param {string} [string=''] The string to inspect.
+ * @param {string} [target] The string to search for.
+ * @param {number} [position=0] The position to search from.
+ * @returns {boolean} Returns `true` if `string` starts with `target`,
+ *  else `false`.
+ * @example
+ *
+ * _.startsWith('abc', 'a');
+ * // => true
+ *
+ * _.startsWith('abc', 'b');
+ * // => false
+ *
+ * _.startsWith('abc', 'b', 1);
+ * // => true
+ */
+function startsWith(string, target, position) {
+  string = (0,_toString_js__WEBPACK_IMPORTED_MODULE_0__["default"])(string);
+  position = position == null
+    ? 0
+    : (0,_baseClamp_js__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_toInteger_js__WEBPACK_IMPORTED_MODULE_2__["default"])(position), 0, string.length);
+
+  target = (0,_baseToString_js__WEBPACK_IMPORTED_MODULE_3__["default"])(target);
+  return string.slice(position, position + target.length) == target;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (startsWith);
 
 
 /***/ }),
@@ -42753,6 +53812,51 @@ function trim(string, chars, guard) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (trim);
+
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/union.js":
+/*!*************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/union.js ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _baseFlatten_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_baseFlatten.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseFlatten.js");
+/* harmony import */ var _baseRest_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_baseRest.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseRest.js");
+/* harmony import */ var _baseUniq_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_baseUniq.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/_baseUniq.js");
+/* harmony import */ var _isArrayLikeObject_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./isArrayLikeObject.js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/lodash-es/isArrayLikeObject.js");
+
+
+
+
+
+/**
+ * Creates an array of unique values, in order, from all given arrays using
+ * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+ * for equality comparisons.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Array
+ * @param {...Array} [arrays] The arrays to inspect.
+ * @returns {Array} Returns the new array of combined values.
+ * @example
+ *
+ * _.union([2], [1, 2]);
+ * // => [2, 1]
+ */
+var union = (0,_baseRest_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function(arrays) {
+  return (0,_baseUniq_js__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_baseFlatten_js__WEBPACK_IMPORTED_MODULE_2__["default"])(arrays, 1, _isArrayLikeObject_js__WEBPACK_IMPORTED_MODULE_3__["default"], true));
+});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (union);
 
 
 /***/ }),
