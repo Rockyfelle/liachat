@@ -50,5 +50,7 @@ class MessageSeeder extends Seeder
 			'type' => 'text',
 			'content' => 'Yay... more work...',
 		]);
+
+		Message::factory()->count(50)->create();
 	}
 }

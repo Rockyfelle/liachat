@@ -6,9 +6,12 @@ function Dashboard() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [channel, setChannel] = useState({});
 	const [messages, setMessages] = useState([]);
+	
+	//const date = new Date(Date.now()).toISOString();
+	const date = '2022-04-01T12:20:12.000000Z';
 
 	useEffect(() => {
-		fetch(`/api/channel/3`, {
+		fetch(`/api/channel/3/${date}/5`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -18,7 +21,7 @@ function Dashboard() {
 			.then(response => response.json())
 			.then(data => {
 				setIsLoading(false);
-				setChannel({ ...data, messages: [] });
+				setChannel(data.channel);
 				setMessages(data.messages);
 			});
 	}, []);
@@ -44,6 +47,7 @@ function Dashboard() {
 									<Segment key={"msg" + index}>
 										<b><p>{message.user.name}</p></b>
 										<p>{message.content}</p>
+										<p>({message.created_at})</p>
 									</Segment>
 								)
 							})}
