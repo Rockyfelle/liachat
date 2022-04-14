@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Form } from 'semantic-ui-react';
 import { Grid, Segment } from 'semantic-ui-react';
 
 
@@ -6,12 +7,14 @@ function Dashboard() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [channel, setChannel] = useState({});
 	const [messages, setMessages] = useState([]);
-	
+	const [sendMessages, setSendMessages] = useState([]);
+	const [input, setInput] = useState('');
+
 	//const date = new Date(Date.now()).toISOString();
 	const date = '2022-04-12T21:20:12.000000Z';
 
 	useEffect(() => {
-		fetch(`/api/channel/3/${date}/5`, {
+		fetch(`/api/channel/3/${date}/50`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -25,6 +28,26 @@ function Dashboard() {
 				setMessages(data.messages);
 			});
 	}, []);
+
+	function postMessage() {
+		setInput('');
+		setSendMessages([...sendMessages, {content: input, created_at: '2022-04-12T21:20:12.000000Z'}]);
+		fetch(`/api/message/3`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				//'Authorization': userObject.token,
+			},
+			body: JSON.stringify({
+				content: input,
+				mimic_user: 1
+			})
+		})
+			.then(response => response.json())
+			.then(data => {
+				//setSendMessages([]);
+			});
+	}
 
 	return (
 		<div className="m-0">
@@ -41,17 +64,47 @@ function Dashboard() {
 						</Segment>
 					</Grid.Column>
 					<Grid.Column width={10} className="p-0">
-						<Segment className="h-[100vh]">
-							{messages.map((message, index) => {
+						<div className="flex flex-col-reverse m-0 p-0 overflow-auto h-[100vh] pb-5 overflow-auto">
+							<div className="text-l text-black w-full px-5 mt-10">
+								<Form>
+									<Form.Input
+										fluid
+										action={{
+											content: 'Post',
+											onClick: postMessage
+										}}
+										placeholder='Message @admin'
+										value={input}
+										onChange={(e, { value }) => setInput(value)}
+									/>
+								</Form>
+							</div>
+							{sendMessages.map((message, index) => {
 								return (
-									<Segment key={"msg" + index}>
-										<b><p>{message.user.name}</p></b>
-										<p>{message.content}</p>
-										<p>({message.created_at})</p>
-									</Segment>
+									<div key={"message" + index} className="p-3 px-5">
+										<div className="text-l text-neutral-500 w-full border-b-2 pb-2">
+											<p className="text-2xl">{'me'}</p>
+											<p className="text-s">{message.created_at.substr(0, 10)} at {message.created_at.substr(11, 8)}</p>
+											<p className="text-xl">{message.content}</p>
+										</div>
+									</div>
 								)
 							})}
-						</Segment>
+							{messages.map((message, index) => {
+								return (
+									<div key={"message" + index} className="p-3 px-5">
+										<div className="text-l text-black w-full border-b-2 pb-2">
+											<p className="text-2xl">{message.user.name}</p>
+											<p className="text-s">{message.created_at.substr(0, 10)} at {message.created_at.substr(11, 8)}</p>
+											<p className="text-xl">{message.content}</p>
+										</div>
+									</div>
+								)
+							})}
+							<div>
+
+							</div>
+						</div>
 					</Grid.Column>
 					<Grid.Column width={2} className="p-0">
 						<Segment className="h-[100vh]">

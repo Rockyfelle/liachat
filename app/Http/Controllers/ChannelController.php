@@ -20,7 +20,8 @@ class ChannelController extends Controller
 
 		$messages = Message::orderBy('created_at', 'DESC')
 			->where('channel_id', $id)
-			->where('created_at', '<', $dateTo)
+			//->where('created_at', '<', $dateTo)
+			->where('id', '<', 999)
 			->limit($count)
 			->get();
 			
