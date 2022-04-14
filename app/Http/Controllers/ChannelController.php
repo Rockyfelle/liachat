@@ -23,6 +23,7 @@ class ChannelController extends Controller
 			->where('created_at', '<', $dateTo)
 			->limit($count)
 			->get();
+			
 		foreach ($messages as $message) {
 			$message->channel;
 			$message->user;

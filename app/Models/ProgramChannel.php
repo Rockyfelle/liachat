@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProgramChannel extends Model
 {
     use HasFactory;
+	protected $dateFormat = 'Y-m-d H:i:s.u';
 
 	protected $fillable = [
         'school_id',

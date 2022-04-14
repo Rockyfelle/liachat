@@ -10,6 +10,7 @@ use App\Models\User;
 class Message extends Model
 {
     use HasFactory;
+	protected $dateFormat = 'Y-m-d H:i:s.u';
 
 	protected $fillable = [
         'user_id',

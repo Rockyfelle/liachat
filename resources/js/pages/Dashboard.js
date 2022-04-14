@@ -8,7 +8,7 @@ function Dashboard() {
 	const [messages, setMessages] = useState([]);
 	
 	//const date = new Date(Date.now()).toISOString();
-	const date = '2022-04-01T12:20:12.000000Z';
+	const date = '2022-04-12T21:20:12.000000Z';
 
 	useEffect(() => {
 		fetch(`/api/channel/3/${date}/5`, {

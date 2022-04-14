@@ -10,6 +10,7 @@ use App\Models\Program;
 class Channel extends Model
 {
     use HasFactory;
+	protected $dateFormat = 'Y-m-d H:i:s.u';
 
 	protected $fillable = [
         'program_id',

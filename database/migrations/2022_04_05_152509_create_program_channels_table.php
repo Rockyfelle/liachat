@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
 			$table->integer('program_id');
 			$table->integer('channel_id');
-            $table->timestamps();
+            $table->timestamps(6);
         });
     }
 

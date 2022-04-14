@@ -18,7 +18,7 @@ return new class extends Migration
 			$table->integer('program_id');
 			$table->string('name');
 			$table->boolean('hidden')->default(false);
-            $table->timestamps();
+            $table->timestamps(6);
         });
     }
 

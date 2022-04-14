@@ -32,6 +32,7 @@ class MessageFactory extends Factory
 			'type' => 'text',
 			'content' => $this->faker->sentence,
 			'created_at' => $this->faker->dateTimeBetween('-1 month', '-1 day'),
+			//Prevent dates not matching ID in order
         ];
     }
 }

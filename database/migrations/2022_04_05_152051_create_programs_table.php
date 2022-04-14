@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('school_id');
             $table->string('name');
-            $table->timestamps();
+            $table->timestamps(6);
         });
     }
 
