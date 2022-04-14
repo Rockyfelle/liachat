@@ -32,4 +32,22 @@ class ChannelController extends Controller
 
 		return response()->json(['channel' => $channel, 'messages' => $messages]);
 	}
+
+	public function new(Request $request, $id, $lastMessage) 
+	{
+		$channel = Channel::find($id);
+		$channel->program;
+
+		$messages = Message::orderBy('created_at', 'DESC')
+			->where('channel_id', $id)
+			->where('id', '>', $lastMessage)
+			->get();
+			
+		foreach ($messages as $message) {
+			$message->channel;
+			$message->user;
+		}
+
+		return response()->json(['channel' => $channel, 'messages' => $messages]);
+	}
 }

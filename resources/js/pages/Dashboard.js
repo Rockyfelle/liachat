@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Form } from 'semantic-ui-react';
 import { Grid, Segment } from 'semantic-ui-react';
 
@@ -9,6 +9,10 @@ function Dashboard() {
 	const [messages, setMessages] = useState([]);
 	const [sendMessages, setSendMessages] = useState([]);
 	const [input, setInput] = useState('');
+	const [tick, setTick] = useState(false);
+	const [int, setInt] = useState(null);
+
+
 
 	//const date = new Date(Date.now()).toISOString();
 	const date = '2022-04-12T21:20:12.000000Z';
@@ -31,7 +35,7 @@ function Dashboard() {
 
 	function postMessage() {
 		setInput('');
-		setSendMessages([...sendMessages, {content: input, created_at: '2022-04-12T21:20:12.000000Z'}]);
+		setSendMessages([...sendMessages, { content: input, created_at: '2022-04-12T21:20:12.000000Z' }]);
 		fetch(`/api/message/3`, {
 			method: 'POST',
 			headers: {
@@ -47,6 +51,49 @@ function Dashboard() {
 			.then(data => {
 				//setSendMessages([]);
 			});
+	}
+
+	function fetchUpdates() {
+		console.log("a load");
+		if (!isLoading) {
+			console.log("a tick");
+			fetch(`/api/channel/new/3/${messages[0].id}`, {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+					//'Authorization': userObject.token,
+				},
+			})
+				.then(response => response.json())
+				.then(data => {
+					setChannel(data.channel);
+					const moreModdedMessages = data.messages.concat(messages);
+					setMessages(moreModdedMessages);
+					setSendMessages(sendMessages.filter(x => data.messages.find(y => y.content === x.content) === undefined));
+				});
+		}
+	}
+
+	useInterval(fetchUpdates, 750);
+
+	function useInterval(callback, delay) {
+		const savedCallback = useRef();
+
+		// Remember the latest callback.
+		useEffect(() => {
+			savedCallback.current = callback;
+		}, [callback]);
+
+		// Set up the interval.
+		useEffect(() => {
+			function tick() {
+				savedCallback.current();
+			}
+			if (delay !== null) {
+				let id = setInterval(tick, delay);
+				return () => clearInterval(id);
+			}
+		}, [delay]);
 	}
 
 	return (
@@ -79,7 +126,7 @@ function Dashboard() {
 									/>
 								</Form>
 							</div>
-							{sendMessages.map((message, index) => {
+							{sendMessages.reverse().map((message, index) => {
 								return (
 									<div key={"message" + index} className="p-3 px-5">
 										<div className="text-l text-neutral-500 w-full border-b-2 pb-2">

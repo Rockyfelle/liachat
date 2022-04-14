@@ -19,6 +19,7 @@ use App\Http\Controllers\MessageController;
 
 Route::get('program/all', [ProgramController::class, 'all']);
 Route::get('program/{id}', [ProgramController::class, 'program']);
+Route::get('channel/new/{id}/{lastMessage}/', [ChannelController::class, 'new']);
 Route::get('channel/{id}/{dateTo}/{count}', [ChannelController::class, 'all']);
 Route::post('message/{channelId}', [MessageController::class, 'create']);
 
