@@ -29,7 +29,8 @@ class ChannelController extends Controller
 			$message->channel;
 			$message->user;
 		}
-
+		
+		//Return data
 		return response()->json(['channel' => $channel, 'messages' => $messages]);
 	}
 

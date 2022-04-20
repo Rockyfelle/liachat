@@ -12,4 +12,15 @@
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+/*import Pusher from 'pusher-js';
+alert(1)
+var pusher = new Pusher('eee151f95c1c086f4dc8', {
+	cluster: 'eu'
+});
+
+var channel = pusher.subscribe('my-channel');
+channel.bind('broadcaster', function (data) {
+	alert(JSON.stringify(data));
+});*/
+
 require('./components/App');

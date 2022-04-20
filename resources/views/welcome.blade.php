@@ -12,6 +12,13 @@
     <!-- React root DOM -->
     <div id="app">
     </div>
+
+	<!-- Pusher -->
+	<script>
+		// Enable pusher logging - don't include this in production
+		
+	</script>
+
     <!-- React JS -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 </body>

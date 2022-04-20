@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Form } from 'semantic-ui-react';
 import { Grid, Segment } from 'semantic-ui-react';
+import Pusher from 'pusher-js';
 
 
 function Dashboard() {
@@ -11,6 +12,8 @@ function Dashboard() {
 	const [input, setInput] = useState('');
 	const [tick, setTick] = useState(false);
 	const [int, setInt] = useState(null);
+	const [pusher, setPusher] = useState(undefined);
+	const [broadcast, setBroadcast] = useState(undefined);
 
 
 
@@ -34,23 +37,25 @@ function Dashboard() {
 	}, []);
 
 	function postMessage() {
-		setInput('');
-		setSendMessages([...sendMessages, { content: input, created_at: '2022-04-12T21:20:12.000000Z' }]);
-		fetch(`/api/message/3`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				//'Authorization': userObject.token,
-			},
-			body: JSON.stringify({
-				content: input,
-				mimic_user: 1
+		if (input.length > 0) {
+			setInput('');
+			setSendMessages([...sendMessages, { content: input, created_at: '2022-04-12T21:20:12.000000Z' }]);
+			fetch(`/api/message/3`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					//'Authorization': userObject.token,
+				},
+				body: JSON.stringify({
+					content: input,
+					mimic_user: 1
+				})
 			})
-		})
-			.then(response => response.json())
-			.then(data => {
-				//setSendMessages([]);
-			});
+				.then(response => response.json())
+				.then(data => {
+					//setSendMessages([]);
+				});
+		}
 	}
 
 	function fetchUpdates() {
@@ -74,7 +79,31 @@ function Dashboard() {
 		}
 	}
 
-	useInterval(fetchUpdates, 750);
+	//When in a new channel, bind new websocket
+	useEffect(() => {
+		if (channel !== undefined) {
+			const pusher = new Pusher('eee151f95c1c086f4dc8', {
+				cluster: 'eu'
+			});
+			const broadcastChannel = pusher.subscribe('channel' + channel.id);
+			broadcastChannel.bind('new_message', function (data) {
+
+				const parsed = data.message;
+				setSendMessages(prevMessages => prevMessages.filter(x => parsed.messages.find(y => y.content === x.content) === undefined));
+				setMessages(prevMessages => (parsed.messages.concat(prevMessages)));
+			});
+
+			setPusher(pusher);
+			setBroadcast(broadcastChannel);
+		}
+
+		return (() => {
+			if (broadcast) broadcast.unbind('broadcaster')
+		});
+
+	}, [channel.id]);
+
+	//useInterval(fetchUpdates, 750);
 
 	function useInterval(callback, delay) {
 		const savedCallback = useRef();
