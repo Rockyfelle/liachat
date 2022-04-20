@@ -4,6 +4,7 @@ import { Grid, Segment } from 'semantic-ui-react';
 
 
 function Dashboard() {
+	const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 	const [isLoading, setIsLoading] = useState(true);
 	const [channel, setChannel] = useState({});
 	const [messages, setMessages] = useState([]);
@@ -22,7 +23,7 @@ function Dashboard() {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
-				//'Authorization': userObject.token,
+				'Authorization': user.token,
 			},
 		})
 			.then(response => response.json())
@@ -33,14 +34,15 @@ function Dashboard() {
 			});
 	}, []);
 
+	//Post message to channel
 	function postMessage() {
 		setInput('');
-		setSendMessages([...sendMessages, { content: input, created_at: '2022-04-12T21:20:12.000000Z' }]);
+		setSendMessages([...sendMessages, { user: {...user, token: ''} ,content: input, created_at: '2022-04-12T21:20:12.000000Z' }]);
 		fetch(`/api/message/3`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				//'Authorization': userObject.token,
+				'Authorization': user.token,
 			},
 			body: JSON.stringify({
 				content: input,
@@ -51,17 +53,18 @@ function Dashboard() {
 			.then(data => {
 				//setSendMessages([]);
 			});
-	}
+	}console.log(sendMessages)
 
+	//Check for updates every second
 	function fetchUpdates() {
-		console.log("a load");
+		//console.log("a load");
 		if (!isLoading) {
-			console.log("a tick");
+			//console.log("a tick");
 			fetch(`/api/channel/new/3/${messages[0].id}`, {
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json',
-					//'Authorization': userObject.token,
+					'Authorization': user.token,
 				},
 			})
 				.then(response => response.json())
@@ -74,8 +77,10 @@ function Dashboard() {
 		}
 	}
 
+	//Set updates to be checked every second
 	useInterval(fetchUpdates, 750);
 
+	//Set updates to be checked every second
 	function useInterval(callback, delay) {
 		const savedCallback = useRef();
 
@@ -94,6 +99,11 @@ function Dashboard() {
 				return () => clearInterval(id);
 			}
 		}, [delay]);
+	}
+
+	//Format date for humans
+	function timeFormat(time) {
+		return (time.substr(0, 10) + ' at ' + time.substr(11, 8));
 	}
 
 	return (
@@ -130,8 +140,8 @@ function Dashboard() {
 								return (
 									<div key={"message" + index} className="p-3 px-5">
 										<div className="text-l text-neutral-500 w-full border-b-2 pb-2">
-											<p className="text-2xl">{'me'}</p>
-											<p className="text-s">{message.created_at.substr(0, 10)} at {message.created_at.substr(11, 8)}</p>
+											<p className="text-2xl">{message.user.name}</p>
+											<p className="text-s">{'Just Now'}</p>
 											<p className="text-xl">{message.content}</p>
 										</div>
 									</div>
@@ -142,7 +152,7 @@ function Dashboard() {
 									<div key={"message" + index} className="p-3 px-5">
 										<div className="text-l text-black w-full border-b-2 pb-2">
 											<p className="text-2xl">{message.user.name}</p>
-											<p className="text-s">{message.created_at.substr(0, 10)} at {message.created_at.substr(11, 8)}</p>
+											<p className="text-s">{timeFormat(message.created_at)}</p>
 											<p className="text-xl">{message.content}</p>
 										</div>
 									</div>
