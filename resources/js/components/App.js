@@ -7,21 +7,24 @@ import {
 	BrowserRouter as Router,
 	Routes,
 	Route,
-  } from "react-router-dom";
+} from "react-router-dom";
+import MainView from './MainView';
 
 function App() {
 
 	return (
 
 		<Router>
-		  <Routes>
-			<Route path="login" element={<LoginPage />}/>
-		
-			<Route path="dashboard" element={<Dashboard />} />
+			<Routes>
+				<Route path="login" element={<LoginPage />} />
 
-			<Route path="/" />
-		  </Routes>
-	  </Router>
+				<Route path="dashboard" element={<Dashboard />} />
+
+				<Route path="program/:program/channel/:channel" element={<MainView />} />
+
+				<Route path="/" />
+			</Routes>
+		</Router>
 
 	);
 }
