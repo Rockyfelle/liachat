@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
 		]);
 
 		UserProgram::create([
-			'user_id' => 1,
+			'user_id' => 2,
 			'program_id' => 1,
 		]);
 
@@ -52,12 +52,12 @@ class UserSeeder extends Seeder
 		]);
 
 		UserProgram::create([
-			'user_id' => 1,
+			'user_id' => 3,
 			'program_id' => 1,
 		]);
 
 		UserProgram::create([
-			'user_id' => 1,
+			'user_id' => 3,
 			'program_id' => 2,
 		]);
 
@@ -70,12 +70,12 @@ class UserSeeder extends Seeder
 		]);
 
 		UserProgram::create([
-			'user_id' => 1,
+			'user_id' => 4,
 			'program_id' => 1,
 		]);
 
 		UserProgram::create([
-			'user_id' => 1,
+			'user_id' => 4,
 			'program_id' => 2,
 		]);
 
@@ -88,17 +88,17 @@ class UserSeeder extends Seeder
 		]);
 
 		UserProgram::create([
-			'user_id' => 1,
+			'user_id' => 5,
 			'program_id' => 1,
 		]);
 
 		UserProgram::create([
-			'user_id' => 1,
+			'user_id' => 5,
 			'program_id' => 2,
 		]);
 
 		UserProgram::create([
-			'user_id' => 1,
+			'user_id' => 5,
 			'program_id' => 3,
 		]);
 	}

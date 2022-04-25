@@ -39,7 +39,7 @@ function LoginPage() {
 					localStorage.setItem('user', JSON.stringify({...data.user, token: data.token}));
 
 					//Redirect to dashboard
-					window.location.href = '/dashboard';
+					window.location.href = '/program/1/channel/3';
 
 				} else {
 
