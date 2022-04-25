@@ -20,5 +20,15 @@ class ProgramSeeder extends Seeder
 			'school_id' => 1,
 			'name' => 'Web Security 50HP',
 		]);
+
+		Program::create([
+			'school_id' => 1,
+			'name' => 'Only Teachers',
+		]);
+
+		Program::create([
+			'school_id' => 1,
+			'name' => 'Void',
+		]);
     }
 }

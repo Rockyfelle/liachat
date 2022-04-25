@@ -11,8 +11,12 @@ import Program from './ProgramsBar';
 
 
 function MainView(props) {
-	const [program, setProgram] = useState(useParams().program);
-	const [channel, setChannel] = useState(useParams().channel);
+	const [channels, setChannels] = useState(props.channels);
+
+	//Update channels from parent
+	useEffect(() => {
+		setChannels(props.channels);
+	}, [props.channels]);
 
 	return (
 		<div className="m-0">
@@ -21,21 +25,6 @@ function MainView(props) {
 					<Grid.Column width={2} className="p-0">
 						<Segment className="h-[100vh]">
 							Sidebar 1
-						</Segment>
-					</Grid.Column>
-					<Grid.Column width={2} className="p-0">
-						<Segment className="h-[100vh]">
-							Sidebar 2
-						</Segment>
-					</Grid.Column>
-					<Grid.Column width={10} className="p-0">
-						<Segment className="h-[100vh]">
-							Main Area
-						</Segment>
-					</Grid.Column>
-					<Grid.Column width={2} className="p-0">
-						<Segment className="h-[100vh]">
-							Sidebar 3
 						</Segment>
 					</Grid.Column>
 				</Grid.Row>

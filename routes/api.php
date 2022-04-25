@@ -22,6 +22,7 @@ Route::get('program/{id}', [ProgramController::class, 'program']);
 Route::get('channel/new/{id}/{lastMessage}/', [ChannelController::class, 'new']);
 Route::get('channel/{id}/{dateTo}/{count}', [ChannelController::class, 'all']);
 Route::post('message/{channelId}', [MessageController::class, 'create']);
+Route::get('program/init/{programId}/{channelId}', [ProgramController::class, 'init']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

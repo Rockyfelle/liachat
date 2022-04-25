@@ -126,7 +126,37 @@ function Chat() {
 	}
 
 	return (
-		<div className="flex flex-col-reverse m-0 p-0 overflow-auto h-[100vh] pb-5 overflow-auto">
+		<div className="h-[100vh] align-top">
+			<div className="text-l text-black w-full pt-5 px-5 border-b-2">
+				testing
+			</div>
+			<div className="flex flex-col-reverse m-0 p-0 overflow-auto h-[87vh] pb-5 overflow-auto">
+				{sendMessages.reverse().map((message, index) => {
+					return (
+						<div key={"message" + index} className="p-3 px-5">
+							<div className="text-l text-neutral-500 w-full border-b-2 pb-2">
+								<p className="text-2xl">{'me'}</p>
+								<p className="text-s">{message.created_at.substr(0, 10)} at {message.created_at.substr(11, 8)}</p>
+								<p className="text-xl">{message.content}</p>
+							</div>
+						</div>
+					)
+				})}
+				{messages.map((message, index) => {
+					return (
+						<div key={"message" + index} className="p-3 px-5">
+							<div className="text-l text-black w-full border-b-2 pb-2">
+								<p className="text-2xl">{message.user.name}</p>
+								<p className="text-s">{message.created_at.substr(0, 10)} at {message.created_at.substr(11, 8)}</p>
+								<p className="text-xl">{message.content}</p>
+							</div>
+						</div>
+					)
+				})}
+				<div>
+
+				</div>
+			</div>
 			<div className="text-l text-black w-full px-5 mt-10">
 				<Form>
 					<Form.Input
@@ -140,31 +170,6 @@ function Chat() {
 						onChange={(e, { value }) => setInput(value)}
 					/>
 				</Form>
-			</div>
-			{sendMessages.reverse().map((message, index) => {
-				return (
-					<div key={"message" + index} className="p-3 px-5">
-						<div className="text-l text-neutral-500 w-full border-b-2 pb-2">
-							<p className="text-2xl">{'me'}</p>
-							<p className="text-s">{message.created_at.substr(0, 10)} at {message.created_at.substr(11, 8)}</p>
-							<p className="text-xl">{message.content}</p>
-						</div>
-					</div>
-				)
-			})}
-			{messages.map((message, index) => {
-				return (
-					<div key={"message" + index} className="p-3 px-5">
-						<div className="text-l text-black w-full border-b-2 pb-2">
-							<p className="text-2xl">{message.user.name}</p>
-							<p className="text-s">{message.created_at.substr(0, 10)} at {message.created_at.substr(11, 8)}</p>
-							<p className="text-xl">{message.content}</p>
-						</div>
-					</div>
-				)
-			})}
-			<div>
-
 			</div>
 		</div>
 	)
