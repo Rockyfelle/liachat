@@ -5,6 +5,7 @@ import Pusher from 'pusher-js';
 
 
 function Chat() {
+	const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 	const [isLoading, setIsLoading] = useState(true);
 	const [channel, setChannel] = useState({});
 	const [messages, setMessages] = useState([]);
@@ -25,7 +26,7 @@ function Chat() {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
-				//'Authorization': userObject.token,
+				'Authorization': user.token,
 			},
 		})
 			.then(response => response.json())
@@ -44,7 +45,7 @@ function Chat() {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
-					//'Authorization': userObject.token,
+					'Authorization': user.token,
 				},
 				body: JSON.stringify({
 					content: input,
@@ -66,7 +67,7 @@ function Chat() {
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json',
-					//'Authorization': userObject.token,
+					'Authorization': user.token,
 				},
 			})
 				.then(response => response.json())

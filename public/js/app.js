@@ -1243,50 +1243,55 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Chat() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(localStorage.getItem('user'))),
       _useState2 = _slicedToArray(_useState, 2),
-      isLoading = _useState2[0],
-      setIsLoading = _useState2[1];
+      user = _useState2[0],
+      setUser = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState4 = _slicedToArray(_useState3, 2),
-      channel = _useState4[0],
-      setChannel = _useState4[1];
+      isLoading = _useState4[0],
+      setIsLoading = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
       _useState6 = _slicedToArray(_useState5, 2),
-      messages = _useState6[0],
-      setMessages = _useState6[1];
+      channel = _useState6[0],
+      setChannel = _useState6[1];
 
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState8 = _slicedToArray(_useState7, 2),
-      sendMessages = _useState8[0],
-      setSendMessages = _useState8[1];
+      messages = _useState8[0],
+      setMessages = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState10 = _slicedToArray(_useState9, 2),
-      input = _useState10[0],
-      setInput = _useState10[1];
+      sendMessages = _useState10[0],
+      setSendMessages = _useState10[1];
 
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
       _useState12 = _slicedToArray(_useState11, 2),
-      tick = _useState12[0],
-      setTick = _useState12[1];
+      input = _useState12[0],
+      setInput = _useState12[1];
 
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState14 = _slicedToArray(_useState13, 2),
-      _int = _useState14[0],
-      setInt = _useState14[1];
+      tick = _useState14[0],
+      setTick = _useState14[1];
 
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(undefined),
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
       _useState16 = _slicedToArray(_useState15, 2),
-      pusher = _useState16[0],
-      setPusher = _useState16[1];
+      _int = _useState16[0],
+      setInt = _useState16[1];
 
   var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(undefined),
       _useState18 = _slicedToArray(_useState17, 2),
-      broadcast = _useState18[0],
-      setBroadcast = _useState18[1]; //const date = new Date(Date.now()).toISOString();
+      pusher = _useState18[0],
+      setPusher = _useState18[1];
+
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(undefined),
+      _useState20 = _slicedToArray(_useState19, 2),
+      broadcast = _useState20[0],
+      setBroadcast = _useState20[1]; //const date = new Date(Date.now()).toISOString();
 
 
   var date = '2022-04-12T21:20:12.000000Z';
@@ -1294,8 +1299,8 @@ function Chat() {
     fetch("/api/channel/3/".concat(date, "/50"), {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json' //'Authorization': userObject.token,
-
+        'Content-Type': 'application/json',
+        'Authorization': user.token
       }
     }).then(function (response) {
       return response.json();
@@ -1316,8 +1321,8 @@ function Chat() {
       fetch("/api/message/3", {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json' //'Authorization': userObject.token,
-
+          'Content-Type': 'application/json',
+          'Authorization': user.token
         },
         body: JSON.stringify({
           content: input,
@@ -1338,8 +1343,8 @@ function Chat() {
       fetch("/api/channel/new/3/".concat(messages[0].id), {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json' //'Authorization': userObject.token,
-
+          'Content-Type': 'application/json',
+          'Authorization': user.token
         }
       }).then(function (response) {
         return response.json();
