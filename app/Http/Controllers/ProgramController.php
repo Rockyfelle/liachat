@@ -22,7 +22,7 @@ class ProgramController extends Controller
 				$allPrograms = Auth::user()->programs;
 
 				//Get program user is trying to access
-				$program = $allPrograms->where('id', $programId)->first();
+				$program = $allPrograms->where('id', $programId)->first();error_log($allPrograms);
 
 				//If selected program exists
 				if ($program) {
@@ -43,6 +43,10 @@ class ProgramController extends Controller
 								->where('channel_id', $channelId)
 								->limit('20')
 								->get();
+
+							foreach($messages as $message) {
+								$message->user;
+							}
 
 							return ['success' => true, 'programs' => $allPrograms, 'program' => $program, 'channel' => $channel, 'messages' => $messages];
 						} else {
@@ -65,6 +69,15 @@ class ProgramController extends Controller
 			//Not Logged In
 			return ['success' => false, 'text' => 'You are not logged in'];
 		}
+	}
+
+	public function load(Request $request, $id)
+	{
+		$program = Program::find($id);
+
+		$program->channels;
+
+		return response()->json($program);
 	}
 
 	public function program(Request $request, $id)

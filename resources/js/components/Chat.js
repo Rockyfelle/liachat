@@ -4,24 +4,44 @@ import { Grid, Segment } from 'semantic-ui-react';
 import Pusher from 'pusher-js';
 
 
-function Chat() {
+function Chat(props) {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 	const [isLoading, setIsLoading] = useState(true);
-	const [channel, setChannel] = useState({});
-	const [messages, setMessages] = useState([]);
+	const [channel, setChannel] = useState(props.channel);
+	const [channelId, setChannelId] = useState(props.channelId);
+	const [messages, setMessages] = useState(props.initMessages);
 	const [sendMessages, setSendMessages] = useState([]);
 	const [input, setInput] = useState('');
 	const [tick, setTick] = useState(false);
 	const [int, setInt] = useState(null);
 	const [pusher, setPusher] = useState(undefined);
 	const [broadcast, setBroadcast] = useState(undefined);
+	const isMounted = useRef(false);
 
-
+	//Load messages when switching channel id
+	useEffect(() => {
+		if (isMounted.current) {
+			fetch(`/api/channel/load/${props.channelId}/`, {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+					'Authorization': user.token,
+				},
+			})
+				.then(response => response.json())
+				.then(data => {
+					setMessages(data.messages);
+					setIsLoading(false);
+				});
+		} else {
+			isMounted.current = true;
+		}
+	}, [props.channelId]);
 
 	//const date = new Date(Date.now()).toISOString();
 	const date = '2022-04-12T21:20:12.000000Z';
 
-	useEffect(() => {
+	/*useEffect(() => {
 		fetch(`/api/channel/3/${date}/50`, {
 			method: 'GET',
 			headers: {
@@ -35,7 +55,7 @@ function Chat() {
 				setChannel(data.channel);
 				setMessages(data.messages);
 			});
-	}, []);
+	}, []);*/
 
 	function postMessage() {
 		if (input.length > 0) {
@@ -176,4 +196,4 @@ function Chat() {
 	)
 }
 
-export default Chat
+export default Chat;

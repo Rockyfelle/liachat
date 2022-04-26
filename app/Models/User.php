@@ -49,6 +49,6 @@ class User extends Authenticatable
 
 	public function programs()
 	{
-		return $this->hasManyThrough(Program::class, UserProgram::class, 'user_id', 'id');
+		return $this->hasManyThrough(Program::class, UserProgram::class, 'user_id', 'id', 'id', 'program_id');
 	}
 }

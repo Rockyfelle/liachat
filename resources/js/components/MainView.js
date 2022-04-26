@@ -13,25 +13,72 @@ import Chat from './Chat';
 
 
 function MainView(props) {
-	const [program, setProgram] = useState(useParams().program);
-	const [channel, setChannel] = useState(useParams().channel);
+	const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+	const [isLoading, setIsLoading] = useState(true);
+	const [channelId, setChannelId] = useState(parseInt(useParams().channel));
+	const [programId, setProgramId] = useState(parseInt(useParams().program));
+	const [program, setProgram] = useState({});
+	const [channel, setChannel] = useState({});
+	const [channels, setChannels] = useState([]);
+	const [programs, setPrograms] = useState([]);
+	const [messages, setMessages] = useState([]);
+	const [updateChat, setUpdateChat] = useState(false);
+
+	//Perform initial fetch
+	useEffect(() => {
+		fetch(`/api/program/init/${programId}/${channelId}`, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': user.token,
+			},
+		})
+			.then(response => response.json())
+			.then(data => {
+				setPrograms(data.programs);
+				setChannels(data.program.channels);
+				setProgram(data.program);
+				setChannel(data.channel);
+				setMessages(data.messages);
+				setIsLoading(false);
+			});
+	}, []);
+
+	function changeChannel(channelId) {
+		setChannelId(channelId);
+		setUpdateChat(!updateChat);
+	}
+
+	function changeProgram(programId) {
+		setProgramId(programId);
+	}
 
 	return (
 		<div className="m-0">
 			<Grid className="m-0">
-				<Grid.Row columns={16} className="p-0">
+				{!isLoading && <Grid.Row columns={16} className="p-0">
 					<Grid.Column width={2} className="p-0">
-						<Segment className="h-[100vh]">
-							Sidebar 1
-						</Segment>
+						<ProgramsBar
+							programs={programs}
+							onClick={changeProgram}
+							programId={programId}
+						/>
 					</Grid.Column>
 					<Grid.Column width={2} className="p-0">
-						<Segment className="h-[100vh]">
-							Sidebar 2
-						</Segment>
+						<ChannelsBar
+							channels={channels}
+							onClick={changeChannel}
+							channelId={channelId}
+							programId={programId}
+						/>
 					</Grid.Column>
 					<Grid.Column width={10} className="p-0">
-						<Chat />
+						<Chat
+							initMessages={messages}
+							channelId={channelId}
+							channel={channel}
+							update={updateChat}
+						/>
 					</Grid.Column>
 					<Grid.Column width={2} className="p-0">
 						<Segment className="h-[100vh]">
@@ -39,13 +86,10 @@ function MainView(props) {
 						</Segment>
 					</Grid.Column>
 				</Grid.Row>
+				}
 			</Grid>
 		</div>
 	);
 }
 
 export default MainView;
-
-if (document.getElementById('mainview')) {
-	ReactDOM.render(<MainView />, document.getElementById('mainview'));
-}

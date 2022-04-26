@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { Grid, Segment } from 'semantic-ui-react';
 import {
@@ -10,42 +10,41 @@ import {
 import Program from './ProgramsBar';
 
 
-function MainView(props) {
-	const [program, setProgram] = useState(useParams().program);
-	const [channel, setChannel] = useState(useParams().channel);
+function ProgramsBar(props) {
+	const [programs, setPrograms] = useState(props.programs);
+	const [programId, setProgramId] = useState(props.programId);
+
+	//Update channels from parent
+	useEffect(() => {
+		setPrograms(props.programs);
+	}, [props.programs]);
+
+	//Update channelId from parent
+	useEffect(() => {
+		setProgramId(props.programId);
+	}, [props.programId]);
 
 	return (
-		<div className="m-0">
-			<Grid className="m-0">
-				<Grid.Row columns={16} className="p-0">
-					<Grid.Column width={2} className="p-0">
-						<Segment className="h-[100vh]">
-							Sidebar 1
-						</Segment>
-					</Grid.Column>
-					<Grid.Column width={2} className="p-0">
-						<Segment className="h-[100vh]">
-							Sidebar 2
-						</Segment>
-					</Grid.Column>
-					<Grid.Column width={10} className="p-0">
-						<Segment className="h-[100vh]">
-							Main Area
-						</Segment>
-					</Grid.Column>
-					<Grid.Column width={2} className="p-0">
-						<Segment className="h-[100vh]">
-							Sidebar 3
-						</Segment>
-					</Grid.Column>
-				</Grid.Row>
-			</Grid>
+		<div className="h-[100vh] align-top border-r-2">
+			<div className="text-l text-black w-full pt-5 px-5 border-b-2">
+				<b>Programs</b>
+			</div>
+			<div className="flex flex-col m-0 p-0 overflow-auto h-[87vh] pb-5 overflow-auto">
+				{programs.map((program, index) => {
+					return (
+						<div
+							key={"message" + index}
+							style={{ backgroundColor: program.id === programId ? '#bbbbbb' : '#ffffff' }}
+							className="p-3 px-5 border-b-2 cursor-pointer"
+							onClick={() => { props.onClick(program.id) }}
+						>
+							<p>{program.name}</p>
+						</div>
+					)
+				})}
+			</div>
 		</div>
 	);
 }
 
-export default MainView;
-
-if (document.getElementById('mainview')) {
-	ReactDOM.render(<MainView />, document.getElementById('mainview'));
-}
+export default ProgramsBar;

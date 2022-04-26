@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { Grid, Segment } from 'semantic-ui-react';
 import {
@@ -10,31 +10,64 @@ import {
 import Program from './ProgramsBar';
 
 
-function MainView(props) {
+function ChannelsBar(props) {
+	const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+	const [isLoading, setIsLoading] = useState(true);
 	const [channels, setChannels] = useState(props.channels);
+	const [channelId, setChannelId] = useState(props.channelId);
+	const isMounted = useRef(false);
 
 	//Update channels from parent
 	useEffect(() => {
 		setChannels(props.channels);
 	}, [props.channels]);
 
+	//Update channelId from parent
+	useEffect(() => {
+		setChannelId(props.channelId);
+	}, [props.channelId]);
+
+	//Load channels when switching program id
+	useEffect(() => {
+		if (isMounted.current) {
+			fetch(`/api/program/load/${props.programId}/`, {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+					'Authorization': user.token,
+				},
+			})
+				.then(response => response.json())
+				.then(data => {
+					setChannels(data.channels);
+					setIsLoading(false);
+				});
+		} else {
+			isMounted.current = true;
+		}
+	}, [props.programId]);
+
 	return (
-		<div className="m-0">
-			<Grid className="m-0">
-				<Grid.Row columns={16} className="p-0">
-					<Grid.Column width={2} className="p-0">
-						<Segment className="h-[100vh]">
-							Sidebar 1
-						</Segment>
-					</Grid.Column>
-				</Grid.Row>
-			</Grid>
+		<div className="h-[100vh] align-top border-r-2">
+			<div className="text-l text-black w-full pt-5 px-5 border-b-2">
+				<b>Channels</b>
+			</div>
+			<div className="flex flex-col m-0 p-0 overflow-auto h-[87vh] pb-5 overflow-auto">
+				{channels.map((channel, index) => {
+					return (
+						<div
+							key={"message" + index}
+							style={{ backgroundColor: channel.id === channelId ? '#bbbbbb' : '#ffffff' }}
+							className="p-3 px-5 border-b-2 cursor-pointer"
+							onClick={() => { props.onClick(channel.id) }}
+						>
+							<p>{channel.name}</p>
+						</div>
+					)
+				})}
+			</div>
 		</div>
 	);
 }
 
-export default MainView;
-
-if (document.getElementById('mainview')) {
-	ReactDOM.render(<MainView />, document.getElementById('mainview'));
-}
+export default ChannelsBar;
