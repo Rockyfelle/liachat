@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { Grid, Segment } from 'semantic-ui-react';
 import {
@@ -10,6 +10,7 @@ import {
 import ProgramsBar from './ProgramsBar';
 import ChannelsBar from './ChannelsBar';
 import Chat from './Chat';
+import ProgramContext from './ProgramContext';
 
 
 function MainView(props) {
@@ -23,6 +24,9 @@ function MainView(props) {
 	const [programs, setPrograms] = useState([]);
 	const [messages, setMessages] = useState([]);
 	const [updateChat, setUpdateChat] = useState(false);
+	const { progs, setProgs } = useContext(ProgramContext);
+
+	setTimeout(() => setProgs('ijwdoiawjdawd'), 1000);
 
 	//Perform initial fetch
 	useEffect(() => {

@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useContext } from 'react'
 import { Form } from 'semantic-ui-react';
 import { Grid, Segment } from 'semantic-ui-react';
 import Pusher from 'pusher-js';
+import ProgramContext from './ProgramContext';
 
 
 function Chat(props) {
@@ -17,6 +18,11 @@ function Chat(props) {
 	const [pusher, setPusher] = useState(undefined);
 	const [broadcast, setBroadcast] = useState(undefined);
 	const isMounted = useRef(false);
+
+	const { progs, setProgs } = useContext(ProgramContext);
+
+	//const progs = useContext(ProgramContext);
+	console.log(progs);
 
 	//Load messages when switching channel id
 	useEffect(() => {

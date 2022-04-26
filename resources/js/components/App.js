@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import LoginPage from '../pages/LoginPage';
 import { Grid, Segment } from 'semantic-ui-react';
@@ -9,22 +9,28 @@ import {
 	Route,
 } from "react-router-dom";
 import MainView from './MainView';
+import ProgramContext from './ProgramContext';
 
 function App() {
+	const [progs, setProgs] = useState('ee');
+	const value = { progs, setProgs };
+	const [user, setUser] = useState({});
+	const userValue = { user, setUser };
 
 	return (
+		<ProgramContext.Provider value={value}>
+			<Router>
+				<Routes>
+					<Route path="login" element={<LoginPage />} />
 
-		<Router>
-			<Routes>
-				<Route path="login" element={<LoginPage />} />
+					<Route path="dashboard" element={<Dashboard />} />
 
-				<Route path="dashboard" element={<Dashboard />} />
+					<Route path="program/:program/channel/:channel" element={<MainView />} />
 
-				<Route path="program/:program/channel/:channel" element={<MainView />} />
-
-				<Route path="/" />
-			</Routes>
-		</Router>
+					<Route path="/" />
+				</Routes>
+			</Router>
+		</ProgramContext.Provider>
 
 	);
 }
