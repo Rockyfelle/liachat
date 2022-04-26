@@ -11,23 +11,32 @@ use Illuminate\Http\Request;
 class ProgramController extends Controller
 {
 	public function init(Request $request, $programId, $channelId)
-	{	
+	{
+		//Is authenticated
 		if (Auth::user()) {
 
-			//Is authenticated
+			//Has selected a program
 			if ($programId) {
 
 				//Get list of programs user has access to
 				$allPrograms = Auth::user()->programs;
 
+				//Get program user is trying to access
 				$program = $allPrograms->where('id', $programId)->first();
 
+				//If selected program exists
 				if ($program) {
 
+					//Get channels of program
 					$program->channels;
+
+					//If a channel is selected
 					if ($channelId) {
 
+						//Get channel user is trying to access
 						$channel = Channel::find($channelId);
+
+						//If channel exists
 						if ($channel) {
 
 							$messages = Message::orderBy('id', 'DESC')
