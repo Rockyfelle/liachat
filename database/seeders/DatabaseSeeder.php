@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
 		$this->call([
 			UserSeeder::class,
 			ProgramSeeder::class,
-			ChannelSeeder::class,
-			MessageSeeder::class,
+			//ChannelSeeder::class,
+			//MessageSeeder::class,
 		]);
     }
 }
