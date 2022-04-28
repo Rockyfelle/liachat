@@ -1113,27 +1113,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function App() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('ee'),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
       _useState2 = _slicedToArray(_useState, 2),
-      progs = _useState2[0],
-      setProgs = _useState2[1];
-
-  var value = {
-    progs: progs,
-    setProgs: setProgs
-  };
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
-      _useState4 = _slicedToArray(_useState3, 2),
-      user = _useState4[0],
-      setUser = _useState4[1];
+      user = _useState2[0],
+      setUser = _useState2[1];
 
   var userValue = {
     user: user,
     setUser: setUser
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ProgramContext__WEBPACK_IMPORTED_MODULE_5__["default"].Provider, {
-    value: value,
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ProgramContext__WEBPACK_IMPORTED_MODULE_5__.ProgramProvider, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
@@ -1174,8 +1163,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-dom/index.js");
-/* harmony import */ var _ProgramsBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgramsBar */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramsBar.js");
+/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1202,6 +1197,11 @@ function ChannelsBar(props) {
       user = _useState2[0],
       setUser = _useState2[1];
 
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_ProgramContext__WEBPACK_IMPORTED_MODULE_2__.ProgramContext),
+      _useContext2 = _slicedToArray(_useContext, 2),
+      progs = _useContext2[0],
+      setProgs = _useContext2[1];
+
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState4 = _slicedToArray(_useState3, 2),
       isLoading = _useState4[0],
@@ -1219,17 +1219,21 @@ function ChannelsBar(props) {
 
   var isMounted = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false); //Update channels from parent
 
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setChannels(props.channels);
-  }, [props.channels]); //Update channelId from parent
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setChannelId(props.channelId);
-  }, [props.channelId]); //Load channels when switching program id
+  /*useEffect(() => {
+  	//setChannels(props.channels);
+  	setProgs(prevProgs => { return {...prevProgs, channels: props.channels} });
+  }, [props.channels]);
+  
+  //Update channelId from parent
+  useEffect(() => {
+  	//setChannelId(props.channelId);
+  	setProgs(prevProgs => { return {...prevProgs, channelId: data.channelId} });
+  }, [props.channelId]);*/
+  //Load channels when switching program id
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (isMounted.current) {
-      fetch("/api/program/load/".concat(props.programId, "/"), {
+      fetch("/api/program/load/".concat(progs.programId, "/"), {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -1238,13 +1242,18 @@ function ChannelsBar(props) {
       }).then(function (response) {
         return response.json();
       }).then(function (data) {
-        setChannels(data.channels);
+        //setChannels(data.channels);
+        setProgs(function (prevProgs) {
+          return _objectSpread(_objectSpread({}, prevProgs), {}, {
+            channels: data.channels
+          });
+        });
         setIsLoading(false);
       });
     } else {
       isMounted.current = true;
     }
-  }, [props.programId]);
+  }, [progs.programId]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "h-[100vh] align-top border-r-2",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -1254,14 +1263,19 @@ function ChannelsBar(props) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "flex flex-col m-0 p-0 overflow-auto h-[87vh] pb-5 overflow-auto",
-      children: channels.map(function (channel, index) {
+      children: progs.channels.map(function (channel, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           style: {
-            backgroundColor: channel.id === channelId ? '#bbbbbb' : '#ffffff'
+            backgroundColor: channel.id === progs.channelId ? '#bbbbbb' : '#ffffff'
           },
           className: "p-3 px-5 border-b-2 cursor-pointer",
           onClick: function onClick() {
-            props.onClick(channel.id);
+            setProgs(function (prevProgs) {
+              return _objectSpread(_objectSpread({}, prevProgs), {}, {
+                channelId: channel.id
+              });
+            });
+            /*props.onClick(channel.id)*/
           },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
             children: channel.name
@@ -1301,6 +1315,12 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symb
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1326,6 +1346,11 @@ function Chat(props) {
       _useState2 = _slicedToArray(_useState, 2),
       user = _useState2[0],
       setUser = _useState2[1];
+
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_ProgramContext__WEBPACK_IMPORTED_MODULE_2__.ProgramContext),
+      _useContext2 = _slicedToArray(_useContext, 2),
+      progs = _useContext2[0],
+      setProgs = _useContext2[1];
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState4 = _slicedToArray(_useState3, 2),
@@ -1377,18 +1402,11 @@ function Chat(props) {
       broadcast = _useState22[0],
       setBroadcast = _useState22[1];
 
-  var isMounted = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
-
-  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_ProgramContext__WEBPACK_IMPORTED_MODULE_2__["default"]),
-      progs = _useContext.progs,
-      setProgs = _useContext.setProgs; //const progs = useContext(ProgramContext);
-
-
-  console.log(progs); //Load messages when switching channel id
+  var isMounted = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false); //Load messages when switching channel id
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (isMounted.current) {
-      fetch("/api/channel/load/".concat(props.channelId, "/"), {
+      fetch("/api/channel/load/".concat(progs.channelId, "/"), {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -1397,13 +1415,26 @@ function Chat(props) {
       }).then(function (response) {
         return response.json();
       }).then(function (data) {
-        setMessages(data.messages);
+        if (data.exists) {
+          setProgs(function (prevProgs) {
+            return _objectSpread(_objectSpread({}, prevProgs), {}, {
+              messages: data.messages
+            });
+          });
+        } else {
+          setProgs(function (prevProgs) {
+            return _objectSpread(_objectSpread({}, prevProgs), {}, {
+              messages: []
+            });
+          });
+        }
+
         setIsLoading(false);
       });
     } else {
       isMounted.current = true;
     }
-  }, [props.channelId]); //const date = new Date(Date.now()).toISOString();
+  }, [progs.channelId]); //const date = new Date(Date.now()).toISOString();
 
   var date = '2022-04-12T21:20:12.000000Z';
   /*useEffect(() => {
@@ -1445,32 +1476,27 @@ function Chat(props) {
       });
     }
   }
-
-  function fetchUpdates() {
-    console.log("a load");
-
-    if (!isLoading) {
-      console.log("a tick");
-      fetch("/api/channel/new/3/".concat(messages[0].id), {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': user.token
-        }
-      }).then(function (response) {
-        return response.json();
-      }).then(function (data) {
-        setChannel(data.channel);
-        var moreModdedMessages = data.messages.concat(messages);
-        setMessages(moreModdedMessages);
-        setSendMessages(sendMessages.filter(function (x) {
-          return data.messages.find(function (y) {
-            return y.content === x.content;
-          }) === undefined;
-        }));
-      });
-    }
-  } //When in a new channel, bind new websocket
+  /*	function fetchUpdates() {
+  	console.log("a load");
+  	if (!isLoading) {
+  		console.log("a tick");
+  		fetch(`/api/channel/new/3/${messages[0].id}`, {
+  			method: 'GET',
+  			headers: {
+  				'Content-Type': 'application/json',
+  				'Authorization': user.token,
+  			},
+  		})
+  			.then(response => response.json())
+  			.then(data => {
+  				setChannel(data.channel);
+  				const moreModdedMessages = data.messages.concat(messages);
+  				setMessages(moreModdedMessages);
+  				setSendMessages(sendMessages.filter(x => data.messages.find(y => y.content === x.content) === undefined));
+  			});
+  	}
+  }*/
+  //When in a new channel, bind new websocket
 
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -1489,9 +1515,13 @@ function Chat(props) {
               return y.content === x.content;
             }) === undefined;
           });
-        });
-        setMessages(function (prevMessages) {
-          return parsed.messages.concat(prevMessages);
+        }); //setMessages(prevMessages => (parsed.messages.concat(prevMessages)));
+        //Update progs
+
+        setProgs(function (prevProgs) {
+          return _objectSpread(_objectSpread({}, prevProgs), {}, {
+            messages: parsed.messages.concat(prevProgs.messages)
+          });
         });
       });
       setPusher(_pusher);
@@ -1548,7 +1578,7 @@ function Chat(props) {
             })]
           })
         }, "message" + index);
-      }), messages.map(function (message, index) {
+      }), progs.messages.map(function (message, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "p-3 px-5",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -1604,14 +1634,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-dom/index.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Segment/Segment.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-router-dom/node_modules/react-router/index.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Segment/Segment.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-router-dom/node_modules/react-router/index.js");
 /* harmony import */ var _ProgramsBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgramsBar */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramsBar.js");
 /* harmony import */ var _ChannelsBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ChannelsBar */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ChannelsBar.js");
 /* harmony import */ var _Chat__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Chat */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Chat.js");
 /* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
+/* harmony import */ var _UserContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./UserContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/UserContext.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1635,64 +1666,62 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function MainView(props) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(localStorage.getItem('user'))),
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_UserContext__WEBPACK_IMPORTED_MODULE_6__["default"]),
+      user = _useContext.user,
+      setUser = _useContext.setUser;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState2 = _slicedToArray(_useState, 2),
-      user = _useState2[0],
-      setUser = _useState2[1];
+      isLoading = _useState2[0],
+      setIsLoading = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(parseInt((0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useParams)().channel)),
       _useState4 = _slicedToArray(_useState3, 2),
-      isLoading = _useState4[0],
-      setIsLoading = _useState4[1];
+      channelId = _useState4[0],
+      setChannelId = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(parseInt((0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useParams)().channel)),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(parseInt((0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useParams)().program)),
       _useState6 = _slicedToArray(_useState5, 2),
-      channelId = _useState6[0],
-      setChannelId = _useState6[1];
+      programId = _useState6[0],
+      setProgramId = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(parseInt((0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useParams)().program)),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
       _useState8 = _slicedToArray(_useState7, 2),
-      programId = _useState8[0],
-      setProgramId = _useState8[1];
+      program = _useState8[0],
+      setProgram = _useState8[1];
 
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
       _useState10 = _slicedToArray(_useState9, 2),
-      program = _useState10[0],
-      setProgram = _useState10[1];
+      channel = _useState10[0],
+      setChannel = _useState10[1];
 
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState12 = _slicedToArray(_useState11, 2),
-      channel = _useState12[0],
-      setChannel = _useState12[1];
+      channels = _useState12[0],
+      setChannels = _useState12[1];
 
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState14 = _slicedToArray(_useState13, 2),
-      channels = _useState14[0],
-      setChannels = _useState14[1];
+      programs = _useState14[0],
+      setPrograms = _useState14[1];
 
   var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
       _useState16 = _slicedToArray(_useState15, 2),
-      programs = _useState16[0],
-      setPrograms = _useState16[1];
+      messages = _useState16[0],
+      setMessages = _useState16[1];
 
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState18 = _slicedToArray(_useState17, 2),
-      messages = _useState18[0],
-      setMessages = _useState18[1];
+      updateChat = _useState18[0],
+      setUpdateChat = _useState18[1];
 
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState20 = _slicedToArray(_useState19, 2),
-      updateChat = _useState20[0],
-      setUpdateChat = _useState20[1];
+  var _useContext2 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_ProgramContext__WEBPACK_IMPORTED_MODULE_5__.ProgramContext),
+      _useContext3 = _slicedToArray(_useContext2, 2),
+      progs = _useContext3[0],
+      setProgs = _useContext3[1]; //Perform initial fetch
 
-  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_ProgramContext__WEBPACK_IMPORTED_MODULE_5__["default"]),
-      progs = _useContext.progs,
-      setProgs = _useContext.setProgs;
-
-  setTimeout(function () {
-    return setProgs('ijwdoiawjdawd');
-  }, 1000); //Perform initial fetch
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetch("/api/program/init/".concat(programId, "/").concat(channelId), {
@@ -1710,6 +1739,13 @@ function MainView(props) {
       setChannel(data.channel);
       setMessages(data.messages);
       setIsLoading(false);
+      setProgs({
+        programId: programId,
+        channelId: channelId,
+        programs: data.programs,
+        channels: data.program.channels,
+        messages: data.messages
+      });
     });
   }, []);
 
@@ -1722,43 +1758,43 @@ function MainView(props) {
     setProgramId(programId);
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
     className: "m-0",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"], {
       className: "m-0",
-      children: !isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__["default"].Row, {
+      children: !isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"].Row, {
         columns: 16,
         className: "p-0",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__["default"].Column, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"].Column, {
           width: 2,
           className: "p-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ProgramsBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ProgramsBar__WEBPACK_IMPORTED_MODULE_2__["default"], {
             programs: programs,
             onClick: changeProgram,
             programId: programId
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__["default"].Column, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"].Column, {
           width: 2,
           className: "p-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ChannelsBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ChannelsBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
             channels: channels,
             onClick: changeChannel,
             channelId: channelId,
             programId: programId
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__["default"].Column, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"].Column, {
           width: 10,
           className: "p-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Chat__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Chat__WEBPACK_IMPORTED_MODULE_4__["default"], {
             initMessages: messages,
             channelId: channelId,
             channel: channel,
             update: updateChat
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__["default"].Column, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"].Column, {
           width: 2,
           className: "p-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_10__["default"], {
             className: "h-[100vh]",
             children: "Sidebar 3"
           })
@@ -1781,15 +1817,43 @@ function MainView(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "ProgramContext": () => (/* binding */ ProgramContext),
+/* harmony export */   "ProgramProvider": () => (/* binding */ ProgramProvider)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
-var ProgramContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createContext({
-  progs: 'ee',
-  setProgs: function setProgs() {}
-});
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProgramContext);
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+var ProgramContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createContext({});
+var ProgramProvider = function ProgramProvider(props) {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    programId: null,
+    channelId: null,
+    programs: [],
+    channels: [],
+    messages: []
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      progs = _useState2[0],
+      setProgs = _useState2[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(ProgramContext.Provider, {
+    value: [progs, setProgs],
+    children: props.children
+  });
+};
 
 /***/ }),
 
@@ -1806,8 +1870,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-dom/index.js");
-/* harmony import */ var _ProgramsBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgramsBar */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramsBar.js");
+/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1829,6 +1899,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function ProgramsBar(props) {
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_ProgramContext__WEBPACK_IMPORTED_MODULE_2__.ProgramContext),
+      _useContext2 = _slicedToArray(_useContext, 2),
+      progs = _useContext2[0],
+      setProgs = _useContext2[1];
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(props.programs),
       _useState2 = _slicedToArray(_useState, 2),
       programs = _useState2[0],
@@ -1839,14 +1914,16 @@ function ProgramsBar(props) {
       programId = _useState4[0],
       setProgramId = _useState4[1]; //Update channels from parent
 
+  /*useEffect(() => {
+  	setPrograms(props.programs);
+  }, [props.programs]);
+  
+  //Update channelId from parent
+  useEffect(() => {
+  	setProgramId(props.programId);
+  }, [props.programId]);*/
 
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setPrograms(props.programs);
-  }, [props.programs]); //Update channelId from parent
 
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setProgramId(props.programId);
-  }, [props.programId]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "h-[100vh] align-top border-r-2",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -1856,14 +1933,20 @@ function ProgramsBar(props) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "flex flex-col m-0 p-0 overflow-auto h-[87vh] pb-5 overflow-auto",
-      children: programs.map(function (program, index) {
+      children: progs.programs.map(function (program, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           style: {
-            backgroundColor: program.id === programId ? '#bbbbbb' : '#ffffff'
+            backgroundColor: program.id === progs.programId ? '#bbbbbb' : '#ffffff'
           },
           className: "p-3 px-5 border-b-2 cursor-pointer",
           onClick: function onClick() {
-            props.onClick(program.id);
+            setProgs(function (prevProgs) {
+              return _objectSpread(_objectSpread({}, prevProgs), {}, {
+                programId: program.id,
+                channelId: -1
+              });
+            });
+            /*props.onClick(program.id)*/
           },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
             children: program.name
@@ -1875,6 +1958,27 @@ function ProgramsBar(props) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProgramsBar);
+
+/***/ }),
+
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/UserContext.js":
+/*!********************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/UserContext.js ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+
+var ProgramContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createContext({
+  user: JSON.parse(localStorage.getItem('user')) || {},
+  setUser: function setUser() {}
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProgramContext);
 
 /***/ }),
 
@@ -2021,9 +2125,8 @@ function Dashboard() {
       return response.json();
     }).then(function (data) {//setSendMessages([]);
     });
-  }
+  } //Check for updates every second
 
-  console.log(sendMessages); //Check for updates every second
 
   function fetchUpdates() {
     //console.log("a load");

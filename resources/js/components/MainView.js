@@ -10,11 +10,12 @@ import {
 import ProgramsBar from './ProgramsBar';
 import ChannelsBar from './ChannelsBar';
 import Chat from './Chat';
-import ProgramContext from './ProgramContext';
+import { ProgramContext } from './ProgramContext';
+import UserContext from './UserContext';
 
 
 function MainView(props) {
-	const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+	const { user, setUser } = useContext(UserContext);
 	const [isLoading, setIsLoading] = useState(true);
 	const [channelId, setChannelId] = useState(parseInt(useParams().channel));
 	const [programId, setProgramId] = useState(parseInt(useParams().program));
@@ -24,9 +25,7 @@ function MainView(props) {
 	const [programs, setPrograms] = useState([]);
 	const [messages, setMessages] = useState([]);
 	const [updateChat, setUpdateChat] = useState(false);
-	const { progs, setProgs } = useContext(ProgramContext);
-
-	setTimeout(() => setProgs('ijwdoiawjdawd'), 1000);
+	const [progs, setProgs] = useContext(ProgramContext);
 
 	//Perform initial fetch
 	useEffect(() => {
@@ -45,6 +44,13 @@ function MainView(props) {
 				setChannel(data.channel);
 				setMessages(data.messages);
 				setIsLoading(false);
+				setProgs({
+					programId: programId,
+					channelId: channelId,
+					programs: data.programs,
+					channels: data.program.channels,
+					messages: data.messages
+				});
 			});
 	}, []);
 

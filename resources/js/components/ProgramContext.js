@@ -1,8 +1,18 @@
-import * as React from 'react'
+import React, { useState } from 'react';
 
-const ProgramContext = React.createContext({
-	progs: 'ee',
-	setProgs: () => {},
-});
+export const ProgramContext = React.createContext({});
 
-export default ProgramContext;
+export const ProgramProvider = (props) => {
+	const [progs, setProgs] = useState({
+		programId: null,
+		channelId: null,
+		programs: [],
+		channels: [],
+		messages: [],
+	});
+	return (
+		<ProgramContext.Provider value={[progs, setProgs]}>
+			{props.children}
+		</ProgramContext.Provider>
+	);
+}

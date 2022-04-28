@@ -9,16 +9,14 @@ import {
 	Route,
 } from "react-router-dom";
 import MainView from './MainView';
-import ProgramContext from './ProgramContext';
+import { ProgramContext, ProgramProvider } from './ProgramContext';
 
 function App() {
-	const [progs, setProgs] = useState('ee');
-	const value = { progs, setProgs };
 	const [user, setUser] = useState({});
 	const userValue = { user, setUser };
 
 	return (
-		<ProgramContext.Provider value={value}>
+		<ProgramProvider>
 			<Router>
 				<Routes>
 					<Route path="login" element={<LoginPage />} />
@@ -30,7 +28,7 @@ function App() {
 					<Route path="/" />
 				</Routes>
 			</Router>
-		</ProgramContext.Provider>
+		</ProgramProvider>
 
 	);
 }

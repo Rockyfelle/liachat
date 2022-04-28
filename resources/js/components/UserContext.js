@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 const ProgramContext = React.createContext({
-	user: {},
+	user: JSON.parse(localStorage.getItem('user')) || {},
 	setUser: () => {},
 });
 

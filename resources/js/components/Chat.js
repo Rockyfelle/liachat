@@ -2,11 +2,12 @@ import React, { useEffect, useState, useRef, useContext } from 'react'
 import { Form } from 'semantic-ui-react';
 import { Grid, Segment } from 'semantic-ui-react';
 import Pusher from 'pusher-js';
-import ProgramContext from './ProgramContext';
+import { ProgramContext } from './ProgramContext';
 
 
 function Chat(props) {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
+	const [progs, setProgs] = useContext(ProgramContext);
 	const [isLoading, setIsLoading] = useState(true);
 	const [channel, setChannel] = useState(props.channel);
 	const [channelId, setChannelId] = useState(props.channelId);
@@ -19,15 +20,13 @@ function Chat(props) {
 	const [broadcast, setBroadcast] = useState(undefined);
 	const isMounted = useRef(false);
 
-	const { progs, setProgs } = useContext(ProgramContext);
 
-	//const progs = useContext(ProgramContext);
-	console.log(progs);
+
 
 	//Load messages when switching channel id
 	useEffect(() => {
 		if (isMounted.current) {
-			fetch(`/api/channel/load/${props.channelId}/`, {
+			fetch(`/api/channel/load/${progs.channelId}/`, {
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json',
@@ -36,13 +35,18 @@ function Chat(props) {
 			})
 				.then(response => response.json())
 				.then(data => {
-					setMessages(data.messages);
+
+					if (data.exists) {
+						setProgs(prevProgs => { return { ...prevProgs, messages: data.messages } });
+					} else {
+						setProgs(prevProgs => { return { ...prevProgs, messages: [] } });
+					}
 					setIsLoading(false);
 				});
 		} else {
 			isMounted.current = true;
 		}
-	}, [props.channelId]);
+	}, [progs.channelId]);
 
 	//const date = new Date(Date.now()).toISOString();
 	const date = '2022-04-12T21:20:12.000000Z';
@@ -85,7 +89,7 @@ function Chat(props) {
 		}
 	}
 
-	function fetchUpdates() {
+	/*	function fetchUpdates() {
 		console.log("a load");
 		if (!isLoading) {
 			console.log("a tick");
@@ -104,7 +108,7 @@ function Chat(props) {
 					setSendMessages(sendMessages.filter(x => data.messages.find(y => y.content === x.content) === undefined));
 				});
 		}
-	}
+	}*/
 
 	//When in a new channel, bind new websocket
 	useEffect(() => {
@@ -117,7 +121,10 @@ function Chat(props) {
 
 				const parsed = data.message;
 				setSendMessages(prevMessages => prevMessages.filter(x => parsed.messages.find(y => y.content === x.content) === undefined));
-				setMessages(prevMessages => (parsed.messages.concat(prevMessages)));
+				//setMessages(prevMessages => (parsed.messages.concat(prevMessages)));
+
+				//Update progs
+				setProgs(prevProgs => { return { ...prevProgs, messages: parsed.messages.concat(prevProgs.messages) } });
 			});
 
 			setPusher(pusher);
@@ -169,7 +176,7 @@ function Chat(props) {
 						</div>
 					)
 				})}
-				{messages.map((message, index) => {
+				{progs.messages.map((message, index) => {
 					return (
 						<div key={"message" + index} className="p-3 px-5">
 							<div className="text-l text-black w-full border-b-2 pb-2">

@@ -56,7 +56,7 @@ function Dashboard() {
 			.then(data => {
 				//setSendMessages([]);
 			});
-	}console.log(sendMessages)
+	}
 
 	//Check for updates every second
 	function fetchUpdates() {
