@@ -52,17 +52,16 @@ function ChannelsBar(props) {
 	}, [progs.programId]);
 
 	return (
-		<div className="h-[100vh] align-top border-r-2">
+		<div className="h-[100vh] align-top border-r-1">
 			<div className="text-l text-black w-full pt-5 px-5 border-b-2">
 				<b>Channels</b>
 			</div>
-			<div className="flex flex-col m-0 p-0 overflow-auto h-[87vh] pb-5 overflow-auto">
+			<div className="flex flex-col m-0 overflow-auto h-[87vh] pb-5 overflow-auto p-2 pr-0">
 				{progs.channels.map((channel, index) => {
 					return (
 						<div
 							key={"message" + index}
-							style={{ backgroundColor: channel.id === progs.channelId ? '#bbbbbb' : '#ffffff' }}
-							className="p-3 px-5 border-b-2 cursor-pointer"
+							className={`p-2 px-5 mb-2 rounded-l-lg cursor-pointer ${channel.id === progs.channelId ? 'bg-gradient-to-l from-gray-750 to-gray-500' : 'bg-gray-700'}`}
 							onClick={() => { setProgs(prevProgs => { return { ...prevProgs, channelId: channel.id } }); /*props.onClick(channel.id)*/ }}
 						>
 							<p>{channel.name}</p>

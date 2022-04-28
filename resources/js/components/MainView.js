@@ -66,36 +66,37 @@ function MainView(props) {
 	return (
 		<div className="m-0">
 			<Grid className="m-0">
-				{!isLoading && <Grid.Row columns={16} className="p-0">
-					<Grid.Column width={2} className="p-0">
-						<ProgramsBar
-							programs={programs}
-							onClick={changeProgram}
-							programId={programId}
-						/>
-					</Grid.Column>
-					<Grid.Column width={2} className="p-0">
-						<ChannelsBar
-							channels={channels}
-							onClick={changeChannel}
-							channelId={channelId}
-							programId={programId}
-						/>
-					</Grid.Column>
-					<Grid.Column width={10} className="p-0">
-						<Chat
-							initMessages={messages}
-							channelId={channelId}
-							channel={channel}
-							update={updateChat}
-						/>
-					</Grid.Column>
-					<Grid.Column width={2} className="p-0">
-						<Segment className="h-[100vh]">
-							Sidebar 3
-						</Segment>
-					</Grid.Column>
-				</Grid.Row>
+				{!isLoading &&
+					<Grid.Row columns={16} className="p-0 bg-gray-900 text-gray-200">
+						<Grid.Column width={2} className="p-0 bg-gray-950">
+							<ProgramsBar
+								programs={programs}
+								onClick={changeProgram}
+								programId={programId}
+							/>
+						</Grid.Column>
+						<Grid.Column width={2} className="p-0 bg-gray-850">
+							<ChannelsBar
+								channels={channels}
+								onClick={changeChannel}
+								channelId={channelId}
+								programId={programId}
+							/>
+						</Grid.Column>
+						<Grid.Column width={10} className="p-0 bg-gray-750">
+							<Chat
+								initMessages={messages}
+								channelId={channelId}
+								channel={channel}
+								update={updateChat}
+							/>
+						</Grid.Column>
+						<Grid.Column width={2} className="p-0">
+							<Segment className="h-[100vh]">
+								Sidebar 3
+							</Segment>
+						</Grid.Column>
+					</Grid.Row>
 				}
 			</Grid>
 		</div>

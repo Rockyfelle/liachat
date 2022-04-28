@@ -26,17 +26,16 @@ function ProgramsBar(props) {
 	}, [props.programId]);*/
 
 	return (
-		<div className="h-[100vh] align-top border-r-2">
+		<div className="h-[100vh] align-top border-r-1">
 			<div className="text-l text-black w-full pt-5 px-5 border-b-2">
 				<b>Programs</b>
 			</div>
-			<div className="flex flex-col m-0 p-0 overflow-auto h-[87vh] pb-5 overflow-auto">
+			<div className="flex flex-col m-0 overflow-auto h-[87vh] pb-5 overflow-auto p-2 pr-0">
 				{progs.programs.map((program, index) => {
 					return (
 						<div
 							key={"message" + index}
-							style={{ backgroundColor: program.id === progs.programId ? '#bbbbbb' : '#ffffff' }}
-							className="p-3 px-5 border-b-2 cursor-pointer"
+							c							className={`p-2 px-5 mb-2 rounded-l-lg cursor-pointer ${program.id === progs.programId ? 'bg-gradient-to-l from-gray-850 to-gray-600' : 'bg-gray-900'}`}
 							onClick={() => { setProgs(prevProgs => { return { ...prevProgs, programId: program.id, channelId: -1 } }); /*props.onClick(program.id)*/ }}
 						>
 							<p>{program.name}</p>
