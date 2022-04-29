@@ -12,18 +12,6 @@ import { ProgramContext } from './ProgramContext';
 
 function ProgramsBar(props) {
 	const [progs, setProgs] = useContext(ProgramContext);
-	const [programs, setPrograms] = useState(props.programs);
-	const [programId, setProgramId] = useState(props.programId);
-
-	//Update channels from parent
-	/*useEffect(() => {
-		setPrograms(props.programs);
-	}, [props.programs]);
-
-	//Update channelId from parent
-	useEffect(() => {
-		setProgramId(props.programId);
-	}, [props.programId]);*/
 
 	return (
 		<div className="h-[100vh] align-top border-r-1">
@@ -35,7 +23,7 @@ function ProgramsBar(props) {
 					return (
 						<div
 							key={"message" + index}
-							c							className={`p-2 px-5 mb-2 rounded-l-lg cursor-pointer ${program.id === progs.programId ? 'bg-gradient-to-l from-gray-850 to-gray-600' : 'bg-gray-900'}`}
+							className={`p-2 px-5 mb-2 rounded-l-lg cursor-pointer ${program.id === progs.programId ? 'bg-gradient-to-l from-gray-850 to-gray-600' : 'bg-gray-900'}`}
 							onClick={() => { setProgs(prevProgs => { return { ...prevProgs, programId: program.id, channelId: -1 } }); /*props.onClick(program.id)*/ }}
 						>
 							<p>{program.name}</p>

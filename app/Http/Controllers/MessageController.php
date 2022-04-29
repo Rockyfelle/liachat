@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Message;
 use App\Events\Broadcaster;
 //use App\Http\Controllers\ChannelController;
-
+use Illuminate\Support\Facades\Auth;
 class MessageController extends Controller
 {
 	public function create(Request $request, $channelId)
 	{
 		$message = Message::create([
 			'channel_id' => $channelId,
-			'user_id' => $request->mimic_user, //auth()->id(),
+			'user_id' => Auth::user()->id,
 			'type' => 'text',
 			'content' => $request->content,
 		]);

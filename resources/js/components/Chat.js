@@ -3,7 +3,7 @@ import { Form } from 'semantic-ui-react';
 import { Grid, Segment } from 'semantic-ui-react';
 import Pusher from 'pusher-js';
 import { ProgramContext } from './ProgramContext';
-
+import BeatLoader from "react-spinners/BeatLoader";
 
 function Chat(props) {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
@@ -26,6 +26,7 @@ function Chat(props) {
 	//Load messages when switching channel id
 	useEffect(() => {
 		if (isMounted.current) {
+			setIsLoading(true)
 			fetch(`/api/channel/load/${progs.channelId}/`, {
 				method: 'GET',
 				headers: {
@@ -71,7 +72,7 @@ function Chat(props) {
 		if (input.length > 0) {
 			setInput('');
 			setSendMessages([...sendMessages, { content: input, created_at: '2022-04-12T21:20:12.000000Z' }]);
-			fetch(`/api/message/3`, {
+			fetch(`/api/message/${progs.channelId}`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -79,7 +80,7 @@ function Chat(props) {
 				},
 				body: JSON.stringify({
 					content: input,
-					mimic_user: 1
+					
 				})
 			})
 				.then(response => response.json())
@@ -112,11 +113,12 @@ function Chat(props) {
 
 	//When in a new channel, bind new websocket
 	useEffect(() => {
+		console.log(process.env.MIX_PUSHER_APP_KEY)
 		if (channel !== undefined) {
-			const pusher = new Pusher('eee151f95c1c086f4dc8', {
+			const pusher = new Pusher(process.env.MIX_PUSHER_APP_KEY, {
 				cluster: 'eu'
 			});
-			const broadcastChannel = pusher.subscribe('channel' + channel.id);
+			const broadcastChannel = pusher.subscribe('channel' + progs.channelId);
 			broadcastChannel.bind('new_message', function (data) {
 
 				const parsed = data.message;
@@ -135,7 +137,7 @@ function Chat(props) {
 			if (broadcast) broadcast.unbind('broadcaster')
 		});
 
-	}, [channel.id]);
+	}, [progs.channelId]);
 
 	//useInterval(fetchUpdates, 750);
 
@@ -164,13 +166,19 @@ function Chat(props) {
 			<div className="text-l w-full pt-5 px-5 border-b-2">
 				testing
 			</div>
-			<div className="flex flex-col-reverse m-0 p-0 overflow-auto h-[87vh] pb-5 overflow-auto">
+			{isLoading &&
+				<div className="grid place-items-center h-[87vh]">
+					<BeatLoader color="teal" size={50}/>
+				</div>}
+			{!isLoading && <div className="flex flex-col-reverse m-0 p-0 overflow-auto h-[87vh] pb-5 overflow-auto">
 				{sendMessages.reverse().map((message, index) => {
 					return (
 						<div key={"message" + index} className="p-3 px-5">
-							<div className="text-l text-neutral-500 w-full border-b-2 pb-2">
-								<p className="text-2xl">{'me'}</p>
-								<p className="text-s">{message.created_at.substr(0, 10)} at {message.created_at.substr(11, 8)}</p>
+							<div className="text-l w-full pb-2 text-gray-500">
+								<div className="flex align-bottom">
+									<p className="text-2xl mr-5 font-bold">{user.name}</p>
+									<p className="text-xs text-gray-700 align-bottom pt-3">{message.created_at.substr(0, 10)} at {message.created_at.substr(11, 8)}</p>
+								</div>
 								<p className="text-xl">{message.content}</p>
 							</div>
 						</div>
@@ -179,7 +187,7 @@ function Chat(props) {
 				{progs.messages.map((message, index) => {
 					return (
 						<div key={"message" + index} className="p-3 px-5">
-							<div className="text-l w-full border-gray-600 pb-2">
+							<div className="text-l w-full pb-2">
 								<div className="flex align-bottom">
 									<p className="text-2xl mr-5 font-bold">{message.user.name}</p>
 									<p className="text-xs text-gray-500 align-bottom pt-3">{message.created_at.substr(0, 10)} at {message.created_at.substr(11, 8)}</p>
@@ -192,7 +200,7 @@ function Chat(props) {
 				<div>
 
 				</div>
-			</div>
+			</div>}
 			<div className="text-l text-black w-full px-5 mt-10">
 				<Form>
 					<Form.Input
@@ -201,6 +209,7 @@ function Chat(props) {
 							content: 'Post',
 							onClick: postMessage
 						}}
+						disabled={isLoading}
 						placeholder='Message @admin'
 						value={input}
 						onChange={(e, { value }) => setInput(value)}

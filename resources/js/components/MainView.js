@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import ProgramsBar from './ProgramsBar';
 import ChannelsBar from './ChannelsBar';
+import Settings from './Settings'
 import Chat from './Chat';
 import { ProgramContext } from './ProgramContext';
 import UserContext from './UserContext';
@@ -26,7 +27,6 @@ function MainView(props) {
 	const [messages, setMessages] = useState([]);
 	const [updateChat, setUpdateChat] = useState(false);
 	const [progs, setProgs] = useContext(ProgramContext);
-
 	//Perform initial fetch
 	useEffect(() => {
 		fetch(`/api/program/init/${programId}/${channelId}`, {
@@ -38,11 +38,6 @@ function MainView(props) {
 		})
 			.then(response => response.json())
 			.then(data => {
-				setPrograms(data.programs);
-				setChannels(data.program.channels);
-				setProgram(data.program);
-				setChannel(data.channel);
-				setMessages(data.messages);
 				setIsLoading(false);
 				setProgs({
 					programId: programId,
@@ -70,26 +65,25 @@ function MainView(props) {
 					<Grid.Row columns={16} className="p-0 bg-gray-900 text-gray-200">
 						<Grid.Column width={2} className="p-0 bg-gray-950">
 							<ProgramsBar
-								programs={programs}
 								onClick={changeProgram}
-								programId={programId}
 							/>
 						</Grid.Column>
 						<Grid.Column width={2} className="p-0 bg-gray-850">
 							<ChannelsBar
-								channels={channels}
 								onClick={changeChannel}
-								channelId={channelId}
-								programId={programId}
 							/>
 						</Grid.Column>
 						<Grid.Column width={10} className="p-0 bg-gray-750">
+							{progs.channelId !==-1 &&
 							<Chat
 								initMessages={messages}
 								channelId={channelId}
 								channel={channel}
 								update={updateChat}
-							/>
+							/>}
+							{progs.channelId ===-1 &&
+								<Settings />
+							}
 						</Grid.Column>
 						<Grid.Column width={2} className="p-0">
 							<Segment className="h-[100vh]">
