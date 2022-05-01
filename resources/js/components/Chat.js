@@ -80,7 +80,7 @@ function Chat(props) {
 				},
 				body: JSON.stringify({
 					content: input,
-					
+
 				})
 			})
 				.then(response => response.json())
@@ -113,13 +113,14 @@ function Chat(props) {
 
 	//When in a new channel, bind new websocket
 	useEffect(() => {
-		console.log(process.env.MIX_PUSHER_APP_KEY)
+
 		if (channel !== undefined) {
 			const pusher = new Pusher(process.env.MIX_PUSHER_APP_KEY, {
 				cluster: 'eu'
 			});
 			const broadcastChannel = pusher.subscribe('channel' + progs.channelId);
 			broadcastChannel.bind('new_message', function (data) {
+				console.log(progs.channelId)
 
 				const parsed = data.message;
 				setSendMessages(prevMessages => prevMessages.filter(x => parsed.messages.find(y => y.content === x.content) === undefined));
@@ -131,6 +132,11 @@ function Chat(props) {
 
 			setPusher(pusher);
 			setBroadcast(broadcastChannel);
+
+			return () => {
+				broadcastChannel.unbind('new_message');
+				broadcastChannel.unsubscribe();
+			}
 		}
 
 		return (() => {
@@ -168,7 +174,7 @@ function Chat(props) {
 			</div>
 			{isLoading &&
 				<div className="grid place-items-center h-[87vh]">
-					<BeatLoader color="teal" size={50}/>
+					<BeatLoader color="teal" size={50} />
 				</div>}
 			{!isLoading && <div className="flex flex-col-reverse m-0 p-0 overflow-auto h-[87vh] pb-5 overflow-auto">
 				{sendMessages.reverse().map((message, index) => {
