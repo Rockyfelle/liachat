@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Channel;
+use App\Models\ProgramResource;
 
 class Program extends Model
 {
@@ -19,5 +20,8 @@ class Program extends Model
 	public function channels()
 	{
 		return $this->hasMany(Channel::class);
+	}
+	public function resources(){
+		return $this->hasMany(ProgramResource::class);
 	}
 }

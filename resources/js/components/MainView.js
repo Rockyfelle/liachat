@@ -20,10 +20,7 @@ function MainView(props) {
 	const [isLoading, setIsLoading] = useState(true);
 	const [channelId, setChannelId] = useState(parseInt(useParams().channel));
 	const [programId, setProgramId] = useState(parseInt(useParams().program));
-	const [program, setProgram] = useState({});
 	const [channel, setChannel] = useState({});
-	const [channels, setChannels] = useState([]);
-	const [programs, setPrograms] = useState([]);
 	const [messages, setMessages] = useState([]);
 	const [updateChat, setUpdateChat] = useState(false);
 	const [progs, setProgs] = useContext(ProgramContext);

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassportAuthController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ProgramResourceController;
 use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\MessageController;
 
@@ -32,4 +33,5 @@ Route::middleware('auth:api')->group(function () {
 	Route::get('channel/{id}/{dateTo}/{count}', [ChannelController::class, 'all']);
 	Route::post('message/{channelId}', [MessageController::class, 'create']);
 	Route::get('program/init/{programId}/{channelId}', [ProgramController::class, 'init']);
+	Route::post('program/upload/{id}', [ProgramResourceController::class, 'upload'])->name('files');
 });
