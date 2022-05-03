@@ -62,7 +62,7 @@ function ChannelsBar(props) {
 					setProgs((prevProgs) => {
 						return {
 							...prevProgs,
-							channelId: -1,
+							channelId: 0,
 						};
 					});
 				}}

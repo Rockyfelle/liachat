@@ -29,6 +29,7 @@ class ProgramController extends Controller
 
 					//Get channels of program
 					$program->channels;
+					$users = $program->users;
 
 					//If a channel is selected
 					if ($channelId) {
@@ -48,14 +49,14 @@ class ProgramController extends Controller
 								$message->user;
 							}
 
-							return ['success' => true, 'programs' => $allPrograms, 'program' => $program, 'channel' => $channel, 'messages' => $messages];
+							return ['success' => true, 'programs' => $allPrograms, 'program' => $program, 'channel' => $channel, 'messages' => $messages, 'users' => $users];
 						} else {
 							//Error channel not found
 							return ['success' => false, 'text' => 'Error channel not found'];
 						}
 					} else {
 						//Channel not specified
-						return ['success' => false, 'text' => 'Channel not specified'];
+						return ['success' => true, 'programs' => $allPrograms, 'program' => $program, 'users' => $users];
 					}
 				} else {
 					//Error program not found

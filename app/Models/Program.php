@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Channel;
 use App\Models\ProgramResource;
+use App\Models\User;
+use App\Models\UserProgram;
 
 class Program extends Model
 {
@@ -21,7 +23,14 @@ class Program extends Model
 	{
 		return $this->hasMany(Channel::class);
 	}
-	public function resources(){
+
+	public function resources()
+	{
 		return $this->hasMany(ProgramResource::class);
+	}
+
+	public function users()
+	{
+		return $this->hasManyThrough(User::class, UserProgram::class, 'program_id', 'id', 'id', 'user_id');
 	}
 }

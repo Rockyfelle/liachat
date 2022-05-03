@@ -24,6 +24,7 @@ function MainView(props) {
 	const [messages, setMessages] = useState([]);
 	const [updateChat, setUpdateChat] = useState(false);
 	const [progs, setProgs] = useContext(ProgramContext);
+
 	//Perform initial fetch
 	useEffect(() => {
 		fetch(`/api/program/init/${programId}/${channelId}`, {
@@ -40,11 +41,19 @@ function MainView(props) {
 					programId: programId,
 					channelId: channelId,
 					programs: data.programs,
-					channels: data.program.channels,
-					messages: data.messages
+					channels: channelId !== 0 ? data.program.channels : [...progs.channels],
+					messages: channelId !== 0 ? data.messages : [...progs.messages],
+					users: data.users,
 				});
 			});
 	}, []);
+
+	useEffect(() => {
+		if(!isLoading){
+			window.history.replaceState(null, '',`/program/${progs.programId}/channel/${progs.channelId}`)
+		}
+	  
+	  }, [progs.channelId])
 
 	function changeChannel(channelId) {
 		setChannelId(channelId);
@@ -61,29 +70,25 @@ function MainView(props) {
 				{!isLoading &&
 					<Grid.Row columns={16} className="p-0 bg-gray-900 text-gray-200">
 						<Grid.Column width={2} className="p-0 bg-gray-950">
-							<ProgramsBar
-								onClick={changeProgram}
-							/>
+							<ProgramsBar />
 						</Grid.Column>
 						<Grid.Column width={2} className="p-0 bg-gray-850">
-							<ChannelsBar
-								onClick={changeChannel}
-							/>
+							<ChannelsBar />
 						</Grid.Column>
 						<Grid.Column width={10} className="p-0 bg-gray-750">
-							{progs.channelId !==-1 &&
+							{progs.channelId !== 0 &&
 							<Chat
 								initMessages={messages}
 								channelId={channelId}
 								channel={channel}
 								update={updateChat}
 							/>}
-							{progs.channelId ===-1 &&
+							{progs.channelId === 0 &&
 								<Settings />
 							}
 						</Grid.Column>
 						<Grid.Column width={2} className="p-0">
-							<Segment className="h-[100vh]">
+							<Segment className="h-[100vh]" inverted>
 								Sidebar 3
 							</Segment>
 						</Grid.Column>

@@ -34,4 +34,5 @@ Route::middleware('auth:api')->group(function () {
 	Route::post('message/{channelId}', [MessageController::class, 'create']);
 	Route::get('program/init/{programId}/{channelId}', [ProgramController::class, 'init']);
 	Route::post('program/upload/{id}', [ProgramResourceController::class, 'upload'])->name('files');
+	Route::post('user/register', [PassportAuthController::class, 'register']);
 });
