@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import LoginPage from '../pages/LoginPage';
+import ResetPage from '../pages/ResetPage';
 import { Grid, Segment } from 'semantic-ui-react';
 import Dashboard from '../pages/Dashboard';
 import {
@@ -20,6 +21,8 @@ function App() {
 			<Router>
 				<Routes>
 					<Route path="login" element={<LoginPage />} />
+
+					<Route path="reset/:token" element={<ResetPage />} />
 
 					<Route path="dashboard" element={<Dashboard />} />
 

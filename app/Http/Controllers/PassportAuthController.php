@@ -6,9 +6,36 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\UserProgram;
 
 class PassportAuthController extends Controller
 {
+	public function reset1(Request $request, $token)
+	{
+		$user = User::where('register_token', $token)->first();
+
+		if ($user) {
+			return ['success' => true, 'email' => $user->email];
+		} else {
+			return ['success' => false, 'error' => 'Account not found'];
+		}
+	}
+
+	public function reset2(Request $request)
+	{
+		$user = User::where('register_token', $request->token)->first();
+
+		if ($user) {
+			$user->password = bcrypt($request->password);
+			$user->register_token = '';
+			$user->save();
+
+			return ['success' => true];
+		} else {
+			return ['success' => false, 'error' => 'Account not found'];
+		}
+	}
+
 	/**
 	 * Registration
 	 */
@@ -17,16 +44,23 @@ class PassportAuthController extends Controller
 		if (Auth::user()) {
 			if (Auth::user()->role === 'teacher') {
 
+				$registerToken = Str::random(40);
+
 				$user = User::create([
 					'name' => $request->name,
 					'email' => $request->email,
 					'role' => 'student',
 					'password' => '',
 					'school_id' => Auth::user()->school_id,
-					'register_token' => Str::random(40),
+					'register_token' => $registerToken,
 				]);
 
-				return response()->json(['success' => true], 200);
+				UserProgram::create([
+					'user_id' => $user->id,
+					'program_id' => $request->programId,
+				]);
+
+				return response()->json(['success' => true, 'registerToken' => $registerToken], 200);
 			} else {
 				return ['success' => false, 'text' => 'You are not authorized to register'];
 			}

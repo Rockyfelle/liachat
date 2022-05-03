@@ -3549,12 +3549,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-dom/index.js");
 /* harmony import */ var _pages_LoginPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/LoginPage */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/pages/LoginPage.js");
-/* harmony import */ var _pages_Dashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Dashboard */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/pages/Dashboard.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-router-dom/node_modules/react-router/index.js");
-/* harmony import */ var _MainView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MainView */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/MainView.js");
-/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
+/* harmony import */ var _pages_ResetPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/ResetPage */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/pages/ResetPage.js");
+/* harmony import */ var _pages_Dashboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Dashboard */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/pages/Dashboard.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-router-dom/node_modules/react-router/index.js");
+/* harmony import */ var _MainView__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MainView */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/MainView.js");
+/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -3578,6 +3579,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function App() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
       _useState2 = _slicedToArray(_useState, 2),
@@ -3588,19 +3590,22 @@ function App() {
     user: user,
     setUser: setUser
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ProgramContext__WEBPACK_IMPORTED_MODULE_5__.ProgramProvider, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ProgramContext__WEBPACK_IMPORTED_MODULE_6__.ProgramProvider, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Routes, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
           path: "login",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_LoginPage__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_LoginPage__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+          path: "reset/:token",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_ResetPage__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
           path: "dashboard",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_Dashboard__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_Dashboard__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
           path: "program/:program/channel/:channel",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_MainView__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_MainView__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
           path: "/"
         })]
       })
@@ -3611,7 +3616,7 @@ function App() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
 if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(App, {}), document.getElementById('app'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(App, {}), document.getElementById('app'));
 }
 
 /***/ }),
@@ -4956,12 +4961,69 @@ function SettingsChannels(props) {
       email = _useState4[0],
       setEmail = _useState4[1];
 
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      name = _useState6[0],
+      setName = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      token = _useState8[0],
+      setToken = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      urlToken = _useState10[0],
+      setUrlToken = _useState10[1];
+
+  function copyToken() {
+    navigator.clipboard.writeText(urlToken);
+  }
+
+  function addStudent() {
+    fetch("/api/user/register", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': user.token
+      },
+      body: JSON.stringify({
+        email: email,
+        name: name,
+        programId: progs.programId
+      })
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (data.success) {
+        setEmail('');
+        setName('');
+        setToken(data.registerToken);
+        setUrlToken(window.location.origin + '/reset/' + data.registerToken);
+      }
+    });
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "h-[100%] align-top grid place-items-center",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
       className: "w-[50%]",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
         columns: "equal",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(DFormInput, {
+              label: "Name",
+              fluid: true,
+              placeholder: "Name",
+              value: name,
+              onChange: function onChange(e) {
+                return setName(e.target.value);
+              }
+            })
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(DFormInput, {
@@ -4976,14 +5038,37 @@ function SettingsChannels(props) {
           })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
-        className: "mb-10",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
             color: "green",
             fluid: true,
+            onClick: addStudent,
             children: "Add Student"
           })
         })
+      }), token !== '' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(DFormInput, {
+              label: "Password Reset Link",
+              fluid: true,
+              placeholder: "xxx",
+              value: urlToken,
+              action: {
+                color: 'teal',
+                labelPosition: 'right',
+                icon: 'copy',
+                content: 'Copy',
+                onClick: copyToken
+              },
+              onClick: function onClick(e) {
+                return e.target.select();
+              }
+            })
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
+        className: "my-10"
       }), progs.users.map(function (channel, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
@@ -5519,6 +5604,192 @@ function LoginPage() {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/pages/ResetPage.js":
+/*!*************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/pages/ResetPage.js ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Header/Header.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Segment/Segment.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/Form.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-router-dom/node_modules/react-router/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+function LoginPage() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      isUploading = _useState2[0],
+      setIsUploading = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      isLoading = _useState4[0],
+      setIsLoading = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      error = _useState6[0],
+      setError = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      email = _useState8[0],
+      setEmail = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      password = _useState10[0],
+      setPassword = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState12 = _slicedToArray(_useState11, 2),
+      passwordConfirm = _useState12[0],
+      setPasswordConfirm = _useState12[1];
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)((0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useParams)().token),
+      _useState14 = _slicedToArray(_useState13, 2),
+      token = _useState14[0],
+      setToken = _useState14[1]; //Get email using token
+
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    fetch("/api/user/reset/".concat(token), {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (data.success) {
+        setIsLoading(false);
+        setEmail(data.email);
+      } else {
+        setError(data.error);
+      }
+    });
+  }, []);
+
+  function tryChangePassword() {
+    setIsUploading(true);
+    fetch("/api/user/reset/", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        token: token
+      })
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (data.success) {
+        setIsUploading(false);
+        setError('');
+        window.location.href = '/login';
+      } else {
+        setIsUploading(false);
+        setError(data.error);
+      }
+    });
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      centered: true,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"].Column, {
+        style: {
+          maxWidth: 550,
+          marginTop: 150
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          children: "Reset your account password"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          children: !isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              className: "text-red-500",
+              children: error
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Field, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Input, {
+                value: email,
+                name: "email",
+                placeholder: "Email",
+                label: "Email"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Field, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Input, {
+                value: password,
+                onChange: function onChange(e) {
+                  return setPassword(e.target.value);
+                },
+                type: "password",
+                name: "password",
+                placeholder: "Password",
+                label: "Password"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Field, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Input, {
+                value: passwordConfirm,
+                onChange: function onChange(e) {
+                  return setPasswordConfirm(e.target.value);
+                },
+                type: "password",
+                name: "confirm password",
+                placeholder: "Confirm Password",
+                label: "Confirm Password"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+              fluid: true,
+              primary: true,
+              type: "submit",
+              onClick: tryChangePassword,
+              children: "Login"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              children: ["Need an account? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+                href: "#",
+                children: "this link doesn't work"
+              })]
+            })]
+          })
+        })]
+      })
+    })
+  });
+}
+
+;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LoginPage);
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js":
 /*!**************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/clsx/dist/clsx.m.js ***!
@@ -5591,7 +5862,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*\n! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com\n*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #e5e7eb; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n*/\n\nhtml {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font family by default.\n2. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-size: 1em; /* 2 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  line-height: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\n[type='button'],\n[type='reset'],\n[type='submit'] {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput:-ms-input-placeholder, textarea:-ms-input-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/*\nEnsure the default browser behavior of the `hidden` attribute.\n*/\n\n[hidden] {\n  display: none;\n}\n\n*, ::before, ::after {\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n}\r\n.m-0 {\n  margin: 0px !important;\n}\r\n.m-5 {\n  margin: 1.25rem !important;\n}\r\n.m-0 {\n  margin: 0px !important;\n}\r\n.mb-2 {\n  margin-bottom: 0.5rem !important;\n}\r\n.mr-5 {\n  margin-right: 1.25rem !important;\n}\r\n.mt-10 {\n  margin-top: 2.5rem !important;\n}\r\n.ml-auto {\n  margin-left: auto !important;\n}\r\n.mt-\\[100px\\] {\n  margin-top: 100px !important;\n}\r\n.mb-10 {\n  margin-bottom: 2.5rem !important;\n}\r\n.flex {\n  display: flex !important;\n}\r\n.grid {\n  display: grid !important;\n}\r\n.h-\\[100vh\\] {\n  height: 100vh !important;\n}\r\n.h-\\[87vh\\] {\n  height: 87vh !important;\n}\r\n.h-\\[100\\%\\] {\n  height: 100% !important;\n}\r\n.h-\\[100vh\\] {\n  height: 100vh !important;\n}\r\n.h-\\[87vh\\] {\n  height: 87vh !important;\n}\r\n.h-\\[100\\%\\] {\n  height: 100% !important;\n}\r\n.w-full {\n  width: 100% !important;\n}\r\n.w-\\[50\\%\\] {\n  width: 50% !important;\n}\r\n.w-full {\n  width: 100% !important;\n}\r\n.w-\\[50\\%\\] {\n  width: 50% !important;\n}\r\n.cursor-pointer {\n  cursor: pointer !important;\n}\r\n.flex-row {\n  flex-direction: row !important;\n}\r\n.flex-col {\n  flex-direction: column !important;\n}\r\n.flex-col-reverse {\n  flex-direction: column-reverse !important;\n}\r\n.place-content-between {\n  place-content: space-between !important;\n}\r\n.place-items-center {\n  place-items: center !important;\n}\r\n.overflow-auto {\n  overflow: auto !important;\n}\r\n.rounded-l-lg {\n  border-top-left-radius: 0.5rem !important;\n  border-bottom-left-radius: 0.5rem !important;\n}\r\n.border-b-2 {\n  border-bottom-width: 2px !important;\n}\r\n.bg-violet-900 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(76 29 149 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-700 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(55 65 81 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-900 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(17 24 39 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-950 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(9 13 20 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-850 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(26 34 46 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-750 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(39 52 69 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gradient-to-l {\n  background-image: linear-gradient(to left, var(--tw-gradient-stops)) !important;\n}\r\n.from-gray-750 {\n  --tw-gradient-from: #273445 !important;\n  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(39 52 69 / 0)) !important;\n}\r\n.from-gray-850 {\n  --tw-gradient-from: #1A222E !important;\n  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(26 34 46 / 0)) !important;\n}\r\n.to-gray-500 {\n  --tw-gradient-to: #6b7280 !important;\n}\r\n.to-gray-600 {\n  --tw-gradient-to: #4b5563 !important;\n}\r\n.p-2 {\n  padding: 0.5rem !important;\n}\r\n.p-0 {\n  padding: 0px !important;\n}\r\n.p-3 {\n  padding: 0.75rem !important;\n}\r\n.p-0 {\n  padding: 0px !important;\n}\r\n.px-5 {\n  padding-left: 1.25rem !important;\n  padding-right: 1.25rem !important;\n}\r\n.pt-5 {\n  padding-top: 1.25rem !important;\n}\r\n.pb-5 {\n  padding-bottom: 1.25rem !important;\n}\r\n.pr-0 {\n  padding-right: 0px !important;\n}\r\n.pb-2 {\n  padding-bottom: 0.5rem !important;\n}\r\n.pt-3 {\n  padding-top: 0.75rem !important;\n}\r\n.pt-5 {\n  padding-top: 1.25rem !important;\n}\r\n.pb-5 {\n  padding-bottom: 1.25rem !important;\n}\r\n.align-top {\n  vertical-align: top !important;\n}\r\n.align-middle {\n  vertical-align: middle !important;\n}\r\n.align-bottom {\n  vertical-align: bottom !important;\n}\r\n.text-2xl {\n  font-size: 1.5rem !important;\n  line-height: 2rem !important;\n}\r\n.text-xs {\n  font-size: 0.75rem !important;\n  line-height: 1rem !important;\n}\r\n.text-xl {\n  font-size: 1.25rem !important;\n  line-height: 1.75rem !important;\n}\r\n.text-2xl {\n  font-size: 1.5rem !important;\n  line-height: 2rem !important;\n}\r\n.font-bold {\n  font-weight: 700 !important;\n}\r\n.text-black {\n  --tw-text-opacity: 1 !important;\n  color: rgb(0 0 0 / var(--tw-text-opacity)) !important;\n}\r\n.text-gray-500 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(107 114 128 / var(--tw-text-opacity)) !important;\n}\r\n.text-gray-700 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(55 65 81 / var(--tw-text-opacity)) !important;\n}\r\n.text-gray-200 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;\n}\r\n.text-neutral-500 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(115 115 115 / var(--tw-text-opacity)) !important;\n}\r\n.text-red-500 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(239 68 68 / var(--tw-text-opacity)) !important;\n}\r\n.filter {\n  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*\n! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com\n*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #e5e7eb; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n*/\n\nhtml {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font family by default.\n2. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-size: 1em; /* 2 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  line-height: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\n[type='button'],\n[type='reset'],\n[type='submit'] {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput:-ms-input-placeholder, textarea:-ms-input-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/*\nEnsure the default browser behavior of the `hidden` attribute.\n*/\n\n[hidden] {\n  display: none;\n}\n\n*, ::before, ::after {\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n}\r\n.m-0 {\n  margin: 0px !important;\n}\r\n.m-5 {\n  margin: 1.25rem !important;\n}\r\n.m-0 {\n  margin: 0px !important;\n}\r\n.my-10 {\n  margin-top: 2.5rem !important;\n  margin-bottom: 2.5rem !important;\n}\r\n.mb-2 {\n  margin-bottom: 0.5rem !important;\n}\r\n.mr-5 {\n  margin-right: 1.25rem !important;\n}\r\n.mt-10 {\n  margin-top: 2.5rem !important;\n}\r\n.ml-auto {\n  margin-left: auto !important;\n}\r\n.mt-\\[100px\\] {\n  margin-top: 100px !important;\n}\r\n.mb-10 {\n  margin-bottom: 2.5rem !important;\n}\r\n.flex {\n  display: flex !important;\n}\r\n.grid {\n  display: grid !important;\n}\r\n.h-\\[100vh\\] {\n  height: 100vh !important;\n}\r\n.h-\\[87vh\\] {\n  height: 87vh !important;\n}\r\n.h-\\[100\\%\\] {\n  height: 100% !important;\n}\r\n.h-\\[100vh\\] {\n  height: 100vh !important;\n}\r\n.h-\\[87vh\\] {\n  height: 87vh !important;\n}\r\n.h-\\[100\\%\\] {\n  height: 100% !important;\n}\r\n.w-full {\n  width: 100% !important;\n}\r\n.w-\\[50\\%\\] {\n  width: 50% !important;\n}\r\n.w-full {\n  width: 100% !important;\n}\r\n.w-\\[50\\%\\] {\n  width: 50% !important;\n}\r\n.cursor-pointer {\n  cursor: pointer !important;\n}\r\n.flex-row {\n  flex-direction: row !important;\n}\r\n.flex-col {\n  flex-direction: column !important;\n}\r\n.flex-col-reverse {\n  flex-direction: column-reverse !important;\n}\r\n.place-content-between {\n  place-content: space-between !important;\n}\r\n.place-items-center {\n  place-items: center !important;\n}\r\n.overflow-auto {\n  overflow: auto !important;\n}\r\n.rounded-l-lg {\n  border-top-left-radius: 0.5rem !important;\n  border-bottom-left-radius: 0.5rem !important;\n}\r\n.border-b-2 {\n  border-bottom-width: 2px !important;\n}\r\n.bg-violet-900 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(76 29 149 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-700 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(55 65 81 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-900 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(17 24 39 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-950 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(9 13 20 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-850 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(26 34 46 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-750 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(39 52 69 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gradient-to-l {\n  background-image: linear-gradient(to left, var(--tw-gradient-stops)) !important;\n}\r\n.from-gray-750 {\n  --tw-gradient-from: #273445 !important;\n  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(39 52 69 / 0)) !important;\n}\r\n.from-gray-850 {\n  --tw-gradient-from: #1A222E !important;\n  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(26 34 46 / 0)) !important;\n}\r\n.to-gray-500 {\n  --tw-gradient-to: #6b7280 !important;\n}\r\n.to-gray-600 {\n  --tw-gradient-to: #4b5563 !important;\n}\r\n.p-2 {\n  padding: 0.5rem !important;\n}\r\n.p-0 {\n  padding: 0px !important;\n}\r\n.p-3 {\n  padding: 0.75rem !important;\n}\r\n.p-0 {\n  padding: 0px !important;\n}\r\n.px-5 {\n  padding-left: 1.25rem !important;\n  padding-right: 1.25rem !important;\n}\r\n.pt-5 {\n  padding-top: 1.25rem !important;\n}\r\n.pb-5 {\n  padding-bottom: 1.25rem !important;\n}\r\n.pr-0 {\n  padding-right: 0px !important;\n}\r\n.pb-2 {\n  padding-bottom: 0.5rem !important;\n}\r\n.pt-3 {\n  padding-top: 0.75rem !important;\n}\r\n.pt-5 {\n  padding-top: 1.25rem !important;\n}\r\n.pb-5 {\n  padding-bottom: 1.25rem !important;\n}\r\n.align-top {\n  vertical-align: top !important;\n}\r\n.align-middle {\n  vertical-align: middle !important;\n}\r\n.align-bottom {\n  vertical-align: bottom !important;\n}\r\n.text-2xl {\n  font-size: 1.5rem !important;\n  line-height: 2rem !important;\n}\r\n.text-xs {\n  font-size: 0.75rem !important;\n  line-height: 1rem !important;\n}\r\n.text-xl {\n  font-size: 1.25rem !important;\n  line-height: 1.75rem !important;\n}\r\n.text-2xl {\n  font-size: 1.5rem !important;\n  line-height: 2rem !important;\n}\r\n.font-bold {\n  font-weight: 700 !important;\n}\r\n.text-black {\n  --tw-text-opacity: 1 !important;\n  color: rgb(0 0 0 / var(--tw-text-opacity)) !important;\n}\r\n.text-gray-500 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(107 114 128 / var(--tw-text-opacity)) !important;\n}\r\n.text-gray-700 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(55 65 81 / var(--tw-text-opacity)) !important;\n}\r\n.text-gray-200 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;\n}\r\n.text-neutral-500 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(115 115 115 / var(--tw-text-opacity)) !important;\n}\r\n.text-red-500 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(239 68 68 / var(--tw-text-opacity)) !important;\n}\r\n.filter {\n  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

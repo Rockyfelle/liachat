@@ -21,6 +21,8 @@ use App\Http\Controllers\MessageController;
 
 //Route::post('register', [PassportAuthController::class, 'register']);
 Route::post('login', [PassportAuthController::class, 'login']);
+Route::get('user/reset/{token}', [PassportAuthController::class, 'reset1']);
+Route::post('user/reset', [PassportAuthController::class, 'reset2']);
 
 
 
