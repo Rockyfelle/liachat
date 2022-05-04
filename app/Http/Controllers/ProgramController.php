@@ -22,13 +22,20 @@ class ProgramController extends Controller
 				$allPrograms = Auth::user()->programs;
 
 				//Get program user is trying to access
-				$program = $allPrograms->where('id', $programId)->first();error_log($allPrograms);
+				$program = $allPrograms->where('id', $programId)->first();
+				error_log($allPrograms);
 
 				//If selected program exists
 				if ($program) {
 
 					//Get channels of program
 					$program->channels;
+					$resources = $program->resources;
+					foreach($resources as $resource){
+						$link = $request->getHttpHost();
+						$resource->stringyboi = 'http://'.$link.'/uploads/'.$resource->file_name.'.'.$resource->file_extension;
+					}
+
 					$users = $program->users;
 
 					//If a channel is selected
@@ -45,18 +52,18 @@ class ProgramController extends Controller
 								->limit('20')
 								->get();
 
-							foreach($messages as $message) {
+							foreach ($messages as $message) {
 								$message->user;
 							}
 
-							return ['success' => true, 'programs' => $allPrograms, 'program' => $program, 'channel' => $channel, 'messages' => $messages, 'users' => $users];
+							return ['success' => true, 'programs' => $allPrograms, 'program' => $program, 'channel' => $channel, 'resources' => $resources, 'messages' => $messages, 'users' => $users];
 						} else {
 							//Error channel not found
 							return ['success' => false, 'text' => 'Error channel not found'];
 						}
 					} else {
 						//Channel not specified
-						return ['success' => true, 'programs' => $allPrograms, 'program' => $program, 'users' => $users];
+						return ['success' => true, 'programs' => $allPrograms, 'program' => $program,  'resources' => $resources, 'users' => $users];
 					}
 				} else {
 					//Error program not found

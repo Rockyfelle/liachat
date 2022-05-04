@@ -58,7 +58,7 @@ function SettingsChannels(props) {
 								width={10}
 								className="text-2xl"
 							>
-								<h1>{channel.name}</h1>
+								<h1 className="text-2xl">{channel.name}</h1>
 							</Grid.Column>
 							<Grid.Column width={6}>
 								<Button
