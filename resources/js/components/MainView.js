@@ -40,12 +40,14 @@ function MainView(props) {
 				setProgs({
 					programId: programId,
 					channelId: channelId,
+					resources: data.resources,
 					programs: data.programs,
 					channels: channelId !== 0 ? data.program.channels : [...progs.channels],
 					messages: channelId !== 0 ? data.messages : [...progs.messages],
 					users: data.users,
 				});
 			});
+	
 	}, []);
 
 	useEffect(() => {

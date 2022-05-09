@@ -6,10 +6,12 @@ export const ProgramProvider = (props) => {
 	const [progs, setProgs] = useState({
 		programId: null,
 		channelId: null,
+		resources: [],
 		programs: [],
 		channels: [],
 		messages: [],
 		users: [],
+
 	});
 	return (
 		<ProgramContext.Provider value={[progs, setProgs]}>

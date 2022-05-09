@@ -7,6 +7,7 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramResourceController;
 use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\MessageController;
+use App\Models\ProgramResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +38,6 @@ Route::middleware('auth:api')->group(function () {
 	Route::get('program/init/{programId}/{channelId}', [ProgramController::class, 'init']);
 	Route::post('program/upload/{id}', [ProgramResourceController::class, 'upload'])->name('files');
 	Route::post('user/register', [PassportAuthController::class, 'register']);
+	Route::get('resources/all/{id}', [ProgramResourceController::class, 'all']);
+
 });

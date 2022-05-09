@@ -84,12 +84,8 @@ function Settings(props) {
 				{tab === 'pings' &&
 					<SettingsPings />
 				}
-				{/*<div className="flex flex-col m-0 p-0 overflow-auto h-[87vh] pb-5 overflow-auto">
-				<p>Invite students</p>
-				<p>Upload assignment</p>
-				<p>create new channels</p>
+				<div className="flex flex-col m-0 p-0 overflow-auto h-[87vh] pb-5 overflow-auto">
 
-				<p>Invite students</p>
 				<Form>
 					<Form.Field style={{ display: "none" }}>
 						<input
@@ -113,7 +109,7 @@ function Settings(props) {
 						disabled={file === undefined}
 					/>
 				</Form>
-						</div>*/}
+						</div>
 			</div>
 		</div>
 	);

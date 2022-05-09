@@ -14,12 +14,12 @@ const DFormInput = styled(Form.Input)`
 	}
 `;
 
-function SettingsChannels(props) {
+function SettingsAssigntments(props) {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 	const [progs, setProgs] = useContext(ProgramContext);
 	const [email, setEmail] = useState('');
 
-
+	console.log('settings',progs);
 
 	return (
 		<div className="h-[100%] align-top grid place-items-center">
@@ -30,43 +30,26 @@ function SettingsChannels(props) {
 					columns="equal"
 				>
 					<Grid.Column>
-						<Form>
-							<DFormInput
-								label="email"
-								fluid
-								placeholder="Email"
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
-							/>
-						</Form>
+
 					</Grid.Column>
 				</Grid.Row>
 				<Grid.Row>
 					<Grid.Column>
-						<Button
-							color="green"
-							fluid
-						>
-							Add Student
-						</Button>
+
 					</Grid.Column>
 				</Grid.Row>
-				{progs.users.map((channel, index) => {
+				{progs.resources.map((file, index) => {
 					return (
 						<Grid.Row key={'channe' + index}>
 							<Grid.Column
 								width={10}
-								className="text-2xl"
+								className="text-sm"
 							>
-								<h1>{channel.name}</h1>
+								<h1 className="text-2xl">{file.file_name}</h1>
+								<a href={file.stringyboi} target="_blank">{file.stringyboi}</a>
 							</Grid.Column>
 							<Grid.Column width={6}>
-								<Button
-									color="red"
-									fluid
-								>
-									Delete
-								</Button>
+
 							</Grid.Column>
 						</Grid.Row>
 					);
@@ -79,4 +62,4 @@ function SettingsChannels(props) {
 	);
 }
 
-export default SettingsChannels;
+export default SettingsAssigntments;
