@@ -12,71 +12,58 @@ class ProgramController extends Controller
 {
 	public function init(Request $request, $programId, $channelId)
 	{
-		//Is authenticated
-		if (Auth::user()) {
+		//Program not specified
+		if (!$programId)
+			return ['success' => false, 'text' => 'Program not specified'];
 
-			//Has selected a program
-			if ($programId) {
+		//Get list of programs user has access to
+		$allPrograms = Auth::user()->programs;
 
-				//Get list of programs user has access to
-				$allPrograms = Auth::user()->programs;
+		//Get program user is trying to access
+		$program = $allPrograms->where('id', $programId)->first();
+		error_log($allPrograms);
 
-				//Get program user is trying to access
-				$program = $allPrograms->where('id', $programId)->first();
-				error_log($allPrograms);
+		//Program not found
+		if (!$program)
+			return ['success' => false, 'text' => 'Error program not found or user not authorized'];
 
-				//If selected program exists
-				if ($program) {
-
-					//Get channels of program
-					$program->channels;
-					$resources = $program->resources;
-					foreach($resources as $resource){
-						$link = $request->getHttpHost();
-						$resource->stringyboi = 'http://'.$link.'/uploads/'.$resource->file_name.'.'.$resource->file_extension;
-					}
-
-					$users = $program->users;
-
-					//If a channel is selected
-					if ($channelId) {
-
-						//Get channel user is trying to access
-						$channel = Channel::find($channelId);
-
-						//If channel exists
-						if ($channel) {
-
-							$messages = Message::orderBy('id', 'DESC')
-								->where('channel_id', $channelId)
-								->limit('20')
-								->get();
-
-							foreach ($messages as $message) {
-								$message->user;
-							}
-
-							return ['success' => true, 'programs' => $allPrograms, 'program' => $program, 'channel' => $channel, 'resources' => $resources, 'messages' => $messages, 'users' => $users];
-						} else {
-							//Error channel not found
-							return ['success' => false, 'text' => 'Error channel not found'];
-						}
-					} else {
-						//Channel not specified
-						return ['success' => true, 'programs' => $allPrograms, 'program' => $program,  'resources' => $resources, 'users' => $users];
-					}
-				} else {
-					//Error program not found
-					return ['success' => false, 'text' => 'Error program not found or user not authorized'];
-				}
-			} else {
-				//Program not specified
-				return ['success' => false, 'text' => 'Program not specified'];
-			}
-		} else {
-			//Not Logged In
-			return ['success' => false, 'text' => 'You are not logged in'];
+		//Get channels and resources of program
+		$program->channels;
+		$resources = $program->resources;
+		foreach ($resources as $resource) {
+			$link = $request->getHttpHost();
+			$resource->stringyboi = 'http://' . $link . '/uploads/' . $resource->file_name . '.' . $resource->file_extension;
 		}
+
+		//Get users of program
+		$users = $program->users;
+
+		//Download channels and messages if applicable
+		$channel = [];
+		$messages = [];
+		if ($channelId) {
+
+			//Get channel user is trying to access
+			$channel = Channel::find($channelId);
+
+			//Channel not found
+			if (!$channel)
+				return ['success' => false, 'text' => 'Error channel not found'];
+
+			//Get messages of channel
+			$messages = Message::orderBy('id', 'DESC')
+				->where('channel_id', $channelId)
+				->limit('20')
+				->get();
+
+			//Get message properties
+			foreach ($messages as $message) {
+				$message->user;
+			}
+		}
+
+		//Return success
+		return ['success' => true, 'programs' => $allPrograms, 'program' => $program, 'channel' => $channel, 'resources' => $resources, 'messages' => $messages, 'users' => $users];
 	}
 
 	public function load(Request $request, $id)
