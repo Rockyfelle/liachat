@@ -4469,6 +4469,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Menu/Menu.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Form/Form.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgramContext */ "./resources/js/components/ProgramContext.js");
@@ -4583,7 +4584,34 @@ function Settings(props) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "m-5",
-      children: [tab === 'channels' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsChannels__WEBPACK_IMPORTED_MODULE_3__["default"], {}), tab === 'users' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsUsers__WEBPACK_IMPORTED_MODULE_4__["default"], {}), tab === 'assignments' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsAssignments__WEBPACK_IMPORTED_MODULE_5__["default"], {}), tab === 'pings' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsPings__WEBPACK_IMPORTED_MODULE_6__["default"], {})]
+      children: [tab === 'channels' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsChannels__WEBPACK_IMPORTED_MODULE_3__["default"], {}), tab === 'users' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsUsers__WEBPACK_IMPORTED_MODULE_4__["default"], {}), tab === 'assignments' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsAssignments__WEBPACK_IMPORTED_MODULE_5__["default"], {}), tab === 'pings' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsPings__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        className: "flex flex-col m-0 p-0 overflow-auto h-[87vh] pb-5 overflow-auto",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"].Field, {
+            style: {
+              display: "none"
+            },
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+              type: "file",
+              ref: inputFile,
+              onChange: function onChange() {
+                setFile(inputFile.current.files[0]);
+              }
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"].Button, {
+            onClick: onButtonClick,
+            color: "green",
+            content: "Choose file"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+            children: file ? file.name : ''
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"].Button, {
+            onClick: uploadFile,
+            color: "green",
+            content: "Upload file",
+            disabled: file === undefined
+          })]
+        })
+      })]
     })]
   });
 }
