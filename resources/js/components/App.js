@@ -27,7 +27,11 @@ function App() {
 
 					<Route path="dashboard" element={<Dashboard />} />
 
-					<Route path="program/:program/:channel" element={<MainView />} />
+					<Route path="program/:program/settings" element={<MainView view="settings" />} />
+
+					<Route path="program/:program/assignments" element={<MainView view="assignments" />} />
+
+					<Route path="program/:program/channel/:channel" element={<MainView view="channels" />} />
 
 					<Route path="/" />
 				</Routes>

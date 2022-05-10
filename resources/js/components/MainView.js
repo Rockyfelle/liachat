@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import ReactDOM from 'react-dom';
+import { useNavigate } from "react-router-dom";
 import { Grid, Segment } from 'semantic-ui-react';
 import {
 	BrowserRouter as Router,
@@ -18,6 +19,7 @@ import UserContext from './UserContext';
 
 function MainView(props) {
 	const { user, setUser } = useContext(UserContext);
+	const navigate = useNavigate();
 	const [isLoading, setIsLoading] = useState(true);
 	const [channelId, setChannelId] = useState(parseInt(useParams().channel));
 	const [programId, setProgramId] = useState(parseInt(useParams().program));
@@ -28,7 +30,7 @@ function MainView(props) {
 
 	//Perform initial fetch
 	useEffect(() => {
-		fetch(`/api/program/init/${programId}/${ channelId === undefined ? 0: channelId}`, {
+		fetch(`/api/program/init/${programId}/${(isNaN(channelId) || channelId === undefined) ? 0 : channelId}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -44,18 +46,27 @@ function MainView(props) {
 					resources: data.resources,
 					programs: data.programs,
 					channels: channelId !== 0 ? data.program.channels : [...progs.channels],
-					messages: data.messages ,
+					messages: data.messages,
 					users: data.users,
 				});
 			});
-		}, []);
-		
-		useEffect(() => {
-			if(!isLoading){
-				window.history.replaceState(null, '',`/program/${progs.programId}/${progs.channelId}`)
-				console.log('progs',progs)
-		}
-	  }, [progs.channelId])
+	}, []);
+
+	useEffect(() => {
+		console.log(props.view);
+	}, [props.view]);
+
+	useEffect(() => {/*
+		if (!isLoading) {
+			if (progs.channelId === undefined || isNaN(progs.channelId)) {
+				window.history.replaceState(null, '', `/program/${progs.programId}/settings`);
+				navigate(`/program/${progs.programId}/settings`);
+			} else {
+				window.history.replaceState(null, '', `/program/${progs.programId}/channel/${progs.channelId}`);
+				navigate(`/program/${progs.programId}/channel/${progs.channelId}`);
+			}
+		}*/
+	}, [progs.channelId])
 
 
 	return (
@@ -70,17 +81,17 @@ function MainView(props) {
 							<ChannelsBar />
 						</Grid.Column>
 						<Grid.Column width={10} className="p-0 bg-gray-750">
-							{typeof(progs.channelId) !== 'string'  &&
-							<Chat
-								initMessages={messages}
-								channelId={channelId}
-								channel={channel}
-								update={updateChat}
-							/>}
-							{progs.channelId === 'settings' &&
+							{props.view === 'channels' &&
+								<Chat
+									initMessages={messages}
+									channelId={channelId}
+									channel={channel}
+									update={updateChat}
+								/>}
+							{props.view === 'settings' &&
 								<Settings />
 							}
-							{progs.channelId === 'assignments' &&
+							{props.view === 'assignments' &&
 								<Assignments />
 							}
 						</Grid.Column>
