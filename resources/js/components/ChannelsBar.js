@@ -62,13 +62,26 @@ function ChannelsBar(props) {
 					setProgs((prevProgs) => {
 						return {
 							...prevProgs,
-							channelId: 0,
+							channelId: 'settings',
 						};
 					});
 				}}
 				>
 					<p className="p-0 m-0">Settings</p>
 					<Icon className="p-0 m-0" name="settings" />
+				</div>
+                <div className="flex flex-row p-2 px-5 mb-2 rounded-l-lg cursor-pointer bg-orange-700 align-middle place-content-between" 
+				onClick={() => {
+					setProgs((prevProgs) => {
+						return {
+							...prevProgs,
+							channelId: 'assignments',
+						};
+					});
+				}}
+				>
+					<p className="p-0 m-0">Assignments</p>
+					<Icon className="p-0 m-0" name="file" />
 				</div>
                 {progs.channels.map((channel, index) => {
                     return (

@@ -17,6 +17,7 @@ function App() {
 	const userValue = { user, setUser };
 
 	return (
+		<React.StrictMode>
 		<ProgramProvider>
 			<Router>
 				<Routes>
@@ -26,12 +27,13 @@ function App() {
 
 					<Route path="dashboard" element={<Dashboard />} />
 
-					<Route path="program/:program/channel/:channel" element={<MainView />} />
+					<Route path="program/:program/:channel" element={<MainView />} />
 
 					<Route path="/" />
 				</Routes>
 			</Router>
 		</ProgramProvider>
+		</React.StrictMode>
 
 	);
 }

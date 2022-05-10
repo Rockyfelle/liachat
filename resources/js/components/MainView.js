@@ -10,6 +10,7 @@ import {
 import ProgramsBar from './ProgramsBar';
 import ChannelsBar from './ChannelsBar';
 import Settings from './Settings'
+import Assignments from './Assignments';
 import Chat from './Chat';
 import { ProgramContext } from './ProgramContext';
 import UserContext from './UserContext';
@@ -27,7 +28,7 @@ function MainView(props) {
 
 	//Perform initial fetch
 	useEffect(() => {
-		fetch(`/api/program/init/${programId}/${channelId}`, {
+		fetch(`/api/program/init/${programId}/${ channelId === undefined ? 0: channelId}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -43,28 +44,19 @@ function MainView(props) {
 					resources: data.resources,
 					programs: data.programs,
 					channels: channelId !== 0 ? data.program.channels : [...progs.channels],
-					messages: channelId !== 0 ? data.messages : [...progs.messages],
+					messages: data.messages ,
 					users: data.users,
 				});
 			});
-	
-	}, []);
-
-	useEffect(() => {
-		if(!isLoading){
-			window.history.replaceState(null, '',`/program/${progs.programId}/channel/${progs.channelId}`)
+		}, []);
+		
+		useEffect(() => {
+			if(!isLoading){
+				window.history.replaceState(null, '',`/program/${progs.programId}/${progs.channelId}`)
+				console.log('progs',progs)
 		}
-	  
 	  }, [progs.channelId])
 
-	function changeChannel(channelId) {
-		setChannelId(channelId);
-		setUpdateChat(!updateChat);
-	}
-
-	function changeProgram(programId) {
-		setProgramId(programId);
-	}
 
 	return (
 		<div className="m-0">
@@ -78,15 +70,18 @@ function MainView(props) {
 							<ChannelsBar />
 						</Grid.Column>
 						<Grid.Column width={10} className="p-0 bg-gray-750">
-							{progs.channelId !== 0 &&
+							{typeof(progs.channelId) !== 'string'  &&
 							<Chat
 								initMessages={messages}
 								channelId={channelId}
 								channel={channel}
 								update={updateChat}
 							/>}
-							{progs.channelId === 0 &&
+							{progs.channelId === 'settings' &&
 								<Settings />
+							}
+							{progs.channelId === 'assignments' &&
+								<Assignments />
 							}
 						</Grid.Column>
 						<Grid.Column width={2} className="p-0">

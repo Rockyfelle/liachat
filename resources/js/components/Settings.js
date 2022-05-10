@@ -4,35 +4,15 @@ import Pusher from "pusher-js";
 import { ProgramContext } from "./ProgramContext";
 import SettingsChannels from "./SettingsChannels";
 import SettingsUsers from "./SettingsUsers";
-import SettingsAssignments from "./SettingsAssignments";
+import SettingsAssignments from "./Assignments";
 import SettingsPings from "./SettingsPings";
 
 
-/*
-	SETTINGS
-		- Invite students
-		- Upload assignment
-		- Create new channels
-		- Manage students
-		- Manage channels
-		- Manage assignments
-
-
-
-
-
-
-
-
-
-
-*/
 
 function Settings(props) {
 	const inputFile = useRef(null);
 	const [file, setFile] = useState(undefined);
 	const [tab, setTab] = useState('channels');
-
 	const onButtonClick = () => {
 		inputFile.current.click();
 		console.log(inputFile.current.files);
@@ -57,11 +37,6 @@ function Settings(props) {
 						active={tab === 'users'}
 						onClick={() => setTab('users')}
 					/>
-					<Menu.Item
-						name='Assignments'
-						active={tab === 'assignments'}
-						onClick={() => setTab('assignments')}
-					/>
 					<Menu.Menu>
 						<Menu.Item
 							name='Pings'
@@ -77,9 +52,6 @@ function Settings(props) {
 				}
 				{tab === 'users' &&
 					<SettingsUsers />
-				}
-				{tab === 'assignments' &&
-					<SettingsAssignments />
 				}
 				{tab === 'pings' &&
 					<SettingsPings />
