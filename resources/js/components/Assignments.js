@@ -14,7 +14,7 @@ const DFormInput = styled(Form.Input)`
 	}
 `;
 
-function SettingsAssigntments(props) {
+function Assigntments(props) {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 	const [progs, setProgs] = useContext(ProgramContext);
 	const [email, setEmail] = useState('');
@@ -62,4 +62,4 @@ function SettingsAssigntments(props) {
 	);
 }
 
-export default SettingsAssigntments;
+export default Assigntments;

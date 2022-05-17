@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { Grid, Segment, Form, Input, Menu, Button } from "semantic-ui-react";
 import Pusher from "pusher-js";
-import { ProgramContext } from "./ProgramContext";
+import { ProgramContext } from "../ProgramContext";
 import styled from 'styled-components';
 
 const DFormInput = styled(Form.Input)`
@@ -17,7 +17,7 @@ const DFormInput = styled(Form.Input)`
 function SettingsChannels(props) {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 	const [progs, setProgs] = useContext(ProgramContext);
-	const [email, setEmail] = useState('');
+	const [name, setName] = useState('');
 
 
 
@@ -32,28 +32,28 @@ function SettingsChannels(props) {
 					<Grid.Column>
 						<Form>
 							<DFormInput
-								label="email"
+								label="Name"
 								fluid
-								placeholder="Email"
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
+								placeholder="Name"
+								value={name}
+								onChange={(e) => setName(e.target.value)}
 							/>
 						</Form>
 					</Grid.Column>
 				</Grid.Row>
-				<Grid.Row>
+				<Grid.Row className="mb-10">
 					<Grid.Column>
 						<Button
 							color="green"
 							fluid
 						>
-							Add Student
+							Add Channel
 						</Button>
 					</Grid.Column>
 				</Grid.Row>
-				{progs.users.map((channel, index) => {
+				{progs.channels.map((channel, index) => {
 					return (
-						<Grid.Row key={'channe' + index}>
+						<Grid.Row key={'channel' + index}>
 							<Grid.Column
 								width={10}
 								className="text-2xl"
@@ -65,7 +65,7 @@ function SettingsChannels(props) {
 									color="red"
 									fluid
 								>
-									Delete
+									Remove
 								</Button>
 							</Grid.Column>
 						</Grid.Row>

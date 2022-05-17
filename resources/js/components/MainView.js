@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import ProgramsBar from './ProgramsBar';
 import ChannelsBar from './ChannelsBar';
-import Settings from './Settings'
+import Settings from './Settings/Settings'
 import Assignments from './Assignments';
 import Chat from './Chat';
 import { ProgramContext } from './ProgramContext';
