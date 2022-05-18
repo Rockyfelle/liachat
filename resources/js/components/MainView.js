@@ -53,7 +53,7 @@ function MainView(props) {
 	}, []);
 
 	useEffect(() => {
-		console.log(props.view);
+		console.log('Current view:',props.view);
 	}, [props.view]);
 
 	useEffect(() => {/*

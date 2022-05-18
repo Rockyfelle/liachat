@@ -19,8 +19,6 @@ function Assigntments(props) {
 	const [progs, setProgs] = useContext(ProgramContext);
 	const [email, setEmail] = useState('');
 
-	console.log('settings',progs);
-
 	return (
 		<div className="h-[100%] align-top grid place-items-center">
 			<Grid className="w-[50%]">

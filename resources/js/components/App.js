@@ -17,7 +17,6 @@ function App() {
 	const userValue = { user, setUser };
 
 	return (
-		<React.StrictMode>
 		<ProgramProvider>
 			<Router>
 				<Routes>
@@ -37,8 +36,6 @@ function App() {
 				</Routes>
 			</Router>
 		</ProgramProvider>
-		</React.StrictMode>
-
 	);
 }
 

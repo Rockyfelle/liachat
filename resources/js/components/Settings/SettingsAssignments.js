@@ -25,22 +25,19 @@ function SettingsAssigntments(props) {
     };
 
     const uploadFile = () => {
+        let data = new FormData();
 
+        data.append('files', inputFile.current.files[0])
         fetch(`http://localhost:8000/api/program/upload/${progs.programId}`, {
             method: "POST",
             headers: {
                 'Authorization': user.token,
             },
-            body: inputFile.current.files[0],
-            
+            body: data
             
         })
             .then((response) => response.json())
-            .then((data) => {
-                //setSendMessages([]);
-            });
     };
-    console.log("settings", progs);
 
     return (
         <div className="align-top grid place-items-center">
