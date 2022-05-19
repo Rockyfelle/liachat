@@ -14,7 +14,7 @@ class ProgramController extends Controller
 	{
 		//Program not specified
 		if (!$programId)
-			return ['success' => false, 'text' => 'Program not specified'];
+			return ['ok' => false, 'text' => 'Program not specified'];
 
 		//Get list of programs user has access to
 		$allPrograms = Auth::user()->programs;
@@ -25,7 +25,7 @@ class ProgramController extends Controller
 
 		//Program not found
 		if (!$program)
-			return ['success' => false, 'text' => 'Error program not found or user not authorized'];
+			return ['ok' => false, 'text' => 'Error program not found or user not authorized'];
 
 		//Get channels and resources of program
 		$program->channels;
@@ -48,7 +48,7 @@ class ProgramController extends Controller
 
 			//Channel not found
 			if (!$channel)
-				return ['success' => false, 'text' => 'Error channel not found'];
+				return ['ok' => false, 'text' => 'Error channel not found'];
 
 			//Get messages of channel
 			$messages = Message::orderBy('id', 'DESC')
@@ -63,47 +63,26 @@ class ProgramController extends Controller
 		}
 
 		//Return success
-		return ['success' => true, 'programs' => $allPrograms, 'program' => $program, 'channel' => $channel, 'resources' => $resources, 'messages' => $messages, 'users' => $users];
+		return ['ok' => true, 'programs' => $allPrograms, 'program' => $program, 'channel' => $channel, 'resources' => $resources, 'messages' => $messages, 'users' => $users];
 	}
 
 	public function load(Request $request, $id)
 	{
+
+		//If program ID is not specified, error
+		if (!$id)
+			return ['ok' => false, 'text' => 'Program not specified'];
+		
+		//Get specified program
 		$program = Program::find($id);
 
+		//If program does not exist, error
+		if (!$program)
+			return ['ok' => false, 'text' => 'Program does not exist'];
+
+		//Download props for program
 		$program->channels;
 
-		return response()->json($program);
-	}
-
-	public function program(Request $request, $id)
-	{
-		$program = Program::find($id);
-
-		$program->channels;
-		foreach ($program->channels as $channel) {
-			$channel->program;
-			$channel->messages;
-			foreach ($channel->messages as $message) {
-				$message->channel;
-			}
-		}
-
-		return response()->json($program);
-	}
-
-	public function all(Request $request)
-	{
-		$programs = Program::all();
-		foreach ($programs as $program) {
-			$program->channels;
-			foreach ($program->channels as $channel) {
-				$channel->program;
-				$channel->messages;
-				foreach ($channel->messages as $message) {
-					$message->channel;
-				}
-			}
-		}
-		return response()->json($programs);
+		return ['ok' => true, 'program' => $program];
 	}
 }

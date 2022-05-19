@@ -3818,7 +3818,7 @@ function ChannelsBar(props) {
         //setChannels(data.channels);
         setProgs(function (prevProgs) {
           return _objectSpread(_objectSpread({}, prevProgs), {}, {
-            channels: data.channels
+            channels: data.program.channels
           });
         });
         setIsLoading(false);

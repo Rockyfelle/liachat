@@ -44,7 +44,7 @@ function ChannelsBar(props) {
 				.then((data) => {
 					//setChannels(data.channels);
 					setProgs((prevProgs) => {
-						return { ...prevProgs, channels: data.channels };
+						return { ...prevProgs, channels: data.program.channels };
 					});
 					setIsLoading(false);
 				});
