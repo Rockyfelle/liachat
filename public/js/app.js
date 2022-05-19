@@ -3603,8 +3603,20 @@ function App() {
           path: "dashboard",
           element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_Dashboard__WEBPACK_IMPORTED_MODULE_4__["default"], {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+          path: "program/:program/settings",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_MainView__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            view: "settings"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+          path: "program/:program/assignments",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_MainView__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            view: "assignments"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
           path: "program/:program/channel/:channel",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_MainView__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_MainView__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            view: "channels"
+          })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
           path: "/"
         })]
@@ -3621,6 +3633,101 @@ if (document.getElementById('app')) {
 
 /***/ }),
 
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Assignments.js":
+/*!********************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Assignments.js ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/Form.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
+/* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pusher-js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/pusher-js/dist/web/pusher.js");
+/* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
+var _templateObject;
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+
+
+
+var DFormInput = (0,styled_components__WEBPACK_IMPORTED_MODULE_4__["default"])(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\t> * {\n\t\tcolor: white !important;\n\t}\n\tinput {\n\t\tbackground-color: #3C4F69 !important;\n\t\tcolor: white !important;\n\t}\n"])));
+
+function Assigntments(props) {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(localStorage.getItem('user'))),
+      _useState2 = _slicedToArray(_useState, 2),
+      user = _useState2[0],
+      setUser = _useState2[1];
+
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_ProgramContext__WEBPACK_IMPORTED_MODULE_2__.ProgramContext),
+      _useContext2 = _slicedToArray(_useContext, 2),
+      progs = _useContext2[0],
+      setProgs = _useContext2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      email = _useState4[0],
+      setEmail = _useState4[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    className: "h-[100vh] align-top grid place-items-center overflow-auto",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      className: "w-[50%]",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
+        columns: "equal",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {})
+      }), progs.resources.map(function (file, index) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
+            width: 10,
+            className: "text-sm",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+              className: "text-2xl",
+              children: file.file_name
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+              href: file.stringyboi,
+              target: "_blank",
+              children: file.stringyboi
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
+            width: 6
+          })]
+        }, 'channe' + index);
+      })]
+    })
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Assigntments);
+
+/***/ }),
+
 /***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ChannelsBar.js":
 /*!********************************************************************************************************************!*\
   !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ChannelsBar.js ***!
@@ -3634,7 +3741,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-dom/index.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Icon/Icon.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-router-dom/node_modules/react-router/index.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Icon/Icon.js");
 /* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -3663,11 +3771,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function ChannelsBar(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(localStorage.getItem("user"))),
       _useState2 = _slicedToArray(_useState, 2),
       user = _useState2[0],
       setUser = _useState2[1];
+
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
 
   var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_ProgramContext__WEBPACK_IMPORTED_MODULE_2__.ProgramContext),
       _useContext2 = _slicedToArray(_useContext, 2),
@@ -3682,13 +3793,14 @@ function ChannelsBar(props) {
   var isMounted = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false); //Update channels from parent
 
   /*useEffect(() => {
-  //setChannels(props.channels);
-  setProgs(prevProgs => { return {...prevProgs, channels: props.channels} });
+  	//setChannels(props.channels);
+  	setProgs(prevProgs => { return {...prevProgs, channels: props.channels} });
   }, [props.channels]);
+  
   //Update channelId from parent
   useEffect(() => {
-  //setChannelId(props.channelId);
-  setProgs(prevProgs => { return {...prevProgs, channelId: data.channelId} });
+  	//setChannelId(props.channelId);
+  	setProgs(prevProgs => { return {...prevProgs, channelId: data.channelId} });
   }, [props.channelId]);*/
   //Load channels when switching program id
 
@@ -3729,16 +3841,36 @@ function ChannelsBar(props) {
         onClick: function onClick() {
           setProgs(function (prevProgs) {
             return _objectSpread(_objectSpread({}, prevProgs), {}, {
-              channelId: 0
+              channelId: undefined
             });
           });
+          window.history.replaceState(null, '', "/program/".concat(progs.programId, "/settings"));
+          navigate("/program/".concat(progs.programId, "/settings"));
         },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
           className: "p-0 m-0",
           children: "Settings"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
           className: "p-0 m-0",
           name: "settings"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "flex flex-row p-2 px-5 mb-2 rounded-l-lg cursor-pointer bg-orange-700 align-middle place-content-between",
+        onClick: function onClick() {
+          setProgs(function (prevProgs) {
+            return _objectSpread(_objectSpread({}, prevProgs), {}, {
+              channelId: undefined
+            });
+          });
+          window.history.replaceState(null, '', "/program/".concat(progs.programId, "/assignments"));
+          navigate("/program/".concat(progs.programId, "/assignments"));
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          className: "p-0 m-0",
+          children: "Assignments"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          className: "p-0 m-0",
+          name: "file"
         })]
       }), progs.channels.map(function (channel, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -3749,6 +3881,8 @@ function ChannelsBar(props) {
                 channelId: channel.id
               });
             });
+            window.history.replaceState(null, '', "/program/".concat(progs.programId, "/channel/").concat(channel.id));
+            navigate("/program/".concat(progs.programId, "/channel/").concat(channel.id));
           },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
             children: channel.name
@@ -4128,16 +4262,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-dom/index.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Segment/Segment.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-router-dom/node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react-router-dom/node_modules/react-router/index.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Segment/Segment.js");
 /* harmony import */ var _ProgramsBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgramsBar */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramsBar.js");
 /* harmony import */ var _ChannelsBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ChannelsBar */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ChannelsBar.js");
-/* harmony import */ var _Settings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Settings */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings.js");
-/* harmony import */ var _Chat__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Chat */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Chat.js");
-/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
-/* harmony import */ var _UserContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./UserContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/UserContext.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Settings_Settings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Settings/Settings */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/Settings.js");
+/* harmony import */ var _Assignments__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Assignments */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Assignments.js");
+/* harmony import */ var _Chat__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Chat */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Chat.js");
+/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
+/* harmony import */ var _UserContext__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./UserContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/UserContext.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -4171,22 +4306,26 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 function MainView(props) {
-  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_UserContext__WEBPACK_IMPORTED_MODULE_7__["default"]),
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_UserContext__WEBPACK_IMPORTED_MODULE_8__["default"]),
       user = _useContext.user,
       setUser = _useContext.setUser;
+
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_10__.useNavigate)();
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState2 = _slicedToArray(_useState, 2),
       isLoading = _useState2[0],
       setIsLoading = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(parseInt((0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.useParams)().channel)),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(parseInt((0,react_router_dom__WEBPACK_IMPORTED_MODULE_10__.useParams)().channel)),
       _useState4 = _slicedToArray(_useState3, 2),
       channelId = _useState4[0],
       setChannelId = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(parseInt((0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.useParams)().program)),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(parseInt((0,react_router_dom__WEBPACK_IMPORTED_MODULE_10__.useParams)().program)),
       _useState6 = _slicedToArray(_useState5, 2),
       programId = _useState6[0],
       setProgramId = _useState6[1];
@@ -4206,14 +4345,14 @@ function MainView(props) {
       updateChat = _useState12[0],
       setUpdateChat = _useState12[1];
 
-  var _useContext2 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_ProgramContext__WEBPACK_IMPORTED_MODULE_6__.ProgramContext),
+  var _useContext2 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_ProgramContext__WEBPACK_IMPORTED_MODULE_7__.ProgramContext),
       _useContext3 = _slicedToArray(_useContext2, 2),
       progs = _useContext3[0],
       setProgs = _useContext3[1]; //Perform initial fetch
 
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    fetch("/api/program/init/".concat(programId, "/").concat(channelId), {
+    fetch("/api/program/init/".concat(programId, "/").concat(isNaN(channelId) || channelId === undefined ? 0 : channelId), {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -4229,54 +4368,54 @@ function MainView(props) {
         resources: data.resources,
         programs: data.programs,
         channels: channelId !== 0 ? data.program.channels : _toConsumableArray(progs.channels),
-        messages: channelId !== 0 ? data.messages : _toConsumableArray(progs.messages),
+        messages: data.messages,
         users: data.users
       });
     });
   }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log('Current view:', props.view);
+  }, [props.view]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    /*
     if (!isLoading) {
-      window.history.replaceState(null, '', "/program/".concat(progs.programId, "/channel/").concat(progs.channelId));
+    if (progs.channelId === undefined || isNaN(progs.channelId)) {
+    window.history.replaceState(null, '', `/program/${progs.programId}/settings`);
+    navigate(`/program/${progs.programId}/settings`);
+    } else {
+    window.history.replaceState(null, '', `/program/${progs.programId}/channel/${progs.channelId}`);
+    navigate(`/program/${progs.programId}/channel/${progs.channelId}`);
     }
+    }*/
   }, [progs.channelId]);
-
-  function changeChannel(channelId) {
-    setChannelId(channelId);
-    setUpdateChat(!updateChat);
-  }
-
-  function changeProgram(programId) {
-    setProgramId(programId);
-  }
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
     className: "m-0",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["default"], {
       className: "m-0",
-      children: !isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_10__["default"].Row, {
+      children: !isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["default"].Row, {
         columns: 16,
         className: "p-0 bg-gray-900 text-gray-200",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_10__["default"].Column, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["default"].Column, {
           width: 2,
           className: "p-0 bg-gray-950",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ProgramsBar__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_10__["default"].Column, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_ProgramsBar__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["default"].Column, {
           width: 2,
           className: "p-0 bg-gray-850",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ChannelsBar__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_10__["default"].Column, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_ChannelsBar__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["default"].Column, {
           width: 10,
           className: "p-0 bg-gray-750",
-          children: [progs.channelId !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Chat__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          children: [props.view === 'channels' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Chat__WEBPACK_IMPORTED_MODULE_6__["default"], {
             initMessages: messages,
             channelId: channelId,
             channel: channel,
             update: updateChat
-          }), progs.channelId === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Settings__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_10__["default"].Column, {
+          }), props.view === 'settings' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Settings_Settings__WEBPACK_IMPORTED_MODULE_4__["default"], {}), props.view === 'assignments' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Assignments__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["default"].Column, {
           width: 2,
           className: "p-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_12__["default"], {
             className: "h-[100vh]",
             inverted: true,
             children: "Sidebar 3"
@@ -4423,10 +4562,10 @@ function ProgramsBar(props) {
 
 /***/ }),
 
-/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings.js":
-/*!*****************************************************************************************************************!*\
-  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings.js ***!
-  \*****************************************************************************************************************/
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/Settings.js":
+/*!**************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/Settings.js ***!
+  \**************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4435,16 +4574,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/index.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Menu/Menu.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Form/Form.js");
-/* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pusher-js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/pusher-js/dist/web/pusher.js");
-/* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
-/* harmony import */ var _SettingsChannels__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SettingsChannels */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/SettingsChannels.js");
-/* harmony import */ var _SettingsUsers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SettingsUsers */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/SettingsUsers.js");
-/* harmony import */ var _SettingsAssignments__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SettingsAssignments */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/SettingsAssignments.js");
-/* harmony import */ var _SettingsPings__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SettingsPings */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/SettingsPings.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Menu/Menu.js");
+/* harmony import */ var _SettingsChannels__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SettingsChannels */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/SettingsChannels.js");
+/* harmony import */ var _SettingsUsers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SettingsUsers */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/SettingsUsers.js");
+/* harmony import */ var _SettingsAssignments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SettingsAssignments */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/SettingsAssignments.js");
+/* harmony import */ var _SettingsPings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SettingsPings */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/SettingsPings.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -4462,28 +4597,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-
-
-/*
-	SETTINGS
-		- Invite students
-		- Upload assignment
-		- Create new channels
-		- Manage students
-		- Manage channels
-		- Manage assignments
-
-
-
-
-
-
-
-
-
-
-*/
 
 
 
@@ -4510,75 +4623,50 @@ function Settings(props) {
     console.log(file);
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-    className: "h-[100vh] align-top",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    className: "h-[100vh] align-top overflow-auto",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "text-l w-full pt-5 px-5 border-b-2",
       children: "Settings"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-      className: "grid place-items-center mt-[100px]",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "grid place-items-center mt-[100px] max-h-full",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
         pointing: true,
         secondary: true,
         inverted: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__["default"].Item, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
           name: "Channels",
           active: tab === 'channels',
           onClick: function onClick() {
             return setTab('channels');
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__["default"].Item, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
           name: "Users",
           active: tab === 'users',
           onClick: function onClick() {
             return setTab('users');
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__["default"].Item, {
-          name: "Assignments",
-          active: tab === 'assignments',
-          onClick: function onClick() {
-            return setTab('assignments');
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__["default"].Menu, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__["default"].Item, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Menu, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
             name: "Pings",
             active: tab === 'pings',
             onClick: function onClick() {
               return setTab('pings');
             }
           })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Menu, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
+            name: "Assignments",
+            active: tab === 'assignments',
+            onClick: function onClick() {
+              return setTab('assignments');
+            }
+          })
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "m-5",
-      children: [tab === 'channels' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsChannels__WEBPACK_IMPORTED_MODULE_3__["default"], {}), tab === 'users' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsUsers__WEBPACK_IMPORTED_MODULE_4__["default"], {}), tab === 'assignments' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsAssignments__WEBPACK_IMPORTED_MODULE_5__["default"], {}), tab === 'pings' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsPings__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-        className: "flex flex-col m-0 p-0 overflow-auto h-[87vh] pb-5 overflow-auto",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"], {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"].Field, {
-            style: {
-              display: "none"
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-              type: "file",
-              ref: inputFile,
-              onChange: function onChange() {
-                setFile(inputFile.current.files[0]);
-              }
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"].Button, {
-            onClick: onButtonClick,
-            color: "green",
-            content: "Choose file"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
-            children: file ? file.name : ''
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_9__["default"].Button, {
-            onClick: uploadFile,
-            color: "green",
-            content: "Upload file",
-            disabled: file === undefined
-          })]
-        })
-      })]
+      children: [tab === 'channels' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsChannels__WEBPACK_IMPORTED_MODULE_1__["default"], {}), tab === 'users' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsUsers__WEBPACK_IMPORTED_MODULE_2__["default"], {}), tab === 'pings' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsPings__WEBPACK_IMPORTED_MODULE_4__["default"], {}), tab === 'assignments' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsAssignments__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
     })]
   });
 }
@@ -4587,10 +4675,10 @@ function Settings(props) {
 
 /***/ }),
 
-/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/SettingsAssignments.js":
-/*!****************************************************************************************************************************!*\
-  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/SettingsAssignments.js ***!
-  \****************************************************************************************************************************/
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/SettingsAssignments.js":
+/*!*************************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/SettingsAssignments.js ***!
+  \*************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4603,7 +4691,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pusher-js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/pusher-js/dist/web/pusher.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
+/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
 var _templateObject;
@@ -4629,10 +4717,10 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var DFormInput = (0,styled_components__WEBPACK_IMPORTED_MODULE_4__["default"])(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\t> * {\n\t\tcolor: white !important;\n\t}\n\tinput {\n\t\tbackground-color: #3C4F69 !important;\n\t\tcolor: white !important;\n\t}\n"])));
+var DFormInput = (0,styled_components__WEBPACK_IMPORTED_MODULE_4__["default"])(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    > * {\n        color: white !important;\n    }\n    input {\n        background-color: #3c4f69 !important;\n        color: white !important;\n    }\n"])));
 
 function SettingsAssigntments(props) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(localStorage.getItem('user'))),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(localStorage.getItem("user"))),
       _useState2 = _slicedToArray(_useState, 2),
       user = _useState2[0],
       setUser = _useState2[1];
@@ -4642,15 +4730,59 @@ function SettingsAssigntments(props) {
       progs = _useContext2[0],
       setProgs = _useContext2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
-      _useState4 = _slicedToArray(_useState3, 2),
-      email = _useState4[0],
-      setEmail = _useState4[1];
+  var inputFile = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
-  console.log('settings', progs);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    className: "h-[100%] align-top grid place-items-center",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(undefined),
+      _useState4 = _slicedToArray(_useState3, 2),
+      file = _useState4[0],
+      setFile = _useState4[1];
+
+  var onButtonClick = function onButtonClick() {
+    inputFile.current.click();
+    console.log(inputFile.current.files);
+  };
+
+  var uploadFile = function uploadFile() {
+    var data = new FormData();
+    data.append('files', inputFile.current.files[0]);
+    fetch("/api/program/upload/".concat(progs.programId), {
+      method: "POST",
+      headers: {
+        'Authorization': user.token
+      },
+      body: data
+    }).then(function (response) {
+      return response.json();
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "align-top grid place-items-center",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Field, {
+        style: {
+          display: "none"
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: "file",
+          ref: inputFile,
+          onChange: function onChange() {
+            setFile(inputFile.current.files[0]);
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Button, {
+        onClick: onButtonClick,
+        color: "green",
+        content: "Choose file"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        children: file ? file.name : ""
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Button, {
+        onClick: uploadFile,
+        color: "green",
+        content: "Upload file",
+        disabled: file === undefined
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
       className: "w-[50%]",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
         columns: "equal",
@@ -4673,9 +4805,9 @@ function SettingsAssigntments(props) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
             width: 6
           })]
-        }, 'channe' + index);
+        }, "channel" + index);
       })]
-    })
+    })]
   });
 }
 
@@ -4683,10 +4815,10 @@ function SettingsAssigntments(props) {
 
 /***/ }),
 
-/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/SettingsChannels.js":
-/*!*************************************************************************************************************************!*\
-  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/SettingsChannels.js ***!
-  \*************************************************************************************************************************/
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/SettingsChannels.js":
+/*!**********************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/SettingsChannels.js ***!
+  \**********************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4700,7 +4832,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pusher-js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/pusher-js/dist/web/pusher.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
+/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
 var _templateObject;
@@ -4799,10 +4931,10 @@ function SettingsChannels(props) {
 
 /***/ }),
 
-/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/SettingsPings.js":
-/*!**********************************************************************************************************************!*\
-  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/SettingsPings.js ***!
-  \**********************************************************************************************************************/
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/SettingsPings.js":
+/*!*******************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/SettingsPings.js ***!
+  \*******************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4816,7 +4948,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pusher-js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/pusher-js/dist/web/pusher.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
+/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
 var _templateObject;
@@ -4914,10 +5046,10 @@ function SettingsChannels(props) {
 
 /***/ }),
 
-/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/SettingsUsers.js":
-/*!**********************************************************************************************************************!*\
-  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/SettingsUsers.js ***!
-  \**********************************************************************************************************************/
+/***/ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/SettingsUsers.js":
+/*!*******************************************************************************************************************************!*\
+  !*** ../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/Settings/SettingsUsers.js ***!
+  \*******************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4931,7 +5063,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! semantic-ui-react */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pusher-js */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/pusher-js/dist/web/pusher.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
+/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ProgramContext */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/resources/js/components/ProgramContext.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "../../../../Private/Sync/MEGA/Synced/Projects/Programming/Web/liachat/node_modules/react/jsx-runtime.js");
 var _templateObject;
@@ -5876,7 +6008,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*\n! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com\n*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #e5e7eb; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n*/\n\nhtml {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font family by default.\n2. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-size: 1em; /* 2 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  line-height: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\n[type='button'],\n[type='reset'],\n[type='submit'] {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput:-ms-input-placeholder, textarea:-ms-input-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/*\nEnsure the default browser behavior of the `hidden` attribute.\n*/\n\n[hidden] {\n  display: none;\n}\n\n*, ::before, ::after {\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n}\r\n.m-0 {\n  margin: 0px !important;\n}\r\n.m-5 {\n  margin: 1.25rem !important;\n}\r\n.m-0 {\n  margin: 0px !important;\n}\r\n.my-10 {\n  margin-top: 2.5rem !important;\n  margin-bottom: 2.5rem !important;\n}\r\n.mb-2 {\n  margin-bottom: 0.5rem !important;\n}\r\n.mr-5 {\n  margin-right: 1.25rem !important;\n}\r\n.mt-10 {\n  margin-top: 2.5rem !important;\n}\r\n.ml-auto {\n  margin-left: auto !important;\n}\r\n.mt-\\[100px\\] {\n  margin-top: 100px !important;\n}\r\n.mb-10 {\n  margin-bottom: 2.5rem !important;\n}\r\n.flex {\n  display: flex !important;\n}\r\n.grid {\n  display: grid !important;\n}\r\n.h-\\[100vh\\] {\n  height: 100vh !important;\n}\r\n.h-\\[87vh\\] {\n  height: 87vh !important;\n}\r\n.h-\\[100\\%\\] {\n  height: 100% !important;\n}\r\n.h-\\[100vh\\] {\n  height: 100vh !important;\n}\r\n.h-\\[87vh\\] {\n  height: 87vh !important;\n}\r\n.h-\\[100\\%\\] {\n  height: 100% !important;\n}\r\n.w-full {\n  width: 100% !important;\n}\r\n.w-\\[50\\%\\] {\n  width: 50% !important;\n}\r\n.w-full {\n  width: 100% !important;\n}\r\n.w-\\[50\\%\\] {\n  width: 50% !important;\n}\r\n.cursor-pointer {\n  cursor: pointer !important;\n}\r\n.flex-row {\n  flex-direction: row !important;\n}\r\n.flex-col {\n  flex-direction: column !important;\n}\r\n.flex-col-reverse {\n  flex-direction: column-reverse !important;\n}\r\n.place-content-between {\n  place-content: space-between !important;\n}\r\n.place-items-center {\n  place-items: center !important;\n}\r\n.overflow-auto {\n  overflow: auto !important;\n}\r\n.rounded-l-lg {\n  border-top-left-radius: 0.5rem !important;\n  border-bottom-left-radius: 0.5rem !important;\n}\r\n.border-b-2 {\n  border-bottom-width: 2px !important;\n}\r\n.bg-violet-900 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(76 29 149 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-700 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(55 65 81 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-900 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(17 24 39 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-950 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(9 13 20 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-850 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(26 34 46 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-750 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(39 52 69 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gradient-to-l {\n  background-image: linear-gradient(to left, var(--tw-gradient-stops)) !important;\n}\r\n.from-gray-750 {\n  --tw-gradient-from: #273445 !important;\n  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(39 52 69 / 0)) !important;\n}\r\n.from-gray-850 {\n  --tw-gradient-from: #1A222E !important;\n  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(26 34 46 / 0)) !important;\n}\r\n.to-gray-500 {\n  --tw-gradient-to: #6b7280 !important;\n}\r\n.to-gray-600 {\n  --tw-gradient-to: #4b5563 !important;\n}\r\n.p-2 {\n  padding: 0.5rem !important;\n}\r\n.p-0 {\n  padding: 0px !important;\n}\r\n.p-3 {\n  padding: 0.75rem !important;\n}\r\n.p-0 {\n  padding: 0px !important;\n}\r\n.px-5 {\n  padding-left: 1.25rem !important;\n  padding-right: 1.25rem !important;\n}\r\n.pt-5 {\n  padding-top: 1.25rem !important;\n}\r\n.pb-5 {\n  padding-bottom: 1.25rem !important;\n}\r\n.pr-0 {\n  padding-right: 0px !important;\n}\r\n.pb-2 {\n  padding-bottom: 0.5rem !important;\n}\r\n.pt-3 {\n  padding-top: 0.75rem !important;\n}\r\n.pt-5 {\n  padding-top: 1.25rem !important;\n}\r\n.pb-5 {\n  padding-bottom: 1.25rem !important;\n}\r\n.align-top {\n  vertical-align: top !important;\n}\r\n.align-middle {\n  vertical-align: middle !important;\n}\r\n.align-bottom {\n  vertical-align: bottom !important;\n}\r\n.text-2xl {\n  font-size: 1.5rem !important;\n  line-height: 2rem !important;\n}\r\n.text-xs {\n  font-size: 0.75rem !important;\n  line-height: 1rem !important;\n}\r\n.text-xl {\n  font-size: 1.25rem !important;\n  line-height: 1.75rem !important;\n}\r\n.text-2xl {\n  font-size: 1.5rem !important;\n  line-height: 2rem !important;\n}\r\n.text-sm {\n  font-size: 0.875rem !important;\n  line-height: 1.25rem !important;\n}\r\n.font-bold {\n  font-weight: 700 !important;\n}\r\n.text-black {\n  --tw-text-opacity: 1 !important;\n  color: rgb(0 0 0 / var(--tw-text-opacity)) !important;\n}\r\n.text-gray-500 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(107 114 128 / var(--tw-text-opacity)) !important;\n}\r\n.text-gray-700 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(55 65 81 / var(--tw-text-opacity)) !important;\n}\r\n.text-gray-200 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;\n}\r\n.text-neutral-500 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(115 115 115 / var(--tw-text-opacity)) !important;\n}\r\n.text-red-500 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(239 68 68 / var(--tw-text-opacity)) !important;\n}\r\n.filter {\n  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*\n! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com\n*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #e5e7eb; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n*/\n\nhtml {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font family by default.\n2. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-size: 1em; /* 2 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  line-height: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\n[type='button'],\n[type='reset'],\n[type='submit'] {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput:-ms-input-placeholder, textarea:-ms-input-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/*\nEnsure the default browser behavior of the `hidden` attribute.\n*/\n\n[hidden] {\n  display: none;\n}\n\n*, ::before, ::after {\n  --tw-translate-x: 0;\n  --tw-translate-y: 0;\n  --tw-rotate: 0;\n  --tw-skew-x: 0;\n  --tw-skew-y: 0;\n  --tw-scale-x: 1;\n  --tw-scale-y: 1;\n  --tw-pan-x:  ;\n  --tw-pan-y:  ;\n  --tw-pinch-zoom:  ;\n  --tw-scroll-snap-strictness: proximity;\n  --tw-ordinal:  ;\n  --tw-slashed-zero:  ;\n  --tw-numeric-figure:  ;\n  --tw-numeric-spacing:  ;\n  --tw-numeric-fraction:  ;\n  --tw-ring-inset:  ;\n  --tw-ring-offset-width: 0px;\n  --tw-ring-offset-color: #fff;\n  --tw-ring-color: rgb(59 130 246 / 0.5);\n  --tw-ring-offset-shadow: 0 0 #0000;\n  --tw-ring-shadow: 0 0 #0000;\n  --tw-shadow: 0 0 #0000;\n  --tw-shadow-colored: 0 0 #0000;\n  --tw-blur:  ;\n  --tw-brightness:  ;\n  --tw-contrast:  ;\n  --tw-grayscale:  ;\n  --tw-hue-rotate:  ;\n  --tw-invert:  ;\n  --tw-saturate:  ;\n  --tw-sepia:  ;\n  --tw-drop-shadow:  ;\n  --tw-backdrop-blur:  ;\n  --tw-backdrop-brightness:  ;\n  --tw-backdrop-contrast:  ;\n  --tw-backdrop-grayscale:  ;\n  --tw-backdrop-hue-rotate:  ;\n  --tw-backdrop-invert:  ;\n  --tw-backdrop-opacity:  ;\n  --tw-backdrop-saturate:  ;\n  --tw-backdrop-sepia:  ;\n}\r\n.m-0 {\n  margin: 0px !important;\n}\r\n.m-5 {\n  margin: 1.25rem !important;\n}\r\n.my-10 {\n  margin-top: 2.5rem !important;\n  margin-bottom: 2.5rem !important;\n}\r\n.mb-2 {\n  margin-bottom: 0.5rem !important;\n}\r\n.mr-5 {\n  margin-right: 1.25rem !important;\n}\r\n.mt-10 {\n  margin-top: 2.5rem !important;\n}\r\n.mt-\\[100px\\] {\n  margin-top: 100px !important;\n}\r\n.mb-10 {\n  margin-bottom: 2.5rem !important;\n}\r\n.flex {\n  display: flex !important;\n}\r\n.grid {\n  display: grid !important;\n}\r\n.h-\\[100\\%\\] {\n  height: 100% !important;\n}\r\n.h-\\[100vh\\] {\n  height: 100vh !important;\n}\r\n.h-\\[87vh\\] {\n  height: 87vh !important;\n}\r\n.h-\\[100\\%\\] {\n  height: 100% !important;\n}\r\n.max-h-full {\n  max-height: 100% !important;\n}\r\n.w-\\[50\\%\\] {\n  width: 50% !important;\n}\r\n.w-full {\n  width: 100% !important;\n}\r\n.w-\\[50\\%\\] {\n  width: 50% !important;\n}\r\n.cursor-pointer {\n  cursor: pointer !important;\n}\r\n.flex-row {\n  flex-direction: row !important;\n}\r\n.flex-col {\n  flex-direction: column !important;\n}\r\n.flex-col-reverse {\n  flex-direction: column-reverse !important;\n}\r\n.place-content-between {\n  place-content: space-between !important;\n}\r\n.place-items-center {\n  place-items: center !important;\n}\r\n.overflow-auto {\n  overflow: auto !important;\n}\r\n.overflow-hidden {\n  overflow: hidden !important;\n}\r\n.rounded-l-lg {\n  border-top-left-radius: 0.5rem !important;\n  border-bottom-left-radius: 0.5rem !important;\n}\r\n.border-b-2 {\n  border-bottom-width: 2px !important;\n}\r\n.bg-violet-900 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(76 29 149 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-orange-700 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(194 65 12 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-700 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(55 65 81 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-900 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(17 24 39 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-950 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(9 13 20 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-850 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(26 34 46 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gray-750 {\n  --tw-bg-opacity: 1 !important;\n  background-color: rgb(39 52 69 / var(--tw-bg-opacity)) !important;\n}\r\n.bg-gradient-to-l {\n  background-image: linear-gradient(to left, var(--tw-gradient-stops)) !important;\n}\r\n.from-gray-750 {\n  --tw-gradient-from: #273445 !important;\n  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(39 52 69 / 0)) !important;\n}\r\n.from-gray-850 {\n  --tw-gradient-from: #1A222E !important;\n  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(26 34 46 / 0)) !important;\n}\r\n.to-gray-500 {\n  --tw-gradient-to: #6b7280 !important;\n}\r\n.to-gray-600 {\n  --tw-gradient-to: #4b5563 !important;\n}\r\n.p-2 {\n  padding: 0.5rem !important;\n}\r\n.p-0 {\n  padding: 0px !important;\n}\r\n.p-3 {\n  padding: 0.75rem !important;\n}\r\n.px-5 {\n  padding-left: 1.25rem !important;\n  padding-right: 1.25rem !important;\n}\r\n.pt-5 {\n  padding-top: 1.25rem !important;\n}\r\n.pb-5 {\n  padding-bottom: 1.25rem !important;\n}\r\n.pr-0 {\n  padding-right: 0px !important;\n}\r\n.pb-2 {\n  padding-bottom: 0.5rem !important;\n}\r\n.pt-3 {\n  padding-top: 0.75rem !important;\n}\r\n.align-top {\n  vertical-align: top !important;\n}\r\n.align-middle {\n  vertical-align: middle !important;\n}\r\n.align-bottom {\n  vertical-align: bottom !important;\n}\r\n.text-sm {\n  font-size: 0.875rem !important;\n  line-height: 1.25rem !important;\n}\r\n.text-2xl {\n  font-size: 1.5rem !important;\n  line-height: 2rem !important;\n}\r\n.text-xs {\n  font-size: 0.75rem !important;\n  line-height: 1rem !important;\n}\r\n.text-xl {\n  font-size: 1.25rem !important;\n  line-height: 1.75rem !important;\n}\r\n.text-sm {\n  font-size: 0.875rem !important;\n  line-height: 1.25rem !important;\n}\r\n.text-2xl {\n  font-size: 1.5rem !important;\n  line-height: 2rem !important;\n}\r\n.font-bold {\n  font-weight: 700 !important;\n}\r\n.text-black {\n  --tw-text-opacity: 1 !important;\n  color: rgb(0 0 0 / var(--tw-text-opacity)) !important;\n}\r\n.text-gray-500 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(107 114 128 / var(--tw-text-opacity)) !important;\n}\r\n.text-gray-700 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(55 65 81 / var(--tw-text-opacity)) !important;\n}\r\n.text-gray-200 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(229 231 235 / var(--tw-text-opacity)) !important;\n}\r\n.text-neutral-500 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(115 115 115 / var(--tw-text-opacity)) !important;\n}\r\n.text-red-500 {\n  --tw-text-opacity: 1 !important;\n  color: rgb(239 68 68 / var(--tw-text-opacity)) !important;\n}\r\n.filter {\n  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

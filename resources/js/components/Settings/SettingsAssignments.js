@@ -28,7 +28,7 @@ function SettingsAssigntments(props) {
         let data = new FormData();
 
         data.append('files', inputFile.current.files[0])
-        fetch(`http://localhost:8000/api/program/upload/${progs.programId}`, {
+        fetch(`/api/program/upload/${progs.programId}`, {
             method: "POST",
             headers: {
                 'Authorization': user.token,

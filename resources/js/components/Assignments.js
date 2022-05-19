@@ -20,7 +20,7 @@ function Assigntments(props) {
 	const [email, setEmail] = useState('');
 
 	return (
-		<div className="h-[100%] align-top grid place-items-center">
+		<div className="h-[100vh] align-top grid place-items-center overflow-auto">
 			<Grid className="w-[50%]">
 				<Grid.Row>
 				</Grid.Row>
