@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import ReactDOM from 'react-dom';
+import { useNavigate } from "react-router-dom";
 import { Grid, Segment } from 'semantic-ui-react';
 import {
 	BrowserRouter as Router,
@@ -9,7 +10,8 @@ import {
 } from "react-router-dom";
 import ProgramsBar from './ProgramsBar';
 import ChannelsBar from './ChannelsBar';
-import Settings from './Settings'
+import Settings from './Settings/Settings'
+import Assignments from './Assignments';
 import Chat from './Chat';
 import { ProgramContext } from './ProgramContext';
 import UserContext from './UserContext';
@@ -17,6 +19,7 @@ import UserContext from './UserContext';
 
 function MainView(props) {
 	const { user, setUser } = useContext(UserContext);
+	const navigate = useNavigate();
 	const [isLoading, setIsLoading] = useState(true);
 	const [channelId, setChannelId] = useState(parseInt(useParams().channel));
 	const [programId, setProgramId] = useState(parseInt(useParams().program));
@@ -27,7 +30,7 @@ function MainView(props) {
 
 	//Perform initial fetch
 	useEffect(() => {
-		fetch(`/api/program/init/${programId}/${channelId}`, {
+		fetch(`/api/program/init/${programId}/${(isNaN(channelId) || channelId === undefined) ? 0 : channelId}`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -43,28 +46,28 @@ function MainView(props) {
 					resources: data.resources,
 					programs: data.programs,
 					channels: channelId !== 0 ? data.program.channels : [...progs.channels],
-					messages: channelId !== 0 ? data.messages : [...progs.messages],
+					messages: data.messages,
 					users: data.users,
 				});
 			});
-	
 	}, []);
 
 	useEffect(() => {
-		if(!isLoading){
-			window.history.replaceState(null, '',`/program/${progs.programId}/channel/${progs.channelId}`)
-		}
-	  
-	  }, [progs.channelId])
+		console.log('Current view:',props.view);
+	}, [props.view]);
 
-	function changeChannel(channelId) {
-		setChannelId(channelId);
-		setUpdateChat(!updateChat);
-	}
+	useEffect(() => {/*
+		if (!isLoading) {
+			if (progs.channelId === undefined || isNaN(progs.channelId)) {
+				window.history.replaceState(null, '', `/program/${progs.programId}/settings`);
+				navigate(`/program/${progs.programId}/settings`);
+			} else {
+				window.history.replaceState(null, '', `/program/${progs.programId}/channel/${progs.channelId}`);
+				navigate(`/program/${progs.programId}/channel/${progs.channelId}`);
+			}
+		}*/
+	}, [progs.channelId])
 
-	function changeProgram(programId) {
-		setProgramId(programId);
-	}
 
 	return (
 		<div className="m-0">
@@ -78,15 +81,18 @@ function MainView(props) {
 							<ChannelsBar />
 						</Grid.Column>
 						<Grid.Column width={10} className="p-0 bg-gray-750">
-							{progs.channelId !== 0 &&
-							<Chat
-								initMessages={messages}
-								channelId={channelId}
-								channel={channel}
-								update={updateChat}
-							/>}
-							{progs.channelId === 0 &&
+							{props.view === 'channels' &&
+								<Chat
+									initMessages={messages}
+									channelId={channelId}
+									channel={channel}
+									update={updateChat}
+								/>}
+							{props.view === 'settings' &&
 								<Settings />
+							}
+							{props.view === 'assignments' &&
+								<Assignments />
 							}
 						</Grid.Column>
 						<Grid.Column width={2} className="p-0">

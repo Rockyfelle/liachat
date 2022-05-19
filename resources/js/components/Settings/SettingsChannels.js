@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { Grid, Segment, Form, Input, Menu, Button } from "semantic-ui-react";
 import Pusher from "pusher-js";
-import { ProgramContext } from "./ProgramContext";
+import { ProgramContext } from "../ProgramContext";
 import styled from 'styled-components';
 
 const DFormInput = styled(Form.Input)`
@@ -14,12 +14,12 @@ const DFormInput = styled(Form.Input)`
 	}
 `;
 
-function SettingsAssigntments(props) {
+function SettingsChannels(props) {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 	const [progs, setProgs] = useContext(ProgramContext);
-	const [email, setEmail] = useState('');
+	const [name, setName] = useState('');
 
-	console.log('settings',progs);
+
 
 	return (
 		<div className="h-[100%] align-top grid place-items-center">
@@ -30,26 +30,43 @@ function SettingsAssigntments(props) {
 					columns="equal"
 				>
 					<Grid.Column>
-
+						<Form>
+							<DFormInput
+								label="Name"
+								fluid
+								placeholder="Name"
+								value={name}
+								onChange={(e) => setName(e.target.value)}
+							/>
+						</Form>
 					</Grid.Column>
 				</Grid.Row>
-				<Grid.Row>
+				<Grid.Row className="mb-10">
 					<Grid.Column>
-
+						<Button
+							color="green"
+							fluid
+						>
+							Add Channel
+						</Button>
 					</Grid.Column>
 				</Grid.Row>
-				{progs.resources.map((file, index) => {
+				{progs.channels.map((channel, index) => {
 					return (
-						<Grid.Row key={'channe' + index}>
+						<Grid.Row key={'channel' + index}>
 							<Grid.Column
 								width={10}
-								className="text-sm"
+								className="text-2xl"
 							>
-								<h1 className="text-2xl">{file.file_name}</h1>
-								<a href={file.stringyboi} target="_blank">{file.stringyboi}</a>
+								<h1 className="text-2xl">{channel.name}</h1>
 							</Grid.Column>
 							<Grid.Column width={6}>
-
+								<Button
+									color="red"
+									fluid
+								>
+									Remove
+								</Button>
 							</Grid.Column>
 						</Grid.Row>
 					);
@@ -62,4 +79,4 @@ function SettingsAssigntments(props) {
 	);
 }
 
-export default SettingsAssigntments;
+export default SettingsChannels;

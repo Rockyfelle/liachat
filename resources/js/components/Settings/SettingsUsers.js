@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { Grid, Segment, Form, Input, Menu, Button } from "semantic-ui-react";
 import Pusher from "pusher-js";
-import { ProgramContext } from "./ProgramContext";
+import { ProgramContext } from "../ProgramContext";
 import styled from 'styled-components';
 
 const DFormInput = styled(Form.Input)`
