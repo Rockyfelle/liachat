@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import ProgramsBar from './ProgramsBar';
 import ChannelsBar from './ChannelsBar';
+import UsersBar from './UsersBar';
 import Settings from './Settings/Settings'
 import Assignments from './Assignments';
 import Chat from './Chat';
@@ -53,7 +54,7 @@ function MainView(props) {
 	}, []);
 
 	useEffect(() => {
-		console.log('Current view:',props.view);
+		console.log('Current view:', props.view);
 	}, [props.view]);
 
 	useEffect(() => {/*
@@ -95,10 +96,8 @@ function MainView(props) {
 								<Assignments />
 							}
 						</Grid.Column>
-						<Grid.Column width={2} className="p-0">
-							<Segment className="h-[100vh]" inverted>
-								Sidebar 3
-							</Segment>
+						<Grid.Column width={2} className="p-0 bg-gray-850">
+							<UsersBar />
 						</Grid.Column>
 					</Grid.Row>
 				}
