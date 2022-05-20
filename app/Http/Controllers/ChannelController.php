@@ -109,12 +109,15 @@ class ChannelController extends Controller
 		if(Auth::user()->rolse == 'student'){
 			return ['ok' => false, 'text' => 'You do not have permission to create channels'];
 		}
+		error_log($request);
 		$channel = Channel::create([
 			'program_id' => $programId,
-			'name' => $request->channelName,
+			'name' => $request->channel_name,
 			'hidden' => $request->hidden,
 		]); 
 
 		return ['ok'=> true, 'channel' => $channel];
 	}
 }
+
+

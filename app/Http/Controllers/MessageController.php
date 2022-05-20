@@ -37,7 +37,7 @@ class MessageController extends Controller
 		if (!$userProgram) {
 			return ['ok' => false, 'text' => 'You do not have access to this program'];
 		}
-
+		error_log($request);
 		$message = Message::create([
 			'channel_id' => $channelId,
 			'user_id' => Auth::user()->id,
