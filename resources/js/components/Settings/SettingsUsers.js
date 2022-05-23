@@ -41,7 +41,7 @@ function SettingsChannels(props) {
 		})
 			.then(response => response.json())
 			.then(data => {
-				if (data.success) {
+				if (data.ok) {
 					setEmail('');
 					setName('');
 					setToken(data.registerToken);

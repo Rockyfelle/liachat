@@ -29,7 +29,7 @@ function LoginPage() {
 		})
 			.then(response => response.json())
 			.then(data => {
-				if (data.success) {
+				if (data.ok) {
 
 					//Update hooks
 					setUser(data.user);

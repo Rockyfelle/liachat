@@ -30,6 +30,7 @@ Route::post('user/reset', [PassportAuthController::class, 'reset2']);
 Route::middleware('auth:api')->group(function () {
 	Route::get('program/{id}', [ProgramController::class, 'program']);
 	Route::get('program/load/{id}/', [ProgramController::class, 'load']);
+	Route::delete('channel/{id}/', [ChannelController::class, 'delete']);
 	Route::get('channel/load/{id}/', [ChannelController::class, 'load']);
 	Route::get('channel/new/{id}/{lastMessage}/', [ChannelController::class, 'new']);
 	Route::get('channel/{id}/{dateTo}/{count}', [ChannelController::class, 'all']);

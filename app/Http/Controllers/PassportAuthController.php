@@ -15,9 +15,9 @@ class PassportAuthController extends Controller
 		$user = User::where('register_token', $token)->first();
 
 		if ($user) {
-			return ['success' => true, 'email' => $user->email];
+			return ['ok' => true, 'email' => $user->email];
 		} else {
-			return ['success' => false, 'error' => 'Account not found'];
+			return ['ok' => false, 'error' => 'Account not found'];
 		}
 	}
 
@@ -30,9 +30,9 @@ class PassportAuthController extends Controller
 			$user->register_token = '';
 			$user->save();
 
-			return ['success' => true];
+			return ['ok' => true];
 		} else {
-			return ['success' => false, 'error' => 'Account not found'];
+			return ['ok' => false, 'error' => 'Account not found'];
 		}
 	}
 
@@ -60,12 +60,12 @@ class PassportAuthController extends Controller
 					'program_id' => $request->programId,
 				]);
 
-				return response()->json(['success' => true, 'registerToken' => $registerToken], 200);
+				return response()->json(['ok' => true, 'registerToken' => $registerToken], 200);
 			} else {
-				return ['success' => false, 'text' => 'You are not authorized to register'];
+				return ['ok' => false, 'text' => 'You are not authorized to register'];
 			}
 		} else {
-			return ['success' => false, 'text' => 'You are not logged in'];
+			return ['ok' => false, 'text' => 'You are not logged in'];
 		}
 	}
 
@@ -82,10 +82,10 @@ class PassportAuthController extends Controller
 		if (auth()->attempt($data)) {
 			$token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
 
-			return response()->json(['success' => true, 'token' => 'Bearer ' . $token, 'user' => auth()->user()], 200);
+			return response()->json(['ok' => true, 'token' => 'Bearer ' . $token, 'user' => auth()->user()], 200);
 		} else {
 
-			return response()->json(['success' => false, 'id' => 'login-incorrect', 'text' => 'The password is wrong or the account does not exist.'], 200);
+			return response()->json(['ok' => false, 'id' => 'login-incorrect', 'text' => 'The password is wrong or the account does not exist.'], 200);
 		}
 	}
 }

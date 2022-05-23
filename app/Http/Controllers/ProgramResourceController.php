@@ -42,7 +42,7 @@ class ProgramResourceController extends Controller
 			$link = $request->getHttpHost();
 			$resource->stringyboi = 'http://' . $link . '/uploads/' . $resource->file_name . '.' . $resource->file_extension;
 		}
-		return ['success' => true, 'response' => $resources];
+		return ['ok' => true, 'response' => $resources];
 	}
 
 	public function upload(Request $request, $id)

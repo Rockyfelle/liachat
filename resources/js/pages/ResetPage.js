@@ -33,7 +33,7 @@ function LoginPage() {
 		})
 			.then(response => response.json())
 			.then(data => {
-				if (data.success) {
+				if (data.ok) {
 					setIsLoading(false);
 					setEmail(data.email);
 				} else {
@@ -57,7 +57,7 @@ function LoginPage() {
 		})
 			.then(response => response.json())
 			.then(data => {
-				if (data.success) {
+				if (data.ok) {
 					setIsUploading(false);
 					setError('');
 					window.location.href = '/login';
