@@ -4089,24 +4089,7 @@ function Chat(props) {
     } else {
       isMounted.current = true;
     }
-  }, [progs.channelId]); //const date = new Date(Date.now()).toISOString();
-
-  var date = '2022-04-12T21:20:12.000000Z';
-  /*useEffect(() => {
-  	fetch(`/api/channel/3/${date}/50`, {
-  		method: 'GET',
-  		headers: {
-  			'Content-Type': 'application/json',
-  			'Authorization': user.token,
-  		},
-  	})
-  		.then(response => response.json())
-  		.then(data => {
-  			setIsLoading(false);
-  			setChannel(data.channel);
-  			setMessages(data.messages);
-  		});
-  }, []);*/
+  }, [progs.channelId]);
 
   function postMessage() {
     if (input.length > 0) {
@@ -4129,68 +4112,9 @@ function Chat(props) {
       }).then(function (data) {//setSendMessages([]);
       });
     }
-  }
-  /*	function fetchUpdates() {
-  	console.log("a load");
-  	if (!isLoading) {
-  		console.log("a tick");
-  		fetch(`/api/channel/new/3/${messages[0].id}`, {
-  			method: 'GET',
-  			headers: {
-  				'Content-Type': 'application/json',
-  				'Authorization': user.token,
-  			},
-  		})
-  			.then(response => response.json())
-  			.then(data => {
-  				setChannel(data.channel);
-  				const moreModdedMessages = data.messages.concat(messages);
-  				setMessages(moreModdedMessages);
-  				setSendMessages(sendMessages.filter(x => data.messages.find(y => y.content === x.content) === undefined));
-  			});
-  	}
-  }*/
-  //When in a new channel, bind new websocket
+  } //When in a new channel, bind new websocket
 
 
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (channel !== undefined) {
-      var _pusher = new (pusher_js__WEBPACK_IMPORTED_MODULE_1___default())("3d9f754551f397c1d55c", {
-        cluster: 'eu'
-      });
-
-      var broadcastChannel = _pusher.subscribe('channel' + progs.channelId);
-
-      broadcastChannel.bind('new_message', function (data) {
-        console.log(progs.channelId);
-        var parsed = data.message;
-        setSendMessages(function (prevMessages) {
-          return prevMessages.filter(function (x) {
-            return parsed.messages.find(function (y) {
-              return y.content === x.content;
-            }) === undefined;
-          });
-        }); //setMessages(prevMessages => (parsed.messages.concat(prevMessages)));
-        //Update progs
-
-        setProgs(function (prevProgs) {
-          return _objectSpread(_objectSpread({}, prevProgs), {}, {
-            messages: parsed.messages.concat(prevProgs.messages)
-          });
-        });
-      });
-      setPusher(_pusher);
-      setBroadcast(broadcastChannel);
-      return function () {
-        broadcastChannel.unbind('new_message');
-        broadcastChannel.unsubscribe();
-      };
-    }
-
-    return function () {
-      if (broadcast) broadcast.unbind('broadcaster');
-    };
-  }, [progs.channelId]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (channel !== undefined && progs.channelId !== null) {
       var _privatePusher = new (pusher_js__WEBPACK_IMPORTED_MODULE_1___default())("3d9f754551f397c1d55c", {
@@ -4234,29 +4158,7 @@ function Chat(props) {
     return function () {
       if (broadcast) broadcast.unbind('broadcaster');
     };
-  }, [progs.channelId]); //useInterval(fetchUpdates, 750);
-
-  function useInterval(callback, delay) {
-    var savedCallback = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(); // Remember the latest callback.
-
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-      savedCallback.current = callback;
-    }, [callback]); // Set up the interval.
-
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-      function tick() {
-        savedCallback.current();
-      }
-
-      if (delay !== null) {
-        var id = setInterval(tick, delay);
-        return function () {
-          return clearInterval(id);
-        };
-      }
-    }, [delay]);
-  }
-
+  }, [progs.channelId]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "h-[100vh] align-top",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {

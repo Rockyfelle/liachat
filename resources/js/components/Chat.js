@@ -50,25 +50,6 @@ function Chat(props) {
 		}
 	}, [progs.channelId]);
 
-	//const date = new Date(Date.now()).toISOString();
-	const date = '2022-04-12T21:20:12.000000Z';
-
-	/*useEffect(() => {
-		fetch(`/api/channel/3/${date}/50`, {
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json',
-				'Authorization': user.token,
-			},
-		})
-			.then(response => response.json())
-			.then(data => {
-				setIsLoading(false);
-				setChannel(data.channel);
-				setMessages(data.messages);
-			});
-	}, []);*/
-
 	function postMessage() {
 		if (input.length > 0) {
 			setInput('');
@@ -90,63 +71,7 @@ function Chat(props) {
 				});
 		}
 	}
-
-	/*	function fetchUpdates() {
-		console.log("a load");
-		if (!isLoading) {
-			console.log("a tick");
-			fetch(`/api/channel/new/3/${messages[0].id}`, {
-				method: 'GET',
-				headers: {
-					'Content-Type': 'application/json',
-					'Authorization': user.token,
-				},
-			})
-				.then(response => response.json())
-				.then(data => {
-					setChannel(data.channel);
-					const moreModdedMessages = data.messages.concat(messages);
-					setMessages(moreModdedMessages);
-					setSendMessages(sendMessages.filter(x => data.messages.find(y => y.content === x.content) === undefined));
-				});
-		}
-	}*/
-
 	//When in a new channel, bind new websocket
-	useEffect(() => {
-
-		if (channel !== undefined) {
-			const pusher = new Pusher(process.env.MIX_PUSHER_APP_KEY, {
-				cluster: 'eu'
-			});
-			const broadcastChannel = pusher.subscribe('channel' + progs.channelId);
-			broadcastChannel.bind('new_message', function (data) {
-				console.log(progs.channelId)
-
-				const parsed = data.message;
-				setSendMessages(prevMessages => prevMessages.filter(x => parsed.messages.find(y => y.content === x.content) === undefined));
-				//setMessages(prevMessages => (parsed.messages.concat(prevMessages)));
-
-				//Update progs
-				setProgs(prevProgs => { return { ...prevProgs, messages: parsed.messages.concat(prevProgs.messages) } });
-			});
-
-			setPusher(pusher);
-			setBroadcast(broadcastChannel);
-
-			return () => {
-				broadcastChannel.unbind('new_message');
-				broadcastChannel.unsubscribe();
-			}
-		}
-
-		return (() => {
-			if (broadcast) broadcast.unbind('broadcaster')
-		});
-
-	}, [progs.channelId]);
-
-
 		useEffect(() => {
 
 		if (channel !== undefined && progs.channelId !== null) {
@@ -185,28 +110,6 @@ function Chat(props) {
 		});
 
 	}, [progs.channelId]);
-
-	//useInterval(fetchUpdates, 750);
-
-	function useInterval(callback, delay) {
-		const savedCallback = useRef();
-
-		// Remember the latest callback.
-		useEffect(() => {
-			savedCallback.current = callback;
-		}, [callback]);
-
-		// Set up the interval.
-		useEffect(() => {
-			function tick() {
-				savedCallback.current();
-			}
-			if (delay !== null) {
-				let id = setInterval(tick, delay);
-				return () => clearInterval(id);
-			}
-		}, [delay]);
-	}
 
 	return (
 		<div className="h-[100vh] align-top">
