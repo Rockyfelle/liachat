@@ -6,8 +6,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Channel;
 use App\Models\Message;
+use App\Models\Program;
+use App\Models\UserProgram;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class ChannelController extends Controller
 {
 	public function all(Request $request, $id, $dateTo, $count)
@@ -199,4 +201,40 @@ class ChannelController extends Controller
 			return ['ok' => false, 'text' => $e];
 		}
 	}
+	
+
+	public function createChannel(Request $request, $programId){
+		if(!$programId){
+			return ["ok "=> false, 'text'=> 'Program not specified'];
+		}
+		$program = Program::find($programId);
+
+		if(!$program){
+			return ["ok "=> false, 'text'=> 'Program does not exist'];
+		}
+
+		//Check if user does not have access to program
+		$userProgram = UserProgram::where('user_id', Auth::user()->id)
+			->where('program_id', $program->id)
+			->first();
+
+		//Error if user does not have access to program
+		if (!$userProgram) {
+			return ['ok' => false, 'text' => 'You do not have access to this program'];
+		}
+		//Only admin or teacher roles can create channels
+		if(Auth::user()->rolse == 'student'){
+			return ['ok' => false, 'text' => 'You do not have permission to create channels'];
+		}
+		error_log($request);
+		$channel = Channel::create([
+			'program_id' => $programId,
+			'name' => $request->channel_name,
+			'hidden' => $request->hidden,
+		]); 
+
+		return ['ok'=> true, 'channel' => $channel];
+	}
 }
+
+

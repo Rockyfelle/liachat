@@ -19,7 +19,25 @@ function SettingsChannels(props) {
 	const [progs, setProgs] = useContext(ProgramContext);
 	const [name, setName] = useState('');
 
+	const createChannel = () => {
+		console.log(name)
+		fetch(`/api/channel/create_channel/${progs.programId}`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': user.token,
+			},
+			body: JSON.stringify({
 
+				channel_name: name,
+				hidden: 0,
+			}
+			)
+		})
+		.then((response)=> response.json())
+		//if ok append channel into progs.
+
+	};
 
 	return (
 		<div className="h-[100%] align-top grid place-items-center">
@@ -46,6 +64,7 @@ function SettingsChannels(props) {
 						<Button
 							color="green"
 							fluid
+							onClick={createChannel}
 						>
 							Add Channel
 						</Button>
