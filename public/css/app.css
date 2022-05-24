@@ -445,6 +445,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-10 {
   margin-top: 2.5rem !important;
 }
+.mt-8 {
+  margin-top: 2rem !important;
+}
+.mt-3 {
+  margin-top: 0.75rem !important;
+}
 .mt-\[100px\] {
   margin-top: 100px !important;
 }
@@ -477,9 +483,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-full {
   width: 100% !important;
-}
-.w-\[50\%\] {
-  width: 50% !important;
 }
 .cursor-pointer {
   cursor: pointer !important;
@@ -607,9 +610,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 1.25rem !important;
   line-height: 1.75rem !important;
 }
-.text-2xl {
-  font-size: 1.5rem !important;
-  line-height: 2rem !important;
+.text-lg {
+  font-size: 1.125rem !important;
+  line-height: 1.75rem !important;
 }
 .font-bold {
   font-weight: 700 !important;
@@ -629,6 +632,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-gray-200 {
   --tw-text-opacity: 1 !important;
   color: rgb(229 231 235 / var(--tw-text-opacity)) !important;
+}
+.text-gray-400 {
+  --tw-text-opacity: 1 !important;
+  color: rgb(156 163 175 / var(--tw-text-opacity)) !important;
 }
 .text-neutral-500 {
   --tw-text-opacity: 1 !important;

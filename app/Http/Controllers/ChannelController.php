@@ -9,7 +9,7 @@ use App\Models\Message;
 use App\Models\Program;
 use App\Models\UserProgram;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
 class ChannelController extends Controller
 {
 	public function all(Request $request, $id, $dateTo, $count)
@@ -84,7 +84,6 @@ class ChannelController extends Controller
 
 			//Return data
 			return ['ok' => true, 'channel' => $channel, 'messages' => $messages];
-
 		} catch (\Exception $e) {
 
 			//Rollback transaction
@@ -154,10 +153,10 @@ class ChannelController extends Controller
 		return ['ok' => true, 'exists' => false];
 	}
 
-	public function delete(Request $request)
+	public function delete(Request $request, $programId)
 	{
 		//Error if channel isn't specified
-		if (!$request->has('channel') || !$request->channel) {
+		if (!$request->has('id') || !$request->id) {
 			return ['ok' => false, 'error' => 'Channel not specified'];
 		}
 
@@ -187,11 +186,22 @@ class ChannelController extends Controller
 			//Delete channel
 			$channel->delete();
 
+			//find program by id
+			$program = Program::find($programId);
+			
+			//Error if program does not exist
+			if (!$program) {
+				return ['ok' => false, 'error' => 'Program not found'];
+			}
+			
+			$program->channels;
+
 			//Commit transaction
 			DB::commit();
 
 			//Return success
-			return ['ok' => true];
+
+			return ['ok' => true, 'program' => $program];
 		} catch (\Exception $e) {
 
 			//Rollback transaction
@@ -201,16 +211,17 @@ class ChannelController extends Controller
 			return ['ok' => false, 'text' => $e];
 		}
 	}
-	
 
-	public function createChannel(Request $request, $programId){
-		if(!$programId){
-			return ["ok "=> false, 'text'=> 'Program not specified'];
+
+	public function create(Request $request, $programId)
+	{
+		if (!$programId) {
+			return ["ok " => false, 'text' => 'Program not specified'];
 		}
 		$program = Program::find($programId);
-
-		if(!$program){
-			return ["ok "=> false, 'text'=> 'Program does not exist'];
+		$program->channels;
+		if (!$program) {
+			return ["ok " => false, 'text' => 'Program does not exist'];
 		}
 
 		//Check if user does not have access to program
@@ -223,7 +234,7 @@ class ChannelController extends Controller
 			return ['ok' => false, 'text' => 'You do not have access to this program'];
 		}
 		//Only admin or teacher roles can create channels
-		if(Auth::user()->rolse == 'student'){
+		if (Auth::user()->rolse == 'student') {
 			return ['ok' => false, 'text' => 'You do not have permission to create channels'];
 		}
 		error_log($request);
@@ -231,10 +242,10 @@ class ChannelController extends Controller
 			'program_id' => $programId,
 			'name' => $request->channel_name,
 			'hidden' => $request->hidden,
-		]); 
+		]);
+		$program = Program::find($programId);
+		$program->channels;
 
-		return ['ok'=> true, 'channel' => $channel];
+		return ['ok' => true, 'program' => $program];
 	}
 }
-
-

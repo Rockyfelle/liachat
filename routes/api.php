@@ -31,6 +31,7 @@ Route::middleware('auth:api')->group(function () {
 	Route::get('program/{id}', [ProgramController::class, 'program']);
 	Route::get('program/load/{id}/', [ProgramController::class, 'load']);
 	Route::delete('channel/{id}/', [ChannelController::class, 'delete']);
+	Route::post('channel/{id}/', [ChannelController::class, 'create']);
 	Route::get('channel/load/{id}/', [ChannelController::class, 'load']);
 	Route::get('channel/new/{id}/{lastMessage}/', [ChannelController::class, 'new']);
 	Route::get('channel/{id}/{dateTo}/{count}', [ChannelController::class, 'all']);
@@ -39,5 +40,5 @@ Route::middleware('auth:api')->group(function () {
 	Route::post('program/upload/{id}', [ProgramResourceController::class, 'upload'])->name('files');
 	Route::post('user/register', [PassportAuthController::class, 'register']);
 	Route::get('resources/all/{id}', [ProgramResourceController::class, 'all']);
-	Route::post('channel/create_channel/{programId}', [ChannelController::class,'createChannel']);
+	
 });
