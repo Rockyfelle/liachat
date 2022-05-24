@@ -4045,7 +4045,18 @@ function Chat(props) {
       broadcast = _useState22[0],
       setBroadcast = _useState22[1];
 
-  var isMounted = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false); //Load messages when switching channel id
+  var isMounted = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
+
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(undefined),
+      _useState24 = _slicedToArray(_useState23, 2),
+      privatePusher = _useState24[0],
+      setPrivatePusher = _useState24[1];
+
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(undefined),
+      _useState26 = _slicedToArray(_useState25, 2),
+      privateBroadcast = _useState26[0],
+      setPrivateBroadcast = _useState26[1]; //Load messages when switching channel id
+
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (isMounted.current) {
@@ -4170,6 +4181,50 @@ function Chat(props) {
       });
       setPusher(_pusher);
       setBroadcast(broadcastChannel);
+      return function () {
+        broadcastChannel.unbind('new_message');
+        broadcastChannel.unsubscribe();
+      };
+    }
+
+    return function () {
+      if (broadcast) broadcast.unbind('broadcaster');
+    };
+  }, [progs.channelId]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (channel !== undefined && progs.channelId !== null) {
+      var _privatePusher = new (pusher_js__WEBPACK_IMPORTED_MODULE_1___default())("3d9f754551f397c1d55c", {
+        cluster: 'eu',
+        authEndpoint: '/api/pusher',
+        auth: {
+          headers: {
+            'Authorization': user.token
+          }
+        }
+      });
+
+      var broadcastChannel = _privatePusher.subscribe('private-channel' + progs.channelId);
+
+      broadcastChannel.bind('new_message', function (data) {
+        console.log(progs.channelId);
+        var parsed = data.message;
+        setSendMessages(function (prevMessages) {
+          return prevMessages.filter(function (x) {
+            return parsed.messages.find(function (y) {
+              return y.content === x.content;
+            }) === undefined;
+          });
+        }); //setMessages(prevMessages => (parsed.messages.concat(prevMessages)));
+        //Update progs
+
+        setProgs(function (prevProgs) {
+          return _objectSpread(_objectSpread({}, prevProgs), {}, {
+            messages: parsed.messages.concat(prevProgs.messages)
+          });
+        });
+      });
+      setPrivatePusher(_privatePusher);
+      setPrivateBroadcast(broadcastChannel);
       return function () {
         broadcastChannel.unbind('new_message');
         broadcastChannel.unsubscribe();

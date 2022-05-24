@@ -8,6 +8,7 @@ use App\Models\Channel;
 use App\Models\Message;
 use App\Models\UserProgram;
 use App\Events\Broadcaster;
+use App\Events\PrivateBroadcast;
 //use App\Http\Controllers\ChannelController;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,7 +54,8 @@ class MessageController extends Controller
 				$message,
 			],
 		];
-		event(new Broadcaster($toSend, $channelId));
+
+		event(new PrivateBroadcast($toSend, $channelId));
 
 		return ['ok' => true, 'message' => $message];
 	}

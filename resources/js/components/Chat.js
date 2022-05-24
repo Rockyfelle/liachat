@@ -19,7 +19,8 @@ function Chat(props) {
 	const [pusher, setPusher] = useState(undefined);
 	const [broadcast, setBroadcast] = useState(undefined);
 	const isMounted = useRef(false);
-
+	const [privatePusher, setPrivatePusher] = useState(undefined);
+	const [privateBroadcast, setPrivateBroadcast] = useState(undefined);
 
 
 
@@ -132,6 +133,46 @@ function Chat(props) {
 
 			setPusher(pusher);
 			setBroadcast(broadcastChannel);
+
+			return () => {
+				broadcastChannel.unbind('new_message');
+				broadcastChannel.unsubscribe();
+			}
+		}
+
+		return (() => {
+			if (broadcast) broadcast.unbind('broadcaster')
+		});
+
+	}, [progs.channelId]);
+
+
+		useEffect(() => {
+
+		if (channel !== undefined && progs.channelId !== null) {
+			const privatePusher = new Pusher(process.env.MIX_PUSHER_APP_KEY, {
+				cluster: 'eu',
+				authEndpoint: '/api/pusher',
+				auth: {
+					headers: {
+						'Authorization': user.token, 
+					}},
+				
+			});
+			const broadcastChannel = privatePusher.subscribe('private-channel' + progs.channelId);
+			broadcastChannel.bind('new_message', function (data) {
+				console.log(progs.channelId)
+
+				const parsed = data.message;
+				setSendMessages(prevMessages => prevMessages.filter(x => parsed.messages.find(y => y.content === x.content) === undefined));
+				//setMessages(prevMessages => (parsed.messages.concat(prevMessages)));
+
+				//Update progs
+				setProgs(prevProgs => { return { ...prevProgs, messages: parsed.messages.concat(prevProgs.messages) } });
+			});
+
+			setPrivatePusher(privatePusher);
+			setPrivateBroadcast(broadcastChannel);
 
 			return () => {
 				broadcastChannel.unbind('new_message');
