@@ -20,6 +20,8 @@ function App() {
 		<ProgramProvider>
 			<Router>
 				<Routes>
+					<Route path="/" element={<LoginPage />} />
+					
 					<Route path="login" element={<LoginPage />} />
 
 					<Route path="reset/:token" element={<ResetPage />} />
