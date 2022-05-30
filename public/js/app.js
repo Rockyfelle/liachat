@@ -3583,12 +3583,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _pages_LoginPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/LoginPage */ "./resources/js/pages/LoginPage.js");
 /* harmony import */ var _pages_ResetPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/ResetPage */ "./resources/js/pages/ResetPage.js");
-/* harmony import */ var _pages_Dashboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/Dashboard */ "./resources/js/pages/Dashboard.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/node_modules/react-router/index.js");
-/* harmony import */ var _MainView__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MainView */ "./resources/js/components/MainView.js");
-/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ProgramContext */ "./resources/js/components/ProgramContext.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/node_modules/react-router/index.js");
+/* harmony import */ var _MainView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MainView */ "./resources/js/components/MainView.js");
+/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ProgramContext */ "./resources/js/components/ProgramContext.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -3612,7 +3611,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 function App() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
       _useState2 = _slicedToArray(_useState, 2),
@@ -3623,37 +3621,34 @@ function App() {
     user: user,
     setUser: setUser
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ProgramContext__WEBPACK_IMPORTED_MODULE_6__.ProgramProvider, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Routes, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ProgramContext__WEBPACK_IMPORTED_MODULE_5__.ProgramProvider, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "/",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_LoginPage__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_LoginPage__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "login",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_LoginPage__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_LoginPage__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "reset/:token",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_ResetPage__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-          path: "dashboard",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_pages_Dashboard__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_pages_ResetPage__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "program/:program/settings",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_MainView__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_MainView__WEBPACK_IMPORTED_MODULE_4__["default"], {
             view: "settings"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "program/:program/assignments",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_MainView__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_MainView__WEBPACK_IMPORTED_MODULE_4__["default"], {
             view: "assignments"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "program/:program/channel/:channel",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_MainView__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_MainView__WEBPACK_IMPORTED_MODULE_4__["default"], {
             view: "channels"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
           path: "/"
         })]
       })
@@ -3663,8 +3658,8 @@ function App() {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
-if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(App, {}), document.getElementById('app'));
+if (document.getElementById("app")) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(App, {}), document.getElementById("app"));
 }
 
 /***/ }),
@@ -3914,7 +3909,8 @@ function ChannelsBar(props) {
           onClick: function onClick() {
             setProgs(function (prevProgs) {
               return _objectSpread(_objectSpread({}, prevProgs), {}, {
-                channelId: channel.id
+                channelId: channel.id,
+                channel: channel
               });
             });
             window.history.replaceState(null, '', "/program/".concat(progs.programId, "/channel/").concat(channel.id));
@@ -3988,7 +3984,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Chat(props) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(localStorage.getItem('user'))),
+  var _progs$channel$name, _progs$channel;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(localStorage.getItem("user"))),
       _useState2 = _slicedToArray(_useState, 2),
       user = _useState2[0],
       setUser = _useState2[1];
@@ -4023,7 +4021,7 @@ function Chat(props) {
       sendMessages = _useState12[0],
       setSendMessages = _useState12[1];
 
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState14 = _slicedToArray(_useState13, 2),
       input = _useState14[0],
       setInput = _useState14[1];
@@ -4065,10 +4063,10 @@ function Chat(props) {
     if (isMounted.current) {
       setIsLoading(true);
       fetch("/api/channel/load/".concat(progs.channelId, "/"), {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': user.token
+          "Content-Type": "application/json",
+          Authorization: user.token
         }
       }).then(function (response) {
         return response.json();
@@ -4096,18 +4094,18 @@ function Chat(props) {
 
   function postMessage() {
     if (input.length > 0) {
-      setInput('');
+      setInput("");
       var messageId = (Math.random() + 1).toString(16);
       setSendMessages([].concat(_toConsumableArray(sendMessages), [{
         content: input,
-        created_at: '2022-04-12T21:20:12.000000Z',
+        created_at: "2022-04-12T21:20:12.000000Z",
         senderId: messageId
       }]));
       fetch("/api/message/".concat(progs.channelId), {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': user.token
+          "Content-Type": "application/json",
+          Authorization: user.token
         },
         body: JSON.stringify({
           content: input,
@@ -4124,22 +4122,19 @@ function Chat(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (channel !== undefined && progs.channelId !== null) {
       var _privatePusher = new (pusher_js__WEBPACK_IMPORTED_MODULE_1___default())("3d9f754551f397c1d55c", {
-        cluster: 'eu',
-        authEndpoint: '/api/pusher',
+        cluster: "eu",
+        authEndpoint: "/api/pusher",
         auth: {
           headers: {
-            'Authorization': user.token
+            Authorization: user.token
           }
         }
       });
 
-      var broadcastChannel = _privatePusher.subscribe('private-channel' + progs.channelId);
+      var broadcastChannel = _privatePusher.subscribe("private-channel" + progs.channelId);
 
-      broadcastChannel.bind('new_message', function (data) {
-        console.log(progs.channelId);
+      broadcastChannel.bind("new_message", function (data) {
         var parsed = data.message;
-        console.log('parsed', parsed);
-        console.log('send', sendMessages);
         setSendMessages(function (prevMessages) {
           return prevMessages.filter(function (x) {
             return parsed.messages.find(function (y) {
@@ -4158,20 +4153,20 @@ function Chat(props) {
       setPrivatePusher(_privatePusher);
       setPrivateBroadcast(broadcastChannel);
       return function () {
-        broadcastChannel.unbind('new_message');
+        broadcastChannel.unbind("new_message");
         broadcastChannel.unsubscribe();
       };
     }
 
     return function () {
-      if (broadcast) broadcast.unbind('broadcaster');
+      if (broadcast) broadcast.unbind("broadcaster");
     };
   }, [progs.channelId]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "h-[100vh] align-top",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "text-l w-full pt-5 px-5 border-b-2",
-      children: "testing"
+      children: (_progs$channel$name = progs === null || progs === void 0 ? void 0 : (_progs$channel = progs.channel) === null || _progs$channel === void 0 ? void 0 : _progs$channel.name) !== null && _progs$channel$name !== void 0 ? _progs$channel$name : ""
     }), isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "grid place-items-center h-[87vh]",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)((react_spinners_BeatLoader__WEBPACK_IMPORTED_MODULE_4___default()), {
@@ -4192,7 +4187,7 @@ function Chat(props) {
                 children: user.name
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
                 className: "text-xs text-gray-700 align-bottom pt-3",
-                children: [message.created_at.substr(0, 10), " at ", message.created_at.substr(11, 8)]
+                children: [message.created_at.substr(0, 10), " ", "at", " ", message.created_at.substr(11, 8)]
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
               className: "text-xl",
@@ -4212,7 +4207,7 @@ function Chat(props) {
                 children: message.user.name
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
                 className: "text-xs text-gray-500 align-bottom pt-3",
-                children: [message.created_at.substr(0, 10), " at ", message.created_at.substr(11, 8)]
+                children: [message.created_at.substr(0, 10), " ", "at", " ", message.created_at.substr(11, 8)]
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
               className: "text-xl",
@@ -4227,7 +4222,7 @@ function Chat(props) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input, {
           fluid: true,
           action: {
-            content: 'Post',
+            content: "Post",
             onClick: postMessage
           },
           disabled: isLoading,
@@ -4352,10 +4347,10 @@ function MainView(props) {
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetch("/api/program/init/".concat(programId, "/").concat(isNaN(channelId) || channelId === undefined ? 0 : channelId), {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': user.token
+        "Content-Type": "application/json",
+        Authorization: user.token
       }
     }).then(function (response) {
       return response.json();
@@ -4368,25 +4363,12 @@ function MainView(props) {
         programs: data.programs,
         channels: channelId !== 0 ? data.program.channels : _toConsumableArray(progs.channels),
         messages: data.messages,
-        users: data.users
+        users: data.users,
+        channel: data.channel,
+        program: data.program
       });
     });
   }, []);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    console.log('Current view:', props.view);
-  }, [props.view]);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    /*
-    if (!isLoading) {
-    if (progs.channelId === undefined || isNaN(progs.channelId)) {
-    window.history.replaceState(null, '', `/program/${progs.programId}/settings`);
-    navigate(`/program/${progs.programId}/settings`);
-    } else {
-    window.history.replaceState(null, '', `/program/${progs.programId}/channel/${progs.channelId}`);
-    navigate(`/program/${progs.programId}/channel/${progs.channelId}`);
-    }
-    }*/
-  }, [progs.channelId]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
     className: "m-0",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_12__["default"], {
@@ -4405,12 +4387,12 @@ function MainView(props) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_12__["default"].Column, {
           width: 10,
           className: "p-0 bg-gray-750",
-          children: [props.view === 'channels' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Chat__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          children: [props.view === "channels" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Chat__WEBPACK_IMPORTED_MODULE_7__["default"], {
             initMessages: messages,
             channelId: channelId,
             channel: channel,
             update: updateChat
-          }), props.view === 'settings' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Settings_Settings__WEBPACK_IMPORTED_MODULE_5__["default"], {}), props.view === 'assignments' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Assignments__WEBPACK_IMPORTED_MODULE_6__["default"], {})]
+          }), props.view === "settings" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Settings_Settings__WEBPACK_IMPORTED_MODULE_5__["default"], {}), props.view === "assignments" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Assignments__WEBPACK_IMPORTED_MODULE_6__["default"], {})]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_12__["default"].Column, {
           width: 2,
           className: "p-0 bg-gray-850",
@@ -4462,7 +4444,9 @@ var ProgramProvider = function ProgramProvider(props) {
     programs: [],
     channels: [],
     messages: [],
-    users: []
+    users: [],
+    channel: null,
+    program: null
   }),
       _useState2 = _slicedToArray(_useState, 2),
       progs = _useState2[0],
@@ -4609,15 +4593,6 @@ function Settings(props) {
       tab = _useState4[0],
       setTab = _useState4[1];
 
-  var onButtonClick = function onButtonClick() {
-    inputFile.current.click();
-    console.log(inputFile.current.files);
-  };
-
-  var uploadFile = function uploadFile() {
-    console.log(file);
-  };
-
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "h-[100vh] align-top overflow-auto",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -4734,7 +4709,6 @@ function SettingsAssigntments(props) {
 
   var onButtonClick = function onButtonClick() {
     inputFile.current.click();
-    console.log(inputFile.current.files);
   };
 
   var uploadFile = function uploadFile() {
@@ -5372,7 +5346,6 @@ function ChannelsBar(props) {
       setIsLoading = _useState4[1];
 
   var isMounted = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
-  console.log(progs);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "h-[100vh] align-top border-r-1",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -5417,332 +5390,6 @@ function ChannelsBar(props) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ChannelsBar);
-
-/***/ }),
-
-/***/ "./resources/js/pages/Dashboard.js":
-/*!*****************************************!*\
-  !*** ./resources/js/pages/Dashboard.js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Form/Form.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/elements/Segment/Segment.js");
-/* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
-/* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-
-
-function Dashboard() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(localStorage.getItem('user'))),
-      _useState2 = _slicedToArray(_useState, 2),
-      user = _useState2[0],
-      setUser = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-      _useState4 = _slicedToArray(_useState3, 2),
-      isLoading = _useState4[0],
-      setIsLoading = _useState4[1];
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
-      _useState6 = _slicedToArray(_useState5, 2),
-      channel = _useState6[0],
-      setChannel = _useState6[1];
-
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState8 = _slicedToArray(_useState7, 2),
-      messages = _useState8[0],
-      setMessages = _useState8[1];
-
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-      _useState10 = _slicedToArray(_useState9, 2),
-      sendMessages = _useState10[0],
-      setSendMessages = _useState10[1];
-
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
-      _useState12 = _slicedToArray(_useState11, 2),
-      input = _useState12[0],
-      setInput = _useState12[1];
-
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState14 = _slicedToArray(_useState13, 2),
-      tick = _useState14[0],
-      setTick = _useState14[1];
-
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-      _useState16 = _slicedToArray(_useState15, 2),
-      _int = _useState16[0],
-      setInt = _useState16[1];
-
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(undefined),
-      _useState18 = _slicedToArray(_useState17, 2),
-      pusher = _useState18[0],
-      setPusher = _useState18[1];
-
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(undefined),
-      _useState20 = _slicedToArray(_useState19, 2),
-      broadcast = _useState20[0],
-      setBroadcast = _useState20[1]; //const date = new Date(Date.now()).toISOString();
-
-
-  var date = '2022-04-12T21:20:12.000000Z';
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    fetch("/api/channel/3/".concat(date, "/50"), {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': user.token
-      }
-    }).then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      setIsLoading(false);
-      setChannel(data.channel);
-      setMessages(data.messages);
-    });
-  }, []); //Post message to channel
-
-  function postMessage() {
-    setInput('');
-    setSendMessages([].concat(_toConsumableArray(sendMessages), [{
-      user: _objectSpread(_objectSpread({}, user), {}, {
-        token: ''
-      }),
-      content: input,
-      created_at: '2022-04-12T21:20:12.000000Z'
-    }]));
-    fetch("/api/message/3", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': user.token
-      },
-      body: JSON.stringify({
-        content: input,
-        mimic_user: 1
-      })
-    }).then(function (response) {
-      return response.json();
-    }).then(function (data) {//setSendMessages([]);
-    });
-  } //Check for updates every second
-
-
-  function fetchUpdates() {
-    //console.log("a load");
-    if (!isLoading) {
-      //console.log("a tick");
-      fetch("/api/channel/new/3/".concat(messages[0].id), {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': user.token
-        }
-      }).then(function (response) {
-        return response.json();
-      }).then(function (data) {
-        setChannel(data.channel);
-        var moreModdedMessages = data.messages.concat(messages);
-        setMessages(moreModdedMessages);
-        setSendMessages(sendMessages.filter(function (x) {
-          return data.messages.find(function (y) {
-            return y.content === x.content;
-          }) === undefined;
-        }));
-      });
-    }
-  } //When in a new channel, bind new websocket
-
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (channel !== undefined) {
-      var _pusher = new (pusher_js__WEBPACK_IMPORTED_MODULE_1___default())('eee151f95c1c086f4dc8', {
-        cluster: 'eu'
-      });
-
-      var broadcastChannel = _pusher.subscribe('channel' + channel.id);
-
-      broadcastChannel.bind('new_message', function (data) {
-        var parsed = data.message;
-        setSendMessages(function (prevMessages) {
-          return prevMessages.filter(function (x) {
-            return parsed.messages.find(function (y) {
-              return y.content === x.content;
-            }) === undefined;
-          });
-        });
-        setMessages(function (prevMessages) {
-          return parsed.messages.concat(prevMessages);
-        });
-      });
-      setPusher(_pusher);
-      setBroadcast(broadcastChannel);
-    }
-
-    return function () {
-      if (broadcast) broadcast.unbind('broadcaster');
-    };
-  }, [channel.id]); //useInterval(fetchUpdates, 750);
-  //Set updates to be checked every second
-  //Set updates to be checked every second
-
-  function useInterval(callback, delay) {
-    var savedCallback = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(); // Remember the latest callback.
-
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-      savedCallback.current = callback;
-    }, [callback]); // Set up the interval.
-
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-      function tick() {
-        savedCallback.current();
-      }
-
-      if (delay !== null) {
-        var id = setInterval(tick, delay);
-        return function () {
-          return clearInterval(id);
-        };
-      }
-    }, [delay]);
-  } //Format date for humans
-
-
-  function timeFormat(time) {
-    return time.substr(0, 10) + ' at ' + time.substr(11, 8);
-  }
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "m-0",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      className: "m-0",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"].Row, {
-        columns: 16,
-        className: "p-0",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"].Column, {
-          width: 2,
-          className: "p-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            className: "h-[100vh]",
-            children: "Sidebar 1"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"].Column, {
-          width: 2,
-          className: "p-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            className: "h-[100vh]",
-            children: "Sidebar 2"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"].Column, {
-          width: 10,
-          className: "p-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "flex flex-col-reverse m-0 p-0 overflow-auto h-[100vh] pb-5 overflow-auto",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "text-l text-black w-full px-5 mt-10",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input, {
-                  fluid: true,
-                  action: {
-                    content: 'Post',
-                    onClick: postMessage
-                  },
-                  placeholder: "Message @admin",
-                  value: input,
-                  onChange: function onChange(e, _ref) {
-                    var value = _ref.value;
-                    return setInput(value);
-                  }
-                })
-              })
-            }), sendMessages.reverse().map(function (message, index) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "p-3 px-5",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                  className: "text-l text-neutral-500 w-full border-b-2 pb-2",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                    className: "text-2xl",
-                    children: message.user.name
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                    className: "text-s",
-                    children: 'Just Now'
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                    className: "text-xl",
-                    children: message.content
-                  })]
-                })
-              }, "message" + index);
-            }), messages.map(function (message, index) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "p-3 px-5",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                  className: "text-l text-black w-full border-b-2 pb-2",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                    className: "text-2xl",
-                    children: message.user.name
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                    className: "text-s",
-                    children: timeFormat(message.created_at)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                    className: "text-xl",
-                    children: message.content
-                  })]
-                })
-              }, "message" + index);
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {})]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"].Column, {
-          width: 2,
-          className: "p-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            className: "h-[100vh]",
-            children: "Sidebar 3"
-          })
-        })]
-      })
-    })
-  });
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dashboard);
 
 /***/ }),
 

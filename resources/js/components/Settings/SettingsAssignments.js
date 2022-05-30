@@ -21,7 +21,6 @@ function SettingsAssigntments(props) {
     const [file, setFile] = useState(undefined);
     const onButtonClick = () => {
         inputFile.current.click();
-        console.log(inputFile.current.files);
     };
 
     const uploadFile = () => {

@@ -102,6 +102,7 @@ function ChannelsBar(props) {
 									return {
 										...prevProgs,
 										channelId: channel.id,
+										channel: channel,
 									};
 								});
 								window.history.replaceState(null, '', `/program/${progs.programId}/channel/${channel.id}`);

@@ -11,14 +11,7 @@ function Settings(props) {
 	const inputFile = useRef(null);
 	const [file, setFile] = useState(undefined);
 	const [tab, setTab] = useState('channels');
-	const onButtonClick = () => {
-		inputFile.current.click();
-		console.log(inputFile.current.files);
-	};
 
-	const uploadFile = () => {
-		console.log(file)
-	};
 
 	return (
 		<div className="h-[100vh] align-top overflow-auto">

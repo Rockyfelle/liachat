@@ -18,7 +18,6 @@ function ChannelsBar(props) {
 
 	const isMounted = useRef(false);
 
-	console.log(progs);
 
 	return (
 		<div className="h-[100vh] align-top border-r-1">

@@ -11,7 +11,8 @@ export const ProgramProvider = (props) => {
 		channels: [],
 		messages: [],
 		users: [],
-
+		channel: null,
+		program: null,
 	});
 	return (
 		<ProgramContext.Provider value={[progs, setProgs]}>
