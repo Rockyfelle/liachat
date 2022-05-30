@@ -4094,9 +4094,11 @@ function Chat(props) {
   function postMessage() {
     if (input.length > 0) {
       setInput('');
+      var messageId = (Math.random() + 1).toString(16);
       setSendMessages([].concat(_toConsumableArray(sendMessages), [{
         content: input,
-        created_at: '2022-04-12T21:20:12.000000Z'
+        created_at: '2022-04-12T21:20:12.000000Z',
+        senderId: messageId
       }]));
       fetch("/api/message/".concat(progs.channelId), {
         method: 'POST',
@@ -4105,7 +4107,8 @@ function Chat(props) {
           'Authorization': user.token
         },
         body: JSON.stringify({
-          content: input
+          content: input,
+          senderId: messageId
         })
       }).then(function (response) {
         return response.json();
@@ -4132,10 +4135,12 @@ function Chat(props) {
       broadcastChannel.bind('new_message', function (data) {
         console.log(progs.channelId);
         var parsed = data.message;
+        console.log('parsed', parsed);
+        console.log('send', sendMessages);
         setSendMessages(function (prevMessages) {
           return prevMessages.filter(function (x) {
             return parsed.messages.find(function (y) {
-              return y.content === x.content;
+              return y.senderId === x.senderId;
             }) === undefined;
           });
         }); //setMessages(prevMessages => (parsed.messages.concat(prevMessages)));

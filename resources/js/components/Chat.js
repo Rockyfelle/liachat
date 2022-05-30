@@ -53,7 +53,8 @@ function Chat(props) {
 	function postMessage() {
 		if (input.length > 0) {
 			setInput('');
-			setSendMessages([...sendMessages, { content: input, created_at: '2022-04-12T21:20:12.000000Z' }]);
+			const messageId = (Math.random()+1).toString(16);
+			setSendMessages([...sendMessages, { content: input, created_at: '2022-04-12T21:20:12.000000Z', senderId: messageId }]);
 			fetch(`/api/message/${progs.channelId}`, {
 				method: 'POST',
 				headers: {
@@ -62,6 +63,7 @@ function Chat(props) {
 				},
 				body: JSON.stringify({
 					content: input,
+					senderId: messageId,
 
 				})
 			})
@@ -89,7 +91,10 @@ function Chat(props) {
 				console.log(progs.channelId)
 
 				const parsed = data.message;
-				setSendMessages(prevMessages => prevMessages.filter(x => parsed.messages.find(y => y.content === x.content) === undefined));
+				console.log('parsed', parsed);
+				console.log('send', sendMessages);
+
+				setSendMessages(prevMessages => prevMessages.filter(x => parsed.messages.find(y => y.senderId === x.senderId) === undefined));
 				//setMessages(prevMessages => (parsed.messages.concat(prevMessages)));
 
 				//Update progs

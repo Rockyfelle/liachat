@@ -47,15 +47,16 @@ class MessageController extends Controller
 		]);
 		$message->user;
 		$message->channel;
-
+		$message->senderId = $request->senderId;
 		//event(new Broadcaster($request->content, $channelId));
 		$toSend = [
+
 			'messages' => [
 				$message,
 			],
 		];
 
-		event(new PrivateBroadcast($toSend, $channelId));
+		event(new PrivateBroadcast($toSend, $channelId, $request->senderId));
 
 		return ['ok' => true, 'message' => $message];
 	}

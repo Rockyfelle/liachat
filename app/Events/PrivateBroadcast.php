@@ -17,17 +17,17 @@ class PrivateBroadcast implements ShouldBroadcast
 
 	public $message;
 	public $channelId;
-
-	public function __construct($message, $channelId)
+	public $senderId;
+	public function __construct($message, $channelId, $senderId)
 	{
 		$this->message = $message;
 		$this->channelId = $channelId;
-		
+		$this->senderId = $senderId;
 	}
 
 	public function broadcastOn()
 	{
-		error_log($this->channelId);
+		error_log($this->senderId);
 		return ['private-channel'.$this->channelId];
 	}
 
