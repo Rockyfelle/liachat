@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->integer('channel_id');
             $table->string('type');
-            $table->string('content');
+            $table->longText('content');
             $table->timestamps(6);
         });
     }
