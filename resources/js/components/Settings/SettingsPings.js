@@ -23,58 +23,8 @@ function SettingsChannels(props) {
 
 	return (
 		<div className="h-[100%] align-top grid place-items-center">
-			<Grid className="w-[50%]">
-				<Grid.Row>
-				</Grid.Row>
-				<Grid.Row
-					columns="equal"
-				>
-					<Grid.Column>
-						<Form>
-							<DFormInput
-								label="email"
-								fluid
-								placeholder="Email"
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
-							/>
-						</Form>
-					</Grid.Column>
-				</Grid.Row>
-				<Grid.Row>
-					<Grid.Column>
-						<Button
-							color="green"
-							fluid
-						>
-							Add Student
-						</Button>
-					</Grid.Column>
-				</Grid.Row>
-				{progs.users.map((channel, index) => {
-					return (
-						<Grid.Row key={'channe' + index}>
-							<Grid.Column
-								width={10}
-								className="text-2xl"
-							>
-								<h1 className="text-2xl">{channel.name}</h1>
-							</Grid.Column>
-							<Grid.Column width={6}>
-								<Button
-									color="red"
-									fluid
-								>
-									Delete
-								</Button>
-							</Grid.Column>
-						</Grid.Row>
-					);
-				})}
-			</Grid>
 
-
-
+		<p className="text-2xl">no support for this &#128532;</p>
 		</div >
 	);
 }

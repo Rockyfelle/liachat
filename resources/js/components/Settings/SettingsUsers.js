@@ -21,6 +21,7 @@ function SettingsChannels(props) {
     const [name, setName] = useState("");
     const [token, setToken] = useState("");
     const [urlToken, setUrlToken] = useState("");
+    const [deleteId, setDeleteId] = useState(null)
 
     function copyToken() {
         navigator.clipboard.writeText(urlToken);
@@ -56,6 +57,10 @@ function SettingsChannels(props) {
                     });
                 }
             });
+    }
+    //TODO add delete student in backend
+    function deleteUser(){
+
     }
 
     return (
@@ -118,16 +123,24 @@ function SettingsChannels(props) {
                     </Grid.Row>
                 )}
                 <Grid.Row className="my-10"></Grid.Row>
-                {progs.users.map((channel, index) => {
+                {progs.users.map((user, index) => {
                     return (
-                        <Grid.Row key={"channe" + index}>
+                        <Grid.Row key={"user" + index}>
                             <Grid.Column width={10} className="text-2xl">
-                                <h1>{channel.name}</h1>
+                                <h1>{user.name}</h1>
                             </Grid.Column>
                             <Grid.Column width={6}>
                                 <Button color="red" fluid>
                                     Remove
                                 </Button>
+                                {index === deleteId && (
+                                    <Confirm
+                                        open={true}
+                                        onCancel={() => setDeleteId(null)}
+                                        onConfirm={() => deleteUser(index)}
+                                        content={`Are you sure you want to delete ${item.name}?`}
+                                    />
+                                )}
                             </Grid.Column>
                         </Grid.Row>
                     );

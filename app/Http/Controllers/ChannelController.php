@@ -219,7 +219,6 @@ class ChannelController extends Controller
 			return ["ok " => false, 'text' => 'Program not specified'];
 		}
 		$program = Program::find($programId);
-		$program->channels;
 		if (!$program) {
 			return ["ok " => false, 'text' => 'Program does not exist'];
 		}

@@ -3706,10 +3706,10 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var DFormInput = (0,styled_components__WEBPACK_IMPORTED_MODULE_4__["default"])(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\t> * {\n\t\tcolor: white !important;\n\t}\n\tinput {\n\t\tbackground-color: #3C4F69 !important;\n\t\tcolor: white !important;\n\t}\n"])));
+var DFormInput = (0,styled_components__WEBPACK_IMPORTED_MODULE_4__["default"])(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    > * {\n        color: white !important;\n    }\n    input {\n        background-color: #3c4f69 !important;\n        color: white !important;\n    }\n"])));
 
 function Assigntments(props) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(localStorage.getItem('user'))),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(localStorage.getItem("user"))),
       _useState2 = _slicedToArray(_useState, 2),
       user = _useState2[0],
       setUser = _useState2[1];
@@ -3719,21 +3719,83 @@ function Assigntments(props) {
       progs = _useContext2[0],
       setProgs = _useContext2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState4 = _slicedToArray(_useState3, 2),
       email = _useState4[0],
       setEmail = _useState4[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      errorText = _useState6[0],
+      setErrorText = _useState6[1];
+
+  var inputFile = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(undefined),
+      _useState8 = _slicedToArray(_useState7, 2),
+      file = _useState8[0],
+      setFile = _useState8[1];
+
+  var onButtonClick = function onButtonClick() {
+    inputFile.current.click();
+  };
+
+  var uploadFile = function uploadFile() {
+    var data = new FormData();
+    data.append("files", inputFile.current.files[0]);
+    fetch("/api/program/upload/".concat(progs.programId), {
+      method: "POST",
+      headers: {
+        Authorization: user.token
+      },
+      body: data
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (data.ok) {
+        setErrorText("File uploaded successfully");
+      } else {
+        setErrorText('FIle upload failed');
+      }
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "h-[100vh] align-top grid place-items-center overflow-auto",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      className: "py-12 grid place-items-center",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+        className: "text-left",
+        children: "Upload a new file"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Field, {
+        style: {
+          display: "none"
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: "file",
+          ref: inputFile,
+          onChange: function onChange() {
+            setFile(inputFile.current.files[0]);
+            setErrorText('');
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Button, {
+        onClick: onButtonClick,
+        color: "green",
+        content: "Choose file"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        children: file ? file.name : ""
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Button, {
+        onClick: uploadFile,
+        color: "green",
+        content: "Upload file",
+        disabled: file === undefined
+      }), errorText && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        children: errorText
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
       className: "w-[50%]",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
-        columns: "equal",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {})
-      }), progs.resources.map(function (file, index) {
+      children: progs.resources.map(function (file, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
             width: 10,
@@ -3749,9 +3811,9 @@ function Assigntments(props) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
             width: 6
           })]
-        }, 'channe' + index);
-      })]
-    })
+        }, "channe" + index);
+      })
+    })]
   });
 }
 
@@ -4585,7 +4647,7 @@ function Settings(props) {
       file = _useState2[0],
       setFile = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('channels'),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("channels"),
       _useState4 = _slicedToArray(_useState3, 2),
       tab = _useState4[0],
       setTab = _useState4[1];
@@ -4603,37 +4665,29 @@ function Settings(props) {
         inverted: true,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
           name: "Channels",
-          active: tab === 'channels',
+          active: tab === "channels",
           onClick: function onClick() {
-            return setTab('channels');
+            return setTab("channels");
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
           name: "Users",
-          active: tab === 'users',
+          active: tab === "users",
           onClick: function onClick() {
-            return setTab('users');
+            return setTab("users");
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Menu, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
             name: "Pings",
-            active: tab === 'pings',
+            active: tab === "pings",
             onClick: function onClick() {
-              return setTab('pings');
-            }
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Menu, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
-            name: "Assignments",
-            active: tab === 'assignments',
-            onClick: function onClick() {
-              return setTab('assignments');
+              return setTab("pings");
             }
           })
         })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "m-5",
-      children: [tab === 'channels' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsChannels__WEBPACK_IMPORTED_MODULE_1__["default"], {}), tab === 'users' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsUsers__WEBPACK_IMPORTED_MODULE_2__["default"], {}), tab === 'pings' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsPings__WEBPACK_IMPORTED_MODULE_4__["default"], {}), tab === 'assignments' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsAssignments__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+      children: [tab === "channels" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsChannels__WEBPACK_IMPORTED_MODULE_1__["default"], {}), tab === "users" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsUsers__WEBPACK_IMPORTED_MODULE_2__["default"], {}), tab === "pings" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsPings__WEBPACK_IMPORTED_MODULE_4__["default"], {}), tab === "assignments" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsAssignments__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
     })]
   });
 }
@@ -4796,6 +4850,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Form/Form.js");
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/addons/Confirm/Confirm.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ProgramContext */ "./resources/js/components/ProgramContext.js");
@@ -4848,6 +4903,16 @@ function SettingsChannels(props) {
       name = _useState4[0],
       setName = _useState4[1];
 
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      showModal = _useState6[0],
+      setShowModal = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState8 = _slicedToArray(_useState7, 2),
+      deleteId = _useState8[0],
+      setDeleteId = _useState8[1];
+
   function createChannel() {
     fetch("/api/channel/".concat(progs.programId), {
       method: "POST",
@@ -4872,9 +4937,8 @@ function SettingsChannels(props) {
     });
   }
 
-  ;
-
   function deleteChannel(id) {
+    id = progs.channels[id].id;
     fetch("/api/channel/".concat(progs.programId), {
       method: "DELETE",
       headers: {
@@ -4888,6 +4952,7 @@ function SettingsChannels(props) {
       return response.json();
     }).then(function (data) {
       if (data.ok) {
+        setDeleteId(null);
         setProgs(function (prevProgs) {
           return _objectSpread(_objectSpread({}, prevProgs), {}, {
             channels: data.program.channels
@@ -4926,25 +4991,34 @@ function SettingsChannels(props) {
             children: "Add Channel"
           })
         })
-      }), progs.channels.map(function (channel, index) {
+      }), progs.channels.map(function (item, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
             width: 10,
             className: "text-2xl",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
               className: "text-2xl",
-              children: channel.name
+              children: item.name
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
             width: 6,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
               color: "red",
               fluid: true,
               onClick: function onClick() {
-                return deleteChannel(channel.id);
+                return setDeleteId(index);
               },
               children: "Remove"
-            })
+            }), index === deleteId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+              open: true,
+              onCancel: function onCancel() {
+                return setDeleteId(null);
+              },
+              onConfirm: function onConfirm() {
+                return deleteChannel(index);
+              },
+              content: "Are you sure you want to delete ".concat(item.name, "?")
+            })]
           })]
         }, "channel" + index);
       })]
@@ -4969,8 +5043,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Form/Form.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ProgramContext */ "./resources/js/components/ProgramContext.js");
@@ -4998,7 +5070,6 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-
 var DFormInput = (0,styled_components__WEBPACK_IMPORTED_MODULE_4__["default"])(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\t> * {\n\t\tcolor: white !important;\n\t}\n\tinput {\n\t\tbackground-color: #3C4F69 !important;\n\t\tcolor: white !important;\n\t}\n"])));
 
 function SettingsChannels(props) {
@@ -5019,50 +5090,9 @@ function SettingsChannels(props) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "h-[100%] align-top grid place-items-center",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
-      className: "w-[50%]",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
-        columns: "equal",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(DFormInput, {
-              label: "email",
-              fluid: true,
-              placeholder: "Email",
-              value: email,
-              onChange: function onChange(e) {
-                return setEmail(e.target.value);
-              }
-            })
-          })
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
-            color: "green",
-            fluid: true,
-            children: "Add Student"
-          })
-        })
-      }), progs.users.map(function (channel, index) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
-            width: 10,
-            className: "text-2xl",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-              className: "text-2xl",
-              children: channel.name
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
-            width: 6,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
-              color: "red",
-              fluid: true,
-              children: "Delete"
-            })
-          })]
-        }, 'channe' + index);
-      })]
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+      className: "text-2xl",
+      children: "no support for this \uD83D\uDE14"
     })
   });
 }
@@ -5153,6 +5183,11 @@ function SettingsChannels(props) {
       urlToken = _useState10[0],
       setUrlToken = _useState10[1];
 
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState12 = _slicedToArray(_useState11, 2),
+      deleteId = _useState12[0],
+      setDeleteId = _useState12[1];
+
   function copyToken() {
     navigator.clipboard.writeText(urlToken);
   }
@@ -5184,7 +5219,10 @@ function SettingsChannels(props) {
         });
       }
     });
-  }
+  } //TODO add delete student in backend
+
+
+  function deleteUser() {}
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "h-[100%] align-top grid place-items-center",
@@ -5251,23 +5289,32 @@ function SettingsChannels(props) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
         className: "my-10"
-      }), progs.users.map(function (channel, index) {
+      }), progs.users.map(function (user, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
             width: 10,
             className: "text-2xl",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-              children: channel.name
+              children: user.name
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
             width: 6,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
               color: "red",
               fluid: true,
               children: "Remove"
-            })
+            }), index === deleteId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Confirm, {
+              open: true,
+              onCancel: function onCancel() {
+                return setDeleteId(null);
+              },
+              onConfirm: function onConfirm() {
+                return deleteUser(index);
+              },
+              content: "Are you sure you want to delete ".concat(item.name, "?")
+            })]
           })]
-        }, "channe" + index);
+        }, "user" + index);
       })]
     })
   });
@@ -5413,12 +5460,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/elements/Header/Header.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/elements/Segment/Segment.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Form/Form.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/elements/Header/Header.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/elements/Segment/Segment.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Form/Form.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
+/* harmony import */ var _components_ProgramContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/ProgramContext */ "./resources/js/components/ProgramContext.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -5442,13 +5490,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function LoginPage() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
       isUploading = _useState2[0],
       setIsUploading = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState4 = _slicedToArray(_useState3, 2),
       error = _useState4[0],
       setError = _useState4[1];
@@ -5463,21 +5512,26 @@ function LoginPage() {
       user = _useState8[0],
       setUser = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState10 = _slicedToArray(_useState9, 2),
       email = _useState10[0],
       setEmail = _useState10[1];
 
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState12 = _slicedToArray(_useState11, 2),
       password = _useState12[0],
       setPassword = _useState12[1];
 
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_components_ProgramContext__WEBPACK_IMPORTED_MODULE_1__.ProgramContext),
+      _useContext2 = _slicedToArray(_useContext, 2),
+      progs = _useContext2[0],
+      setProgs = _useContext2[1];
+
   function tryLogin() {
     fetch("/api/login", {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         email: email,
@@ -5491,11 +5545,11 @@ function LoginPage() {
         setUser(data.user);
         setLoggedIn(true); //Save user and token to localstorage
 
-        localStorage.setItem('user', JSON.stringify(_objectSpread(_objectSpread({}, data.user), {}, {
+        localStorage.setItem("user", JSON.stringify(_objectSpread(_objectSpread({}, data.user), {}, {
           token: data.token
         }))); //Redirect to dashboard
 
-        window.location.href = '/program/1/channel/3';
+        window.location.href = "/program/1/assignments";
       } else {
         //Set error
         setError(data.text);
@@ -5503,23 +5557,23 @@ function LoginPage() {
     });
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"], {
       centered: true,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__["default"].Column, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"].Column, {
         style: {
           maxWidth: 550,
           marginTop: 150
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
           children: "Login to your account"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
               className: "text-red-500",
               children: error
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Field, {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Field, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Input, {
                 value: email,
                 onChange: function onChange(e) {
                   return setEmail(e.target.value);
@@ -5528,8 +5582,8 @@ function LoginPage() {
                 placeholder: "Email",
                 label: "Email"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Field, {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Field, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Input, {
                 value: password,
                 onChange: function onChange(e) {
                   return setPassword(e.target.value);
@@ -5539,14 +5593,14 @@ function LoginPage() {
                 placeholder: "Password",
                 label: "Password"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
               fluid: true,
               primary: true,
               type: "submit",
               onClick: tryLogin,
               children: "Login"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
-              children: ["Need an account? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              children: ["Need an account?", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
                 href: "#",
                 children: "this link doesn't work"
               })]
@@ -5558,7 +5612,6 @@ function LoginPage() {
   });
 }
 
-;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LoginPage);
 
 /***/ }),
@@ -46165,6 +46218,165 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/semantic-ui-react/dist/es/addons/Confirm/Confirm.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/semantic-ui-react/dist/es/addons/Confirm/Confirm.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_has__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash-es/has */ "./node_modules/lodash-es/has.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash-es/invoke */ "./node_modules/lodash-es/invoke.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _elements_Button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../elements/Button */ "./node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
+/* harmony import */ var _modules_Modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../modules/Modal */ "./node_modules/semantic-ui-react/dist/es/modules/Modal/Modal.js");
+
+
+
+
+
+
+
+
+
+/**
+ * A Confirm modal gives the user a choice to confirm or cancel an action.
+ * @see Modal
+ */
+
+var Confirm = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(Confirm, _Component);
+
+  function Confirm() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _this.handleCancel = function (e) {
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_3__["default"])(_this.props, 'onCancel', e, _this.props);
+    };
+
+    _this.handleCancelOverrides = function (predefinedProps) {
+      return {
+        onClick: function onClick(e, buttonProps) {
+          (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_3__["default"])(predefinedProps, 'onClick', e, buttonProps);
+
+          _this.handleCancel(e);
+        }
+      };
+    };
+
+    _this.handleConfirmOverrides = function (predefinedProps) {
+      return {
+        onClick: function onClick(e, buttonProps) {
+          (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_3__["default"])(predefinedProps, 'onClick', e, buttonProps);
+
+          (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_3__["default"])(_this.props, 'onConfirm', e, _this.props);
+        }
+      };
+    };
+
+    return _this;
+  }
+
+  var _proto = Confirm.prototype;
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        cancelButton = _this$props.cancelButton,
+        confirmButton = _this$props.confirmButton,
+        content = _this$props.content,
+        header = _this$props.header,
+        open = _this$props.open,
+        size = _this$props.size;
+    var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(Confirm, this.props); // `open` is auto controlled by the Modal
+    // It cannot be present (even undefined) with `defaultOpen`
+    // only apply it if the user provided an open prop
+
+    var openProp = {};
+    if ((0,lodash_es_has__WEBPACK_IMPORTED_MODULE_5__["default"])(this.props, 'open')) openProp.open = open;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_modules_Modal__WEBPACK_IMPORTED_MODULE_6__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, openProp, {
+      size: size,
+      onClose: this.handleCancel
+    }), _modules_Modal__WEBPACK_IMPORTED_MODULE_6__["default"].Header.create(header, {
+      autoGenerateKey: false
+    }), _modules_Modal__WEBPACK_IMPORTED_MODULE_6__["default"].Content.create(content, {
+      autoGenerateKey: false
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_modules_Modal__WEBPACK_IMPORTED_MODULE_6__["default"].Actions, null, _elements_Button__WEBPACK_IMPORTED_MODULE_7__["default"].create(cancelButton, {
+      autoGenerateKey: false,
+      overrideProps: this.handleCancelOverrides
+    }), _elements_Button__WEBPACK_IMPORTED_MODULE_7__["default"].create(confirmButton, {
+      autoGenerateKey: false,
+      defaultProps: {
+        primary: true
+      },
+      overrideProps: this.handleConfirmOverrides
+    })));
+  };
+
+  return Confirm;
+}(react__WEBPACK_IMPORTED_MODULE_2__.Component);
+
+Confirm.handledProps = ["cancelButton", "confirmButton", "content", "header", "onCancel", "onConfirm", "open", "size"];
+Confirm.propTypes =  true ? {
+  /** The cancel button text. */
+  cancelButton: _lib__WEBPACK_IMPORTED_MODULE_8__.itemShorthand,
+
+  /** The OK button text. */
+  confirmButton: _lib__WEBPACK_IMPORTED_MODULE_8__.itemShorthand,
+
+  /** The ModalContent text. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_8__.itemShorthand,
+
+  /** The ModalHeader text. */
+  header: _lib__WEBPACK_IMPORTED_MODULE_8__.itemShorthand,
+
+  /**
+   * Called when the Modal is closed without clicking confirm.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onCancel: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().func),
+
+  /**
+   * Called when the OK button is clicked.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onConfirm: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().func),
+
+  /** Whether or not the modal is visible. */
+  open: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool),
+
+  /** A Confirm can vary in size */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_9___default().oneOf(['mini', 'tiny', 'small', 'large', 'fullscreen'])
+} : 0;
+Confirm.defaultProps = {
+  cancelButton: 'Cancel',
+  confirmButton: 'OK',
+  content: 'Are you sure?',
+  size: 'small'
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Confirm);
+
+/***/ }),
+
 /***/ "./node_modules/semantic-ui-react/dist/es/addons/Portal/Portal.js":
 /*!************************************************************************!*\
   !*** ./node_modules/semantic-ui-react/dist/es/addons/Portal/Portal.js ***!
@@ -52027,6 +52239,24 @@ var doesNodeContainClick = function doesNodeContainClick(node, e) {
 
 /***/ }),
 
+/***/ "./node_modules/semantic-ui-react/dist/es/lib/eventStack/index.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/semantic-ui-react/dist/es/lib/eventStack/index.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @semantic-ui-react/event-stack */ "./node_modules/@semantic-ui-react/event-stack/lib/index.js");
+/* harmony import */ var _semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_semantic_ui_react_event_stack__WEBPACK_IMPORTED_MODULE_0__.instance);
+
+/***/ }),
+
 /***/ "./node_modules/semantic-ui-react/dist/es/lib/factories.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/semantic-ui-react/dist/es/lib/factories.js ***!
@@ -52338,6 +52568,191 @@ var getUnhandledProps = function getUnhandledProps(Component, props) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getUnhandledProps);
+
+/***/ }),
+
+/***/ "./node_modules/semantic-ui-react/dist/es/lib/hooks/useClassNamesOnNode.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/semantic-ui-react/dist/es/lib/hooks/useClassNamesOnNode.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "NodeRegistry": () => (/* binding */ NodeRegistry),
+/* harmony export */   "computeClassNames": () => (/* binding */ computeClassNames),
+/* harmony export */   "computeClassNamesDifference": () => (/* binding */ computeClassNamesDifference),
+/* harmony export */   "default": () => (/* binding */ useClassNamesOnNode),
+/* harmony export */   "handleClassNamesChange": () => (/* binding */ handleClassNamesChange)
+/* harmony export */ });
+/* harmony import */ var _fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fluentui/react-component-ref */ "./node_modules/@fluentui/react-component-ref/dist/es/utils.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./useIsomorphicLayoutEffect */ "./node_modules/semantic-ui-react/dist/es/lib/hooks/useIsomorphicLayoutEffect.js");
+
+
+
+var CLASS_NAME_DELITIMITER = /\s+/;
+/**
+ * Accepts a set of ref objects that contain classnames as a string and returns an array of unique
+ * classNames.
+ *
+ * @param {Set<React.RefObject>|undefined} classNameRefs
+ * @returns String[]
+ */
+
+function computeClassNames(classNameRefs) {
+  var classNames = [];
+
+  if (classNameRefs) {
+    classNameRefs.forEach(function (classNameRef) {
+      if (typeof classNameRef.current === 'string') {
+        var classNamesForRef = classNameRef.current.split(CLASS_NAME_DELITIMITER);
+        classNamesForRef.forEach(function (className) {
+          classNames.push(className);
+        });
+      }
+    });
+    return classNames.filter(function (className, i, array) {
+      return className.length > 0 && array.indexOf(className) === i;
+    });
+  }
+
+  return [];
+}
+/**
+ * Computes classnames that should be removed and added to a node based on input differences.
+ *
+ * @param {String[]} prevClassNames
+ * @param {String[]} currentClassNames
+ */
+
+function computeClassNamesDifference(prevClassNames, currentClassNames) {
+  return [currentClassNames.filter(function (className) {
+    return prevClassNames.indexOf(className) === -1;
+  }), prevClassNames.filter(function (className) {
+    return currentClassNames.indexOf(className) === -1;
+  })];
+}
+var prevClassNames = new Map();
+/**
+ * @param {HTMLElement} node
+ * @param {Set<React.RefObject>|undefined} classNameRefs
+ */
+
+var handleClassNamesChange = function handleClassNamesChange(node, classNameRefs) {
+  var currentClassNames = computeClassNames(classNameRefs);
+
+  var _computeClassNamesDif = computeClassNamesDifference(prevClassNames.get(node) || [], currentClassNames),
+      forAdd = _computeClassNamesDif[0],
+      forRemoval = _computeClassNamesDif[1];
+
+  if (node) {
+    forAdd.forEach(function (className) {
+      return node.classList.add(className);
+    });
+    forRemoval.forEach(function (className) {
+      return node.classList.remove(className);
+    });
+  }
+
+  prevClassNames.set(node, currentClassNames);
+};
+var NodeRegistry = function NodeRegistry() {
+  var _this = this;
+
+  this.add = function (node, classNameRef) {
+    if (_this.nodes.has(node)) {
+      var _set = _this.nodes.get(node);
+
+      _set.add(classNameRef);
+
+      return;
+    } // IE11 does not support constructor params
+
+
+    var set = new Set();
+    set.add(classNameRef);
+
+    _this.nodes.set(node, set);
+  };
+
+  this.del = function (node, classNameRef) {
+    if (!_this.nodes.has(node)) {
+      return;
+    }
+
+    var set = _this.nodes.get(node);
+
+    if (set.size === 1) {
+      _this.nodes.delete(node);
+
+      return;
+    }
+
+    set.delete(classNameRef);
+  };
+
+  this.emit = function (node, callback) {
+    callback(node, _this.nodes.get(node));
+  };
+
+  this.nodes = new Map();
+};
+var nodeRegistry = new NodeRegistry();
+/**
+ * A React hooks that allows to manage classNames on a DOM node in declarative manner. Accepts
+ * a HTML element or React ref objects with it.
+ *
+ * @param {HTMLElement|React.RefObject} node
+ * @param {String} className
+ */
+
+function useClassNamesOnNode(node, className) {
+  var classNameRef = react__WEBPACK_IMPORTED_MODULE_0__.useRef();
+  var isMounted = react__WEBPACK_IMPORTED_MODULE_0__.useRef(false);
+  (0,_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_1__["default"])(function () {
+    classNameRef.current = className;
+
+    if (isMounted.current) {
+      var element = (0,_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_2__.isRefObject)(node) ? node.current : node;
+      nodeRegistry.emit(element, handleClassNamesChange);
+    }
+
+    isMounted.current = true;
+  }, [className]);
+  (0,_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_1__["default"])(function () {
+    var element = (0,_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_2__.isRefObject)(node) ? node.current : node;
+    nodeRegistry.add(element, classNameRef);
+    nodeRegistry.emit(element, handleClassNamesChange);
+    return function () {
+      nodeRegistry.del(element, classNameRef);
+      nodeRegistry.emit(element, handleClassNamesChange);
+    };
+  }, [node]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/semantic-ui-react/dist/es/lib/hooks/useIsomorphicLayoutEffect.js":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/semantic-ui-react/dist/es/lib/hooks/useIsomorphicLayoutEffect.js ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _isBrowser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../isBrowser */ "./node_modules/semantic-ui-react/dist/es/lib/isBrowser.js");
+
+ // useLayoutEffect() produces a warning with SSR rendering
+// https://medium.com/@alexandereardon/uselayouteffect-and-ssr-192986cdcf7a
+
+var useIsomorphicLayoutEffect = (0,_isBrowser__WEBPACK_IMPORTED_MODULE_1__["default"])() && "development" !== 'test' ? react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect : react__WEBPACK_IMPORTED_MODULE_0__.useEffect;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useIsomorphicLayoutEffect);
 
 /***/ }),
 
@@ -55507,6 +55922,956 @@ function getSelectedIndex(config) {
 
   return newSelectedIndex;
 }
+
+/***/ }),
+
+/***/ "./node_modules/semantic-ui-react/dist/es/modules/Modal/Modal.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/semantic-ui-react/dist/es/modules/Modal/Modal.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_isPlainObject__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! lodash-es/isPlainObject */ "./node_modules/lodash-es/isPlainObject.js");
+/* harmony import */ var lodash_es_pick__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! lodash-es/pick */ "./node_modules/lodash-es/pick.js");
+/* harmony import */ var lodash_es_includes__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! lodash-es/includes */ "./node_modules/lodash-es/includes.js");
+/* harmony import */ var lodash_es_reduce__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! lodash-es/reduce */ "./node_modules/lodash-es/reduce.js");
+/* harmony import */ var lodash_es_isEmpty__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lodash-es/isEmpty */ "./node_modules/lodash-es/isEmpty.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lodash-es/invoke */ "./node_modules/lodash-es/invoke.js");
+/* harmony import */ var _fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @fluentui/react-component-ref */ "./node_modules/@fluentui/react-component-ref/dist/es/Ref.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_27__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var shallowequal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! shallowequal */ "./node_modules/shallowequal/index.js");
+/* harmony import */ var shallowequal__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(shallowequal__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/isBrowser.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/doesNodeContainClick.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/eventStack/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/ModernAutoControlledComponent.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _elements_Icon__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../elements/Icon */ "./node_modules/semantic-ui-react/dist/es/elements/Icon/Icon.js");
+/* harmony import */ var _addons_Portal__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../addons/Portal */ "./node_modules/semantic-ui-react/dist/es/addons/Portal/Portal.js");
+/* harmony import */ var _ModalActions__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./ModalActions */ "./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalActions.js");
+/* harmony import */ var _ModalContent__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./ModalContent */ "./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalContent.js");
+/* harmony import */ var _ModalDescription__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./ModalDescription */ "./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalDescription.js");
+/* harmony import */ var _ModalDimmer__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./ModalDimmer */ "./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalDimmer.js");
+/* harmony import */ var _ModalHeader__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./ModalHeader */ "./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalHeader.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils */ "./node_modules/semantic-ui-react/dist/es/modules/Modal/utils/index.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * A modal displays content that temporarily blocks interactions with the main view of a site.
+ * @see Confirm
+ * @see Portal
+ */
+var Modal = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(Modal, _Component);
+
+  function Modal() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+    _this.legacy = (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])() && (0,_utils__WEBPACK_IMPORTED_MODULE_6__.isLegacy)();
+    _this.ref = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_3__.createRef)();
+    _this.dimmerRef = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_3__.createRef)();
+    _this.latestDocumentMouseDownEvent = null;
+
+    _this.getMountNode = function () {
+      return (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])() ? _this.props.mountNode || document.body : null;
+    };
+
+    _this.handleActionsOverrides = function (predefinedProps) {
+      return {
+        onActionClick: function onActionClick(e, actionProps) {
+          (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_7__["default"])(predefinedProps, 'onActionClick', e, actionProps);
+
+          (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_7__["default"])(_this.props, 'onActionClick', e, _this.props);
+
+          _this.handleClose(e);
+        }
+      };
+    };
+
+    _this.handleClose = function (e) {
+      _this.setState({
+        open: false
+      });
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_7__["default"])(_this.props, 'onClose', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+        open: false
+      }));
+    };
+
+    _this.handleDocumentMouseDown = function (e) {
+      _this.latestDocumentMouseDownEvent = e;
+    };
+
+    _this.handleDocumentClick = function (e) {
+      var closeOnDimmerClick = _this.props.closeOnDimmerClick;
+      var currentDocumentMouseDownEvent = _this.latestDocumentMouseDownEvent;
+      _this.latestDocumentMouseDownEvent = null;
+      if (!closeOnDimmerClick || (0,_lib__WEBPACK_IMPORTED_MODULE_8__["default"])(_this.ref.current, currentDocumentMouseDownEvent) || (0,_lib__WEBPACK_IMPORTED_MODULE_8__["default"])(_this.ref.current, e)) return;
+
+      _this.setState({
+        open: false
+      });
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_7__["default"])(_this.props, 'onClose', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+        open: false
+      }));
+    };
+
+    _this.handleIconOverrides = function (predefinedProps) {
+      return {
+        onClick: function onClick(e) {
+          (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_7__["default"])(predefinedProps, 'onClick', e);
+
+          _this.handleClose(e);
+        }
+      };
+    };
+
+    _this.handleOpen = function (e) {
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_7__["default"])(_this.props, 'onOpen', e, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _this.props, {
+        open: true
+      }));
+
+      _this.setState({
+        open: true
+      });
+    };
+
+    _this.handlePortalMount = function (e) {
+      var eventPool = _this.props.eventPool;
+
+      _this.setState({
+        scrolling: false
+      });
+
+      _this.setPositionAndClassNames();
+
+      _lib__WEBPACK_IMPORTED_MODULE_9__["default"].sub('mousedown', _this.handleDocumentMouseDown, {
+        pool: eventPool,
+        target: _this.dimmerRef.current
+      });
+      _lib__WEBPACK_IMPORTED_MODULE_9__["default"].sub('click', _this.handleDocumentClick, {
+        pool: eventPool,
+        target: _this.dimmerRef.current
+      });
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_7__["default"])(_this.props, 'onMount', e, _this.props);
+    };
+
+    _this.handlePortalUnmount = function (e) {
+      var eventPool = _this.props.eventPool;
+      cancelAnimationFrame(_this.animationRequestId);
+      _lib__WEBPACK_IMPORTED_MODULE_9__["default"].unsub('mousedown', _this.handleDocumentMouseDown, {
+        pool: eventPool,
+        target: _this.dimmerRef.current
+      });
+      _lib__WEBPACK_IMPORTED_MODULE_9__["default"].unsub('click', _this.handleDocumentClick, {
+        pool: eventPool,
+        target: _this.dimmerRef.current
+      });
+
+      (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_7__["default"])(_this.props, 'onUnmount', e, _this.props);
+    };
+
+    _this.setPositionAndClassNames = function () {
+      var centered = _this.props.centered;
+      var scrolling;
+      var newState = {};
+
+      if (_this.ref.current) {
+        var rect = _this.ref.current.getBoundingClientRect();
+
+        var isFitted = (0,_utils__WEBPACK_IMPORTED_MODULE_6__.canFit)(rect);
+        scrolling = !isFitted; // Styles should be computed for IE11
+
+        var legacyStyles = _this.legacy ? (0,_utils__WEBPACK_IMPORTED_MODULE_6__.getLegacyStyles)(isFitted, centered, rect) : {};
+
+        if (!shallowequal__WEBPACK_IMPORTED_MODULE_4___default()(_this.state.legacyStyles, legacyStyles)) {
+          newState.legacyStyles = legacyStyles;
+        }
+
+        if (_this.state.scrolling !== scrolling) {
+          newState.scrolling = scrolling;
+        }
+      }
+
+      if (!(0,lodash_es_isEmpty__WEBPACK_IMPORTED_MODULE_10__["default"])(newState)) _this.setState(newState);
+      _this.animationRequestId = requestAnimationFrame(_this.setPositionAndClassNames);
+    };
+
+    _this.renderContent = function (rest) {
+      var _this$props = _this.props,
+          actions = _this$props.actions,
+          basic = _this$props.basic,
+          children = _this$props.children,
+          className = _this$props.className,
+          closeIcon = _this$props.closeIcon,
+          content = _this$props.content,
+          header = _this$props.header,
+          size = _this$props.size,
+          style = _this$props.style;
+      var _this$state = _this.state,
+          legacyStyles = _this$state.legacyStyles,
+          scrolling = _this$state.scrolling;
+      var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('ui', size, (0,_lib__WEBPACK_IMPORTED_MODULE_11__.useKeyOnly)(basic, 'basic'), (0,_lib__WEBPACK_IMPORTED_MODULE_11__.useKeyOnly)(_this.legacy, 'legacy'), (0,_lib__WEBPACK_IMPORTED_MODULE_11__.useKeyOnly)(scrolling, 'scrolling'), 'modal transition visible active', className);
+      var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_12__["default"])(Modal, _this.props);
+      var closeIconName = closeIcon === true ? 'close' : closeIcon;
+      var closeIconJSX = _elements_Icon__WEBPACK_IMPORTED_MODULE_13__["default"].create(closeIconName, {
+        overrideProps: _this.handleIconOverrides
+      });
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_14__.Ref, {
+        innerRef: _this.ref
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+        className: classes,
+        style: (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, legacyStyles, style)
+      }), closeIconJSX, _lib__WEBPACK_IMPORTED_MODULE_15__.isNil(children) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(react__WEBPACK_IMPORTED_MODULE_3__.Fragment, null, _ModalHeader__WEBPACK_IMPORTED_MODULE_16__["default"].create(header, {
+        autoGenerateKey: false
+      }), _ModalContent__WEBPACK_IMPORTED_MODULE_17__["default"].create(content, {
+        autoGenerateKey: false
+      }), _ModalActions__WEBPACK_IMPORTED_MODULE_18__["default"].create(actions, {
+        overrideProps: _this.handleActionsOverrides
+      })) : children));
+    };
+
+    return _this;
+  }
+
+  var _proto = Modal.prototype;
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    this.handlePortalUnmount();
+  } // Do not access document when server side rendering
+  ;
+
+  _proto.render = function render() {
+    var _this$props2 = this.props,
+        centered = _this$props2.centered,
+        closeOnDocumentClick = _this$props2.closeOnDocumentClick,
+        dimmer = _this$props2.dimmer,
+        eventPool = _this$props2.eventPool,
+        trigger = _this$props2.trigger;
+    var _this$state2 = this.state,
+        open = _this$state2.open,
+        scrolling = _this$state2.scrolling;
+    var mountNode = this.getMountNode(); // Short circuit when server side rendering
+
+    if (!(0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])()) {
+      return /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_3__.isValidElement)(trigger) ? trigger : null;
+    }
+
+    var unhandled = (0,_lib__WEBPACK_IMPORTED_MODULE_19__["default"])(Modal, this.props);
+    var portalPropNames = _addons_Portal__WEBPACK_IMPORTED_MODULE_20__["default"].handledProps;
+
+    var rest = (0,lodash_es_reduce__WEBPACK_IMPORTED_MODULE_21__["default"])(unhandled, function (acc, val, key) {
+      if (!(0,lodash_es_includes__WEBPACK_IMPORTED_MODULE_22__["default"])(portalPropNames, key)) acc[key] = val;
+      return acc;
+    }, {});
+
+    var portalProps = (0,lodash_es_pick__WEBPACK_IMPORTED_MODULE_23__["default"])(unhandled, portalPropNames); // Heads up!
+    //
+    // The SUI CSS selector to prevent the modal itself from blurring requires an immediate .dimmer child:
+    // .blurring.dimmed.dimmable>:not(.dimmer) { ... }
+    //
+    // The .blurring.dimmed.dimmable is the body, so that all body content inside is blurred.
+    // We need the immediate child to be the dimmer to :not() blur the modal itself!
+    // Otherwise, the portal div is also blurred, blurring the modal.
+    //
+    // We cannot them wrap the modalJSX in an actual <Dimmer /> instead, we apply the dimmer classes to the <Portal />.
+
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_addons_Portal__WEBPACK_IMPORTED_MODULE_20__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      closeOnDocumentClick: closeOnDocumentClick
+    }, portalProps, {
+      trigger: trigger,
+      eventPool: eventPool,
+      mountNode: mountNode,
+      open: open,
+      onClose: this.handleClose,
+      onMount: this.handlePortalMount,
+      onOpen: this.handleOpen,
+      onUnmount: this.handlePortalUnmount
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_14__.Ref, {
+      innerRef: this.dimmerRef
+    }, _ModalDimmer__WEBPACK_IMPORTED_MODULE_24__["default"].create((0,lodash_es_isPlainObject__WEBPACK_IMPORTED_MODULE_25__["default"])(dimmer) ? dimmer : {}, {
+      autoGenerateKey: false,
+      defaultProps: {
+        blurring: dimmer === 'blurring',
+        inverted: dimmer === 'inverted'
+      },
+      overrideProps: {
+        children: this.renderContent(rest),
+        centered: centered,
+        mountNode: mountNode,
+        scrolling: scrolling
+      }
+    })));
+  };
+
+  return Modal;
+}(_lib__WEBPACK_IMPORTED_MODULE_26__["default"]);
+
+Modal.handledProps = ["actions", "as", "basic", "centered", "children", "className", "closeIcon", "closeOnDimmerClick", "closeOnDocumentClick", "content", "defaultOpen", "dimmer", "eventPool", "header", "mountNode", "onActionClick", "onClose", "onMount", "onOpen", "onUnmount", "open", "size", "style", "trigger"];
+Modal.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().elementType),
+
+  /** Shorthand for Modal.Actions. Typically an array of button shorthand. */
+  actions: _lib__WEBPACK_IMPORTED_MODULE_28__.itemShorthand,
+
+  /** A modal can reduce its complexity */
+  basic: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().bool),
+
+  /** A modal can be vertically centered in the viewport */
+  centered: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().bool),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().string),
+
+  /** Shorthand for the close icon. Closes the modal on click. */
+  closeIcon: prop_types__WEBPACK_IMPORTED_MODULE_27___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_27___default().node), (prop_types__WEBPACK_IMPORTED_MODULE_27___default().object), (prop_types__WEBPACK_IMPORTED_MODULE_27___default().bool)]),
+
+  /** Whether or not the Modal should close when the dimmer is clicked. */
+  closeOnDimmerClick: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().bool),
+
+  /** Whether or not the Modal should close when the document is clicked. */
+  closeOnDocumentClick: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().bool),
+
+  /** Simple text content for the Modal. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_28__.itemShorthand,
+
+  /** Initial value of open. */
+  defaultOpen: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().bool),
+
+  /** A Modal can appear in a dimmer. */
+  dimmer: prop_types__WEBPACK_IMPORTED_MODULE_27___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_27___default().bool), (prop_types__WEBPACK_IMPORTED_MODULE_27___default().func), (prop_types__WEBPACK_IMPORTED_MODULE_27___default().object), prop_types__WEBPACK_IMPORTED_MODULE_27___default().oneOf(['inverted', 'blurring'])]),
+
+  /** Event pool namespace that is used to handle component events */
+  eventPool: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().string),
+
+  /** Modal displayed above the content in bold. */
+  header: _lib__WEBPACK_IMPORTED_MODULE_28__.itemShorthand,
+
+  /** The node where the modal should mount. Defaults to document.body. */
+  mountNode: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().any),
+
+  /**
+   * Action onClick handler when using shorthand `actions`.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onActionClick: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().func),
+
+  /**
+   * Called when a close event happens.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onClose: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().func),
+
+  /**
+   * Called when the modal is mounted on the DOM.
+   *
+   * @param {null}
+   * @param {object} data - All props.
+   */
+  onMount: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().func),
+
+  /**
+   * Called when an open event happens.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props.
+   */
+  onOpen: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().func),
+
+  /**
+   * Called when the modal is unmounted from the DOM.
+   *
+   * @param {null}
+   * @param {object} data - All props.
+   */
+  onUnmount: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().func),
+
+  /** Controls whether or not the Modal is displayed. */
+  open: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().bool),
+
+  /** A modal can vary in size */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_27___default().oneOf(['mini', 'tiny', 'small', 'large', 'fullscreen']),
+
+  /** Custom styles. */
+  style: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().object),
+
+  /** Element to be rendered in-place where the modal is defined. */
+  trigger: (prop_types__WEBPACK_IMPORTED_MODULE_27___default().node)
+  /**
+   * NOTE: Any unhandled props that are defined in Modal are passed-through
+   * to the inner Portal.
+   */
+
+} : 0;
+Modal.defaultProps = {
+  centered: true,
+  dimmer: true,
+  closeOnDimmerClick: true,
+  closeOnDocumentClick: false,
+  eventPool: 'Modal'
+};
+Modal.autoControlledProps = ['open'];
+Modal.Actions = _ModalActions__WEBPACK_IMPORTED_MODULE_18__["default"];
+Modal.Content = _ModalContent__WEBPACK_IMPORTED_MODULE_17__["default"];
+Modal.Description = _ModalDescription__WEBPACK_IMPORTED_MODULE_29__["default"];
+Modal.Dimmer = _ModalDimmer__WEBPACK_IMPORTED_MODULE_24__["default"];
+Modal.Header = _ModalHeader__WEBPACK_IMPORTED_MODULE_16__["default"];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Modal);
+
+/***/ }),
+
+/***/ "./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalActions.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalActions.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ModalActions)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var lodash_es_map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash-es/map */ "./node_modules/lodash-es/map.js");
+/* harmony import */ var lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash-es/invoke */ "./node_modules/lodash-es/invoke.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/factories.js");
+/* harmony import */ var _elements_Button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../elements/Button */ "./node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
+
+
+
+
+
+
+
+
+
+/**
+ * A modal can contain a row of actions.
+ */
+
+var ModalActions = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(ModalActions, _Component);
+
+  function ModalActions() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _this.handleButtonOverrides = function (predefinedProps) {
+      return {
+        onClick: function onClick(e, buttonProps) {
+          (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"])(predefinedProps, 'onClick', e, buttonProps);
+
+          (0,lodash_es_invoke__WEBPACK_IMPORTED_MODULE_4__["default"])(_this.props, 'onActionClick', e, buttonProps);
+        }
+      };
+    };
+
+    return _this;
+  }
+
+  var _proto = ModalActions.prototype;
+
+  _proto.render = function render() {
+    var _this2 = this;
+
+    var _this$props = this.props,
+        actions = _this$props.actions,
+        children = _this$props.children,
+        className = _this$props.className,
+        content = _this$props.content;
+    var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])('actions', className);
+    var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(ModalActions, this.props);
+    var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_6__["default"])(ModalActions, this.props);
+
+    if (!_lib__WEBPACK_IMPORTED_MODULE_7__.isNil(children)) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+        className: classes
+      }), children);
+    }
+
+    if (!_lib__WEBPACK_IMPORTED_MODULE_7__.isNil(content)) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+        className: classes
+      }), content);
+    }
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+      className: classes
+    }), (0,lodash_es_map__WEBPACK_IMPORTED_MODULE_8__["default"])(actions, function (action) {
+      return _elements_Button__WEBPACK_IMPORTED_MODULE_9__["default"].create(action, {
+        overrideProps: _this2.handleButtonOverrides
+      });
+    }));
+  };
+
+  return ModalActions;
+}(react__WEBPACK_IMPORTED_MODULE_3__.Component);
+
+ModalActions.handledProps = ["actions", "as", "children", "className", "content", "onActionClick"];
+
+ModalActions.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().elementType),
+
+  /** Array of shorthand buttons. */
+  actions: _lib__WEBPACK_IMPORTED_MODULE_11__.collectionShorthand,
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_11__.contentShorthand,
+
+  /**
+   * Action onClick handler when using shorthand `actions`.
+   *
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @param {object} data - All props from the clicked action.
+   */
+  onActionClick: _lib__WEBPACK_IMPORTED_MODULE_11__.every([_lib__WEBPACK_IMPORTED_MODULE_11__.disallow(['children']), (prop_types__WEBPACK_IMPORTED_MODULE_10___default().func)])
+} : 0;
+ModalActions.create = (0,_lib__WEBPACK_IMPORTED_MODULE_12__.createShorthandFactory)(ModalActions, function (actions) {
+  return {
+    actions: actions
+  };
+});
+
+/***/ }),
+
+/***/ "./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalContent.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalContent.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/factories.js");
+
+
+
+
+
+/**
+ * A modal can contain content.
+ */
+
+function ModalContent(props) {
+  var children = props.children,
+      className = props.className,
+      content = props.content,
+      image = props.image,
+      scrolling = props.scrolling;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])(className, (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(image, 'image'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(scrolling, 'scrolling'), 'content');
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(ModalContent, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(ModalContent, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), _lib__WEBPACK_IMPORTED_MODULE_6__.isNil(children) ? content : children);
+}
+
+ModalContent.handledProps = ["as", "children", "className", "content", "image", "scrolling"];
+ModalContent.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_8__.contentShorthand,
+
+  /** A modal can contain image content. */
+  image: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().bool),
+
+  /** A modal can use the entire size of the screen. */
+  scrolling: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().bool)
+} : 0;
+ModalContent.create = (0,_lib__WEBPACK_IMPORTED_MODULE_9__.createShorthandFactory)(ModalContent, function (content) {
+  return {
+    content: content
+  };
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalContent);
+
+/***/ }),
+
+/***/ "./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalDescription.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalDescription.js ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+
+
+
+
+
+/**
+ * A modal can contain a description with one or more paragraphs.
+ */
+
+function ModalDescription(props) {
+  var children = props.children,
+      className = props.className,
+      content = props.content;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('description', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(ModalDescription, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(ModalDescription, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), _lib__WEBPACK_IMPORTED_MODULE_5__.isNil(children) ? content : children);
+}
+
+ModalDescription.handledProps = ["as", "children", "className", "content"];
+ModalDescription.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_7__.contentShorthand
+} : 0;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalDescription);
+
+/***/ }),
+
+/***/ "./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalDimmer.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalDimmer.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fluentui/react-component-ref */ "./node_modules/@fluentui/react-component-ref/dist/es/Ref.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/classNameBuilders.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/hooks/useClassNamesOnNode.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/factories.js");
+
+
+
+
+
+
+/**
+ * A modal has a dimmer.
+ */
+
+function ModalDimmer(props) {
+  var blurring = props.blurring,
+      children = props.children,
+      className = props.className,
+      centered = props.centered,
+      content = props.content,
+      inverted = props.inverted,
+      mountNode = props.mountNode,
+      scrolling = props.scrolling;
+  var ref = react__WEBPACK_IMPORTED_MODULE_2__.useRef();
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('ui', (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(inverted, 'inverted'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(!centered, 'top aligned'), 'page modals dimmer transition visible active', className);
+  var bodyClasses = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('dimmable dimmed', (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(blurring, 'blurring'), (0,_lib__WEBPACK_IMPORTED_MODULE_3__.useKeyOnly)(scrolling, 'scrolling'));
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(ModalDimmer, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_5__["default"])(ModalDimmer, props);
+  (0,_lib__WEBPACK_IMPORTED_MODULE_6__["default"])(mountNode, bodyClasses);
+  react__WEBPACK_IMPORTED_MODULE_2__.useEffect(function () {
+    if (ref.current && ref.current.style) {
+      ref.current.style.setProperty('display', 'flex', 'important');
+    }
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_fluentui_react_component_ref__WEBPACK_IMPORTED_MODULE_7__.Ref, {
+    innerRef: ref
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), _lib__WEBPACK_IMPORTED_MODULE_8__.isNil(children) ? content : children));
+}
+
+ModalDimmer.handledProps = ["as", "blurring", "centered", "children", "className", "content", "inverted", "mountNode", "scrolling"];
+ModalDimmer.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().elementType),
+
+  /** A dimmer can be blurred. */
+  blurring: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().string),
+
+  /** A dimmer can center its contents in the viewport. */
+  centered: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_10__.contentShorthand,
+
+  /** A dimmer can be inverted. */
+  inverted: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool),
+
+  /** The node where the modal should mount. Defaults to document.body. */
+  mountNode: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().any),
+
+  /** A dimmer can make body scrollable. */
+  scrolling: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool)
+} : 0;
+ModalDimmer.create = (0,_lib__WEBPACK_IMPORTED_MODULE_11__.createShorthandFactory)(ModalDimmer, function (content) {
+  return {
+    content: content
+  };
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalDimmer);
+
+/***/ }),
+
+/***/ "./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalHeader.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/semantic-ui-react/dist/es/modules/Modal/ModalHeader.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/getUnhandledProps.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/getElementType.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/childrenUtils.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/customPropTypes.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../lib */ "./node_modules/semantic-ui-react/dist/es/lib/factories.js");
+
+
+
+
+
+/**
+ * A modal can have a header.
+ */
+
+function ModalHeader(props) {
+  var children = props.children,
+      className = props.className,
+      content = props.content;
+  var classes = (0,clsx__WEBPACK_IMPORTED_MODULE_1__["default"])('header', className);
+  var rest = (0,_lib__WEBPACK_IMPORTED_MODULE_3__["default"])(ModalHeader, props);
+  var ElementType = (0,_lib__WEBPACK_IMPORTED_MODULE_4__["default"])(ModalHeader, props);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(ElementType, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, rest, {
+    className: classes
+  }), _lib__WEBPACK_IMPORTED_MODULE_5__.isNil(children) ? content : children);
+}
+
+ModalHeader.handledProps = ["as", "children", "className", "content"];
+ModalHeader.propTypes =  true ? {
+  /** An element type to render as (string or function). */
+  as: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().elementType),
+
+  /** Primary content. */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().node),
+
+  /** Additional classes. */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().string),
+
+  /** Shorthand for primary content. */
+  content: _lib__WEBPACK_IMPORTED_MODULE_7__.contentShorthand
+} : 0;
+ModalHeader.create = (0,_lib__WEBPACK_IMPORTED_MODULE_8__.createShorthandFactory)(ModalHeader, function (content) {
+  return {
+    content: content
+  };
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalHeader);
+
+/***/ }),
+
+/***/ "./node_modules/semantic-ui-react/dist/es/modules/Modal/utils/index.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/semantic-ui-react/dist/es/modules/Modal/utils/index.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "canFit": () => (/* binding */ canFit),
+/* harmony export */   "getLegacyStyles": () => (/* binding */ getLegacyStyles),
+/* harmony export */   "isLegacy": () => (/* binding */ isLegacy)
+/* harmony export */ });
+// https://github.com/Semantic-Org/Semantic-UI/blob/2.4.1/src/definitions/modules/modal.js#L956
+var OFFSET = 0; // https://github.com/Semantic-Org/Semantic-UI/blob/2.4.1/src/definitions/modules/modal.js#L990
+
+var PADDING = 50;
+/**
+ * Ensures that modal can fit viewport without scroll.
+ *
+ * @param modalRect {DOMRect}
+ *
+ * @see https://github.com/Semantic-Org/Semantic-UI/blob/2.4.1/src/definitions/modules/modal.js#L608
+ */
+
+var canFit = function canFit(modalRect) {
+  // original: scrollHeight = $module.prop('scrollHeight'),
+  // is replaced by .height because scrollHeight provides integer which produces glitches
+  // https://github.com/Semantic-Org/Semantic-UI-React/issues/2221
+  var scrollHeight = modalRect.height + OFFSET; // $module.outerHeight() + settings.offset
+
+  var height = modalRect.height + OFFSET; // original: $(window).height()
+
+  var contextHeight = window.innerHeight;
+  var verticalCenter = contextHeight / 2;
+  var topOffset = -(height / 2); // padding with edge of page
+
+  var paddingHeight = PADDING;
+  var startPosition = verticalCenter + topOffset; // 0
+  // original: scrollHeight > height
+  //     ? startPosition + scrollHeight + paddingHeight < contextHeight
+  //     : height + paddingHeight * 2 < contextHeight
+
+  return startPosition + scrollHeight + paddingHeight < contextHeight;
+};
+/**
+ * Creates legacy styles for IE11.
+ *
+ * @param isFitted {Boolean}
+ * @param centered {Boolean}
+ * @param modalRect {DOMRect}
+ *
+ * @see https://github.com/Semantic-Org/Semantic-UI/blob/2.4.1/src/definitions/modules/modal.js#L718
+ */
+
+var getLegacyStyles = function getLegacyStyles(isFitted, centered, modalRect) {
+  var marginTop = centered && isFitted ? -(modalRect.height / 2) : 0;
+  var marginLeft = -(modalRect.width / 2);
+  return {
+    marginLeft: marginLeft,
+    marginTop: marginTop
+  };
+}; // https://github.com/Semantic-Org/Semantic-UI/blob/2.4.1/src/definitions/modules/modal.js#L631
+
+/* istanbul ignore next */
+
+var isLegacy = function isLegacy() {
+  return !window.ActiveXObject && 'ActiveXObject' in window;
+};
 
 /***/ }),
 
