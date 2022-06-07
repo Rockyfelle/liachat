@@ -234,7 +234,7 @@ class ChannelController extends Controller
 			return ['ok' => false, 'text' => 'You do not have access to this program'];
 		}
 		//Only admin or teacher roles can create channels
-		if (Auth::user()->rolse == 'student') {
+		if (Auth::user()->role == 'student') {
 			return ['ok' => false, 'text' => 'You do not have permission to create channels'];
 		}
 		error_log($request);

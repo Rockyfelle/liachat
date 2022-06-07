@@ -47,6 +47,7 @@ class ProgramResourceController extends Controller
 
 	public function upload(Request $request, $id)
 	{
+		error_log(Auth::user());
 		//Get program
 		$program = Program::find($id);
 

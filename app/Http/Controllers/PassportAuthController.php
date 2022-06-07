@@ -42,8 +42,12 @@ class PassportAuthController extends Controller
 	public function register(Request $request)
 	{
 		if (Auth::user()) {
-			if (Auth::user()->role === 'teacher') {
+			if (Auth::user()->role !== 'student') {
+				$allPrograms = Auth::user()->programs;
 
+				//Get program user is trying to access
+				$program = $allPrograms->where('id', $request->programId)->first();
+				$users = $program->users;
 				$registerToken = Str::random(40);
 
 				$user = User::create([
@@ -59,8 +63,8 @@ class PassportAuthController extends Controller
 					'user_id' => $user->id,
 					'program_id' => $request->programId,
 				]);
-
-				return response()->json(['ok' => true, 'registerToken' => $registerToken], 200);
+				$users->push($user);
+				return response()->json(['ok' => true, 'registerToken' => $registerToken, 'users' => $users] , 200);
 			} else {
 				return ['ok' => false, 'text' => 'You are not authorized to register'];
 			}
@@ -77,6 +81,7 @@ class PassportAuthController extends Controller
 		$data = [
 			'email' => $request->email,
 			'password' => $request->password
+
 		];
 
 		if (auth()->attempt($data)) {

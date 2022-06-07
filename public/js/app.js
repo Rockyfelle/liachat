@@ -3824,14 +3824,13 @@ function ChannelsBar(props) {
   var isMounted = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false); //Update channels from parent
 
   /*useEffect(() => {
-  	//setChannels(props.channels);
-  	setProgs(prevProgs => { return {...prevProgs, channels: props.channels} });
+  //setChannels(props.channels);
+  setProgs(prevProgs => { return {...prevProgs, channels: props.channels} });
   }, [props.channels]);
-  
   //Update channelId from parent
   useEffect(() => {
-  	//setChannelId(props.channelId);
-  	setProgs(prevProgs => { return {...prevProgs, channelId: data.channelId} });
+  //setChannelId(props.channelId);
+  setProgs(prevProgs => { return {...prevProgs, channelId: data.channelId} });
   }, [props.channelId]);*/
   //Load channels when switching program id
 
@@ -3867,7 +3866,7 @@ function ChannelsBar(props) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "flex flex-col m-0 overflow-auto h-[87vh] pb-5 overflow-auto p-2 pr-0",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: [user.role !== 'student' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "flex flex-row p-2 px-5 mb-2 rounded-l-lg cursor-pointer bg-violet-900 align-middle place-content-between",
         onClick: function onClick() {
           setProgs(function (prevProgs) {
@@ -3875,7 +3874,7 @@ function ChannelsBar(props) {
               channelId: undefined
             });
           });
-          window.history.replaceState(null, '', "/program/".concat(progs.programId, "/settings"));
+          window.history.replaceState(null, "", "/program/".concat(progs.programId, "/settings"));
           navigate("/program/".concat(progs.programId, "/settings"));
         },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
@@ -3893,7 +3892,7 @@ function ChannelsBar(props) {
               channelId: undefined
             });
           });
-          window.history.replaceState(null, '', "/program/".concat(progs.programId, "/assignments"));
+          window.history.replaceState(null, "", "/program/".concat(progs.programId, "/assignments"));
           navigate("/program/".concat(progs.programId, "/assignments"));
         },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
@@ -3913,7 +3912,7 @@ function ChannelsBar(props) {
                 channel: channel
               });
             });
-            window.history.replaceState(null, '', "/program/".concat(progs.programId, "/channel/").concat(channel.id));
+            window.history.replaceState(null, "", "/program/".concat(progs.programId, "/channel/").concat(channel.id));
             navigate("/program/".concat(progs.programId, "/channel/").concat(channel.id));
           },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
@@ -4060,7 +4059,7 @@ function Chat(props) {
 
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (isMounted.current) {
+    if (true) {
       setIsLoading(true);
       fetch("/api/channel/load/".concat(progs.channelId, "/"), {
         method: "GET",
@@ -4087,9 +4086,7 @@ function Chat(props) {
 
         setIsLoading(false);
       });
-    } else {
-      isMounted.current = true;
-    }
+    } else {}
   }, [progs.channelId]);
 
   function postMessage() {
@@ -5096,6 +5093,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 var _templateObject;
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -5117,10 +5120,10 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var DFormInput = (0,styled_components__WEBPACK_IMPORTED_MODULE_4__["default"])(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\t> * {\n\t\tcolor: white !important;\n\t}\n\tinput {\n\t\tbackground-color: #3C4F69 !important;\n\t\tcolor: white !important;\n\t}\n"])));
+var DFormInput = (0,styled_components__WEBPACK_IMPORTED_MODULE_4__["default"])(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    > * {\n        color: white !important;\n    }\n    input {\n        background-color: #3c4f69 !important;\n        color: white !important;\n    }\n"])));
 
 function SettingsChannels(props) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(localStorage.getItem('user'))),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(localStorage.getItem("user"))),
       _useState2 = _slicedToArray(_useState, 2),
       user = _useState2[0],
       setUser = _useState2[1];
@@ -5130,22 +5133,22 @@ function SettingsChannels(props) {
       progs = _useContext2[0],
       setProgs = _useContext2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState4 = _slicedToArray(_useState3, 2),
       email = _useState4[0],
       setEmail = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState6 = _slicedToArray(_useState5, 2),
       name = _useState6[0],
       setName = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState8 = _slicedToArray(_useState7, 2),
       token = _useState8[0],
       setToken = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState10 = _slicedToArray(_useState9, 2),
       urlToken = _useState10[0],
       setUrlToken = _useState10[1];
@@ -5156,10 +5159,10 @@ function SettingsChannels(props) {
 
   function addStudent() {
     fetch("/api/user/register", {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': user.token
+        "Content-Type": "application/json",
+        Authorization: user.token
       },
       body: JSON.stringify({
         email: email,
@@ -5170,10 +5173,15 @@ function SettingsChannels(props) {
       return response.json();
     }).then(function (data) {
       if (data.ok) {
-        setEmail('');
-        setName('');
+        setEmail("");
+        setName("");
         setToken(data.registerToken);
-        setUrlToken(window.location.origin + '/reset/' + data.registerToken);
+        setUrlToken(window.location.origin + "/reset/" + data.registerToken);
+        setProgs(function (prevProgs) {
+          return _objectSpread(_objectSpread({}, prevProgs), {}, {
+            users: data.users
+          });
+        });
       }
     });
   }
@@ -5220,7 +5228,7 @@ function SettingsChannels(props) {
             children: "Add Student"
           })
         })
-      }), token !== '' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
+      }), token !== "" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Row, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Column, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(DFormInput, {
@@ -5229,10 +5237,10 @@ function SettingsChannels(props) {
               placeholder: "xxx",
               value: urlToken,
               action: {
-                color: 'teal',
-                labelPosition: 'right',
-                icon: 'copy',
-                content: 'Copy',
+                color: "teal",
+                labelPosition: "right",
+                icon: "copy",
+                content: "Copy",
                 onClick: copyToken
               },
               onClick: function onClick(e) {
@@ -5259,7 +5267,7 @@ function SettingsChannels(props) {
               children: "Remove"
             })
           })]
-        }, 'channe' + index);
+        }, "channe" + index);
       })]
     })
   });

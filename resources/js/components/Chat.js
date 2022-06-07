@@ -24,7 +24,7 @@ function Chat(props) {
 
     //Load messages when switching channel id
     useEffect(() => {
-        if (isMounted.current) {
+        if (true) {
             setIsLoading(true);
             fetch(`/api/channel/load/${progs.channelId}/`, {
                 method: "GET",
