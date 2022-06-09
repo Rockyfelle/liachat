@@ -21,8 +21,7 @@ function ChannelsBar(props) {
 
 	return (
 		<div className="h-[100vh] align-top border-r-1">
-			<div className="text-l text-black w-full pt-5 px-5 border-b-2">
-				<b>Channels</b>
+			<div className="text-l text-black w-full pt-5 px-5 ">
 			</div>
 			<div className="flex flex-col overflow-auto m-5 text-xl">
 				<p className="text-gray-400 text-lg">Admins</p>

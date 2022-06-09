@@ -54,7 +54,7 @@ function SettingsChannels(props) {
     }
 
     function deleteChannel(id) {
-        id= progs.channels[id].id
+        id = progs.channels[id].id;
         fetch(`/api/channel/${progs.programId}`, {
             method: "DELETE",
             headers: {
@@ -98,7 +98,12 @@ function SettingsChannels(props) {
                 </Grid.Row>
                 <Grid.Row className="mb-10">
                     <Grid.Column>
-                        <Button color="green" fluid onClick={createChannel}>
+                        <Button
+                            color="green"
+                            fluid
+                            onClick={createChannel}
+                            disabled={name.length === 0}
+                        >
                             Add Channel
                         </Button>
                     </Grid.Column>

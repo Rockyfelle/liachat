@@ -3762,7 +3762,7 @@ function Assigntments(props) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "h-[100vh] align-top grid place-items-center overflow-auto",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    children: [user.role !== 'student' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
       className: "py-12 grid place-items-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
         className: "text-left",
@@ -3922,14 +3922,11 @@ function ChannelsBar(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "h-[100vh] align-top border-r-1",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "text-l text-black w-full pt-5 px-5 border-b-2",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
-        children: "Channels"
-      })
+      className: "text-l text-black w-full pt-5 px-5 "
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "flex flex-col m-0 overflow-auto h-[87vh] pb-5 overflow-auto p-2 pr-0",
       children: [user.role !== 'student' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "flex flex-row p-2 px-5 mb-2 rounded-l-lg cursor-pointer bg-violet-900 align-middle place-content-between",
+        className: "flex flex-row p-2 px-5 mb-2 rounded-l-lg cursor-pointer align-middle place-content-between \n                    ".concat(props.view === 'settings' ? 'bg-gradient-to-l from-violet-900 to-violet-600' : 'bg-violet-900'),
         onClick: function onClick() {
           setProgs(function (prevProgs) {
             return _objectSpread(_objectSpread({}, prevProgs), {}, {
@@ -3947,7 +3944,7 @@ function ChannelsBar(props) {
           name: "settings"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "flex flex-row p-2 px-5 mb-2 rounded-l-lg cursor-pointer bg-orange-700 align-middle place-content-between",
+        className: "flex flex-row p-2 px-5 mb-2 rounded-l-lg cursor-pointer align-middle place-content-between\n                    ".concat(props.view === 'assignments' ? 'bg-gradient-to-l from-orange-700 to-orange-500' : 'bg-orange-700'),
         onClick: function onClick() {
           setProgs(function (prevProgs) {
             return _objectSpread(_objectSpread({}, prevProgs), {}, {
@@ -4224,7 +4221,7 @@ function Chat(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "h-[100vh] align-top",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "text-l w-full pt-5 px-5 border-b-2",
+      className: "text-2xl w-full pt-5 px-5",
       children: (_progs$channel$name = progs === null || progs === void 0 ? void 0 : (_progs$channel = progs.channel) === null || _progs$channel === void 0 ? void 0 : _progs$channel.name) !== null && _progs$channel$name !== void 0 ? _progs$channel$name : ""
     }), isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "grid place-items-center h-[87vh]",
@@ -4442,7 +4439,9 @@ function MainView(props) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_12__["default"].Column, {
           width: 2,
           className: "p-0 bg-gray-850",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_ChannelsBar__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_ChannelsBar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            view: props.view
+          })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_12__["default"].Column, {
           width: 10,
           className: "p-0 bg-gray-750",
@@ -4569,10 +4568,7 @@ function ProgramsBar(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "h-[100vh] align-top border-r-1",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "text-l text-black w-full pt-5 px-5 border-b-2",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
-        children: "Programs"
-      })
+      className: "text-l text-black w-full pt-5 px-5 "
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "flex flex-col m-0 overflow-auto h-[87vh] pb-5 overflow-auto p-2 pr-0",
       children: progs.programs.map(function (program, index) {
@@ -4612,12 +4608,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Menu/Menu.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Menu/Menu.js");
 /* harmony import */ var _SettingsChannels__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SettingsChannels */ "./resources/js/components/Settings/SettingsChannels.js");
 /* harmony import */ var _SettingsUsers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SettingsUsers */ "./resources/js/components/Settings/SettingsUsers.js");
 /* harmony import */ var _SettingsAssignments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SettingsAssignments */ "./resources/js/components/Settings/SettingsAssignments.js");
 /* harmony import */ var _SettingsPings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SettingsPings */ "./resources/js/components/Settings/SettingsPings.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ProgramContext */ "./resources/js/components/ProgramContext.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -4639,7 +4636,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Settings(props) {
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_ProgramContext__WEBPACK_IMPORTED_MODULE_5__.ProgramContext),
+      _useContext2 = _slicedToArray(_useContext, 2),
+      progs = _useContext2[0],
+      setProgs = _useContext2[1];
+
   var inputFile = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(undefined),
@@ -4652,31 +4655,35 @@ function Settings(props) {
       tab = _useState4[0],
       setTab = _useState4[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  var currentProgram = progs.programs.find(function (p) {
+    return p.id === progs.programId;
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "h-[100vh] align-top overflow-auto",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      className: "text-l w-full pt-5 px-5 border-b-2",
-      children: "Settings"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      className: "text-l w-full pt-5 px-5 "
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "grid place-items-center mt-[100px] max-h-full",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+        children: currentProgram === null || currentProgram === void 0 ? void 0 : currentProgram.name
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
         pointing: true,
         secondary: true,
         inverted: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"].Item, {
           name: "Channels",
           active: tab === "channels",
           onClick: function onClick() {
             return setTab("channels");
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"].Item, {
           name: "Users",
           active: tab === "users",
           onClick: function onClick() {
             return setTab("users");
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Menu, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"].Menu, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"].Item, {
             name: "Pings",
             active: tab === "pings",
             onClick: function onClick() {
@@ -4684,10 +4691,10 @@ function Settings(props) {
             }
           })
         })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "m-5",
-      children: [tab === "channels" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsChannels__WEBPACK_IMPORTED_MODULE_1__["default"], {}), tab === "users" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsUsers__WEBPACK_IMPORTED_MODULE_2__["default"], {}), tab === "pings" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsPings__WEBPACK_IMPORTED_MODULE_4__["default"], {}), tab === "assignments" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsAssignments__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+      children: [tab === "channels" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_SettingsChannels__WEBPACK_IMPORTED_MODULE_1__["default"], {}), tab === "users" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_SettingsUsers__WEBPACK_IMPORTED_MODULE_2__["default"], {}), tab === "pings" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_SettingsPings__WEBPACK_IMPORTED_MODULE_4__["default"], {}), tab === "assignments" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_SettingsAssignments__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
     })]
   });
 }
@@ -4988,6 +4995,7 @@ function SettingsChannels(props) {
             color: "green",
             fluid: true,
             onClick: createChannel,
+            disabled: name.length === 0,
             children: "Add Channel"
           })
         })
@@ -5116,6 +5124,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Form/Form.js");
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/collections/Grid/Grid.js");
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/elements/Button/Button.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! semantic-ui-react */ "./node_modules/semantic-ui-react/dist/es/addons/Confirm/Confirm.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 /* harmony import */ var pusher_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pusher_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ProgramContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ProgramContext */ "./resources/js/components/ProgramContext.js");
@@ -5152,7 +5161,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var DFormInput = (0,styled_components__WEBPACK_IMPORTED_MODULE_4__["default"])(semantic_ui_react__WEBPACK_IMPORTED_MODULE_5__["default"].Input)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    > * {\n        color: white !important;\n    }\n    input {\n        background-color: #3c4f69 !important;\n        color: white !important;\n    }\n"])));
 
-function SettingsChannels(props) {
+function SettingsUsers(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(JSON.parse(localStorage.getItem("user"))),
       _useState2 = _slicedToArray(_useState, 2),
       user = _useState2[0],
@@ -5222,7 +5231,30 @@ function SettingsChannels(props) {
   } //TODO add delete student in backend
 
 
-  function deleteUser() {}
+  function deleteUser(id) {
+    fetch("/api/user/delete", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: user.token
+      },
+      body: JSON.stringify({
+        id: progs.users[id].id,
+        programId: progs.programId
+      })
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (data.ok) {
+        setDeleteId(null);
+        setProgs(function (prevProgs) {
+          return _objectSpread(_objectSpread({}, prevProgs), {}, {
+            users: data.users
+          });
+        });
+      }
+    });
+  }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "h-[100%] align-top grid place-items-center",
@@ -5262,6 +5294,7 @@ function SettingsChannels(props) {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
             color: "green",
             fluid: true,
+            disabled: !email || !name,
             onClick: addStudent,
             children: "Add Student"
           })
@@ -5302,8 +5335,11 @@ function SettingsChannels(props) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
               color: "red",
               fluid: true,
+              onClick: function onClick() {
+                return setDeleteId(index);
+              },
               children: "Remove"
-            }), index === deleteId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Confirm, {
+            }), index === deleteId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
               open: true,
               onCancel: function onCancel() {
                 return setDeleteId(null);
@@ -5311,7 +5347,7 @@ function SettingsChannels(props) {
               onConfirm: function onConfirm() {
                 return deleteUser(index);
               },
-              content: "Are you sure you want to delete ".concat(item.name, "?")
+              content: "Are you sure you want to delete ".concat(user.name, "?")
             })]
           })]
         }, "user" + index);
@@ -5320,7 +5356,7 @@ function SettingsChannels(props) {
   });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SettingsChannels);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SettingsUsers);
 
 /***/ }),
 
@@ -5404,10 +5440,7 @@ function ChannelsBar(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "h-[100vh] align-top border-r-1",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "text-l text-black w-full pt-5 px-5 border-b-2",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
-        children: "Channels"
-      })
+      className: "text-l text-black w-full pt-5 px-5 "
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "flex flex-col overflow-auto m-5 text-xl",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {

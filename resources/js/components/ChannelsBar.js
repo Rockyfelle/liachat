@@ -58,12 +58,12 @@ function ChannelsBar(props) {
 
     return (
         <div className="h-[100vh] align-top border-r-1">
-            <div className="text-l text-black w-full pt-5 px-5 border-b-2">
-                <b>Channels</b>
+            <div className="text-l text-black w-full pt-5 px-5 ">
             </div>
             <div className="flex flex-col m-0 overflow-auto h-[87vh] pb-5 overflow-auto p-2 pr-0">
                 {user.role !=='student' && <div
-                    className="flex flex-row p-2 px-5 mb-2 rounded-l-lg cursor-pointer bg-violet-900 align-middle place-content-between"
+                    className={`flex flex-row p-2 px-5 mb-2 rounded-l-lg cursor-pointer align-middle place-content-between 
+                    ${props.view === 'settings' ? 'bg-gradient-to-l from-violet-900 to-violet-600' : 'bg-violet-900'}`}
                     onClick={() => {
                         setProgs((prevProgs) => {
                             return {
@@ -83,7 +83,8 @@ function ChannelsBar(props) {
                     <Icon className="p-0 m-0" name="settings" />
                 </div>}
                 <div
-                    className="flex flex-row p-2 px-5 mb-2 rounded-l-lg cursor-pointer bg-orange-700 align-middle place-content-between"
+                    className={`flex flex-row p-2 px-5 mb-2 rounded-l-lg cursor-pointer align-middle place-content-between
+                    ${props.view === 'assignments' ? 'bg-gradient-to-l from-orange-700 to-orange-500' : 'bg-orange-700'}`}
                     onClick={() => {
                         setProgs((prevProgs) => {
                             return {

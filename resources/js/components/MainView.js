@@ -74,7 +74,7 @@ function MainView(props) {
                             <ProgramsBar />
                         </Grid.Column>
                         <Grid.Column width={2} className="p-0 bg-gray-850">
-                            <ChannelsBar />
+                            <ChannelsBar view={props.view}/>
                         </Grid.Column>
                         <Grid.Column width={10} className="p-0 bg-gray-750">
                             {props.view === "channels" && (

@@ -15,8 +15,8 @@ function ProgramsBar(props) {
 
 	return (
 		<div className="h-[100vh] align-top border-r-1">
-			<div className="text-l text-black w-full pt-5 px-5 border-b-2">
-				<b>Programs</b>
+			<div className="text-l text-black w-full pt-5 px-5 ">
+				
 			</div>
 			<div className="flex flex-col m-0 overflow-auto h-[87vh] pb-5 overflow-auto p-2 pr-0">
 				{progs.programs.map((program, index) => {

@@ -1,5 +1,13 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
-import { Grid, Segment, Form, Input, Menu, Button } from "semantic-ui-react";
+import {
+    Grid,
+    Segment,
+    Form,
+    Input,
+    Menu,
+    Button,
+    Confirm,
+} from "semantic-ui-react";
 import Pusher from "pusher-js";
 import { ProgramContext } from "../ProgramContext";
 import styled from "styled-components";
@@ -14,14 +22,14 @@ const DFormInput = styled(Form.Input)`
     }
 `;
 
-function SettingsChannels(props) {
+function SettingsUsers(props) {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
     const [progs, setProgs] = useContext(ProgramContext);
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [token, setToken] = useState("");
     const [urlToken, setUrlToken] = useState("");
-    const [deleteId, setDeleteId] = useState(null)
+    const [deleteId, setDeleteId] = useState(null);
 
     function copyToken() {
         navigator.clipboard.writeText(urlToken);
@@ -59,8 +67,30 @@ function SettingsChannels(props) {
             });
     }
     //TODO add delete student in backend
-    function deleteUser(){
-
+    function deleteUser(id) {
+        fetch(`/api/user/delete`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: user.token,
+            },
+            body: JSON.stringify({
+                id: progs.users[id].id,
+                programId: progs.programId,
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.ok) {
+                    setDeleteId(null);
+                    setProgs((prevProgs) => {
+                        return {
+                            ...prevProgs,
+                            users: data.users,
+                        };
+                    });
+                }
+            });
     }
 
     return (
@@ -95,7 +125,12 @@ function SettingsChannels(props) {
                 </Grid.Row>
                 <Grid.Row>
                     <Grid.Column>
-                        <Button color="green" fluid onClick={addStudent}>
+                        <Button
+                            color="green"
+                            fluid
+                            disabled={!email || !name}
+                            onClick={addStudent}
+                        >
                             Add Student
                         </Button>
                     </Grid.Column>
@@ -130,7 +165,11 @@ function SettingsChannels(props) {
                                 <h1>{user.name}</h1>
                             </Grid.Column>
                             <Grid.Column width={6}>
-                                <Button color="red" fluid>
+                                <Button
+                                    color="red"
+                                    fluid
+                                    onClick={() => setDeleteId(index)}
+                                >
                                     Remove
                                 </Button>
                                 {index === deleteId && (
@@ -138,7 +177,7 @@ function SettingsChannels(props) {
                                         open={true}
                                         onCancel={() => setDeleteId(null)}
                                         onConfirm={() => deleteUser(index)}
-                                        content={`Are you sure you want to delete ${item.name}?`}
+                                        content={`Are you sure you want to delete ${user.name}?`}
                                     />
                                 )}
                             </Grid.Column>
@@ -150,4 +189,4 @@ function SettingsChannels(props) {
     );
 }
 
-export default SettingsChannels;
+export default SettingsUsers;

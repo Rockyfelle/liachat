@@ -42,4 +42,5 @@ Route::middleware('auth:api')->group(function () {
 	Route::post('user/register', [PassportAuthController::class, 'register']);
 	Route::get('resources/all/{id}', [ProgramResourceController::class, 'all']);
 	Route::post('pusher', [PusherController::class, 'pusherAuth']);
+	Route::delete('user/delete', [PassportAuthController::class, 'delete']);
 });

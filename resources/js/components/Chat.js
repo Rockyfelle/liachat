@@ -133,7 +133,7 @@ function Chat(props) {
 
     return (
         <div className="h-[100vh] align-top">
-            <div className="text-l w-full pt-5 px-5 border-b-2">
+            <div className="text-2xl w-full pt-5 px-5">
                 {progs?.channel?.name ?? ""}
             </div>
             {isLoading && (

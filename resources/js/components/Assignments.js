@@ -48,6 +48,7 @@ function Assigntments(props) {
 
     return (
         <div className="h-[100vh] align-top grid place-items-center overflow-auto">
+            {user.role !== 'student' &&
             <Form className="py-12 grid place-items-center">
 				<h1 className="text-left">Upload a new file</h1>
                 <Form.Field style={{ display: "none" }}>
@@ -74,6 +75,7 @@ function Assigntments(props) {
                 />
 				{errorText && <p>{errorText}</p>}
             </Form>
+            }
             <Grid className="w-[50%]">
                 {progs.resources.map((file, index) => {
                     return (
